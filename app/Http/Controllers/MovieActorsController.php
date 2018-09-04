@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Movie_actor;
+
 use Illuminate\Http\Request;
 
 class MovieActorsController extends Controller
@@ -14,12 +16,15 @@ class MovieActorsController extends Controller
      */
     public function index()
     {
+
         //读取数据库 获取用户数据
         $actors = Movie_actor::orderBy('id','desc')
             ->where('name','like', '%'.request()->keywords.'%')
             ->paginate(10);
         //解析模板显示用户数据
         return view('admin.actor.index', compact('actors'));
+
+        //
     }
 
     /**
@@ -29,7 +34,11 @@ class MovieActorsController extends Controller
      */
     public function create()
     {
+
         return view('admin.actor.create');
+
+        //
+
     }
 
     /**
@@ -40,6 +49,7 @@ class MovieActorsController extends Controller
      */
     public function store(Request $request)
     {
+
          $actor = new Movie_actor;
 
          $actor-> name = $request->name;
@@ -57,6 +67,9 @@ class MovieActorsController extends Controller
         }else{
             return back('error','添加失败');
         }
+
+        //
+
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Movie_tag;
 use Illuminate\Http\Request;
 
 
+
 class MovieTagsController extends Controller
 {
     /**
