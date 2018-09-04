@@ -81,7 +81,7 @@
                             {{$v['EnglishName']}}
                         </td>
                         <td class="td-manage">
-                            <form method="get" action="/movie_details_tags/{{$v->id}}/edit" style="float:left">
+                            <form method="get" action="/movie_actors/{{$v->id}}/edit" style="float:left">
                             {{csrf_field()}}
                             {{method_field('PUT')}}
                             <button title="编辑"  class="ml-5" style="text-decoration:none;color:#000">
@@ -90,7 +90,7 @@
                             &nbsp;&nbsp;
                             </form>
 
-                            <form method="post" action="/movie_details_tags/{{$v->id}}" style="float:left">
+                            <form method="post" action="/movie_actors/{{$v->id}}" style="float:left">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button title="删除" href="javascript:;" onclick="member_del(this,'1')" style="text-decoration:none">

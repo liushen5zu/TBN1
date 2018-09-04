@@ -91,7 +91,8 @@ class MovieActorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $actors = Movie_actor::findOrFail($id);
+        return view('admin.actor.edit',compact('actors'));
     }
 
     /**
@@ -103,7 +104,23 @@ class MovieActorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $actor = Movie_actor::find($id);
+
+         $actor-> name = $request->name;
+         $actor-> sex = $request->sex;
+         $actor-> date = $request->date;
+         $actor-> work = $request->work;
+         $actor-> EnglishName = $request->EnglishName;
+         $actor-> ChinaName = $request->ChinaName;
+         $actor-> familyMember = $request->familyMember;
+         $actor-> winning = $request->winning;
+         $actor-> actor_into = $request->actor_into;
+
+        if($actor->save()){
+            return redirect('/movie_actors')->with('success','修改成功');
+        }else{
+            return back('error','修改失败');
+        }
     }
 
     /**
@@ -115,5 +132,12 @@ class MovieActorsController extends Controller
     public function destroy($id)
     {
         //
+        $actors = Movie_actor::findOrFail($id);
+
+        if($actors -> delete()){
+            return redirect('/movie_actors')->with('success', '删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        } 
     }
 }
