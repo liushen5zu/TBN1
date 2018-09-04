@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\dd;
+use App\Movie_detail;
 
 class MovieDetailsController extends Controller
 {
@@ -13,7 +14,10 @@ class MovieDetailsController extends Controller
      */
     public function index()
     {
-        //
+        $movie_details = Movie_detail::orderBy('id','desc')
+            ->where('name','like', '%'.request()->keywords.'%')
+            ->paginate(10);
+        return view ('admin.movie_details.index',['movie_details'=>$movie_details]);
     }
 
     /**
@@ -23,7 +27,7 @@ class MovieDetailsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.movie_details.create');
     }
 
     /**
@@ -33,8 +37,21 @@ class MovieDetailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $movie_details=new Movie_detail;
+        $movie_details -> name = $request->name;
+        $movie_details -> director_id = $request->director_id;
+        $movie_details -> countries = $request->countries;
+        $movie_details -> runningtime = $request->runningtime;
+        $movie_details -> recom = $request->recom;
+        $movie_details -> intro = $request->intro;
+        $movie_details -> num = $request->num;
+        $movie_details -> move_cate_id = $request->move_cate_id;
+        if($movie_details -> save()){
+            return redirect('/movie_details');
+        }else{
+            return back();
+        }    
     }
 
     /**
@@ -45,7 +62,7 @@ class MovieDetailsController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -56,7 +73,8 @@ class MovieDetailsController extends Controller
      */
     public function edit($id)
     {
-        //
+         $movie_details= Movie_detail::find($id);
+        return view('admin.movie_details.edit',['movie_details'=>$movie_details]);
     }
 
     /**
@@ -68,7 +86,21 @@ class MovieDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $movie_details= Movie_detail::find($id);
+        $movie_details -> name = $request->name;
+        $movie_details -> director_id = $request->director_id;
+        $movie_details -> countries = $request->countries;
+        $movie_details -> runningtime = $request->runningtime;
+        $movie_details -> recom = $request->recom;
+        $movie_details -> intro = $request->intro;
+        $movie_details -> num = $request->num;
+        $movie_details -> move_cate_id = $request->move_cate_id;
+        if($movie_details -> save()){
+            return redirect('/movie_details')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }    
     }
 
     /**
@@ -79,6 +111,12 @@ class MovieDetailsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie_details = Movie_detail::find($id);
+        if($movie_details->delete())
+        {
+            return back()->with('success','删除成功');
+        }else {
+            return back()->with('error','删除失败');
+        }
     }
 }
