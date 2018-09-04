@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login','LoginController@login');
+Route::get('/dologin','LoginController@dologin');
+Route::get('/outlogin','LoginController@outlogin');
+Route::get('/relogin','LoginController@relogin');
+
 Route::group([],function(){
 	
 	Route::get('admin','AdminController@index');
