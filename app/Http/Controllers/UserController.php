@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +15,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('admin.user.index');
+        $user = User::all();
+        //dd($user);
+        return view('admin.user.index',compact('user'));
     }
 
     /**
@@ -36,6 +39,26 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $user = new User;
+        $user -> username = $request->username;
+        $user -> email = $request->email;
+        $user -> password = $request->password;
+        //$user -> image = $request->image;
+        $user -> phone = $request->phone;
+        $user -> permissions = $request->permissions;
+        if($request->hasFile('image')) {
+            $user->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+        
+       
+        if($user -> save()){
+            return redirect('/user')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
+
+        
+
     }
 
     /**
@@ -58,6 +81,8 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        echo view('admin.user.edit',compact('user'));
     }
 
     /**
@@ -70,6 +95,25 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::findOrFail($id);
+
+        $user -> username = $request->username;
+        $user -> email = $request->email;
+        //$user -> image = $request->image;
+        $user -> phone = $request->phone;
+        $user -> permissions = $request->permissions;
+
+        if($request->hasFile('image')) {
+            $user->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+        
+       
+        if($user -> save()){
+            return redirect('/user')->with('success','编辑成功');
+        }else{
+            return back()->with('error','编辑失败');
+        }
+
     }
 
     /**
@@ -81,5 +125,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+        
+        if($user -> delete()){
+            return redirect('/user')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }
