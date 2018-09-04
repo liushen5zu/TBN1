@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Movie_comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MovieCommentsController extends Controller
 {
@@ -13,62 +15,11 @@ class MovieCommentsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $movie_comments = Movie_comment::orderBy('id','desc')
+        ->where('user_id','like','%'.request()->keywords.'%')
+        ->paginate(10);
+        // dd($movieComments);
+        return view('admin.movie_comments.index',['movie_comments'=>$movie_comments]);
     }
 
     /**
@@ -79,6 +30,11 @@ class MovieCommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $del=DB::table('movie_comments')->where('id',$id)->delete();
+        if($del){
+             return redirect('/movie_comments')->with('success', '删除成功');
+         }else{
+             return back()->with('error','失败');
+         }
     }
 }
