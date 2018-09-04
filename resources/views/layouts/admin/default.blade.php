@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>后台登录-X-admin1.1</title>
+	<title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/css/font.css">
@@ -17,18 +17,18 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">X-ADMIN V1.1</a></div>
+        <div class="logo"><a href="./index.html">欢迎来到后台</a></div>
         <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
         <ul class="layui-nav right" lay-filter="">
           <li class="layui-nav-item">
-            <a href="javascript:;">admin</a>
+            <a href="javascript:;">{{Session::get('username')}}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
               <dd><a href="">个人信息</a></dd>
-              <dd><a href="">切换帐号</a></dd>
-              <dd><a href="./login.html">退出</a></dd>
+              <dd><a href="/relogin">切换帐号</a></dd>
+              <dd><a href="/outlogin">退出</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="/">前台首页</a></li>
+          <li class="layui-nav-item"><a href="/">后台首页</a></li>
         </ul>
     </div>
     <!-- 顶部结束 -->
@@ -201,6 +201,15 @@
         <!-- 左侧菜单结束 -->
         <!-- 右侧主体开始 -->
         <div class="page-content">
+        @if(Session::has('success'))
+            <div class="layui-elem-quote" style="padding:0px;margin:0px;">
+                <div class="layui-elem-quote">
+                        <div class="desc" style="font-size:20px;text-align: center;line-height:95px;color:white">
+            {{Session::get('success')}}
+                         </div>
+                </div>
+            </div>
+        @endif
         @section('content')
           <div class="content">
             <!-- 右侧内容框架，更改从这里开始 -->
