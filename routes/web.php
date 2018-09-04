@@ -50,6 +50,7 @@ Route::group([],function(){
 
 	//电影片段管理
 	Route::resource('movie_frags','MovieFragsController');
+
 });
 
 
