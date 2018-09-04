@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Image_movie_detail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\dd;
 
 class MovieImagesController extends Controller
 {
@@ -13,7 +16,10 @@ class MovieImagesController extends Controller
      */
     public function index()
     {
-        //
+         $movie_images = Image_movie_detail::orderBy('id','desc')
+            ->where('name','like', '%'.request()->keywords.'%')
+            ->paginate(10);
+        return view('admin.movie_images.index',['movie_images'=>$movie_images]);
     }
 
     /**
@@ -23,7 +29,7 @@ class MovieImagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.movie_images.create');
     }
 
     /**
@@ -34,7 +40,20 @@ class MovieImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $movie_images=new Image_movie_detail;
+        $movie_images -> name = $request->name;
+        $movie_images -> movie_detail_id = $request->movie_detail_id;
+        if ($request->hasFile('image')) {
+            $movie_images->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+
+        if($movie_images->save())
+        {
+            return redirect('/movie_images')->with('success','添加成功');
+        }else {
+            return back()->with('error')->with('error','添加失败');
+        }
     }
 
     /**
@@ -45,7 +64,7 @@ class MovieImagesController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -56,7 +75,8 @@ class MovieImagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie_images= Image_movie_detail::find($id);
+        return view('admin.movie_images.edit',['movie_images'=>$movie_images]);
     }
 
     /**
@@ -68,7 +88,20 @@ class MovieImagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $movie_images= Image_movie_detail::find($id);
+       //ss dd($movie_images);
+        $movie_images -> name = $request->name;
+        $movie_images -> movie_detail_id = $request->movie_detail_id;
+        if ($request->hasFile('image')) {
+            $movie_images->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        }
+
+        if($movie_images->save())
+        {
+            return redirect('/movie_images')->with('success','修改成功');
+        }else {
+            return back()->with('error')->with('error','修改失败');
+        }
     }
 
     /**
@@ -79,6 +112,12 @@ class MovieImagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $movie_images=Image_movie_detail::find($id);
+        if($movie_images->delete())
+        {
+            return back()->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
     }
 }

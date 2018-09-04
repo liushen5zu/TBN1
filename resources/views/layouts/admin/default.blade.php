@@ -48,14 +48,14 @@
                 <li class="list">
                     <a href="javascript:;">
                         <i class="iconfont">&#xe70b;</i>
-                        会员管理
+                        影视管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="member-list.html">
+                            <a href="/movie_details">
                                 <i class="iconfont">&#xe6a7;</i>
-                                会员列表
+                                影片列表
                             </a>
                         </li>
                         <li>
