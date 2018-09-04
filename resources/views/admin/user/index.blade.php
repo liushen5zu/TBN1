@@ -4,10 +4,26 @@
 @endsection
 @section('content')
 
-
+<style>
+    .pagination{
+        margin-left:700px;
+    }
+    .pagination li{
+        width:50px;
+        height:50px;
+        background:#000;
+        float:left;
+        margin-left:5px;
+        font-size:20px;
+        color:#fff;
+        text-align:center;
+        line-height:50px;
+        opacity:0.2;
+    }
+</style>
 <div class="content">
             <!-- 右侧内容框架，更改从这里开始 -->
-            <form class="layui-form xbs" action="">
+            <form class="layui-form xbs" action="/user">
                 <div class="layui-form-pane" style="text-align: center;">
                   <div class="layui-form-item" style="display: inline-block;">
                     <label class="layui-form-label xbs768">日期范围</label>
@@ -18,7 +34,7 @@
                       <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
                     </div>
                     <div class="layui-input-inline">
-                      <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                      <input type="text" name="keywords" placeholder="请输入用户名" autocomplete="off" class="layui-input" value="{{request()->keywords}}">
                     </div>
                     <div class="layui-input-inline" style="width:80px">
                         <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon"></i></button>
@@ -134,8 +150,12 @@
                     @endforeach
 
                 </tbody>
+
             </table>
             <!-- 右侧内容框架，更改从这里结束 -->
+            <hr>
+            {{$user->appends(request()->all())->links()}}
+           
           </div>
 		
 		

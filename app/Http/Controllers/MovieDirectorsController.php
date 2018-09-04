@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Director_name;
 use Illuminate\Http\Request;
 
 class MovieDirectorsController extends Controller
@@ -13,7 +14,12 @@ class MovieDirectorsController extends Controller
      */
     public function index()
     {
-        //
+        //读取数据库 获取用户数据
+        $dirs = Director_name::orderBy('id','desc')
+            ->where('name','like', '%'.request()->keywords.'%')
+            ->paginate(10);
+        //解析模板显示用户数据
+        return view('admin.director.index', ['dirs'=>$dirs]);
     }
 
     /**
@@ -23,7 +29,7 @@ class MovieDirectorsController extends Controller
      */
     public function create()
     {
-        //
+       	return view('admin.director.create');
     }
 
     /**
@@ -34,7 +40,22 @@ class MovieDirectorsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dir = new Director_name;
+        //dd($request -> director_intro);
+        $dir -> name = $request -> name;
+        $dir -> sex = $request -> sex;
+        $dir -> date = $request -> date;
+        $dir -> place = $request -> place;
+        $dir -> work = $request -> work;
+        $dir -> ChinaName = $request -> ChinaName;
+        $dir -> director_intro = $request -> director_intro;
+
+        
+        if($dir -> save()){
+            return redirect('/movie_directors')->with('success', '添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 
     /**
@@ -56,7 +77,9 @@ class MovieDirectorsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dir = Director_name::findOrFail($id);
+
+        return view('admin.director.edit', ['dir' => $dir]);
     }
 
     /**
@@ -68,7 +91,21 @@ class MovieDirectorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dir = Director_name::findOrFail($id);
+        $dir -> name = $request -> name;
+        $dir -> sex = $request -> sex;
+        $dir -> date = $request -> date;
+        $dir -> place = $request -> place;
+        $dir -> work = $request -> work;
+        $dir -> ChinaName = $request -> ChinaName;
+        $dir -> director_intro = $request -> director_intro;
+
+        if($dir -> save()) {
+            return redirect('/movie_directors')->with('success', '更新成功');
+        }else{
+            return back('error', '更新失败');
+        }
+
     }
 
     /**
@@ -79,6 +116,12 @@ class MovieDirectorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dir = Director_name::findOrFail($id);
+
+        if($dir -> delete()){
+            return back() -> with('success', '删除成功');
+        }else{
+            return back() -> with('error', '删除失败');
+        }
     }
 }

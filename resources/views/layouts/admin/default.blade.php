@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
 	<meta charset="UTF-8">
 	<title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/css/font.css">
-	<link rel="stylesheet" href="/assets/css/xadmin.css">
+    <link rel="stylesheet" href="/assets/css/xadmin.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css">
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script src="/assets/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/assets/js/xadmin.js"></script>
-
 </head>
+
 <body>
     <!-- 顶部开始 -->
     <div class="container">
         <div class="logo"><a href="./index.html">欢迎来到后台</a></div>
         <div class="open-nav"><i class="iconfont">&#xe699;</i></div>
         <ul class="layui-nav right" lay-filter="">
+
           <li class="layui-nav-item">
             <a href="javascript:;">{{Session::get('username')}}</a>
             <dl class="layui-nav-child"> <!-- 二级菜单 -->
@@ -36,171 +39,173 @@
     <div class="wrapper">
         <!-- 左侧菜单开始 -->
         <div class="left-nav">
-          <div id="side-nav">
-            <ul id="nav">
-                <li class="list" current>
-                    <a href="./index.html">
+            <div id="side-nav">
+                <ul id="nav">
+                    <li class="list" current>
+                        <a href="./index.html">
                         <i class="iconfont">&#xe761;</i>
                         欢迎页面
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                </li>
-                <li class="list">
-                    <a href="javascript:;">
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe70b;</i>
-                        会员管理
+                        影视管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
+
                     <ul class="sub-menu">
                         <li>
-                            <a href="member-list.html">
+                            <a href="/movie_details">
                                 <i class="iconfont">&#xe6a7;</i>
-                                会员列表
+                                影片列表
                             </a>
-                        </li>
-                        <li>
-                            <a href="member-del.html">
+                            </li>
+                            <li>
+                                <a href="member-del.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 会员删除
                             </a>
-                        </li>
-                        <li>
-                            <a href="member-level.html">
+                            </li>
+                            <li>
+                                <a href="member-level.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 等级管理
                             </a>
-                        </li>
-                        <li>
-                            <a href="member-kiss.html">
+                            </li>
+                            <li>
+                                <a href="member-kiss.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 积分管理
                             </a>
-                        </li>
-                        <li>
-                            <a href="member-view.html">
+                            </li>
+                            <li>
+                                <a href="member-view.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 浏览记录
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list" >
-                    <a href="javascript:;">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
                         分类管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="./category.html">
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="./category.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 分类列表
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list" >
-                    <a href="javascript:;">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
                         轮播管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="./banner-list.html">
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="./banner-list.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 轮播列表
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list" >
-                    <a href="javascript:;">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
                         管理员管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="./banner-list.html">
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="./banner-list.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 轮播列表
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list" >
-                    <a href="javascript:;">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
                         系统统计
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="./echarts1.html">
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="./echarts1.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 拆线图
                             </a>
-                        </li>
-                        <li>
-                            <a href="./echarts2.html">
+                            </li>
+                            <li>
+                                <a href="./echarts2.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 柱状图
                             </a>
-                        </li>
-                        <li>
-                            <a href="./echarts3.html">
+                            </li>
+                            <li>
+                                <a href="./echarts3.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 地图
                             </a>
-                        </li>
-                        <li>
-                            <a href="./echarts4.html">
+                            </li>
+                            <li>
+                                <a href="./echarts4.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 饼图
                             </a>
-                        </li>
-                        <li>
-                            <a href="./echarts5.html">
+                            </li>
+                            <li>
+                                <a href="./echarts5.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 k线图
                             </a>
-                        </li>
-                        <li>
-                            <a href="./echarts6.html">
+                            </li>
+                            <li>
+                                <a href="./echarts6.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 仪表图
                             </a>
-                        </li>
-                        <li>
-                            <a href="http://echarts.baidu.com/examples.html">
+                            </li>
+                            <li>
+                                <a href="http://echarts.baidu.com/examples.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 更多案例
                             </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list" >
-                    <a href="javascript:;">
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
                         系统设置
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
-                    <ul class="sub-menu" style="display:none">
-                        <li>
-                            <a href="./banner-list.html">
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="./banner-list.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 轮播列表
                             </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-          </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- 左侧菜单结束 -->
         <!-- 右侧主体开始 -->
         <div class="page-content">
+
         @if(Session::has('success'))
             <div class="layui-elem-quote" style="padding:0px;margin:0px;">
                 <div class="layui-elem-quote">
@@ -387,11 +392,11 @@
     <!-- 中部结束 -->
     <!-- 底部开始 -->
     <div class="footer">
-        <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved. 本后台系统由X前端框架提供前端技术支持</div>  
+        <div class="copyright">Copyright ©2017 x-admin v2.3 All Rights Reserved. 本后台系统由X前端框架提供前端技术支持</div>
     </div>
     <!-- 底部结束 -->
     <!-- 背景切换开始 -->
-	<div class="bg-changer">
+    <div class="bg-changer">
         <div class="swiper-container changer-list">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img class="item" src="/assets/images/a.jpg" alt=""></div>
@@ -409,9 +414,9 @@
             </div>
         </div>
         <div class="bg-out"></div>
-        <div id="changer-set"><i class="iconfont">&#xe696;</i></div>   
+        <div id="changer-set"><i class="iconfont">&#xe696;</i></div>
     </div>
     <!-- 背景切换结束 -->
-    
 </body>
+
 </html>

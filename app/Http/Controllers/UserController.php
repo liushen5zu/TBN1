@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         //
-        $user = User::all();
+        $user = User::orderBy('id','desc')->where('username','like','%'.request()->keywords.'%')->paginate(4);
         //dd($user);
         return view('admin.user.index',compact('user'));
     }
