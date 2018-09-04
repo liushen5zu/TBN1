@@ -22,6 +22,18 @@
           <div class="content">
             <!-- 右侧内容框架，更改从这里开始 -->
             <form class="layui-form">
+                 <div class="layui-form-item">
+                    <label for="L_email" class="layui-form-label">
+                        <span class="x-red">*</span>用户名
+                    </label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="L_email" name="username" required="" lay-verify="username"
+                        autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">
+                        <span class="x-red">*</span>将会成为您唯一的登入名
+                    </div>
+                </div>
                 <div class="layui-form-item">
                     <label for="L_email" class="layui-form-label">
                         <span class="x-red">*</span>邮箱
@@ -31,18 +43,10 @@
                         autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-mid layui-word-aux">
-                        <span class="x-red">*</span>将会成为您唯一的登入名
+                        <span class="x-red">*</span>
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label for="L_username" class="layui-form-label">
-                        <span class="x-red">*</span>昵称
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_username" name="username" required="" lay-verify="nikename"
-                        autocomplete="off" class="layui-input">
-                    </div>
-                </div>
+                
                 <div class="layui-form-item">
                     <label for="L_pass" class="layui-form-label">
                         <span class="x-red">*</span>密码
@@ -55,15 +59,26 @@
                         6到16个字符
                     </div>
                 </div>
+
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
-                        <span class="x-red">*</span>确认密码
+                        <span class="x-red">*</span>手机号
                     </label>
                     <div class="layui-input-inline">
-                        <input type="password" id="L_repass" name="repass" required="" lay-verify="repass"
+                        <input type="text" id="L_repass" name="phone" required="" lay-verify="repass"
                         autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        <span class="x-red">*</span>权限
+                    </label>
+                    <div class="layui-input-inline">
+                        
+                    </div>
+                </div>
+
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                     </label>
@@ -78,15 +93,7 @@
         <!-- 右侧主体结束 -->
     </div>
     <!-- 中部结束 -->
-    <script>
-    //百度统计可去掉
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
+
+  
 </body>
 </html>
