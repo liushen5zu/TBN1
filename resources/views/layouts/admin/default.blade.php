@@ -48,6 +48,23 @@
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                     </li>
+
+                     <li class="list">
+                        <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        用户管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/user">
+                                <i class="iconfont">&#xe6a7;</i>
+                                用户列表
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe70b;</i>
@@ -59,46 +76,64 @@
                         <li>
                             <a href="/movie_details">
                                 <i class="iconfont">&#xe6a7;</i>
-                                影片列表
+                                影片详情
                             </a>
                             </li>
                             <li>
-                                <a href="member-del.html">
+                                <a href="/movie_images">
                                 <i class="iconfont">&#xe6a7;</i>
-                                会员删除
+                                电影图片
                             </a>
                             </li>
                             <li>
-                                <a href="member-level.html">
+                                <a href="/movie_actors">
                                 <i class="iconfont">&#xe6a7;</i>
-                                等级管理
+                                电影演员
+                            </a>
+                             <li>
+                                <a href="/movie_directors">
+                                <i class="iconfont">&#xe6a7;</i>
+                                电影导演
                             </a>
                             </li>
                             <li>
-                                <a href="member-kiss.html">
+                                <a href="/movie_frags">
                                 <i class="iconfont">&#xe6a7;</i>
-                                积分管理
+                                电影片段
                             </a>
                             </li>
                             <li>
-                                <a href="member-view.html">
+                                <a href="/movie_cates">
                                 <i class="iconfont">&#xe6a7;</i>
-                                浏览记录
+                                电影分类
                             </a>
+                            <li>
+                                <a href="/movie_details_tags">
+                                <i class="iconfont">&#xe6a7;</i>
+                                电影标签
+                            </a>
+                            </li>
+                             <li>
+                                <a href="/movie_comments">
+                                <i class="iconfont">&#xe6a7;</i>
+                                电影评论
+                            </a>
+                            </li>
+                            
                             </li>
                         </ul>
                     </li>
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
-                        分类管理
+                        友情链接
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="./category.html">
+                                <a href="/link">
                                 <i class="iconfont">&#xe6a7;</i>
-                                分类列表
+                                链接列表
                             </a>
                             </li>
                         </ul>

@@ -1,4 +1,7 @@
 @extends('layouts.admin.default')
+@section('title')
+修改分类
+@endsection
 @section('content')
 <div class="content">
     <h1 style="font-size:26px">修改分类</h1>

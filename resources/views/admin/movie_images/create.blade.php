@@ -1,4 +1,7 @@
 @extends('layouts.admin.default')
+@section('title')
+添加电影图片
+@endsection
 @section('content')
         <h1 style="font-size:26px">添加图片</h1>
         <hr>
@@ -18,8 +21,13 @@
                         <span class="x-red">*</span>电影详情ID
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
+
+                        <select type="text" id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
                         autocomplete="off" class="layui-input">
+                            @foreach($details as $v)
+                            <<option value="{{$v->id}}">{{$v->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                 </div>

@@ -1,6 +1,12 @@
 @extends('layouts.admin.default')
+@section('title')
+电影列表
+@endsection
 @section('content') 
 <div class="content">
+<h1 style="font-size:26px">电影列表</h1>
+        <hr>
+        <br>
             <!-- 右侧内容框架，更改从这里开始 -->
             <form class="layui-form xbs" action="">
                 <div class="layui-form-pane" style="text-align: center;">
@@ -42,6 +48,11 @@
                         <th>
                             导演名
                         </th>
+
+                        <th>
+                            影片图片
+                        </th>
+
                         <th>
                             地区
                         </th>
@@ -64,8 +75,15 @@
                     <tr>
                         <td>{{$v['id']}}</td>
                         <td>{{$v['name']}}</td>
-                        <td>{{$v['move_cate_id']}}</td>
-                        <td>{{$v['director_id']}}</td>
+                        <td>{{$v->movie_cate->name}}</td>
+                        <td>
+
+                        {{!empty($v->director_name->name) ? $v->director_name->name : '' }}
+  
+
+                        </td>
+
+                        <td><img width="40px" src="{{$v['image']}}"></td>
                         <td>{{$v['countries']}}</td>
                         <td>{{$v['runningtime']}}</td>
                         <td>{{$v['recom']}}</td>
@@ -91,6 +109,25 @@
                 @endforeach
                 </tbody>
             </table>
+            <style>
+            .pagination{
+                margin-left:700px;
+            }
+            .pagination li{
+                width:50px;
+                height:50px;
+                background:#000;
+                float:left;
+                margin-left:5px;
+                font-size:20px;
+                color:#fff;
+                text-align:center;
+                line-height:50px;
+                opacity:0.2;
+            }
+</style>
+            <hr>
+            {{$movie_details->appends(request()->all())->links()}}
           </div>
 		<script>
 		</script>

@@ -55,5 +55,7 @@ Route::group([],function(){
 	Route::resource('link','LinkController');
 });
 
+//前台
+Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 
-
+Route::get('/home/{id}.html','HomeMovieDetailsController@show');
