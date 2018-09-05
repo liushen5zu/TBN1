@@ -1,8 +1,10 @@
 @extends('layouts.admin.default');
-
+@section('title')
+添加演员
+@endsection
 @section('content')
 	<div class="content">
-		<h1 style="font-size:26px">添加标签</h1>
+		<h1 style="font-size:26px">添加演员</h1>
 		<hr>
 		<br>
             <!-- 右侧内容框架，更改从这里开始 -->

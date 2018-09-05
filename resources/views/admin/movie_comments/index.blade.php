@@ -1,6 +1,12 @@
 @extends('layouts.admin.default')
+@section('title')
+电影评论列表
+@endsection
 @section('content')
 <div class="content">
+<h1 style="font-size:26px">评论列表</h1>
+        <hr>
+        <br>
 <form class="layui-form xbs" action="" >
                 <div class="layui-form-pane" style="text-align: center;">
                   <div class="layui-form-item" style="display: inline-block;">

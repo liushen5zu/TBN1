@@ -1,8 +1,13 @@
 @extends('layouts.admin.default')
-
+@section('title')
+友链列表
+@endsection
 @section('content')
 
 <div class="content">
+        <h1 style="font-size:26px">友链列表</h1>
+        <hr>
+        <br>
             <!-- 右侧内容框架，更改从这里开始 -->
             <form class="layui-form xbs" action="">
                 <div class="layui-form-pane" style="text-align: center;">
@@ -25,7 +30,7 @@
             </form>
             <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
 
-            <button  class="layui-btn" onclick="member_add('添加用户','/link/create','600','500')"><i class="layui-icon"></i>添加</button>
+           <a class="layui-btn" href="/link/create"><i class="layui-icon">&#xe608;</i>添加</a>
 
             <span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
             <table class="layui-table">

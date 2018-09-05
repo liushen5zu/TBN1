@@ -1,4 +1,7 @@
 @extends('layouts.admin.default') 
+@section('title')
+修改导演
+@endsection
 @section('content')
 	<div class="content">
 		<h1 style="font-size:26px">导演修改</h1>

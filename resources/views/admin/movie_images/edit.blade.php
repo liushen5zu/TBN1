@@ -1,4 +1,7 @@
 @extends('layouts.admin.default')
+@section('title')
+修改电影图片
+@endsection
 @section('content')
         <h1 style="font-size:26px">修改图片</h1>
         <hr>

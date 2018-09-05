@@ -22,6 +22,9 @@
     }
 </style>
 <div class="content">
+    <h1 style="font-size:26px">用户列表</h1>
+        <hr>
+        <br>
             <!-- 右侧内容框架，更改从这里开始 -->
             <form class="layui-form xbs" action="/user">
                 <div class="layui-form-pane" style="text-align: center;">

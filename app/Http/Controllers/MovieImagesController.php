@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image_movie_detail;
+use App\Movie_detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\dd;
@@ -16,9 +17,14 @@ class MovieImagesController extends Controller
      */
     public function index()
     {
-         $movie_images = Image_movie_detail::orderBy('id','desc')
+
+
+         $movie_images =Image_movie_detail::orderBy('id','desc')
             ->where('name','like', '%'.request()->keywords.'%')
             ->paginate(10);
+
+        
+        
         return view('admin.movie_images.index',['movie_images'=>$movie_images]);
     }
 
@@ -29,7 +35,8 @@ class MovieImagesController extends Controller
      */
     public function create()
     {
-        return view('admin.movie_images.create');
+        $details = Movie_detail::all();
+        return view('admin.movie_images.create',compact('details'));
     }
 
     /**

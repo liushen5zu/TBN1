@@ -1,5 +1,7 @@
 @extends('layouts.admin.default');
-
+@section('title')
+修改标签
+@endsection
 @section('content')
 	<div class="content">
 		<h1 style="font-size:26px">标签修改</h1>

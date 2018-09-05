@@ -1,6 +1,12 @@
 @extends('layouts.admin.default')
+@section('title')
+分类列表
+@endsection
 @section('content')
 <div class="content">
+    <h1 style="font-size:26px">分类列表</h1>
+        <hr>
+        <br>
         <form class="layui-form xbs" action="" >
                 <div class="layui-form-pane" style="text-align: center;">
                   <div class="layui-form-item" style="display: inline-block;">
@@ -20,7 +26,11 @@
                   </div>
                 </div> 
             </form>
-            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><a class="layui-btn" href="/movie_cates/create"><i class="layui-icon">&#xe608;</i>添加</a><span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
+            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button>
+
+            <a class="layui-btn" href="/movie_cates/create"><i class="layui-icon">&#xe608;</i>添加</a>
+
+            <span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
             <table class="layui-table">
                 <thead>
                     <tr>

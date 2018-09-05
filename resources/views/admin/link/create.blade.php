@@ -1,4 +1,7 @@
 @extends('layouts.admin.default') 
+@section('title')
+添加友链
+@endsection
 @section('content')
 	<div class="content">
 		<h1 style="font-size:26px">友链添加</h1>

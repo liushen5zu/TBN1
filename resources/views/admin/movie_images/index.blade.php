@@ -1,6 +1,12 @@
 @extends('layouts.admin.default')
+@section('title')
+图片列表
+@endsection
 @section('content')
 <div class="content">
+<h1 style="font-size:26px">电影图片列表</h1>
+        <hr>
+        <br>
             <!-- 右侧内容框架，更改从这里开始 -->
             <form class="layui-form xbs" action="">
                 <div class="layui-form-pane" style="text-align: center;">
@@ -53,7 +59,11 @@
                         <td>{{$v['id']}}</td>
                         <td>{{$v['name']}}</td>
                         <td><img src="{{$v['image']}}" width="80" height="50" alt=""></td>
-                        <td>{{$v['movie_detail_id']}}</td>
+
+
+                        <td>{{$v->movie_detail->name}}</td>
+
+
                         <td class="td-manage">
                            <form method="get" action="/movie_images/{{$v->id}}/edit" style="float:left">
                            {{csrf_field()}}
