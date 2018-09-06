@@ -1,269 +1,286 @@
-
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans" class="ua-windows ua-webkit">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="renderer" content="webkit">
-    <meta name="referrer" content="always">
-    <meta name="google-site-verification" content="ok0wCgT20tBBgo9_zat2iAcimtN4Ftf5ccsh092Xeyw" />
-    <title>
-        豆瓣电影
-</title>
-    
-    <meta name="baidu-site-verification" content="cZdR4xxR7RxmM4zE" />
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="Sun, 6 Mar 2005 01:00:00 GMT">
-    
-    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.douban.com/movie/">
-    <meta property="qc:admins" content="13753521351564752166375" />
-    
-    
-    <meta name="keywords" content="电影、经典电影、热映、电视剧、美剧、影评、电影院、电影票、排行、推荐"/>
-    <meta name="description" content="豆瓣电影提供最新的电影介绍及评论包括上映影片的影讯查询及购票服务。你可以记录想看、在看和看过的电影电视剧，顺便打分、写影评。根据你的口味，豆瓣电影会推荐好电影给你。" />
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <title>@yield('title')</title> 
+  <meta name="description" content="大众影评网定期发布各类观影活动,明星见面会,电影首映礼通告,邀您免费参与电影展映和新闻发布会,与喜爱的明星面对面交流." /> 
+  <link rel="shortcut icon" href="/ueditor/Images/favicon.ico" /> 
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="/ueditor/js/html5_1.js"></script>
+<![endif]--> 
+  <link type="text/css" rel="stylesheet" href="/ueditor/css/common_1.css" /> 
+  <style type="text/css">
+  .nav a.hotNavItem{position:relative;color: #f60;}
+  .nav a.hotNavItem.on{position:relative;color: #fff;}
+  .nav a.hotNavItem:hover{color: #fff;}
+  .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/ueditor/images/hot_1.png) no-repeat;}
+/*  .nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
+  .nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
+  /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
+</style> 
+  <script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min_1.js"></script> 
+  <script type="text/javascript" src="/ueditor/js/jquery.cookie_1.js"></script> 
+  <script type="text/javascript" src="/ueditor/js/common2_1.js"></script> 
+  <script type="text/javascript" src="/ueditor/js/common_1.js"></script> 
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4a4681a3b1efbd3cf94cde90ed8a8a95";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+ </head> 
+ <body> 
+  <header class="site_nav"> 
+   <section class="wp clearfix"> 
+    <div class="fL"> 
+     <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/ueditor/picture/wx_1.jpg" alt="大众影评网微信公众号" /></span> 
+    </div> 
+    <div class="fR"> 
+     <ul id="welcome" class="clearfix out"> 
+      <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
+      <li>|</li> 
+      <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li> 
+      <li>|</li> 
+      <li><a href="http://www.51oscar.com/login.html" title="登录"><i class="icon_man icon"></i>登录</a></li> 
+      <li>|</li> 
+      <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li> 
+     </ul> 
+    </div> 
+   </section> 
+  </header> 
+  <section class="logoAndSreach"> 
+   <div class="wp clearfix"> 
+    <div class="logo fL"> 
+     <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo_1.png" alt="大众影评网" /></a> 
+    </div> 
+    <div class="searchBox fR"> 
+     <form name="form_sreach" action="/Search/index" method="get"> 
+      <!--[if !IE]><!--> 
+      <input class="txt_kw" name="word" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" />
+      <!--<![endif]--> 
+      <!--[if gte IE 10]> <input class="txt_kw" name="txt_kw" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" /> <![endif]--> 
+      <!--[if lt IE 10]> <input class="txt_kw" name="txt_kw" type="text" autocomplete="off"  value="搜索你感兴趣的" /> <![endif]--> 
+      <input class="sreach" name="btn_sreach" type="submit" value="" /> 
+      <!-- <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" > --> 
+      <input type="hidden" name="__hash__" value="0ab92942e9ac1b95f2e3d4a870666ce7_f4ab931681945eeb6b5c63e8497861d6" />
+     </form> 
+     <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" /> 
+     <input type="hidden" value="" id="sessionid" /> 
+     <span class="hotLink"> <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a> <a href="http://www.51oscar.com/album/1877.html">九部超级温馨又治愈的家庭类电影</a> <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a> <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a> <a href="http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a> </span> 
+    </div> 
+   </div> 
+  </section> 
+  <section class="nav"> 
+   <nav class="wp clearfix"> 
+    <a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a> 
+    <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a> 
+    <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a> 
+    <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a> 
+    <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a> 
+    <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a> 
+    <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a> 
+    <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a> 
+    <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a> 
+   </nav> 
+  </section> 
+  <script>
+var URL = "http://www.51oscar.com/";
 
-    <link rel="apple-touch-icon" href="https://img3.doubanio.com/f/movie/d59b2715fdea4968a450ee5f6c95c7d7a2030065/pics/movie/apple-touch-icon.png">
-    <link href="/ueditor/css/douban.css" rel="stylesheet" type="text/css">
-    <link href="/ueditor/css/_all.css" rel="stylesheet" type="text/css">
-    <link href="/ueditor/css/init.css" rel="stylesheet">
-    <script type="text/javascript">var _head_start = new Date();</script>
-    <script type="text/javascript" src="/ueditor/js/jquery.js"></script>
-    <script type="text/javascript" src="/ueditor/js/douban.js"></script>
-    <script type="text/javascript" src="/ueditor/js/_all.js"></script>
-    
-    <link rel="stylesheet" href="/ueditor/css/home.css" />
-    <script type="text/javascript" src="/ueditor/js/do.js" data-cfg-autoload="false"    ></script>
-    <script>
-        Do.global('https://img3.doubanio.com/f/shire/0e82fba9c90a7daffc62dd2f80b23ff31c5e4739/js/separation/prettyfield.js');
-        Do.global('https://img3.doubanio.com/f/shire/aef14a3cb852be78af0d48b0534beeea33035c0f/js/core/moreurl.js');
-    </script>
-    
-  <script type='text/javascript'>
-  var _vwo_code = (function() {
-    var account_id = 249272,
-      settings_tolerance = 0,
-      library_tolerance = 2500,
-      use_existing_jquery = false,
-      // DO NOT EDIT BELOW THIS LINE
-      f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());return settings_timer;}};}());
-
-  +function () {
-    var bindEvent = function (el, type, handler) {
-        var $ = window.jQuery || window.Zepto || window.$
-       if ($ && $.fn && $.fn.on) {
-           $(el).on(type, handler)
-       } else if($ && $.fn && $.fn.bind) {
-           $(el).bind(type, handler)
-       } else if (el.addEventListener){
-         el.addEventListener(type, handler, false);
-       } else if (el.attachEvent){
-         el.attachEvent("on" + type, handler);
-       } else {
-         el["on" + type] = handler;
-       }
-     }
-
-    var _origin_load = _vwo_code.load
-    _vwo_code.load = function () {
-      var args = [].slice.call(arguments)
-      bindEvent(window, 'load', function () {
-        _origin_load.apply(_vwo_code, args)
-      })
-    }
-  }()
-
-  _vwo_settings_timer = _vwo_code.init();
-  </script>
-
-
-    <style type="text/css"></style>
-    <style type="text/css">img { max-width: 100%; }</style>
-    <script type="text/javascript"></script>
-    <link rel="stylesheet" href="/ueditor/css/5056301a7435939c.css">
-
-    <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon">
-</head>
-
-<body>
+  //下拉菜单
+  function dropMenu(obj){
+    $(obj).each(function(){
+      var theSpan = $(this);
+      var theMenu = theSpan.find(".user_more");
+      var tarHeight = theMenu.height();
+      theMenu.css({height:0,opacity:0});
+      theSpan.hover(
+        function(){
+          
+          theMenu.stop().show().animate({height:175,opacity:1},600);
+        },
+        function(){       
+          theMenu.stop().animate({height:0,opacity:0},600,function(){
+            $(this).css({display:"none"});
+          });
+        }
+      );
+    });
+  }
   
-    <script type="text/javascript">var _body_start = new Date();</script>
+ //自动登用的下拉菜单
+   function dropMenu2(obj){
+    $(obj).each(function(){
+        var theSpan = $(obj);
+        var theMenu = theSpan.find(".user_more");
+        var tarHeight = theMenu.height();
+        //theMenu.css({height:0,opacity:0});
+        theMenu.stop().show().animate({height:175,opacity:1},600);
+        theSpan.live("mouseout",function(){
+            theMenu.stop().animate({height:0,opacity:0},600,function(){
+            $(this).css({display:"none"});
+          });
+        })
+    })
+  }
+ function ajaxGetNotify(u){
+          $.get('/forum/getMsgCount',
+            {usg:u},
+            function(data){
+              $('#auto_msg').html(data);
+            },
+            'json'
+        );
+    }
+  //导航条切换
+  var curr_url=window.location.href;
+  if(/.com\/news/.test(curr_url)){
+    $('#news').addClass('on');
+  }else if(/.com\/movie/.test(curr_url)){
+    $('#movie').addClass('on');
+  }else if(/.com\/review/.test(curr_url)){
+    $('#review').addClass('on');
+  }else if(/.com\/forum/.test(curr_url)){
+    $('#forum').addClass('on');
+  }else if(/.com\/album/.test(curr_url)){
+    $('#album').addClass('on');
+  }else if(/.com\/activity/.test(curr_url)){
+    $('#activity').addClass('on');
+  }else if(/.com\/topic/.test(curr_url)){
+    $('#topic').addClass('on');
+  }else if(/.com\/zhongchou/.test(curr_url)){
+    $('#zhongchou').addClass('on');
+  }else{
+    $('#home').addClass('on');
+  }
+$(document).ready(function(){ 
+  //dropMenu(".after_landing"); 
+  dropMenu(".user"); 
+  URL = $('#txt_header_url').val() +'/';
+  Common.init(); 
 
-    
-    
-
-
-
-    <link href="/ueditor/css/bundle.css" rel="stylesheet" type="text/css">
-
-
-
-<div id="db-global-nav" class="global-nav">
-  <div class="bd">
-    
-<div class="top-nav-info">
-  <a href="https://www.douban.com/accounts/login?source=movie" class="nav-login" rel="nofollow">登录</a>
-  <a href="https://www.douban.com/accounts/register?source=movie" class="nav-register" rel="nofollow">注册</a>
-</div>
-
-
-    <div class="top-nav-doubanapp">
-  <a href="https://www.douban.com/doubanapp/app?channel=top-nav" class="lnk-doubanapp">下载豆瓣客户端</a>
-  <div id="doubanapp-tip">
-    <a href="https://www.douban.com/doubanapp/app?channel=qipao" class="tip-link">豆瓣 <span class="version">6.0</span> 全新发布</a>
-    <a href="javascript: void 0;" class="tip-close">×</a>
-  </div>
-  <div id="top-nav-appintro" class="more-items">
-    <p class="appintro-title">豆瓣</p>
-    <p class="qrcode">扫码直接下载</p>
-    <div class="download">
-      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&direct_dl=1&download=iOS">iPhone</a>
-      <span>·</span>
-      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&direct_dl=1&download=Android" class="download-android">Android</a>
-    </div>
-  </div>
-</div>
-
-    
-
-
-<div class="global-nav-items">
-  <ul>
-    <li class="">
-      <a href="https://www.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-main&quot;,&quot;uid&quot;:&quot;0&quot;}">豆瓣</a>
-    </li>
-    <li class="">
-      <a href="https://book.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-book&quot;,&quot;uid&quot;:&quot;0&quot;}">读书</a>
-    </li>
-    <li class="on">
-      <a href="https://movie.douban.com"  data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-movie&quot;,&quot;uid&quot;:&quot;0&quot;}">电影</a>
-    </li>
-    <li class="">
-      <a href="https://music.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-music&quot;,&quot;uid&quot;:&quot;0&quot;}">音乐</a>
-    </li>
-    <li class="">
-      <a href="https://www.douban.com/location" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-location&quot;,&quot;uid&quot;:&quot;0&quot;}">同城</a>
-    </li>
-    <li class="">
-      <a href="https://www.douban.com/group" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-group&quot;,&quot;uid&quot;:&quot;0&quot;}">小组</a>
-    </li>
-    <li class="">
-      <a href="https://read.douban.com&#47;?dcs=top-nav&amp;dcm=douban" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-read&quot;,&quot;uid&quot;:&quot;0&quot;}">阅读</a>
-    </li>
-    <li class="">
-      <a href="https://douban.fm&#47;?from_=shire_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-fm&quot;,&quot;uid&quot;:&quot;0&quot;}">FM</a>
-    </li>
-    <li class="">
-      <a href="https://time.douban.com&#47;?dt_time_source=douban-web_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-time&quot;,&quot;uid&quot;:&quot;0&quot;}">时间</a>
-    </li>
-    <li class="">
-      <a href="https://market.douban.com&#47;?utm_campaign=douban_top_nav&amp;utm_source=douban&amp;utm_medium=pc_web" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-market&quot;,&quot;uid&quot;:&quot;0&quot;}">豆品</a>
-    </li>
-    <li>
-      <a href="#more" class="bn-more"><span>更多</span></a>
-      <div class="more-items">
-        <table cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td>
-                <a href="https://ypy.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-ypy&quot;,&quot;uid&quot;:&quot;0&quot;}">豆瓣摄影</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </li>
-  </ul>
-</div>
-
-  </div>
-</div>
-<script>
-  ;window._GLOBAL_NAV = {
-    DOUBAN_URL: "https://www.douban.com",
-    N_NEW_NOTIS: 0,
-    N_NEW_DOUMAIL: 0
-  };
-</script>
-
-
-
-    <script src="/ueditor/js/bundle.js" defer="defer"></script>
-
-
-
-
-    
-
-
-
-    <link href="/ueditor/css/bundle_1.css" rel="stylesheet" type="text/css">
-
-
-
-
-<div id="db-nav-movie" class="nav">
-  <div class="nav-wrap">
-  <div class="nav-primary">
-    <div class="nav-logo">
-      <a href="https:&#47;&#47;movie.douban.com">豆瓣电影</a>
-    </div>
-    <div class="nav-search">
-      <form action="https:&#47;&#47;movie.douban.com/subject_search" method="get">
-        <fieldset>
-          <legend>搜索：</legend>
-          <label for="inp-query">
-          </label>
-          <div class="inp"><input id="inp-query" name="search_text" size="22" maxlength="60" placeholder="搜索电影、电视剧、综艺、影人" value=""></div>
-          <div class="inp-btn"><input type="submit" value="搜索"></div>
-          <input type="hidden" name="cat" value="1002" />
-        </fieldset>
-      </form>
-    </div>
-  </div>
-  </div>
-  <div class="nav-secondary">
-    
-
-<div class="nav-items">
-  <ul>
-    <li    ><a href="https://movie.douban.com/cinema/nowplaying/"
-     >影讯&购票</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/explore"
-     >选电影</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/tv/"
-     >电视剧</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/chart"
-     >排行榜</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/tag/"
-     >分类</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/review/best/"
-     >影评</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/annual/2017?source=navigation"
-     >2017年度榜单</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/standbyme/2017?source=navigation"
-     >2017观影报告</a>
-    </li>
-  </ul>
-</div>
-
-  </div>
-</div>
-
-
-
-
-@section('content')
-
-    
+  //forum
+   var sessionid =$('#sessionid').val();
+   if(sessionid){
+  // setInterval("ajaxGetNotify(sessionid)", parseInt(120) * 1000);
+  ajaxGetNotify(sessionid);
+   }  
+});
+</script> 
+  <link type="text/css" rel="stylesheet" href="/ueditor/css/event.css" /> 
+  <!--主体部分 s--> 
+  @section('content');
+  
   @show
-</body>
+  <script type="text/javascript" src="/ueditor/js/jquery.superslide.2.1.1.js"></script> 
+  <script type="text/javascript">
 
+
+  $(function(){ 
+    URL = $('#txt_header_url').val() +'/';
+    Common.init(); 
+  })
+
+  //播放预告片
+  $(".trailer").click(function(){
+      showSwf.show($(this).attr("data-trailer")); 
+  });
+
+  //幻灯片
+  jQuery(".picFocus").slide({titCell:".hd ul li", mainCell:".bd ul",effect:"leftLoop",autoPlay:true,delayTime:500,interTime:4000,vis:1});
+  
+  scrollFixed(".hotAlbum","#footer",40);
+  
+  bShare.init();
+
+</script> 
+  <!-- 隐藏信息  --> 
+  <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" /> 
+  <input type="hidden" id="txt_public_home" value="/Public/Home/" module="Activity" ie_page="/movie/ie.html" baidu_page="/movie/baidu.html" qvod_page="/movie/qvod.html" gvod_page="/movie/gvod.html" loading_page="/movie/loading.html" /> 
+  <input type="hidden" id="txt_edit_user" value="/personal/toUserEditShare.html" /> 
+  <div class="hide" id="hide_album_msg" index="/album/toAlbumDatail.html/album_id/" edit="/album/toAlbumEditImg.html/album_id/" movie="/album/toAlbumEditMovie.html/album_id/"></div> 
+  <div class="hide" id="hide_comment_type" movie="/movie/toMovieInfo.html/id/" album="/album/toAlbumDatail.html/album_id/" topic="/topic/topicView.html/id/"></div> 
+  <div class="hide" id="hide_user_info" some="http://www.51oscar.com/someone/index/id/" session_id="" index="/personal/index.html" msg_url="http://www.51oscar.com/Personal/msgList" edit_url="http://www.51oscar.com/Personal/toUserEditShare"></div> 
+  <div class="hide" id="footer_info" footerurl="/index/ajaxColumnList.html" columnurl="/login/toColumn.html"></div> 
+  <div class="footer wp" id="footer"> 
+   <div class="dlList clearfix"> 
+    <dl> 
+     <dt>
+      <a href="javascript:viod(0);" title="栏目">栏目</a>
+     </dt> 
+     <dd>
+      <a href="http://www.51oscar.com/news.html" title="影视资讯" target="_blank">影视资讯</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/review.html" title="新片影评" target="_blank">新片影评</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/forum.html" title="影视贴吧" target="_blank">影视贴吧</a>
+     </dd> 
+    </dl> 
+    <dl> 
+     <dt>
+      <a href="javascript:viod(0);" title="产品服务">产品服务</a>
+     </dt> 
+     <dd>
+      <a href="http://www.leg3s.com/about/index.html" title="公司简介" target="_blank">公司简介</a>
+     </dd> 
+     <dd>
+      <a href="http://www.leg3s.com/product/index.html" title="影视服务" target="_blank">影视服务</a>
+     </dd> 
+     <dd>
+      <a href="http://www.leg3s.com/example/index.html" title="案例展示" target="_blank">案例展示</a>
+     </dd> 
+    </dl> 
+    <dl> 
+     <dt>
+      <a href="javascript:viod(0);" title="关于我们">关于我们</a>
+     </dt> 
+     <dd>
+      <a href="http://www.51oscar.com/about.html" title="关于我们" target="_blank">关于我们</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/login/toColumn/id/32" title="家长监护">家长监护</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/login/toColumn/id/2" title="联系我们" target="_blank">联系我们</a>
+     </dd> 
+    </dl> 
+    <dl> 
+     <dt>
+      <a href="javascript:viod(0);" title="网站条款">网站条款</a>
+     </dt> 
+     <dd>
+      <a href="http://www.51oscar.com/login/toColumn/id/3" title="免责声明" target="_blank">免责声明</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/login/toColumn/id/33" title="会员条款" target="_blank">会员条款</a>
+     </dd> 
+     <dd>
+      <a href="http://www.51oscar.com/sitemap.html" title="网站地图" target="_blank">网站地图</a>
+     </dd> 
+    </dl> 
+    <dl class="last"> 
+     <dt>
+      <a href="javascript:viod(0);" title="关注我们">关注我们</a>
+     </dt> 
+     <dd>
+      <a class="weibo icon" href="http://weibo.com/51oscar" title="新浪微博" target="_blank">&nbsp;</a>
+     </dd> 
+     <dd>
+      <a class="weibo_qq icon" href="http://t.qq.com/leg_51oscar" title="腾讯微博" target="_blank">&nbsp;</a>
+     </dd> 
+    </dl> 
+   </div> 
+   <div class="Copyright">
+    <p>Copyright &copy; 2012 <a href="http://www.51oscar.com" target="_blank" rel="nofollow">大众影评网</a>（51oscar.com）All rights reserved. 粤ICP备07500583号-2 </p>
+   </div> 
+   <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+  </div>  
+ </body>
 </html>
-
-

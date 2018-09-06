@@ -22,7 +22,7 @@ Route::get('/relogin','LoginController@relogin');
 
 Route::group([],function(){
 	
-	Route::get('admin','AdminController@index');
+	Route::get('/admin','AdminController@index');
 
 	//用户管理
 	Route::resource('user','UserController');
@@ -53,9 +53,10 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
+
+	Route::resource('activity','ActivityController');
 });
 
-//前台
-Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 
-Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+//前台
+Route::get('/home/activity/list','HomeActivityController@list');
