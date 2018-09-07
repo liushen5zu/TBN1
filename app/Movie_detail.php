@@ -26,6 +26,11 @@ class Movie_detail extends Model
         return $this->belongsToMany('App\Movie_actor','movie_acrtor_movie_details','movie_detail_id','movie_actor_id');
     }
 
+    public function movie_tags()
+    {
+        return $this->belongsToMany('App\Movie_tag','movie_details_movie_tags','movie_detail_id','movie_tag_id');
+    }
+
      public function image_movie_detail()
     {
         return $this->hasMany('App\Image_movie_detail');

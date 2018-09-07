@@ -22,10 +22,10 @@
                     </label>
                     <div class="layui-input-inline">
 
-                        <select type="text" id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
+                        <select  id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
                         autocomplete="off" class="layui-input">
                             @foreach($details as $v)
-                            <<option value="{{$v->id}}">{{$v->name}}</option>
+                            <option value="{{$v->id}}">{{$v->name}}</option>
                             @endforeach
                         </select>
                     </div>
