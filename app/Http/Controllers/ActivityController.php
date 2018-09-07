@@ -39,6 +39,7 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
         $activity = new Activity;
         $activity -> title = $request->title;
         $activity -> activity_site = $request->activity_site;

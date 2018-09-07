@@ -1,0 +1,264 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.head {
+	background: url(../images/head_bg.png) repeat-x;
+	width: 100%;
+	height: 56px;
+}
+.nav_input {
+	background: url(../images/sear_input.png) no-repeat;
+	height: 28px;
+	width: 262px;
+	padding-left: 10px;
+	float: left;
+	border:none;
+}
+.nav_submit {
+	background: url(../images/search.png) no-repeat;
+	height: 28px;
+	width: 71px;
+	float: right;
+	border:none;
+}
+.regt {
+	color:#0088cc;
+	font-weight:bold;
+}
+.hotMv {
+	width:100%;/*height:991px;*/
+}
+.lgodiv {
+	width:980px;
+	height:456px;
+	border:1px solid #d7d8da;
+	background:#fff;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-228px;
+	margin-left:-490px;
+	opacity:0.9;
+	filter:alpha(opacity=90);
+}
+.fom_left {
+	float:left;
+}
+.lgodiv2 form {
+	float:left;
+	margin-left:80px;
+	margin-top:20px;
+}
+.clearfix:after {
+	content: '';
+	clear: both;
+	visibility: hidden;
+	height: 0;
+	display: block;
+}
+.fom_left {
+	margin:20px 0px 0px 50px;
+	_margin:20px 0px 0px 30px;
+	line-height:24px;
+}
+.fom_left h2 {
+	font-family:"微软雅黑";
+	font-size:16px;
+	color:#ff7520;
+	margin-top:30px;
+}
+.linkAlgin {
+	display:inline-block;
+	width:90px;
+	height:22px;
+	vertical-align:middle;
+}
+.linkspan {
+	margin-bottom: 20px;
+	display: inline-block;
+	width: 74px;
+	margin-right: 5px;
+}
+
+.QQidv {
+	font-family:"微软雅黑";
+	margin-top:40px;
+}
+.linkspan {
+	margin-bottom:20px;
+}
+/*
+.linkAlgin {
+	margin-bottom:20px;
+}*/
+.weixQQ {
+	display:inline-block;
+	width:90px;
+	height:90px;
+	position:absolute;
+	top:-10px;
+	right:100px;
+}
+.QQidv {
+	position:relative;
+}
+.lgodiv2 form label {
+	display:inline-block;
+	width:50px;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+.mbt {
+	padding:30px 0px 5px;
+	position:relative;
+}
+.maiInpt {
+	width:259px;
+	height:32px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	background:#fff;
+	opacity:1.0;
+	vertical-align: middle;
+}
+.admbt {
+	padding-left:53px;
+	padding-top:20px;
+}
+.foget {
+	color:#0088cc;
+	margin-left:125px;
+	display:inline-block;
+}
+.denTl {
+background:#;
+	display:inline-block;
+}
+.lgodiv2 {
+	width: 980px;
+	height: 456px;
+	border: 1px solid #d7d8da;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -228px;
+	margin-left: -490px;
+}
+.denTl {
+	background:url(../images/ret.jpg) no-repeat;
+	width:260px;
+	height:40px;
+	display:block;
+	text-indent:-9999em;
+	overflow:hidden;
+	margin-left:50px;
+	margin-bottom:30px;
+}
+.abte span {
+	vertical-align:middle;
+	height:33px;
+	display:inline-block;
+}
+.abte a {
+	display:inline-block;
+	height:33px;
+	margin-right:13px;
+}
+span.invalid {
+	color: #B00100;
+	padding: 2px 0;
+	padding-left:0px;
+	position:absolute;
+	left:57px;
+	top:48px;
+}
+span.invalids {
+	color: #B00100;
+	padding: 2px 0;
+	padding-left:0px;
+	position:absolute;
+	left:85px;
+	top:48px;
+}
+.lgodiv2 form.retForm label {
+	display:inline-block;
+	width:80px;
+}
+.areg {
+	color:#0088cc;
+}
+.lgodiv2 form.retForm p.admbt {
+	padding-left:80px;
+	color:#848585;
+}
+.rgTl {
+	background:url(../images/ret3.jpg) no-repeat;
+	width:260px;
+	height:40px;
+	text-indent:-9999em;
+	overflow:hidden;
+	display:block;
+	margin-left:80px;
+}
+.bott {
+	background:#eeefef;
+	height:64px;
+	color:#5e5e5e;
+}
+.bott a{ color:#5e5e5e; margin:0px 5px; display:inline-block;}
+.conDiv{width:980px; margin:0 auto; padding:25px 0px;}
+.spanAbt{ display:inline-block; float:left;display:inline; overflow:hidden;}
+.copspan{ display:inline-block; float:right; display:inline; overflow:hidden;}
+
+.red-error{ color:#F00;}
+.green-right{color:green;}
+#btn_submit_reg, #btn_submit_login, #btn_third_reg {cursor: pointer;}
+
+.dl-password{margin-top:1px; margin-left:90px;}
+.dl-password dd{float:left; width:88px;}
+.dl-password div{ background:#FFD094; width:85px; height:18px; margin-left: -10px;color:#ffffff;}
+.dl-password div h3{text-align:center;}
+.dl-password .deep0{background:#ff0000;}
+.dl-password .deep1{background:#f28e00;}
+.dl-password .deep2{background:#5AAC46;}
+.dl-password h5{text-align:center;}
+
+.lgodiv2 form {
+float: left;
+margin-left: 80px;
+margin-top: 50px;
+}
+
+.red-error {
+color: #F00;
+position: absolute;
+left: 85px;
+top: 48px;
+}
+
+
+.mbt {
+padding: 12px 0px 15px;
+position: relative;
+}
+.red-errors {
+color: #F00;
+position: absolute;
+left:50px;
+top: 48px;
+}
+.green-right {
+color: green;
+position: absolute;
+left: 85px;
+top: 48px;
+}
+.img_span{
+    padding: 0px 0px 1px 20px;
+    background: url('../images/icon_pass.gif') no-repeat scroll 4px top transparent;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 345px;
+    top:20px;
+}
