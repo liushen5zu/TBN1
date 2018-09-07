@@ -22,7 +22,7 @@ Route::get('/relogin','LoginController@relogin');
 
 Route::group([],function(){
 	
-	Route::get('admin','AdminController@index');
+	Route::get('/admin','AdminController@index');
 
 	//用户管理
 	Route::resource('user','UserController');
@@ -53,16 +53,25 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
-	//帖子管理
-	Route::resource('tiezi','tieziController');
+
+	Route::resource('activity','ActivityController');
 });
 
-//前台
-Route::get('/home/movieDetails','HomeMovieDetailsController@index');
+
 
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
-//帖子详情页
-Route::get('/{id}.html', 'TieziController@show');
-Route::resource('/comment','CommentController');
-//帖子列表
-Route::get('/tiezis', 'tieziController@list');
+
+//前台登录
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+
+//前台活动
+Route::get('/home/activity/list','HomeActivityController@list');
+
+Route::get('/home/activity/{id}.html','HomeActivityController@show');
+//活动评论
+Route::post('/home/activite/comment','ActivityCommentController@list');
+

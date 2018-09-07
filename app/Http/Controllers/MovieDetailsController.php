@@ -23,8 +23,8 @@ class MovieDetailsController extends Controller
             ->where('name','like', '%'.request()->keywords.'%')
             ->paginate(3);
         //通过属于关系获取导
-
-        return view ('admin.movie_details.index',compact('movie_details','director'));
+        $data = Movie_detail::find(1)->Movie_cate()->get();
+        return view ('admin.movie_details.index',compact('movie_details','director','data'));
     }
 
     /**
