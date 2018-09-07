@@ -79,7 +79,7 @@
                         {{$v->id}}
                         </td>
                         <td>
-                        {{$v->title}}
+                       	{{str_limit($v->title,5,'...')}}
                         </td>
                         <td>
                         {{$v->activity_site}}
@@ -100,7 +100,10 @@
                         
                         </td>
                         <td> 
-                        {{$v->intro}}
+                        
+                        		{{str_limit($v['intro'],5,'...')}}
+                       
+
                         </td>
                         <td class="td-manage">
                             <form method="get" action="/activity/{{$v->id}}/edit" style="float:left">

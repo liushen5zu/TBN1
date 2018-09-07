@@ -34,23 +34,7 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <header class="site_nav">
-	<section class="wp clearfix">
-    	<div class="fL">
-        	<span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/comment/picture/wx.jpg" alt="大众影评网微信公众号" /></span>
-        </div>
-        <div class="fR">
-          <ul id="welcome" class="clearfix out">   			
-	<li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
-        <li>|</li>
-        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
-        <li>|</li>
-		<li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
-        <li>|</li>
-            	<li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
-          	
-    </ul>
-        </div>
-    </section>
+	@include('layouts.home.header')
 </header>
 <section class="logoAndSreach">
 	<div class="wp clearfix">
@@ -79,16 +63,7 @@ var _hmt = _hmt || [];
 </section>
 <section class="nav">
 	<nav class="wp clearfix">
-    	<a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
-        <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
-        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
-        <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
-        <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
-        <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
-
-        <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a>
-        <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a>
-        <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a>
+    	@include('layouts.home.list')
 
     </nav>
 </section>
@@ -193,7 +168,7 @@ $(document).ready(function(){
         </section>
     	
         <!--焦点幻灯片 e-->
-        @foreach($Movie_comments as $v)
+        
         <!--特约影评人 s-->
         <section class="inviReview">
             <div class="title">
@@ -221,6 +196,7 @@ $(document).ready(function(){
                 <a href="/home/review/table" title="新片影评" target="_self" >新片影评<em>>></em></a><a class="c_f60" onclick="return Common.isLogin()" href="/home/login">我要写影评</a>
             </div>
             <div id="reviBox" class="cont clearfix">
+            @foreach($Movie_comments as $v)
             <dl class="reviItem clearfix">
                     <dt class="L fL">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg imgBorder" src="{{$v->user->image}}" data-src="{{$v->user->image}}" alt="没有杀伤力的板砖"></a>
@@ -234,7 +210,8 @@ $(document).ready(function(){
                     <dd class="R fR">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail->image}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
-                </dl>                
+                </dl>
+                @endforeach                
                 <a href="/review/table.html" style="text-decoration:none">
                 <div  id="moreRevi"  class="loadMore">
                                 更多...
@@ -244,7 +221,7 @@ $(document).ready(function(){
         <div class="pagination">
                 </div>
         </section>
-        @endforeach
+        
         <!--新片影评 e-->
 
         <!--特约影评人 s-->
