@@ -1,0 +1,200 @@
+﻿@charset "utf-8";
+
+.mainWp{ margin-top:20px; }
+.leftWp{ width:700px; }
+.rightWp { width:260px;}
+/*幻灯片*/
+.picFocus{ width:100%;  height:300px; position:relative;  overflow:hidden;  zoom:1;   }
+.picFocus .bd{ width:100%; height:100%; }
+.picFocus .bd li{float:left; width:100%; height:100%;}
+.picFocus .bd li a{ display:block; width:100%; height:300px; position:relative;}
+.picFocus .bd li a img{  -webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease; transition: all .3s ease;}
+.picFocus .bd li a:hover img{-ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04); transform:scale(1.04,1.04);}
+.picFocus .bd li a p.opacity6{ display:block; width:100%; height:40px;  background-color:#000; margin:auto; position:absolute; bottom:0;   z-index:1; }
+.picFocus .bd li a p.txt{ display:block;  width:530px; height:40px; padding-left:20px; line-height:40px; color:#FFF;  margin:auto; position:absolute; bottom:0;  white-space:nowrap;  overflow:hidden; z-index:2; }
+.picFocus .bd li a:hover p.txt{ color:#f60; z-index:3; }
+.picFocus .hd{ width:100%; height:11px; margin:auto; position:absolute; bottom:13px; right:5px; }
+.picFocus .hd ul{ position:absolute; bottom:0; right:0; zoom:1; z-index:4; }
+.picFocus .hd ul li{ width:11px; height:11px; float:left; margin-right:11px; cursor:pointer; border-radius:11px; background-color:#efefef;}
+.picFocus .hd ul li.on{background-color:#ff6600; }
+
+/*特约影评人*/
+.inviReview{ padding:20px 10px 30px 10px; width:680px; margin-top:20px; background-color:#FFF;}
+.inviReview .cont{ padding-top:20px;}
+.inviReview .reviewer{ width:270px;}
+.inviReview .latestRevi{ width:410px;}
+.inviReview .reviewer .t{ position:relative;}
+.inviReview .reviewer .t .imgBorder{ display:inline-block; width:78px; height:78px;-moz-border-radius:80px; -ms-border-radius:80px; -o-border-radius:80px; -webkit-border-radius:80px; border-radius:80px;}
+.inviReview .reviewer .t .c_f60{ position:relative; top:-33px; left:10px;}
+.inviReview .reviewer .b{ font-size:13px; margin-top:10px;}
+.inviReview .latestRevi dt{ font-size:20px; color:#333; margin-bottom:10px;}
+.inviReview .latestRevi dd{ height:32px; line-height:32px; overflow:hidden;}
+.inviReview .latestRevi dd .fL{  width:194px;}
+.inviReview .latestRevi dd .fR{  width:214px; }
+
+/*新片影评*/
+.newMovRevi{ padding:20px 10px; width:680px; margin-top:20px; background-color:#FFF; }
+.newMovRevi .title{ position:relative; }
+.newMovRevi .title .c_f60{ display:block ;padding-left: 32px;height: 35px;line-height: 32px; width: 73px; font-size:13px; color:#FFF; background: url(/ueditor/images/writecom.png) no-repeat; position:absolute; top:0px; right:-20px;}
+.newMovRevi .cont{ width:680px; padding:8px 0 20px 0;}
+.newMovRevi .reviItem{ width:680px; padding:10px 0; line-height:24px; border-bottom:1px solid #eee; }
+.newMovRevi .reviItem .L{ width:60px; margin-right:15px; font-size:12px; text-align:center; _display:inline;}
+.newMovRevi .reviItem .L img{ display:block; width:60px; height:60px; -moz-border-radius:60px; -ms-border-radius:60px; -o-border-radius:60px; -webkit-border-radius:60px; border-radius:60px; }
+.newMovRevi .reviItem .C{ width:495px; padding-right:20px; font-size:13px; _display:inline;}
+.newMovRevi .reviItem .C .t{ font-weight:bold; font-size:14px; margin:3px 0 4px 0;}
+.newMovRevi .reviItem .R{ width:90px; height:120px; overflow:hidden; _width:88px; _display:inline;}
+.newMovRevi .reviItem .R img{ width:90px; height:120px; -webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease; transition: all .3s ease;}
+.newMovRevi .reviItem .R a:hover img{ -ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04); transform:scale(1.04,1.04);}
+
+.newMovRevi .loadMore{ background-color:#eee; color:#555;  padding:8px 0; text-align:center; margin-top:25px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; cursor:pointer; }
+
+
+
+/*电影票房*/
+.boxOffice{  padding:20px 10px; width:240px; height:460px; background-color:#FFF; overflow:hidden;  }
+.slideTxtBox{ width:100%; margin-top:20px; }
+.slideTxtBox .hd{ width:100%; height:28px;  background:#eee; padding:5px 0;   border:1px solid #ddd;  position:relative; _overflow:hidden; }
+.slideTxtBox .hd ul li{ float:left; height:28px; line-height:28px; width:79px; color:#333; font-size:16px; text-align:center; border-left:1px solid #ddd; cursor:pointer;  }
+.slideTxtBox .hd ul li:first-child{ border-left:none;}
+.slideTxtBox .hd ul li.on{ height:39px; line-height:39px;   background:#fff; position:relative; top:-5px;  }
+
+.slideTxtBox .bd ul{clear:both; zoom:1; margin-top:10px;  }
+.slideTxtBox .bd li{ display:block; _display:inline; width:240px; height:35px; line-height:35px; overflow:hidden; }
+.slideTxtBox .bd li i{ display:block; float:left; width:20px; height:20px; line-height:20px; position:relative; top:7px; margin-right:5px; font-style:normal; font-size:12px; text-align:center; color:#FFF; background-color:#aaa;-moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;  }
+.slideTxtBox .bd li i.t{ background-color:#f60; }
+.slideTxtBox .bd li a{ float:left; max-width:120px;  white-space:nowrap;  overflow:hidden;}
+.slideTxtBox .bd li span{ display:block; float:right; width:95px; height:35px; text-align:right; overflow:hidden;}
+
+/*热映影片*/
+.hotMovie{ padding:20px 10px; width:240px;  margin-top:20px; background-color:#FFF;  overflow:hidden; }
+.hotMovie .cont dl{ width:240px; height:140px; padding:16px 0;line-height:32px; border-top:1px solid #eeeeee; overflow:hidden; }
+.hotMovie .cont dl:first-child{ border-top:none;}
+.hotMovie .cont dt{ float:left; margin-right:12px;  }
+.hotMovie .cont dl .pic{ width:98px; height:138px; display:block; }
+.hotMovie .cont dd{ float:left; position:relative;  width:128px; height:140px; white-space:nowrap;  overflow:hidden;}
+.hotMovie .cont dl .t{ font-size:14px; font-weight:bold; }
+.hotMovie .cont dl p{  font-size:13px; color:#aaa; white-space:nowrap;  overflow:hidden;}
+.hotMovie .cont dl p em{ color:#333;}
+.hotMovie .cont dl .trailer{ display:block; width:88px;height:28px; line-height:28px; text-align:center;color:#666;  border:1px solid #ddd; -moz-border-radius:28px; -ms-border-radius:28px; -o-border-radius:28px; -webkit-border-radius:28px; border-radius:28px; position:absolute; bottom:0; }
+.hotMovie .cont dl .trailer i{display:block; line-height:0; font-size:0; border-width:5px; border-style: dashed dashed dashed solid;  border-color: transparent transparent transparent #bbb;   position:absolute;  bottom:9px; right:8px; z-index:4;}
+.hotMovie .cont dl .trailer:hover{   border:1px solid #f60; color:#f60; text-decoration:none; }
+.hotMovie .cont dl .trailer:hover i{  border-color: transparent transparent transparent #f60; }
+
+/*热映影片下面的广告*/
+.right_ad{ margin-top:20px; width:240px;}
+
+.asideAd{ width:270px; height:336px; margin-top:20px; overflow:hidden;}
+
+/*影评列表页************************************************/
+.reviListL{ padding:2px 10px 30px; width:680px; background-color:#FFF;}
+
+.hotTalk{  padding:20px 10px; width:240px; height:420px;  background-color:#FFF; }
+.hotTalk .cont{ padding-top:5px;}
+.hotTalk .cont li{ display:block; width:228px; padding-left:12px; height:32px; line-height:32px; margin:5px 0; background: url(../images/li.jpg) no-repeat left 10px; overflow:hidden; }
+
+.location{ padding:10px 0; font-size:13px;}
+.location a{ color:#aaa; margin:0 3px;}
+
+.reviListBox{ padding-top:5px; margin-top:20px; border-top:1px solid #eee;}
+.reviListBox .reviItem{ width:660px; height:150px; padding:20px 10px 20px 10px; border-bottom:1px solid #eee; font-size:13px; line-height:22px;}
+.reviListBox .reviItem dt{float:left; width:150px; height:100%; margin-right:20px; text-align:center; vertical-align:middle; overflow:hidden;}
+.reviListBox .reviItem dd{float:left; width:490px; height:100%; overflow:hidden;  }
+.reviListBox .reviItem .txt{ color:#444; margin-top:10px;}
+.reviListBox .reviItem .t{ color:#111; font-size:18px; margin-bottom:10px;}
+.loadNextPage{  margin-top:20px; width:660px; height:38px; line-height:38px; color:#555; text-align:center; background-color:#eeeeee; border-radius:15px; position:relative; _height:18px; _line-height:18px; _padding:10px 0; cursor:pointer; }
+.loadNextPage img{ margin-right:8px; position:relative; top:3px;}
+
+.page{ display:none; margin-top:30px; width:100%; height:30px; line-height:30px; text-align:center; color:#555;}
+.page a{ display:inline-block; height:28px; padding:0 10px; margin:0 2px; border:1px solid #ededed; color:#555; border-radius:5px; text-decoration:none;}
+.page a:hover{ border:1px solid #f60; color:#f60;}
+.page .prev, .page .next{ padding:0 15px;}
+.page .pageOn{ background-color:#f60; color:#FFF; border:1px solid #F60;}
+.page .pageOn:hover{ cursor:default; color:#FFF;}
+
+/**影评详情*****************************************************/
+.reviDetL .location{ padding:10px; background-color:#FFF;}
+.titleBox{ padding:0 10px; width:680px; font-size:13px;   background-color:#FFF;}
+.titleBox .cont{border-bottom:1px solid #eee;}
+.titleBox .cont .titB{ padding:20px 88px; position:relative;}
+.titleBox .cont .titB a{ color:#aaa; text-decoration:none;}
+.titleBox h1{ font-size:25px; color:#333; font-weight:normal; text-align:center;}
+.bshare-custom i{ font-size:13px;  color:#aaa; font-style:normal; margin-right:5px;}
+.newCont{ text-indent:2em; padding:10px 20px 25px; width:660px; font-size:16px; line-height:30px; color:#333; background-color:#FFF; overflow:hidden;}
+.newCont p{  margin-bottom:25px;}
+.newCont a{color:#3377AA;}
+.newCont img{max-width:660px; }
+.newContB { background-color:#FFF; padding:15px 20px;}
+.newContB .bshare-custom{float:right;}
+
+.nextAndPrev{ width:660px; padding:5px 20px 40px; height:52px; line-height:52px; background-color:#FFF; }
+.nextAndPrev span{display:block; width:330px; height:52px; line-height:52px; font-size:14px; white-space:nowrap;text-overflow:ellipsis; -o-text-overflow:ellipsis;
+    -ms-text-overflow:ellipsis; -webkit-text-overflow:ellipsis; -o-text-overflow:ellipsis; -moz-binding:url('ellipsis.xml#ellipsis');  overflow:hidden; }
+.nextAndPrev span.fl{ float:left;}
+.nextAndPrev span.fr{ float:right;}
+.nextAndPrev a{ font-size:14px;  }
+.nextAndPrev a:hover{ color:#f60;}
+
+
+/*用户评论*/
+.user_sayBox{ padding:20px; width:660px; background-color:#FFF; margin-top:20px;}
+.user_sayBox .title{ border-bottom:none;}
+.user_sayBox .title span{ margin-left:20px; font-size:13px; color:#333;}
+.user_sayBox .title span a{color:#f60; margin:0 4px;}
+
+.commsList{width:660px; background-color:#FFF; border-top:1px solid #eee;}
+.comms_box{ height:auto; padding:25px 4px 20px 8px; color:#666;  border-bottom:1px solid #eee;}
+.comms_box dt{float:left;  width:40px; padding-top:6px; margin-right:10px;}
+.comms_box dd{float:left; width:598px;  line-height:28px;}
+.comms_box .dis_detail,.comms_box .dis_reply{ display:block;}
+.comms_box .dis_reply{ text-align:right;}
+.comms_box .comms_user{ float:left;}
+.comms_box .user{ color:#f60;}
+.comms_box .comms_detail{ word-wrap: break-word}
+.comms_box .comms_detail img{ vertical-align:middle; }
+.comms_box time{ color:#aaa; margin-right:10px;}
+.comms_box i{ color:#f60; margin:0 3px; font-style:normal;}
+.dis_reply .reply{color:#f60;}
+.comms_reply{ padding:0; margin-top:10px; border-bottom:none;}
+.comms_reply dd{ width:548px; }
+
+.more_comms_reply{ display:block; margin:5px auto 0 auto; color:#aaa; font-size:12px; text-align:center; background-color:#F3F3F3; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; cursor:pointer;}
+.more_comms{ margin:20px auto 0 auto; padding:5px 0; color:#999; font-size:14px; text-align:center; background-color:#F3F3F3;  border:1px solid #dedede; -moz-border-radius:2px; -ms-border-radius:2px; -o-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; cursor:pointer;}
+.more_comms:hover{ color:#f60; font-size:14px; border:1px solid #f60; cursor:pointer;}
+ 
+.more_comms_reply img,
+.more_comms img{ margin:0 5px; vertical-align:middle;}
+
+
+/*评论输入框*/
+.user_say{ margin-top:20px; margin-bottom:40px; position:relative;}
+.movie_comment_btn{ display:block; width:78px; height:26px; line-height:26px; text-align:center; color:#666; border:1px solid #ddd; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.movie_comment_btn:hover{ text-decoration:none; color:#f60; border:1px solid #f60;}
+
+
+/*回复评论输入框*/
+.replay-content { display:none; clear: both; background: #f5f5f5;padding: 15px 10px 10px 15px; margin-top:20px; -moz-border-radius:10px; -ms-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; position:relative; }
+.replay-content .triangle{ display:block; line-height:0; font-size:0; border-width:20px 40px 1px 5px; border-style: dashed solid dashed dashed ;  border-color: transparent #f5f5f5 transparent transparent;   position:absolute;  top:-20px; right:15px; z-index:4;}
+
+
+.replay-content textarea {width: 98%; max-width:98%; padding:1%; border: 1px solid #e5e5e5;height: 70px;color: #3f3f3f;}
+
+/*qq表情*/
+.replay-content .div_comment_qq_inner{ float:left; display:block; width:17px; height:18px; border:1px solid #f5f5f5; background-position:-141px -5px; margin:4px 0 0 5px; font-size:0; text-indent:-9999em;}
+.replay-content .div_comment_qq_inner:hover{ border:1px solid #ddd;}
+.replay-content .qqFace{ padding:8px; border:1px solid #ddd; background-color:#FFF; margin:10px 0 0 5px;}
+.replay-content .qqFace table td{padding:2px;}
+.replay-content .qqFace table td img{cursor:pointer;border:1px #fff solid;}
+.replay-content .qqFace table td img:hover{border:1px #0066cc solid;}
+
+.replay-content .btn{ padding-top:5px;}
+.replay-content .btn .replay-btn ,
+.replay-content .btn button{ float:right; margin-left:10px; display:block; width:80px; height:28px; text-align:center; border:1px solid #ddd; color:#666; background-color:#FFF; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; cursor:pointer;}
+.replay-content .btn .replay-btn:hover ,
+.replay-content .btn button:hover{ border:1px solid #f60; color:#f60;}
+
+.dis_box_hd p{font-size:14px;}
+.dis_box_hd .dis_detail{min-height:0px;font-size:12px;}
+.sonComment .reCommentBox dl{clear:both;border-bottom: 1px dashed #CCC;}
+.sonComment .reCommentBox dl dd{margin-top:5px;}
+.sonComment .reCommentBox dl dt{width:30px;margin-top:5px;}
+.dis_detail img{max-width:600px;}

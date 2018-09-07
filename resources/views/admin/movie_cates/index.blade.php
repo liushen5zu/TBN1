@@ -49,7 +49,7 @@
                     </tr>
                 </thead>
 
-                @foreach($movie_cates as $v)
+                @foreach($cate as $v)
                 
                 <tbody>
                     <tr>

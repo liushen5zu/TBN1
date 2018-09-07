@@ -60,3 +60,9 @@ Route::group([],function(){
 
 //前台
 Route::get('/home/activity/list','HomeActivityController@list');
+//影评(主页)
+Route::get('/home/review','home\HomeReviewController@index');
+//影评(影评列表)
+Route::get('/home/review/table','home\HomeReviewController@table');
+//影评详情
+Route::get('/home/review/{id}.html','home\HomeReviewController@show');
