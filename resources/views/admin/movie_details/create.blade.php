@@ -38,15 +38,6 @@
 
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
-                        <span class="x-red">*</span>地区
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_repass" name="countries"  lay-verify="repass"
-                        autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>片长
                     </label>
                     <div class="layui-input-inline">
@@ -54,6 +45,19 @@
                         autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        <span class="x-red">*</span>电影标签
+                    </label>
+                    <div class="layui-input-inline" >
+                        @foreach($tag as $v)
+                        <input  type="checkbox" id="L_repass" name="movie_tag_id[]" value="{{$v->id}}"  lay-verify="repass"
+                         class="layui-input">{{$v->name}}
+                        @endforeach
+                    </div>
+                </div>
+
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>电影分类

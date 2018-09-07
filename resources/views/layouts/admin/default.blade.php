@@ -105,7 +105,7 @@
                             <li>
                                 <a href="/movie_cates">
                                 <i class="iconfont">&#xe6a7;</i>
-                                电影分类
+                                电影地区
                             </a>
                             <li>
                                 <a href="/movie_details_tags">
