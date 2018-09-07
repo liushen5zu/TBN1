@@ -58,5 +58,15 @@ Route::group([],function(){
 });
 
 
-//前台
+//前台登录
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+
+//前台活动
 Route::get('/home/activity/list','HomeActivityController@list');
+Route::get('/home/activity/{id}.html','HomeActivityController@show');
+//活动评论
+Route::post('/home/activite/comment','ActivityCommentController@list');

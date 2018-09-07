@@ -26,21 +26,21 @@
      <div id="active_itemBox" class="active_itemBox"> 
       <script type="text/javascript" charset="utf-8" src="/ueditor/js/buttonlite.js"></script>
       <script type="text/javascript" charset="utf-8" src="/ueditor/js/bsharec0.js"></script>
-
-
+	
+	
     <!-- 列表 -->
     @foreach($activity as $v)
       <dl class="active_item_list clearfix"> 
        <dt> 
-        <a href="/activity/378.html" target="_blank" title="大众影评网请你看《绿野仙踪之奥兹国奇幻之旅》"><img class="lazyImg" src="/ueditor/picture/b.gif" data-src="http://image.51oscar.com/Uploads/activity/596edbed0d180.png" width="300" height="150" alt="大众影评网请你看《绿野仙踪之奥兹国奇幻之旅》" /></a> 
+        <a href="/activity/378.html" target="_blank" title="{{$v->title}}"><img class="lazyImg" src="{{$v->image}}"  width="300" height="150" alt="{{$v->title}}" /></a> 
        </dt> 
        <dd> 
-        <h3 class="a_underline"><a href="/activity/378.html" title="大众影评网请你看《绿野仙踪之奥兹国奇幻之旅》" target="_blank">[观影团]大众影评网请你看《绿野仙踪之奥兹国奇...</a></h3> 
-        <p>开始时间：<span>2017-07-19 12:13</span></p> 
-        <p>结束时间：<span>2017-07-20 12:13</span></p> 
-        <p>报名截止：<span>1970-01-01 08:00</span></p> 
-        <p>活动地点：<span></span></p> 
-        <p><span><em>171</em>人报名<i>|</i><em>5008</em>人关注</span></p> 
+        <h3 class="a_underline"><a href="/home/activity/{{$v->id}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}...</a></h3> 
+        <p>开始时间：<span>{{$v->created_at}}</span></p> 
+        <p>结束时间：<span>{{$v->updated_at}}</span></p> 
+        <p>报名截止：<span>{{$v->rtime}}</span></p> 
+        <p>活动地点：<span>{{$v->activity_site}}</span></p> 
+        <p><span><em>{{$v->registration_num}}</em>人报名<i>|</i><em>{{$v->attention_num}}</em>人关注</span></p> 
         <div class="bshare-custom"> 
          <div class="bsPromo bsPromo2"></div> 
          <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
@@ -53,7 +53,7 @@
         <script charset="utf-8" type="text/javascript">
                                     bShare.addEntry({
                                             url:$("#txt_header_url").val()+"/activity/378.html",
-                                            title:"[观影团]大众影评网请你看《绿野仙踪之奥兹国奇幻之旅》",
+                                            title:"{{$v->title}}",
                                             summary:"",
                                             pic:"http://image.51oscar.com/Uploads/activity/596edbed0d180.png"
                                     });
@@ -62,10 +62,42 @@
       </dl>
 	<!-- 列表 -->
 	@endforeach
-
+  <style>
+   
+ 
+    .pagination li{
+        width:50px;
+        height:50px;
+        background:orange;
+        float:left;
+        margin-left:5px;
+        font-size:20px;
+        color:#fff;
+        text-align:center;
+        line-height:50px;
+        opacity:0.7;
+    }
+    .pagination li a{
+      width:40px;
+      height:40px;
+      background:#fff;
+    }
+    /*.pagination .disabled{
+      width:40px;
+      height:40px;
+      background:orange;
+      font-size:15px;
+      margin-left:6px;
+      text-align:center;
+      line-height:40px;
+    }*/
+    
+  </style>
+  
      </div>
+     {{$activity->appends(request()->all())->links()}}
      <!--active_itemBox e--> 
-     <div class="pagination" style="">
+    <!--  <div class="pagination" style="">
        &nbsp;
       <span class="current">1</span>&nbsp;
       <a href="/activity/index/p/2.html">&nbsp;2&nbsp;</a>&nbsp;
@@ -74,7 +106,7 @@
       <a href="/activity/index/p/5.html">&nbsp;5&nbsp;</a> 
       <a href="/activity/index/p/2.html">下一页</a> 
       <span style="color:black;">第 1/34 页</span> 
-     </div> 
+     </div>  -->
      <!--<section class="loadNextPage">
             <img src="/ueditor/picture/loading_1.gif" alt="loading" />加载中……
         </section>--> 
