@@ -84,6 +84,13 @@ class TiezeCommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $comments=Tcomment::find($id);
+        if($comments->delete())
+        {
+            return redirect('/tiezicomment')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败');
+        }
+
     }
 }

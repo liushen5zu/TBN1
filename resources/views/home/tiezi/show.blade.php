@@ -248,10 +248,10 @@ $(document).ready(function(){
         
         <!--发布新楼层 s-->
         <div class="user_sayBox clearfix">
-            <form action="/comment" method="post"enctype="multipart/form-data">
-                <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+            <form action="" method="post"enctype="multipart/form-data">
+                <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
                  <button href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')" style="display: block; width: 100px;height: 50px;line-height: 30px;text-align: center;font-size: 26px;color: #FFF;background-color: #f60; border-radius: 5px;position: relative;bottom: 8px;">回复</button>
                   {{csrf_field()}}

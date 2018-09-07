@@ -58,7 +58,7 @@ Route::group([],function(){
 	//帖子管理
 	Route::resource('tiezi','tieziController');
 	//评论管理	
-	Route::resource('tizecomment','TiezeCommentController');
+	Route::resource('tiezicomment','TiezeCommentController');
 });
 
 
@@ -84,3 +84,7 @@ Route::get('/home/review','home\HomeReviewController@index');
 Route::get('/home/review/table','home\HomeReviewController@table');
 //影评详情
 Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+//修改帖子状态
+Route::get('/tiezi/{id}/up','tieziController@up');//置顶
+Route::get('/tiezi/{id}/down','tieziController@down');//精选
+Route::get('/tiezi/{id}/pt','tieziController@pt');//精选

@@ -69,17 +69,14 @@
                             {{$v['tiezi_id']}}
                         </th>
                         <th>
-                            {{$v['content']}}
+                            {!!$v['content']!!}
                         </th>                        
                         <td class="td-manage">                    
                             <form method="get" action="/comment/{{$v['id']}}/edit" style="float:left">  {{csrf_field()}}   
-                            <button title="编辑"  class="ml-5" style="text-decoration:none;color:#000">
-                                <i class="layui-icon">置顶</i>
-                            </button>
                             &nbsp;&nbsp;
                             </form>
 
-                            <form method="post" action="/comment/{{$v->id}}" style="float:left">
+                            <form method="post" action="/tiezicomment/{{$v->id}}" style="float:left">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
                             <button title="删除" href="javascript:;" onclick="member_del(this,'1')" style="text-decoration:none">
