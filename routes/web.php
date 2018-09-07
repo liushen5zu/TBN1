@@ -60,14 +60,14 @@ Route::group([],function(){
 	//评论管理	
 	Route::resource('/comment','CommentController');
 });
-
-
-
+//电影列表
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+//电影详情
+Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 //帖子列表
 Route::get('/home/tiezis', 'tieziController@list');
 //帖子详情页
-Route::get('/home/{id}.html', 'TieziController@show');
+Route::get('/home/tiezi/{id}.html', 'TieziController@show');
 //前台登录
 Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
