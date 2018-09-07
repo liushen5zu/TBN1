@@ -245,7 +245,7 @@ $(document).ready(function(){
                         <dd class="M fL">
                         <div class="T clearfix">
                              <div class="fL">
-                                <a href="/{{$v['id']}}.html" title="篮球" target="_blank">{{$v->title}}</a>
+                                <a href="/home/{{$v['id']}}.html" title="篮球" target="_blank">{{$v->title}}</a>
                                
                             </div>
                                   <div class="fR">
@@ -268,9 +268,9 @@ $(document).ready(function(){
                     
             <form action="/tiezi" method="post"enctype="multipart/form-data">
                 <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title"></div>
-                <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+                <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
                  <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost" class="wantPost icon" href="javascript:;" onclick="jumpTo('.user_sayBox')" value="我要发帖"></button>
                  {{method_field('')}}
