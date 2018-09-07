@@ -96,7 +96,7 @@
                             {{$v['ChinaName']}}
                         </th>
                         <th>
-                            {{$v['director_intro']}}
+                            {{str_limit($v['director_intro'],5,'...')}}
                         </th>
                         <td class="td-manage">                    
                             <form method="get" action="/movie_directors/{{$v['id']}}/edit" style="float:left">  

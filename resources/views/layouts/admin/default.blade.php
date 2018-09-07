@@ -164,16 +164,26 @@
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
-                        管理员管理
+                        活动管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                         <ul class="sub-menu" style="display:none">
                             <li>
-                                <a href="./banner-list.html">
+                                <a href="/activity">
                                 <i class="iconfont">&#xe6a7;</i>
-                                轮播列表
+                                活动列表
                             </a>
                             </li>
+
+                        </ul>
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="/activity">
+                                <i class="iconfont">&#xe6a7;</i>
+                                评论列表
+                            </a>
+                            </li>
+                            
                         </ul>
                     </li>
                     <li class="list">

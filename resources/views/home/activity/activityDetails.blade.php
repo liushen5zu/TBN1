@@ -131,13 +131,13 @@
         <dl class="comms_box clearfix">
 		   	<dt>
 				<a href="/someone/427794.html" title="鲁鲁" target="_blank">
-				<img class="lazyImg" src="{{$v->user->image}}"  width="40" height="40" alt="鲁鲁">
+				<img class="lazyImg" src=""  width="40" height="40" alt="鲁鲁">
 				</a>
 			</dt>
 			<dd>
         
 				<span class="dis_detail clearfix">
-					<span class="comms_user"><a class="user" href="/someone/427794.html" title="鲁鲁" target="_blank"></a><i>{{$v->user->username}}:</i></span>
+					<span class="comms_user"><a class="user" href="/someone/427794.html" title="鲁鲁" target="_blank"></a><i>dd:</i></span>
 					<span class="comms_detail">{!!$v['content']!!}</span>
 				</span>
 				<span class="dis_reply clearfix">

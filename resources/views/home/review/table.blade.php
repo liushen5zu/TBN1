@@ -34,23 +34,7 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <header class="site_nav">
-	<section class="wp clearfix">
-    	<div class="fL">
-        	<span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/comment/picture/wx.jpg" alt="大众影评网微信公众号" /></span>
-        </div>
-        <div class="fR">
-          <ul id="welcome" class="clearfix out">   			
-	<li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
-        <li>|</li>
-        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
-        <li>|</li>
-		<li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
-        <li>|</li>
-            	<li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
-          	
-    </ul>
-        </div>
-    </section>
+	@include('layouts.home.header')
 </header>
 <section class="logoAndSreach">
 	<div class="wp clearfix">

@@ -33,24 +33,7 @@ var _hmt = _hmt || [];
 </script>
 </head>
 <body>
-<header class="site_nav">
-	<section class="wp clearfix">
-    	<div class="fL">
-        	<span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="picture/wx.jpg" alt="大众影评网微信公众号" /></span>
-        </div>
-        <div class="fR">
-          <ul id="welcome" class="clearfix out">   			
-	<li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
-        <li>|</li>
-        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
-        <li>|</li>
-		<li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
-        <li>|</li>
-            	<li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
-          	
-    </ul>
-        </div>
-    </section>
+@include('layouts.home.header')
 </header>
 <section class="logoAndSreach">
 	<div class="wp clearfix">
@@ -79,16 +62,7 @@ var _hmt = _hmt || [];
 </section>
 <section class="nav">
 	<nav class="wp clearfix">
-    	<a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
-        <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
-        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
-        <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
-        <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
-        <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
-
-        <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a>
-        <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a>
-        <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a>
+    	@include('layouts.home.list')
 
     </nav>
 </section>
