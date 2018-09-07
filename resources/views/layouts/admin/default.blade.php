@@ -154,7 +154,7 @@
                         </ul>
                         <ul class="sub-menu" style="display:none">
                             <li>
-                                <a href="/tizecomment">
+                                <a href="/tiezicomment">
                                 <i class="iconfont">&#xe6a7;</i>
                                 评论列表
                             </a>

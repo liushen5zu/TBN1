@@ -58,7 +58,7 @@ Route::group([],function(){
 	//帖子管理
 	Route::resource('tiezi','tieziController');
 	//评论管理	
-	Route::resource('tizecomment','TiezeCommentController');
+	Route::resource('tiezicomment','TiezeCommentController');
 });
 
 

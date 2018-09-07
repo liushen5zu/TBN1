@@ -33,7 +33,23 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <header class="site_nav">
-    @include('layouts.home.header')
+    <section class="wp clearfix">
+        <div class="fL">
+            <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="picture/wx_1.jpg" alt="大众影评网微信公众号" /></span>
+        </div>
+        <div class="fR">
+          <ul id="welcome" class="clearfix out">            
+    <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
+        <li>|</li>
+        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
+        <li>|</li>
+        <li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
+        <li>|</li>
+                <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
+            
+    </ul>
+        </div>
+    </section>
 </header>
 <section class="logoAndSreach">
     <div class="wp clearfix">
@@ -62,7 +78,16 @@ var _hmt = _hmt || [];
 </section>
 <section class="nav">
     <nav class="wp clearfix">
-        @include('layouts.home.list')
+        <a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
+        <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
+        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
+        <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
+        <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
+        <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
+
+        <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a>
+        <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a>
+        <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a>
 
     </nav>
 </section>
@@ -163,65 +188,15 @@ $(document).ready(function(){
                 <button id="wantPost" class="wantPost icon" href="javascript:;" onClick="jumpTo('.user_sayBox')"  value="我要发帖">我要发帖</button>
             </div>
             <div id="listBox" class="listBox">
-            <!-- 置顶-->
-            <dl class="forumItem_top forumItem clearfix">
-                    <dt class="L fL">
-                        <em class="red">置顶</em>
-                    </dt>
-                    <dd class="M fL">
-                        <div class="T clearfix">
-                            <div class="fL">
-                                <a href="/forum/2932.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">【需求贴】如有资源需求，请在本贴下留言</a>
-                                <p>楼主资源控~ 所以不管是新片、老片、奇葩片、重口味片，包括一些日...</p>
-                            </div>
-                            <div class="fR">
-                                <p><i class="man icon"></i><span>资源小强</span></p>
-                                <p><i class="info icon"></i><span>子帝</span></p>
-                            </div>
-                        </div>
-                        <div class="B">
-                            <ul id="bigPic_top0" class="clearfix">
-                             <li><a href="/Uploads/image/20150710/water_15092640100.jpg"><img class="lazyImg" src="picture/b.gif" data-src="/Uploads/image/20150710/s_15092640100.jpg" /></a></li>  
-                           </ul> 
-                        </div>
-                    </dd>
-                    <dd class="R fR"></dd>
-                </dl><!----><dl class="forumItem_top forumItem clearfix">
-                    <dt class="L fL">
-                        <em class="red">置顶</em>
-                    </dt>
-                    <dd class="M fL">
-                        <div class="T clearfix">
-                            <div class="fL">
-                                <a href="/forum/8.html" title="电影贴吧必读！！！" target="_blank">电影贴吧必读！！！</a>
-                                <p></p>
-                            </div>
-                            <div class="fR">
-                                <p><i class="man icon"></i><span>撒旦的女王</span></p>
-                                <p><i class="info icon"></i><span>咖喱菠萝派</span></p>
-                            </div>
-                        </div>
-                        <div class="B">
-                            <ul id="bigPic_top1" class="clearfix">
-                             
-                           </ul> 
-                        </div>
-                    </dd>
-                    <dd class="R fR">07-14</dd>
-                </dl><!---->    
-           <!-- 置顶end-->  
-           
-            <!--未审核--> 
             @foreach($tiezis as $v)
                 <dl class="forumItem_good forumItem clearfix">
                         <dt class="L fL">
-                        <em class="dot icon"></em> 
+                        <em class="red">置顶</em>
                          </dt>
                         <dd class="M fL">
                         <div class="T clearfix">
                              <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank">{{$v->title}}</a>
-                               
+                                <a href="/home/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b>{{$v->title}}</b></a>   
                             </div>
                                   <div class="fR">
                                     <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
@@ -230,15 +205,28 @@ $(document).ready(function(){
                         </dd>
                 </dl><!---->   
                 @endforeach
-            </div>
-            <!--listBox e-->
-<!--             <div class="pagination">
-                   &nbsp;<span class='current'>1</span>&nbsp;<a href='/forum/index/p/2.html'>&nbsp;2&nbsp;</a>&nbsp;<a href='/forum/index/p/3.html'>&nbsp;3&nbsp;</a>&nbsp;<a href='/forum/index/p/4.html'>&nbsp;4&nbsp;</a>&nbsp;<a href='/forum/index/p/5.html'>&nbsp;5&nbsp;</a>   <a href='/forum/index/p/2.html'>下一页</a>   <span style="color:black;">第  1/730 页</span>            
-            </div> -->
-               
-        </section><!--forumList e-->
-        <!--发表新帖 s-->
-                 
+             @foreach($tiezis1 as $v)
+                <dl class="forumItem_good forumItem clearfix">
+                        <dt class="L fL">
+                        @if($v['status']==2)
+                            <em class="green">精华</em>
+                        @else
+                        @endif
+                         </dt>
+                        <dd class="M fL">
+                        <div class="T clearfix">
+                             <div class="fL">
+                                <a href="/home/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b>{{$v->title}}</b></a>   
+                            </div>
+                                  <div class="fR">
+                                    <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
+                                </div>
+                            </div>
+                        </dd>
+                </dl> 
+                @endforeach
+            </div>    
+        </section>
             <section class="user_sayBox clearfix">
                     
             <form action="/tiezi" method="post"enctype="multipart/form-data">
@@ -255,7 +243,6 @@ $(document).ready(function(){
                     </script>
             </form>
              </section>
-
         <!--发表新帖 e-->
         
     </section><!--leftWp e-->

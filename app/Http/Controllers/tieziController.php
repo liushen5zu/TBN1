@@ -109,9 +109,9 @@ class tieziController extends Controller
     }
      public function list(Request $request)
     {
-        $tiezis= Tiezi::all();
-
-       
+         $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','1')->get();
+         $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->get();
+        
 
     /*    //判断标签id是否传递
         if(!empty($request->tag_id)){
@@ -123,10 +123,44 @@ class tieziController extends Controller
             $articles = Article::orderBy('id','desc')->paginate(10);*/
         
 
-        return view('home.tiezi.list', compact('tiezis'));
+        return view('home.tiezi.list', compact('tiezis','tiezis1'));
     }
 
 
-
-
+    public function up($id,$status=1)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=0;//代表置顶
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
+    public function down($id,$status=2)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=1;//代表精华
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
+    public function pt($id,$status=0)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=2;//代表普通
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
 }

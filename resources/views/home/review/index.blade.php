@@ -168,7 +168,7 @@ $(document).ready(function(){
         </section>
     	
         <!--焦点幻灯片 e-->
-        @foreach($Movie_comments as $v)
+        
         <!--特约影评人 s-->
         <section class="inviReview">
             <div class="title">
@@ -196,6 +196,7 @@ $(document).ready(function(){
                 <a href="/home/review/table" title="新片影评" target="_self" >新片影评<em>>></em></a><a class="c_f60" onclick="return Common.isLogin()" href="/home/login">我要写影评</a>
             </div>
             <div id="reviBox" class="cont clearfix">
+            @foreach($Movie_comments as $v)
             <dl class="reviItem clearfix">
                     <dt class="L fL">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg imgBorder" src="{{$v->user->image}}" data-src="{{$v->user->image}}" alt="没有杀伤力的板砖"></a>
@@ -209,7 +210,8 @@ $(document).ready(function(){
                     <dd class="R fR">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail->image}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
-                </dl>                
+                </dl>
+                @endforeach                
                 <a href="/review/table.html" style="text-decoration:none">
                 <div  id="moreRevi"  class="loadMore">
                                 更多...
@@ -219,7 +221,7 @@ $(document).ready(function(){
         <div class="pagination">
                 </div>
         </section>
-        @endforeach
+        
         <!--新片影评 e-->
 
         <!--特约影评人 s-->
