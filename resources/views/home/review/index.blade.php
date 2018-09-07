@@ -81,7 +81,7 @@ var _hmt = _hmt || [];
 	<nav class="wp clearfix">
     	<a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
         <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
-        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
+        <a class="hotNavItem" href="/home/review/table" target="_self" id="review">影评</a>
         <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
         <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
         <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
@@ -193,7 +193,7 @@ $(document).ready(function(){
         </section>
     	
         <!--焦点幻灯片 e-->
-        @foreach($Movie_comments as $v)
+        
         <!--特约影评人 s-->
         <section class="inviReview">
             <div class="title">
@@ -221,6 +221,7 @@ $(document).ready(function(){
                 <a href="/home/review/table" title="新片影评" target="_self" >新片影评<em>>></em></a><a class="c_f60" onclick="return Common.isLogin()" href="/home/login">我要写影评</a>
             </div>
             <div id="reviBox" class="cont clearfix">
+            @foreach($Movie_comments as $v)
             <dl class="reviItem clearfix">
                     <dt class="L fL">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg imgBorder" src="{{$v->user->image}}" data-src="{{$v->user->image}}" alt="没有杀伤力的板砖"></a>
@@ -234,7 +235,8 @@ $(document).ready(function(){
                     <dd class="R fR">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail->image}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
-                </dl>                
+                </dl>
+                @endforeach                
                 <a href="/review/table.html" style="text-decoration:none">
                 <div  id="moreRevi"  class="loadMore">
                                 更多...
@@ -244,7 +246,7 @@ $(document).ready(function(){
         <div class="pagination">
                 </div>
         </section>
-        @endforeach
+        
         <!--新片影评 e-->
 
         <!--特约影评人 s-->

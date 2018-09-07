@@ -405,11 +405,11 @@ $(document).ready(function(){
     window.UEDITOR_HOME_URL = "/Public/ueditor/";  //UEDITOR_HOME_URL、config、all这三个顺序不能改变
 </script>
 
-<script type="text/javascript" src="js/ueditor.config_son.js"></script>
-<script type="text/javascript" src="js/ueditor.all.min.js"></script>
-<script type="text/javascript" src="js/comment.js"></script>
-<script type="text/javascript" src="js/jquery.qqface.js"></script>
-<script  src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/comment/js/ueditor.config_son.js"></script>
+<script type="text/javascript" src="/comment/js/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/comment/js/comment.js"></script>
+<script type="text/javascript" src="/comment/js/jquery.qqface.js"></script>
+<script  src="/comment/js/jquery.pagination.js"></script>
 
 <script type="text/javascript">
 $(function(){	
@@ -455,7 +455,7 @@ $(".trailer").click(function(){
 	//scrollFixed(".hotMovie","#footer",40);
 
 </script>
-<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="js/bsharec0.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="/comment/js/bsharec0.js"></script>
 
 <!-- 隐藏信息  --> 
 <input type='hidden' id='txt_header_url' value="http://www.51oscar.com" />
