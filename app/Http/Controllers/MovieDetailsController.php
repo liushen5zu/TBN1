@@ -5,6 +5,7 @@ use App\Director_name;
 use App\Movie_actor;
 use App\Movie_cate;
 use App\Movie_detail;
+use App\Movie_tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\dd;
 
@@ -36,7 +37,8 @@ class MovieDetailsController extends Controller
     {
         $actor = Movie_actor::all();
         $cate = Movie_cate::all();
-        return view('admin.movie_details.create',compact('cate','actor'));
+        $tag = Movie_tag::all();
+        return view('admin.movie_details.create',compact('cate','actor','tag'));
     }
 
     /**
@@ -46,12 +48,11 @@ class MovieDetailsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
+    {
         //dd($request->all());
         $movie_details=new Movie_detail;
         $movie_details -> name = $request->name;
         $movie_details -> director_name_id = $request->director_name_id;
-        $movie_details -> countries = $request->countries;
         $movie_details -> runningtime = $request->runningtime;
         $movie_details -> recom = $request->recom;
         $movie_details -> intro = $request->intro;
@@ -66,13 +67,16 @@ class MovieDetailsController extends Controller
        if($movie_details -> save()){
             try{
                 $movie_details->movie_actor()->sync($request->movie_actor_id);
+                $movie_details->movie_tags()->sync($request->movie_tag_id);
         return redirect('/movie_details')->with('success','添加成功');
             }catch(\Exception $e){
                 return back()->with('error','添加失败!'); 
             }
         }else{
             return back()->with('error','添加失败');
-        }   
+        }
+
+
 
     }
 
@@ -97,10 +101,11 @@ class MovieDetailsController extends Controller
     {
         $cate = Movie_cate::all();
         $actor = Movie_actor::all();
+        $tag = Movie_tag::all();
         $movie_details= Movie_detail::find($id);
 
 
-        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor]);
+        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor,'tag'=>$tag]);
     }
 
     /**
@@ -112,11 +117,10 @@ class MovieDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $movie_details= Movie_detail::find($id);
         $movie_details -> name = $request->name;
-        $movie_details -> director_name_id = $request->director_name_id;
-        $movie_details -> countries = $request->countries;
-        
+        $movie_details -> director_name_id = $request->director_name_id; 
         $movie_details -> runningtime = $request->runningtime;
         $movie_details -> recom = $request->recom;
         $movie_details -> intro = $request->intro;
@@ -130,6 +134,7 @@ class MovieDetailsController extends Controller
         if($movie_details -> save()){
             try{
                 $movie_details->movie_actor()->sync($request->movie_actor_id);
+                $movie_details->movie_tags()->sync($request->movie_tag_id);
         return redirect('/movie_details')->with('success','修改成功');
             }catch(\Exception $e){
                 return back()->with('error','修改失败!'); 

@@ -55,19 +55,23 @@ Route::group([],function(){
 	Route::resource('link','LinkController');
 
 	Route::resource('activity','ActivityController');
+	//帖子管理
+	Route::resource('tiezi','tieziController');
+	//评论管理	
+	Route::resource('/comment','CommentController');
 });
 
 
 
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
-
+//帖子列表
+Route::get('/home/tiezis', 'tieziController@list');
+//帖子详情页
+Route::get('/home/{id}.html', 'TieziController@show');
 //前台登录
 Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
 Route::get('/home/outlogin','HomeLoginController@outlogin');
-
-
-
 //前台活动
 Route::get('/home/activity/list','HomeActivityController@list');
 

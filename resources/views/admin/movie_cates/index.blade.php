@@ -1,10 +1,10 @@
 @extends('layouts.admin.default')
 @section('title')
-分类列表
+地区列表
 @endsection
 @section('content')
 <div class="content">
-    <h1 style="font-size:26px">分类列表</h1>
+    <h1 style="font-size:26px">地区列表</h1>
         <hr>
         <br>
         <form class="layui-form xbs" action="" >
