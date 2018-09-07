@@ -5,6 +5,7 @@ namespace App;
 use App\Director_name;
 use App\Image_movie_detail;
 use App\Movie_actor;
+use App\movie_cate;
 use Illuminate\Database\Eloquent\Model;
 
 class Movie_detail extends Model
@@ -35,5 +36,6 @@ class Movie_detail extends Model
     {
         return $this->hasMany('App\Image_movie_detail');
     }
-     
+    
+    
 }

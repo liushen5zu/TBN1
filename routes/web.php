@@ -22,7 +22,7 @@ Route::get('/relogin','LoginController@relogin');
 
 Route::group([],function(){
 	
-	Route::get('admin','AdminController@index');
+	Route::get('/admin','AdminController@index');
 
 	//用户管理
 	Route::resource('user','UserController');
@@ -53,9 +53,30 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
+
+	Route::resource('activity','ActivityController');
 });
 
-//前台
-Route::get('/home/movieDetails','HomeMovieDetailsController@index');
+
 
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+
+//前台登录
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+
+//前台活动
+Route::get('/home/activity/list','HomeActivityController@list');
+
+Route::get('/home/activity/{id}.html','HomeActivityController@show');
+//活动评论
+Route::post('/home/activite/comment','ActivityCommentController@list');
+//影评(主页)
+Route::get('/home/review','home\HomeReviewController@index');
+//影评(影评列表)
+Route::get('/home/review/table','home\HomeReviewController@table');
+//影评详情
+Route::get('/home/review/{id}.html','home\HomeReviewController@show');

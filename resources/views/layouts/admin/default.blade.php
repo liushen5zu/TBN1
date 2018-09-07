@@ -141,14 +141,22 @@
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
-                        轮播管理
+                        帖子管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                         <ul class="sub-menu" style="display:none">
                             <li>
-                                <a href="./banner-list.html">
+                                <a href="/tiezi">
                                 <i class="iconfont">&#xe6a7;</i>
-                                轮播列表
+                                帖子列表
+                            </a>
+                            </li>
+                        </ul>
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="/comment">
+                                <i class="iconfont">&#xe6a7;</i>
+                                评论列表
                             </a>
                             </li>
                         </ul>
