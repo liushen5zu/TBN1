@@ -22,10 +22,10 @@
                     </label>
                     <div class="layui-input-inline">
 
-                        <select type="text" id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
-                        autocomplete="off" class="layui-input">
+                        <select type="text" id="L_pass" name="movie_detail_id"  lay-verify="pass"
+                        class="layui-input">
                             @foreach($details as $v)
-                            <<option value="{{$v->id}}">{{$v->name}}</option>
+                            <option value="{{$v->id}}">{{$v->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -39,6 +39,7 @@
                         <input type="file" id="L_repass" name="image">
                     </div>
                 </div>
+                {{csrf_field()}}
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                     </label>
@@ -46,7 +47,5 @@
                         增加
                     </button>
                 </div>
-
-                {{csrf_field()}}
             </form>
 @endsection

@@ -53,9 +53,10 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
+
+	//影集管理
+	Route::resource('album','AlbumController');
+
+	//影片添加管理
+	Route::resource('alcont','AlcontController');
 });
-
-//前台
-Route::get('/home/movieDetails','HomeMovieDetailsController@index');
-
-Route::get('/home/{id}.html','HomeMovieDetailsController@show');

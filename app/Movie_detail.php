@@ -31,4 +31,8 @@ class Movie_detail extends Model
         return $this->hasMany('App\Image_movie_detail');
     }
      
+    public function alcont()
+    {
+        return $this->hasMany('App\alCont');
+    }
 }

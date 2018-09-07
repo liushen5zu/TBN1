@@ -58,14 +58,7 @@
                         <input type="text" id="L_tag" name="ChinaName" required="" lay-verify="tag" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label for="L_tag" class="layui-form-label">
-                        <span class="x-red"></span>英文名
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_tag" name="EnglishName" required="" lay-verify="tag" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
+
                 <div class="layui-form-item">
                     <label for="L_tag" class="layui-form-label">
                         <span class="x-red"></span>家庭成员
