@@ -22,6 +22,7 @@ class CreateMovieDetailsTable extends Migration
             $table->string('recom')->comment('推荐');
             $table->text('intro')->comment('剧情简介');
             $table->string('move_cate_id')->comment('分类id');
+            $table->string('image')->comment('电影图片');
             $table->timestamps();
         });
     }

@@ -58,11 +58,17 @@ Route::group([],function(){
 });
 
 
-//前台
+//前台登录
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+
+//前台活动
 Route::get('/home/activity/list','HomeActivityController@list');
-//影评(主页)
-Route::get('/home/review','home\HomeReviewController@index');
-//影评(影评列表)
-Route::get('/home/review/table','home\HomeReviewController@table');
-//影评详情
-Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+
+Route::get('/home/activity/{id}.html','HomeActivityController@show');
+//活动评论
+Route::post('/home/activite/comment','ActivityCommentController@list');
+
