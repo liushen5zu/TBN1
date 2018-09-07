@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\ActivityComment;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
@@ -122,6 +123,11 @@ class ActivityController extends Controller
     {
         //
         $activity = Activity::find($id);
+        $comment = ActivityComment::where('activity_id',$id)->get();
+       	// dd($comment);
+       	foreach($comment as $v){
+       		$v->delete();
+       	}
         if($activity -> delete()){
             return redirect('/activity')->with('success', '删除成功');
         }else{

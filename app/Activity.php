@@ -10,6 +10,7 @@ class Activity extends Model
     //
      public function activityComment()
     {
+    	
         return $this->hasMany('App\ActivityComment');
     }
 }

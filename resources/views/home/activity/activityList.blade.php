@@ -10,12 +10,24 @@
     <section class="picFocus"> 
      <div class="bd"> 
       <ul> 
+      	
       </ul> 
      </div> 
      <div class="hd"> 
       <ul> 
+      	
+      </ul> 
+     </div>
+     <div class="hd"> 
+      <ul> 
+      	
       </ul> 
      </div> 
+     <div class="hd"> 
+      <ul> 
+      	
+      </ul> 
+     </div>  
     </section> 
     <!--焦点幻灯片 e--> 
     <!--活动列表 s--> 
@@ -120,73 +132,56 @@
       <i class="info2 icon"></i>
       <a href="/forum.html" title="当前热议" target="_blank">当前热议<em>&gt;&gt;</em></a> 
      </div> 
+
+     @foreach($activity as $v)
      <div class="cont clearfix"> 
       <ul> 
+      	<li><font style="color:red">热</font>
+      	<a href="/home/activity/{{$v->id}}.html">{{$v->title}}</a>
+      		
+      	</li>
       </ul> 
      </div> 
+     @endforeach
+      
+
+
     </section>
     <!--热门讨论 e--> 
     <section class="hotMovie"> 
      <div class="title clearfix"> 
       <i class="movie icon"></i>
-      <a href="http://www.51oscar.com/movie/search/0_0_1_0.html" title="热映影片" target="_blank">热映影片<em>&gt;&gt;</em></a> 
+      <a href="/home/movieDetails" title="热映影片" target="_blank">热映影片<em>&gt;&gt;</em></a> 
      </div> 
      <div class="cont clearfix"> 
+
+     @foreach($movie as $v)
+     
       <dl class="clearfix"> 
        <dt> 
-        <a href="/movie/39278.html" title="芳华 " target="_blank"> <img class="lazyImg pic imgBorder" src="/ueditor/picture/59c33acd86ed5.jpg" data-src="/Uploads/Movie/Poster/59c33acd86ed5.jpg" width="98" height="138" alt="芳华 " /> </a> 
+        <a href="/movie/39278.html" title="{{$v->name}}" target="_blank"> <img class="lazyImg pic imgBorder" src="{{$v->image}}" width="98" height="138" alt="{{$v->name}} " /> </a> 
        </dt> 
        <dd> 
-        <a class="t" href="/movie/39278.html" title="芳华 " target="_blank">芳华 </a> 
-        <p>导演：<em>冯小刚</em></p> 
-        <p>类型：<em>剧情/战争</em></p> 
+        <a class="t" href="/movie/39278.html" title="{{$v->name}} " target="_blank">{{$v->name}} </a> 
+        <p>导演：<em>{{$v->director_name->name}}</em></p> 
+        <p>类型：<em>
+        	
+        	<?php
+        		if(empty($v->movie_tags)){
+        			echo '当前没有热门电影';
+        		}
+		     	foreach ($v->movie_tags as $e) {
+		    		echo $e->name.'|';
+				}	
+    		?>
+        </em></p> 
         <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
        </dd> 
       </dl>
-      <dl class="clearfix"> 
-       <dt> 
-        <a href="/movie/39277.html" title="空天猎 " target="_blank"> <img class="lazyImg pic imgBorder" src="/ueditor/picture/59c3397b4c6e5.jpg" data-src="/Uploads/Movie/Poster/59c3397b4c6e5.jpg" width="98" height="138" alt="空天猎 " /> </a> 
-       </dt> 
-       <dd> 
-        <a class="t" href="/movie/39277.html" title="空天猎 " target="_blank">空天猎 </a> 
-        <p>导演：<em>李晨</em></p> 
-        <p>类型：<em>动作/剧情/战...</em></p> 
-        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
-       </dd> 
-      </dl>
-      <dl class="clearfix"> 
-       <dt> 
-        <a href="/movie/39276.html" title="缝纫机乐队 " target="_blank"> <img class="lazyImg pic imgBorder" src="/ueditor/picture/59c318412247e.jpg" data-src="/Uploads/Movie/Poster/59c318412247e.jpg" width="98" height="138" alt="缝纫机乐队 " /> </a> 
-       </dt> 
-       <dd> 
-        <a class="t" href="/movie/39276.html" title="缝纫机乐队 " target="_blank">缝纫机乐队 </a> 
-        <p>导演：<em>大鹏</em></p> 
-        <p>类型：<em>喜剧/音乐</em></p> 
-        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
-       </dd> 
-      </dl>
-      <dl class="clearfix"> 
-       <dt> 
-        <a href="/movie/39275.html" title="遗忘空间 " target="_blank"> <img class="lazyImg pic imgBorder" src="/ueditor/picture/59c0a983d72c3.jpeg" data-src="/Uploads/Movie/Poster/59c0a983d72c3.jpeg" width="98" height="138" alt="遗忘空间 " /> </a> 
-       </dt> 
-       <dd> 
-        <a class="t" href="/movie/39275.html" title="遗忘空间 " target="_blank">遗忘空间 </a> 
-        <p>导演：<em>韩汶青</em></p> 
-        <p>类型：<em>恐怖/悬疑</em></p> 
-        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
-       </dd> 
-      </dl>
-      <dl class="clearfix"> 
-       <dt> 
-        <a href="/movie/39274.html" title="疯狂旅程 " target="_blank"> <img class="lazyImg pic imgBorder" src="/ueditor/picture/59c0a6cb6ed46.jpg" data-src="/Uploads/Movie/Poster/59c0a6cb6ed46.jpg" width="98" height="138" alt="疯狂旅程 " /> </a> 
-       </dt> 
-       <dd> 
-        <a class="t" href="/movie/39274.html" title="疯狂旅程 " target="_blank">疯狂旅程 </a> 
-        <p>导演：<em>龙野</em></p> 
-        <p>类型：<em>喜剧/剧情</em></p> 
-        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
-       </dd> 
-      </dl> 
+     @endforeach
+     
+      
+      
      </div> 
     </section>
     <!--热映影片 e--> 

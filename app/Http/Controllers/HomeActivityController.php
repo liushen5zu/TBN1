@@ -12,9 +12,12 @@ class HomeActivityController extends Controller
     public function list()
     {
     	$activity = Activity::orderBy("id",'desc')->paginate(4);
+    	//热门电影
     	$movie = Movie_detail::all();
+    	//热议
+    	$activity2 = Activity::all();
     	//dd($movie);
-    	return view('home.activity.activityList',compact('activity','movie'));
+    	return view('home.activity.activityList',compact('activity','movie','activity2'));
     }
 
     //详情
@@ -33,10 +36,10 @@ class HomeActivityController extends Controller
              
       
 
-        
+        $movie = Movie_detail::all();
 
        // dd($comment);
     	$a = Activity::orderBy('id','desc')->get();
-    	return view('home.activity.activityDetails',compact('activity','a','comment2'));
+    	return view('home.activity.activityDetails',compact('activity','a','comment2','movie'));
     }
 }
