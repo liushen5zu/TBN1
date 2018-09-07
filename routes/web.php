@@ -71,4 +71,9 @@ Route::get('/home/activity/list','HomeActivityController@list');
 Route::get('/home/activity/{id}.html','HomeActivityController@show');
 //活动评论
 Route::post('/home/activite/comment','ActivityCommentController@list');
-
+//影评(主页)
+Route::get('/home/review','home\HomeReviewController@index');
+//影评(影评列表)
+Route::get('/home/review/table','home\HomeReviewController@table');
+//影评详情
+Route::get('/home/review/{id}.html','home\HomeReviewController@show');
