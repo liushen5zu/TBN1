@@ -53,9 +53,16 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
+	//帖子管理
+	Route::resource('tiezi','tieziController');
 });
 
 //前台
 Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+//帖子详情页
+Route::get('/{id}.html', 'TieziController@show');
+Route::resource('/comment','CommentController');
+//帖子列表
+Route::get('/tiezis', 'tieziController@list');
