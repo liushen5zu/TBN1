@@ -47,7 +47,7 @@ class tieziController extends Controller
         $tiezis-> content =$request->content;
         if($tiezis->save())
         {
-            return redirect('/tiezis');
+            return redirect('/home/tiezis');
         }else{
             return back();
         }
