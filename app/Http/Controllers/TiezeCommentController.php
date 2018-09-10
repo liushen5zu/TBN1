@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tcomment;
+use App\Tiezi;
 use Illuminate\Http\Request;
 
 class TiezeCommentController extends Controller
@@ -39,7 +40,7 @@ class TiezeCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
 
     /**
@@ -85,5 +86,20 @@ class TiezeCommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function reply(Request $request, $id)
+    {
+        $comments=new Tcomment;
+        $comments-> user_id = session('id');
+        $comments-> content =$request->content;
+        $comments-> tiezi_id =$id;
+       
+        if($comments->save())
+        {
+            return redirect("/home/tiezi/{$request->id}.html");
+        }else {
+            return back();
+        }
+      
     }
 }

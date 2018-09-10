@@ -202,12 +202,12 @@ $(document).ready(function(){
                         <a class="c_f60" href="/someone/428105.html" title="" target="_blank">{{$v->user->username}}</a>
                     </dt>
                     <dd class="C fL">
-                        <p class="t"><a href="/home/review/{{$v['id']}}.html" title="《{{$v->movie_detail->name}}》影评：{{$v['title']}}">《{{$v->movie_detail->name}}》影评：{{$v['title']}}</a></p>
+                        <p class="t"><a href="/home/review/{{$v['id']}}.html" title="《{{$v->movie_detail['name']}}》影评：{{$v['title']}}">《{{$v->movie_detail['name']}}》影评：{{$v['title']}}</a></p>
                         <p>{{$v['content']}}</p>
                         <!-- <p>&nbsp; &nbsp; 万众期待，《猩球崛起3》终于姗姗来迟，和前两部一样的是，本部影片继续沿用猿类与人类斗争这一主题。影片继续《猩球崛起2》的故事主线，向观众讲述了凯撒及猿类在人类病毒感染毁灭这场灾难中的遭遇。</p><p>&n -->
                     </dd>
                     <dd class="R fR">
-                        <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail->image}}" alt="猩球崛起3：终极之战 "></a>
+                        <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail['image']}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
                 </dl>                
                 <a href="/review/table.html" style="text-decoration:none">

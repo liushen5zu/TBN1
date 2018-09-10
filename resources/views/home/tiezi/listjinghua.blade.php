@@ -164,35 +164,12 @@ $(document).ready(function(){
                 <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
             </div>
             <div id="listBox" class="listBox">
-            @foreach($tiezis as $v)
+             @foreach($tiezis as $v)
                 <dl class="forumItem_good forumItem clearfix">
                         <dt class="L fL">
-                        <em class="red">置顶</em>
-                         </dt>
-                        <dd class="M fL">
-                          <dd class="R fR">{{$v->created_at}}</dd>
-                        <div class="T clearfix">
-                             <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b>{{$v->title}}</b></a>
-                                <p>{!!mb_substr($v['content'],205,30)!!} ...</p>   
-                            </div>
-                                  <div class="fR">
-                                    <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
-                                </div>
-                            </div>
-                        </dd>
-                </dl><!---->   
-                @endforeach
-             @foreach($tiezis1 as $v)
-                <dl class="forumItem_good forumItem clearfix">
-                        <dt class="L fL">
-                        @if($v['status']==2)
                             <em class="green">精华</em>
-                        @else
-                        @endif
                          </dt>
                         <dd class="M fL">
-                          <dd class="R fR">{{$v->created_at}}</dd>
                         <div class="T clearfix">
                              <div class="fL">
                                 <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b >{{$v->title}}</b></a> 
@@ -212,26 +189,19 @@ $(document).ready(function(){
             <section class="user_sayBox clearfix">
                     
             <form action="/tiezi" method="post"enctype="multipart/form-data">
-                <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
+                <div class="titleBox clearfix" id="lzfwantPost"><em>标题</em><input type="text" name="title" class="tieba_title"></div>
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
+                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost" class="wantPost icon" href="javascript:;" onclick="jumpTo('.user_sayBox')" value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}
                  <script>
                         var ue = UE.getEditor('editor');    
                     </script>
             </form>
-                  <script type="text/javascript">
-                    $('wantPost1').click(function(){
-                      if(empty("session('id')"){
-                        alert('aaa'):
-                      }
-                    })
-                  </script>
-                    </section>
+             </section>
 
         <!--发表新帖 e-->
         

@@ -89,5 +89,14 @@ Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 
 //帖子列表
 Route::get('/home/tiezis', 'tieziController@list');
+//帖子最新
+Route::get('/home/tiezi/zuixin', 'tieziController@zuixin');
+//精华帖子
+Route::get('/home/tiezi/jinghua', 'tieziController@jinghua');
 //帖子详情页
 Route::get('/home/tiezi/{id}.html', 'TieziController@show');
+Route::get('/tiezi/{id}/up','tieziController@up');//置顶
+Route::get('/tiezi/{id}/down','tieziController@down');//精选
+Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
+//帖子评论
+Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');

@@ -34,25 +34,10 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <header class="site_nav">
-  <section class="wp clearfix">
-      <div class="fL">
-          <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="picture/wx_1.jpg" alt="大众影评网微信公众号" /></span>
-        </div>
-        <div class="fR">
-          <ul id="welcome" class="clearfix out">        
-  <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li>
-        <li>|</li>
-        <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li>
-        <li>|</li>
-    <li><a href="http://www.51oscar.com/login.html"  title="登录"><i class="icon_man icon"></i>登录</a></li>
-        <li>|</li>
-              <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li>
-            
-    </ul>
-        </div>
-    </section>
+      @include('layouts.home.header')
 </header>
 <section class="logoAndSreach">
+  
   <div class="wp clearfix">
         <div class="logo fL">
           <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo_1.png" alt="大众影评网" /></a>
@@ -180,7 +165,7 @@ $(document).ready(function(){
               <h1>{{$tiezis->title}}</h1>
                 <div class="titB clearfix">
                     <div class="bshare-custom fL"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
-                    <a href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')">回复</a>
+                    <a href="#lzf" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')">回复</a>
                 </div>
             </div>   
         </section>   
@@ -207,10 +192,9 @@ $(document).ready(function(){
                   </ol>
                 </dd>  
          </dl>
-         @foreach($comments as $v)
+ @foreach($comments as $v)
           <dl class="dis_box_hd clearfix">
-                <input type="hidden" id="user7" class="reCount" value="403287"> <!--楼主ID-->
-             <!--   <input type="hidden" id="reCount6" class="reCount" value="1" /> -->
+                <input type="hidden" id="user7" class="reCount" value="403287">
                 <dt class="hd_dt">
                   <a class="c_f60" href="#" title="{{$v->user->username}}" target="_blank">
                     <img class="lazyImg" src="{{$v->user->image}}" >{{$v->user->username}}</a>
@@ -218,33 +202,56 @@ $(document).ready(function(){
                  </dt>
                 <dd class="hd_dd">
                   <div class="dis_detail" id="dis_detail7">
-                      {{$v->content}}  
-                     </div>
-                  <!--楼主编辑更新文章 s-->               
+                      {!!$v->content!!}  
+                     </div>           
                   <ol>
                     <li class="li_right">
-                        <time>{{$v->created_at}}</time> <a class="c_f60" href="javascript:;" onclick="replayComment(this,'Ideal');return false">回复</a><input type="hidden" value="30145" class="p_id"></li>
+                        <time>{{$v->created_at}}</time> 
+                        <a clas class="lzf_reply" >回复</a>
+                        <input type="hidden" value="30145" class="p_id"></li>
                   </ol>
                 </dd>
-         </dl>   
-         @endforeach
+                <div class="replay-content" class="lzf_comment" >
+                <i class="triangle"></i>
+                <form method="post" action="" id="replay_p_comment">
+                    <div><textarea id="replayContent"></textarea></div>
+                    <input type="hidden" id="comment_p_user_id" value="162392">
+                    <input type="hidden" id="comment_pid_re" value="12967">
+                    <div class="btn clearfix">
+                        <a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
+                        <button class="cancel-btn" type="button">取消</button>
+                        <button class="replay-btn" type="submit">回复</button>
+                    </div>
+                </form>
+            </div>
+         </dl>  
+         @endforeach 
 
-<!--         <div class="pagination">
-                   &nbsp;<span class='current'>1</span>&nbsp;<a href='/forum/2932/2.html'>&nbsp;2&nbsp;</a>   <a href='/forum/2932/2.html'>下一页</a>     <span style="color:black;">第  1/2 页</span>                <input type="hidden" value="http://www.51oscar.com/forum/2932" id="forumID">
-        <input id="goid" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  type="text" style="width:30px;height:26px;border: 1px solid #e9e9e9;">
-                <a onclick="go()"> GO </a>
-         </div>  -->     
+     <script type="text/javascript">     
+     //回复下拉框
+        var comment = document.getElementsByClass('lzf_comment');
+          comment.style.display = 'none';
+          var reply = document.getElementsByClass('lzf_reply');
+            reply.onclick = function(){
+              if(comment.style.display == 'block'){
+                comment.style.display = 'none';
+              }else{
+                comment.style.display = 'block';
+              }
+            }
+         </script>
     </section>
     <!--贴吧互动 hd_content e-->
         
         <!--发布新楼层 s-->
         <div class="user_sayBox clearfix">
-            <form action="" method="post"enctype="multipart/form-data">
+            <form action="/home/tiezicomment/{{$tiezis['id']}}/reply" method="get"enctype="multipart/form-data">
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')" style="display: block; width: 100px;height: 50px;line-height: 30px;text-align: center;font-size: 26px;color: #FFF;background-color: #f60; border-radius: 5px;position: relative;bottom: 8px;">回复</button>
+                 <button id="lzf" href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')" style="display: block; width: 100px;height: 50px;line-height: 30px;text-align: center;font-size: 26px;color: #FFF;background-color: #f60; border-radius: 5px;position: relative;bottom: 8px;">回复</button>
+                  {{method_field('put')}}
                   {{csrf_field()}}
                  <script>
                         var ue = UE.getEditor('editor');    
@@ -264,7 +271,7 @@ $(document).ready(function(){
                                  </ul>
             </div>
         </section><!--热门讨论 e-->
-                
+       @foreach($movie_details as $v)     
        <section class="hotMovie">
             <div class="title clearfix">
                 <i class="movie icon"></i><a href="/movie/search.html" title="热映影片" >热映影片<em>>></em></a>
@@ -272,67 +279,20 @@ $(document).ready(function(){
             <div class="cont clearfix">
              <dl class="clearfix">
                     <dt>
-                        <a href="/movie/39278.html" title="芳华 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c33acd86ed5.jpg" width="98" height="138" alt="芳华 " />
+                        <a href="/movie/39278.html" title="{{$v['name']}}" target="_blank" >
+                            <img class="lazyImg pic imgBorder" src="{{$v->image}}" width="98" height="138" alt="{{$v['name']}}" />
                         </a>
                     </dt>    
                     <dd>
-                        <a class="t" href="/movie/39278.html" title="芳华 " target="_blank" >芳华 </a>
-                        <p>导演：<em>冯小刚</em></p>
-                        <p>类型：<em>剧情/战争</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
+                        <a class="t" href="/movie/39278.html" title="{{$v['name']}}" target="_blank" >{{$v['name']}} </a>
+                        <p>导演：<em>{{$v->Director_name->name}}</em></p>
+                        <p>类型：<em>{{$v->movie_cate->name}}</em></p>
+                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
                     </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39277.html" title="空天猎 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c3397b4c6e5.jpg" width="98" height="138" alt="空天猎 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39277.html" title="空天猎 " target="_blank" >空天猎 </a>
-                        <p>导演：<em>李晨</em></p>
-                        <p>类型：<em>动作/剧情...</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39276.html" title="缝纫机乐队 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c318412247e.jpg" width="98" height="138" alt="缝纫机乐队 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39276.html" title="缝纫机乐队 " target="_blank" >缝纫机乐队 </a>
-                        <p>导演：<em>大鹏</em></p>
-                        <p>类型：<em>喜剧/音乐</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39275.html" title="遗忘空间 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c0a983d72c3.jpeg" width="98" height="138" alt="遗忘空间 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39275.html" title="遗忘空间 " target="_blank" >遗忘空间 </a>
-                        <p>导演：<em>韩汶青</em></p>
-                        <p>类型：<em>恐怖/悬疑</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39274.html" title="疯狂旅程 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c0a6cb6ed46.jpg" width="98" height="138" alt="疯狂旅程 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39274.html" title="疯狂旅程 " target="_blank" >疯狂旅程 </a>
-                        <p>导演：<em>龙野</em></p>
-                        <p>类型：<em>喜剧/剧情</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl>            </div>
+                </dl>           
+              </div>
         </section><!--热映影片 e-->
-        
+        @endforeach
     </aside><!--rightWp e-->
 
 </section>
