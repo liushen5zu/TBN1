@@ -24,8 +24,8 @@ class MovieDetailsController extends Controller
             ->where('name','like', '%'.request()->keywords.'%')
             ->paginate(3);
         //通过属于关系获取导
-        $data = Movie_detail::find(1)->Movie_cate()->get();
-        return view ('admin.movie_details.index',compact('movie_details','director','data'));
+        //$data = Movie_detail::find(1)->Movie_cate()->get();
+        return view ('admin.movie_details.index',compact('movie_details','director'));
     }
 
     /**
@@ -35,12 +35,14 @@ class MovieDetailsController extends Controller
      */
     public function create()
     {
+        $director = Director_name::all();
         $actor = Movie_actor::all();
         $cate = Movie_cate::all();
         $tag = Movie_tag::all();
-        return view('admin.movie_details.create',compact('cate','actor','tag'));
-    }
 
+        return view('admin.movie_details.create',compact('cate','actor','tag','director'));
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -102,10 +104,11 @@ class MovieDetailsController extends Controller
         $cate = Movie_cate::all();
         $actor = Movie_actor::all();
         $tag = Movie_tag::all();
+        $director = Director_name::all();
         $movie_details= Movie_detail::find($id);
 
 
-        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor,'tag'=>$tag]);
+        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor,'tag'=>$tag,'director'=>$director]);
     }
 
     /**

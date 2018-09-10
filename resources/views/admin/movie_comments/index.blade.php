@@ -26,7 +26,9 @@
                   </div>
                 </div> 
             </form>
-            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
+            <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><span class="x-right" style="line-height:40px">共有数据：88 条</span>
+                <a  class="layui-btn" href="/movie_comments/create" ><i class="layui-icon"></i>添加</a></xblock>
+
             <table class="layui-table">
                 <thead>
                     <tr>
@@ -54,7 +56,7 @@
                     </tr>
                 </thead>
 
-                @foreach($movie_comments as $v)
+                @foreach($data as $v)
                 
                 <tbody>
                     <tr>
@@ -65,16 +67,16 @@
                             {{$v['id']}}
                         </td>
                         <td>
-                            {{$v['user_id']}}
+                            {{$v->user->username}}
                         </td>
                         <td>
                             {{$v['star']}}
                         </td>
                         <td >
-                            {{$v['details']}}
+                            {{$v['content']}}
                         </td>
                         <td >
-                            {{$v['movie_detail_id']}}
+                            {{$v->movie_detail['name']}}
                         </td>
                         <td class="td-manage">
                             <form method="post" action="/movie_comments/{{$v['id']}}" style="float:left">

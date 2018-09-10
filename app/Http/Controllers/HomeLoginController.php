@@ -24,7 +24,6 @@ class HomeLoginController extends Controller
     		return redirect('/home/login')->with('success','登录失败');
     	}else{
     		session(['username'=>$request->username,'id'=>$user->id]);
-    		dump(session('username'));
     		// return redirect('/home/activity/list')->with('success','登陆成功');
     		return "<script>alert('登录成功');window.location.href='/home/activity/list'</script>";
     	}

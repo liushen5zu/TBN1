@@ -63,8 +63,17 @@
                     <label for="L_tag" class="layui-form-label">
                         <span class="x-red"></span>活动简介
                     </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_tag" name="intro" required="" lay-verify="tag" autocomplete="off" class="layui-input">
+                    <div class="layui-input-inline" style="width:300px">
+                        <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
+			                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
+			                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
+			                 <script id="editor" type="text/plain" name="intro" style="width:500px;height:100px;"></script>
+			                 
+			                 {{method_field('')}}
+			                  {{csrf_field()}}
+			                 <script>
+			                        var ue = UE.getEditor('editor');    
+			                  </script>
                     </div>
                 </div>
                 

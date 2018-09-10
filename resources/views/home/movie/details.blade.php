@@ -18,6 +18,8 @@
 <script type="text/javascript" src="/ueditor/js/jquery.cookie_1.js"></script>
 <script type="text/javascript" src="/ueditor/js/common2_1.js"></script>
 <script type="text/javascript" src="/ueditor/js/common_2.js"></script>
+<script type="text/javascript" src="/ueditor/js/common2.js"></script>
+<script type="text/javascript" src="/ueditor/js/common.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -216,13 +218,13 @@ var URL = "http://www.51oscar.com/";
             <div class="user_say">
                 <div class="faceDiv"><a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a></div>
                 <form method="post" action="" id="user_say_comment">
-                    <textarea id="commContent" class="commContent" ></textarea>
+                    <textarea  class="commContent" ></textarea>
                     <input type="hidden" id="comment_id" value="1058"><!--评论对象的id-->
                     <div class="btnDiv clearfix">
                         <span class="hint">最多能输入480个字</span>
-                        <a href="javascript:" class="comment_btn" onclick="Comments.movieComment()">发布</a>
+                        <a href="javascript:" class="comment_btn" >发布</a>
                     </div>
-                    <input type="hidden" name="__hash__" value="d1908a4b2c87790a22b17ae3aa17cf53_eed40fae41097da3785fdb426d299c8b"><input type="hidden" name="__hash__" value="560b50165f7b0364a0021af058806e8a_bbe2725a880d4155f8212e8fe6ede256" /></form>
+                    <input type="hidden" name="" value="d1908a4b2c87790a22b17ae3aa17cf53_eed40fae41097da3785fdb426d299c8b"><input type="hidden" name="__hash__" value="560b50165f7b0364a0021af058806e8a_bbe2725a880d4155f8212e8fe6ede256" /></form>
             </div>
 
             <!--评论编辑输入框 e-->

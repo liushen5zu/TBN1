@@ -57,7 +57,7 @@ class MovieImagesController extends Controller
 
         if($movie_images->save())
         {
-            return redirect('/movie_images')->with('success','添加成功');
+            return redirect('/movie_images/create')->with('success','添加成功');
         }else {
             return back()->with('error')->with('error','添加失败');
         }

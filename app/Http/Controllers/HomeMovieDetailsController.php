@@ -22,14 +22,17 @@ class HomeMovieDetailsController extends Controller
            $details = Movie_detail::where('movie_cate_id', $request->movie_cate_id);
         }
         
-        if(empty($details)){
-            $details = Movie_detail::orderBy('id','desc')->paginate(10);
-        }
-
         if(!empty($request->movie_tag_id)){
             $tag = Movie_tag::findOrFail($request->movie_tag_id);
             $details = $tag->movie_details()->paginate(10);
         }
+
+
+        if(empty($details)){
+            $details = Movie_detail::orderBy('id','desc')->paginate(10);
+        }
+
+        
 
     	return view('home.movie.list',compact('details','tags','cate'));
     }

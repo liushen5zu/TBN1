@@ -1,0 +1,130 @@
+﻿@charset "utf-8";
+/*首页幻灯片*/
+.picFocus{ width:100%; min-width:980px; height:440px; position:relative;  overflow:hidden;  zoom:1;   }
+.picFocus .bd{ width:100%; height:100%;  }
+.picFocus .bd li{float:left; width:100%; height:100%;  }
+.picFocus .bd li a{ display:block; width:100%; height:440px; position:relative; }
+.picFocus .bd li a p.opacity6{ display:block; width:980px; height:40px;  background-color:#000; margin:auto; position:relative; top:400px; _top:380px; z-index:2; }
+.picFocus .bd li a p.txt{ display:block;  width:400px; height:40px; padding:0 568px 0 8px; line-height:40px; color:#FFF; font-size:16px;  margin:auto; position:relative; top:360px; _top:320px;  white-space:nowrap;  overflow:hidden; z-index:3; }
+.picFocus .bd li a:hover p.txt{  color:#f60; z-index:3; }
+
+.picFocus .hd{ width:980px; height:60px; margin:auto;  position:relative; top:-70px; }
+.picFocus .hd ul{ position:absolute; bottom:0; right:0; zoom:1;  z-index:3;}
+.picFocus .hd ul li{ width:100px; height:60px; float:left; margin-right:10px; cursor:pointer; position:relative;}
+.picFocus .hd ul li img{ width:96px; height:56px; border:2px solid #FFF;}
+.picFocus .hd ul li.on img{ border-color:#ff6600;  }
+.picFocus .hd ul li.on .triangle{display:block; line-height:0; font-size:0; border-width:10px 6px; border-style: dashed dashed solid dashed;  border-color: transparent transparent #ff6600 transparent;   position:absolute;  bottom:60px; _bottom:64px; left:44px; z-index:5;}
+
+/*最新资讯与特别策划*/
+.newAndPlan{ margin-top:20px; height:430px; overflow:hidden; }
+.new{ padding:20px 10px; width:680px; background-color:#FFF; }
+.hotNew{ width:100%; height:130px; padding:20px 0 30px 0; border-bottom:1px dashed #cccccc; overflow:hidden; }
+.hotNew dt{ float:left; width:230px; height:130px; margin-right:10px; overflow:hidden; }
+.hotNew dd{  height:130px; padding-right:10px;line-height:22px; overflow:hidden; }
+.hotNew dd .h2{ font-size:18px; line-height:24px; color:#ff6600; font-weight:normal;}
+.hotNew dd p{  margin-top:18px;-o-text-overflow:ellipsis; -moz-binding:url('ellipsis.xml#ellipsis'); text-overflow:ellipsis;}
+.list{ margin-top:10px; width:100%; overflow:hidden; }
+.list ul{ width:340px; float:left;}
+.list li{ display:block; float:left; width:328px; height:40px; line-height:40px; padding-left:12px; margin-right:20px; background:url(../images/li.jpg) no-repeat left 15px;  white-space:nowrap;  overflow:hidden;}
+
+
+.plan{ padding:20px 10px; width:240px; height:400px; background-color:#FFF;}
+.sideMenu{ margin-top:3px;}
+.sideMenu .t{ display:block; width:100%; height:38px; line-height:38px; font-size:16px; white-space:nowrap;  overflow:hidden;}
+.sideMenu .info{ display:block; width:100%; height:182px; padding:2px 0 15px 0; line-height:24px; border-bottom:1px dashed #ccc; overflow:hidden;}
+.sideMenu .info a{ display:block; width:240px; height:136px; margin-bottom:6px; overflow:hidden;}
+
+/*当前热映与即将上映*/
+.hotMovie{ width:960px; margin-top:20px; padding:20px 10px; background-color:#FFF; }
+
+.hotMovie .picScroll{ width:100%;overflow:hidden; position:relative;  }
+.hotMovie .hd{ overflow:hidden; margin-top:30px;}
+.hotMovie .hd .prev,
+.hotMovie .hd .next{ display:block;  width:30px; height:90px; position:absolute; cursor:pointer; background:url(../images/nextandprev.jpg) no-repeat; z-index:2;}
+.hotMovie .hd .next{ background-position:0 -270px; top:90px; right:0; }
+.hotMovie .hd .prev{ background-position:0 -90px; top:90px;; left:0; }
+.hotMovie .hd .prevStop{ background-position:0 0; cursor:default; }
+.hotMovie .hd .nextStop{ background-position:0 -180px; cursor:default; }
+
+
+.hotMovie .bd{ width:900px; height:250px; margin:0 auto; overflow:hidden;  }
+.hotMovie .bd ul{ overflow:hidden; zoom:1; }
+.hotMovie .bd ul li{ float:left; display:block; width:150px; height:250px; _display:inline; margin:0 15px; line-height:30px; overflow:hidden; text-align:center;  }
+.hotMovie .bd ul li .pic{ width:148px; height:208px; display:block; }
+
+.comingMovie{ margin-top:0;}
+.comingMovie .hd{ overflow:hidden; margin-top:20px;}
+.comingMovie .bd{ width:880px; height:182px; margin:0 auto; overflow:hidden;  }
+.comingMovie .bd ul li{  width:220px; height:182px; margin:0; text-align:left;  }
+.comingMovie .bd ul li .pic{ width:98px; height:138px; display:block; }
+.comingMovie .bd ul li time{ display:block; padding-left:18px; height:42px; font-size:18px; letter-spacing:1px; color:#ccc; background-position:-39px -90px; }
+.comingMovie .bd ul li dl{ width:220px; height:182px; overflow:hidden; }
+.comingMovie .bd ul li dt{ float:left; margin-right:12px;  }
+.comingMovie .bd ul li dd{ float:left; position:relative;  width:108px; height:140px; white-space:nowrap;  overflow:hidden;}
+.comingMovie .bd ul li .t{ font-size:14px; font-weight:bold; }
+.comingMovie .bd ul li p{ line-height:32px; font-size:13px; color:#aaa; white-space:nowrap;  overflow:hidden;}
+.comingMovie .bd ul li p em{ color:#333;}
+.comingMovie .bd ul li .trailer{ display:block; width:88px;height:28px; line-height:28px; text-align:center;color:#666;  border:1px solid #ddd; -moz-border-radius:28px; -ms-border-radius:28px; -o-border-radius:28px; -webkit-border-radius:28px; border-radius:28px; position:absolute; bottom:0; }
+.comingMovie .bd ul li .trailer i{display:block; line-height:0; font-size:0; border-width:5px; border-style: dashed dashed dashed solid;  border-color: transparent transparent transparent #bbb;   position:absolute;  bottom:9px; right:8px; z-index:4;}
+.comingMovie .bd ul li .trailer:hover{   border:1px solid #f60; color:#f60; text-decoration:none; }
+.comingMovie .bd ul li .trailer:hover i{  border-color: transparent transparent transparent #f60; }
+
+/*新片影评与电影票房*/
+.commAndBO{ margin-top:20px;}
+.comments{ padding:20px 10px; width:680px; height:460px;  background-color:#FFF; margin-right:20px; overflow:hidden; }
+.commBox{  width:700px; padding-top:30px; }
+.hotComm{ float:left; width:330px; height:140px; margin:0 20px 30px 0; overflow:hidden;}
+.hotComm dt{ float:left; width:100px; height:140px; margin-right:10px; overflow:hidden;}
+.hotComm p.t{ display:block; height:36px; line-height:18px; font-weight:bold; overflow:hidden;  }
+.hotComm p.m{ display:block; height:80px; line-height:20px; font-size:13px; overflow:hidden; margin-bottom:2px;  }
+.hotComm p.b,.comm p.b{  font-size:13px; }
+.hotComm p.b .user,.comm p.b .user{ color:#aaa; display:inline-block; float:left; max-width:70px; white-space:nowrap;  overflow:hidden;}
+.hotComm p.b .movie,.comm p.b .movie{ color:#f60; }
+.comm{ float:left; width:330px; height:56px; line-height:28px; margin:13px 20px 0 0; overflow:hidden; }
+.comm dt{ float:left; width:44px; padding:6px 0; height:44px; margin-right:10px; }
+.comm dd{ _float:left; _width:276px; _overflow:hidden; }
+.comm dt .pic{ display:block; width:40px; height:40px; -moz-border-radius:40px; -ms-border-radius:40px; -o-border-radius:40px; -webkit-border-radius:40px; border-radius:40px; }
+.comm p.t{ white-space:nowrap;  overflow:hidden;}
+
+
+.boxOffice{  padding:20px 10px; width:240px; height:460px; background-color:#FFF; overflow:hidden;  }
+.slideTxtBox{ width:100%; margin-top:20px; }
+.slideTxtBox .hd{ width:100%; height:28px;  background:#eee; padding:5px 0;   border:1px solid #ddd;  position:relative; _overflow:hidden; }
+.slideTxtBox .hd ul li{ float:left; height:28px; line-height:28px; width:79px; color:#333; font-size:16px; text-align:center; border-left:1px solid #ddd; cursor:pointer;  }
+.slideTxtBox .hd ul li:first-child{ border-left:none;}
+.slideTxtBox .hd ul li.on{ height:39px; line-height:39px;   background:#fff; position:relative; top:-5px;  }
+
+.slideTxtBox .bd ul{clear:both; zoom:1; margin-top:10px;  }
+.slideTxtBox .bd li{ display:block; _display:inline; width:240px; height:35px; line-height:35px; overflow:hidden; }
+.slideTxtBox .bd li i{ display:block; float:left; width:20px; height:20px; line-height:20px; position:relative; top:7px; margin-right:5px; font-style:normal; font-size:12px; text-align:center; color:#FFF; background-color:#aaa;-moz-border-radius:4px; -ms-border-radius:4px; -o-border-radius:4px; -webkit-border-radius:4px; border-radius:4px;  }
+.slideTxtBox .bd li i.t{ background-color:#f60; }
+.slideTxtBox .bd li a{ float:left; max-width:130px; _width:130px;  white-space:nowrap; }
+.slideTxtBox .bd li span{ display:block; float:right; width:85px; height:35px; text-align:right; overflow:hidden;}
+
+/*发现好电影与热门活动*/
+.albumAndEvent{ margin-top:20px; }
+.album{ padding:20px 10px; width:680px; height:450px; background-color:#FFF; margin-right:20px; overflow:hidden;}
+.album .cont{ padding-top:20px; width:700px; }
+.album .cont a{ float:left; display:block; width:212px; height:183px; line-height:35px; margin:0 20px 8px 0; overflow:hidden;  }
+.album .cont a img{ display:block; }
+.album .cont .link1{width:444px; }
+
+.event{ padding:20px 10px; width:240px; height:450px; background-color:#FFF; overflow:hidden; }
+.event .cont dl{ margin-top:20px; padding-bottom:10px; line-height:25px;  }
+.event .cont dt{ margin-bottom:10px;  }
+.event .cont dd p{ font-size:13px; white-space:nowrap;  overflow:hidden;}
+.slideTxtBox .bd li span{ display:block; float:right; width:85px; height:35px; text-align:right; overflow:hidden;}
+
+/*专题精选*/
+.topic{ padding:20px 10px; width:960px; height:320px; margin-top:20px; background-color:#FFF; overflow:hidden;}
+.topic .cont{ width:986px;}
+.topic .cont dl{ float:left; width:220px; height:250px; margin:26px 26px 0 0; font-size:13px; line-height:27px; overflow:hidden;}
+
+
+
+
+
+
+
+
+

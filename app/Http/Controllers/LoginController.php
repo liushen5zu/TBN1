@@ -25,7 +25,6 @@ class LoginController extends Controller
     		return redirect('/login')->with('success','登录失败');
     	}else{
     		session(['username'=>$request->username,'id'=>$user->id]);
-    		dump(session('username'));
     		return redirect('/admin')->with('success','登陆成功');
     	}
 

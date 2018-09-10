@@ -17,12 +17,15 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label for="L_pass" class="layui-form-label">
+                    <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>导演
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_pass" name="director_name_id"  lay-verify="pass"
-                        autocomplete="off" class="layui-input">
+                        <select class="form-control" name='director_name_id'>
+                        @foreach($director as $v)
+                          <option value="{{$v->id}}">{{$v->name}}</option>
+                        @endforeach
+                        </select>
                     </div>
                 </div>
                 
@@ -60,7 +63,7 @@
 
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
-                        <span class="x-red">*</span>电影分类
+                        <span class="x-red">*</span>电影地区
                     </label>
                     <div class="layui-input-inline">
                         <select class="form-control" name='movie_cate_id'>

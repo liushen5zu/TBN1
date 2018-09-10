@@ -106,7 +106,7 @@
             </table>
             <style>
             .pagination{
-                margin-left:700px;
+                margin-left:300px;
             }
             .pagination li{
                 width:50px;

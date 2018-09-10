@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Tcomment;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class TiezeCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class CommentController extends Controller
             ->where('content','like','%'.request()->keywords.'%')
             ->get();
         //解析模板显示用户数据
-        return view('admin.comment.index', compact('comments'));
+        return view('admin.tiezi_comment.index', compact('comments'));
     }
 
     /**
@@ -37,10 +37,10 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
-      
-    }    
+        //
+    }
 
     /**
      * Display the specified resource.
@@ -50,7 +50,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-    //
+        //
     }
 
     /**
@@ -84,12 +84,6 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $comments=Tcomment::find($id);
-        if($comments->delete())
-        {
-            return back()->with('success','删除成功');
-        }else{
-            return back()->with('error','删除失败');
-        }
+        //
     }
 }

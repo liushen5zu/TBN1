@@ -53,34 +53,53 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
-
+	//活动管理
 	Route::resource('activity','ActivityController');
 	//帖子管理
 	Route::resource('tiezi','tieziController');
 	//评论管理	
-	Route::resource('/comment','CommentController');
+	Route::resource('tizecomment','TiezeCommentController');
 });
-//电影列表
-Route::get('/home/{id}.html','HomeMovieDetailsController@show');
-//电影详情
-Route::get('/home/movieDetails','HomeMovieDetailsController@index');
-//帖子列表
-Route::get('/home/tiezis', 'tieziController@list');
-//帖子详情页
-Route::get('/home/tiezi/{id}.html', 'TieziController@show');
-//前台登录
-Route::get('/home/login','HomeLoginController@login');
-Route::post('/home/dologin','HomeLoginController@dologin');
-Route::get('/home/outlogin','HomeLoginController@outlogin');
-//前台活动
-Route::get('/home/activity/list','HomeActivityController@list');
 
-Route::get('/home/activity/{id}.html','HomeActivityController@show');
-//活动评论
-Route::post('/home/activite/comment','ActivityCommentController@list');
-//影评(主页)
-Route::get('/home/review','home\HomeReviewController@index');
-//影评(影评列表)
-Route::get('/home/review/table','home\HomeReviewController@table');
-//影评详情
-Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+
+//前台登录
+	Route::get('/home/login','HomeLoginController@login');
+	Route::post('/home/dologin','HomeLoginController@dologin');
+	Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+//前台首页
+	Route::get('/','HomeCenterController@index');
+
+
+Route::group(['middleware'=>'home'],function(){
+	//电影列表
+	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+	//电影详情
+	Route::get('/home/movieDetails','HomeMovieDetailsController@index');
+
+	
+
+	//前台活动
+	Route::get('/home/activity/list','HomeActivityController@list');
+	Route::get('/home/activity/{id}.html','HomeActivityController@show');
+
+	//活动评论
+
+	Route::post('/home/activite/comment','ActivityCommentController@list');
+	//影评(主页)
+	Route::get('/home/review','home\HomeReviewController@index');
+	//影评(影评列表)
+	Route::get('/home/review/table','home\HomeReviewController@table');
+	//影评详情
+	Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+
+	//电影
+	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+	Route::get('/home/movieDetails','HomeMovieDetailsController@index');
+
+	//帖子列表
+	Route::get('/home/tiezis', 'tieziController@list');
+	//帖子详情页
+	Route::get('/home/tiezi/{id}.html', 'TieziController@show');
+});

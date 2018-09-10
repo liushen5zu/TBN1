@@ -9,6 +9,8 @@
   <script type="text/javascript" src="/ueditor/js/html5_1.js"></script>
 <![endif]--> 
   <link type="text/css" rel="stylesheet" href="/ueditor/css/common_1.css" /> 
+  <link type="text/css" rel="stylesheet" href="/assets/tiezi/css/common_1.css" />
+<link type="text/css" rel="stylesheet" href="/assets/tiezi/css/forum.css" />
   <style type="text/css">
   .nav a.hotNavItem{position:relative;color: #f60;}
   .nav a.hotNavItem.on{position:relative;color: #fff;}
@@ -22,7 +24,33 @@
   <script type="text/javascript" src="/ueditor/js/jquery.cookie_1.js"></script> 
   <script type="text/javascript" src="/ueditor/js/common2_1.js"></script> 
   <script type="text/javascript" src="/ueditor/js/common_1.js"></script> 
+
   <script>
+  </style>
+<script type="text/javascript" src="/assets/tiezi/js/jquery-1.7.2.min_1.js"></script>
+<script type="text/javascript" src="/assets/tiezi//assets/tiezi//assets/tiezi/js/jquery.cookie_1.js"></script>
+<script type="text/javascript" src="/assets/tiezi//assets/tiezi/js/common2_1.js"></script>
+<script type="text/javascript" src="/assets/tiezi/js/common_1.js"></script>
+<script>
+<link type="text/css" rel="stylesheet" href="/ueditor/css/common_2.css" />
+<script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min_1.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery.cookie_1.js"></script>
+<script type="text/javascript" src="/ueditor/js/common2_1.js"></script>
+<script type="text/javascript" src="/ueditor/js/common_2.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/ueditor/js/common2.js"></script>
+<script type="text/javascript" src="/ueditor/js/common.js"></script>
+<style type="text/css">
+    .nav a.hotNavItem{position:relative;color: #f60;}
+    .nav a.hotNavItem.on{position:relative;color: #fff;}
+    .nav a.hotNavItem:hover{color: #fff;}
+    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot.png) no-repeat;}
+/*  .nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
+    .nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
+    /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
+</style>
+<script>
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -34,6 +62,7 @@ var _hmt = _hmt || [];
  </head> 
  <body> 
   <header class="site_nav"> 
+  @section('header')
    <section class="wp clearfix"> 
     <div class="fL"> 
      <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/ueditor/picture/wx_1.jpg" alt="大众影评网微信公众号" /></span> 
@@ -67,6 +96,7 @@ var _hmt = _hmt || [];
   @endif
 
    </section> 
+   @show
   </header> 
   <section class="logoAndSreach"> 
    <div class="wp clearfix"> 
@@ -92,15 +122,7 @@ var _hmt = _hmt || [];
   </section> 
   <section class="nav"> 
    <nav class="wp clearfix"> 
-    <a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a> 
-    <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a> 
-    <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a> 
-    <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a> 
-    <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a> 
-    <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a> 
-    <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a> 
-    <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a> 
-    <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a> 
+    @include('layouts.home.list')
    </nav> 
   </section> 
   <script>
@@ -188,7 +210,7 @@ $(document).ready(function(){
 </script> 
   <link type="text/css" rel="stylesheet" href="/ueditor/css/event.css" /> 
   <!--主体部分 s--> 
-  @section('content');
+  @section('content')
   
   @show
   <script type="text/javascript" src="/ueditor/js/jquery.superslide.2.1.1.js"></script> 
