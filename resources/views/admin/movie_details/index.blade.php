@@ -43,7 +43,7 @@
                             电影名
                         </th>
                         <th>
-                            电影分类
+                            地区
                         </th>
                         <th>
                             导演名
@@ -51,10 +51,6 @@
 
                         <th>
                             影片图片
-                        </th>
-
-                        <th>
-                            地区
                         </th>
                         <th>
                             片长
@@ -87,7 +83,6 @@
                         </td>
 
                         <td><img width="40px" src="{{$v['image']}}"></td>
-                        <td>{{$v['countries']}}</td>
                         <td>{{$v['runningtime']}}</td>
                         <td>{{$v['recom']}}</td>
                         <td>{{$v['intro']}}</td>

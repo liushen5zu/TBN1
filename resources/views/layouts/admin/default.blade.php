@@ -3,6 +3,7 @@
 
 <head>
 
+
 	<meta charset="UTF-8">
 	<title>@yield('title')</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,7 +106,7 @@
                             <li>
                                 <a href="/movie_cates">
                                 <i class="iconfont">&#xe6a7;</i>
-                                电影分类
+                                电影地区
                             </a>
                             <li>
                                 <a href="/movie_details_tags">
@@ -164,14 +165,22 @@
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
-                        轮播管理
+                        帖子管理
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>
                         <ul class="sub-menu" style="display:none">
                             <li>
-                                <a href="./banner-list.html">
+                                <a href="/tiezi">
                                 <i class="iconfont">&#xe6a7;</i>
-                                轮播列表
+                                帖子列表
+                            </a>
+                            </li>
+                        </ul>
+                        <ul class="sub-menu" style="display:none">
+                            <li>
+                                <a href="/tizecomment">
+                                <i class="iconfont">&#xe6a7;</i>
+                                评论列表
                             </a>
                             </li>
                         </ul>

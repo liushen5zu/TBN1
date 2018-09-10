@@ -21,9 +21,8 @@
                         <span class="x-red">*</span>电影详情ID
                     </label>
                     <div class="layui-input-inline">
-
-                        <select type="text" id="L_pass" name="movie_detail_id"  lay-verify="pass"
-                        class="layui-input">
+                        <select  id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
+                        autocomplete="off" class="layui-input">
                             @foreach($details as $v)
                             <option value="{{$v->id}}">{{$v->name}}</option>
                             @endforeach

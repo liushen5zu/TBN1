@@ -30,16 +30,8 @@
                         <span class="x-red">*</span>电影图片
                     </label>
                     <div class="layui-input-inline">
+                        <image src="{{$movie_details['image']}}" width="100%">
                         <input type="file" id="L_pass" name="image" required="" lay-verify="pass"
-                        autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label for="L_repass" class="layui-form-label">
-                        <span class="x-red">*</span>地区
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" id="L_repass" name="countries" value="countries" lay-verify="repass"
                         autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -52,6 +44,24 @@
                         autocomplete="off" class="layui-input">
                     </div>
                 </div>
+
+                <div class="layui-form-item">
+                    <label for="L_repass" class="layui-form-label">
+                        <span class="x-red">*</span>标签列表
+                    </label>
+                    <div class="layui-input-inline" >
+                        @foreach($tag as $v)
+                        <input  type="checkbox" id="L_repass" name="movie_tag_id[]" value="{{$v->id}}"  lay-verify="repass"
+                         class="layui-input"
+
+                            @if(in_array($v->id,$movie_details->movie_tags()->pluck('id')->toArray()))
+                            checked
+                            @endif
+                         >{{$v->name}}
+                        @endforeach
+                    </div>
+                </div>
+
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>电影分类
@@ -64,9 +74,7 @@
                         </select>
                     </div>
                 </div>
-                <?php
-                    var_dump($movie_details->movie_actor()->pluck('id')->toArray());
-                ?>
+                
                  <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>演员列表
