@@ -74,21 +74,16 @@ Route::group([],function(){
 
 //前台登录
 
-	Route::get('/home/login','HomeLoginController@login');
-	Route::post('/home/dologin','HomeLoginController@dologin');
-	Route::get('/home/outlogin','HomeLoginController@outlogin');
+	// Route::get('/home/login','HomeLoginController@login');
+	// Route::post('/home/dologin','HomeLoginController@dologin');
+	// Route::get('/home/outlogin','HomeLoginController@outlogin');
 
 
 //前台首页
-	Route::get('/','HomeCenterController@index');
+Route::get('/','HomeCenterController@index');
 
 
 Route::group(['middleware'=>'home'],function(){
-	Route::get('/home/login','HomeLoginController@login');
-	Route::post('/home/dologin','HomeLoginController@dologin');
-	Route::get('/home/outlogin','HomeLoginController@outlogin');
-
-
 
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
 	//帖子列表
