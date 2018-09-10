@@ -9,25 +9,24 @@
     <!--焦点幻灯片 s--> 
     <section class="picFocus"> 
      <div class="bd"> 
-      <ul> 
-      	
+      <ul>
+
+      	@foreach($activity as $v)
+          @if($v->status==1)
+      	 <a href="/home/activity/{{$v->id}}.html"><img width="700px" height="300px" src="{{$v->image}}"></a>
+          @endif
+      	@endforeach
       </ul> 
      </div> 
+	
      <div class="hd"> 
       <ul> 
+
       	
       </ul> 
      </div>
-     <div class="hd"> 
-      <ul> 
-      	
-      </ul> 
-     </div> 
-     <div class="hd"> 
-      <ul> 
-      	
-      </ul> 
-     </div>  
+      
+      
     </section> 
     <!--焦点幻灯片 e--> 
     <!--活动列表 s--> 

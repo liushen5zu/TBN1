@@ -63,6 +63,9 @@
                             活动简介
                         </th>
                         <th>
+                            状态
+                        </th>
+                        <th>
                             操作
                         </th>
                     </tr>
@@ -101,9 +104,23 @@
                         </td>
                         <td> 
                         
-                        		{{str_limit($v['intro'],5,'...')}}
+                        {{str_limit($v['intro'],5,'...')}}
                        
 
+                        </td>
+                        
+                         <td class="td-status" style="float:left">
+                            <form action="/home/activity/tuijian/{{$v->id}}&{{$v->status}}" method="post">
+                            {{csrf_field()}}
+                            <button  class="layui-btn layui-btn-normal layui-btn-mini">
+                               @if($v->status==1) 
+                               已推荐
+                               @endif
+                               @if($v->status==0)
+                                未推荐
+                               @endif
+                            </button>
+                            </form>
                         </td>
                         <td class="td-manage">
                             <form method="get" action="/activity/{{$v->id}}/edit" style="float:left">
@@ -122,6 +139,8 @@
                                 <i class="layui-icon" style="color:#000">删除</i>
                             </button>
                             </form>
+
+
                         </td>
                     </tr>
                     @endforeach

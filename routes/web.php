@@ -72,6 +72,7 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 //前台活动
 Route::get('/home/activity/list','HomeActivityController@list');
 Route::get('/home/activity/{id}.html','HomeActivityController@show');
+Route::post('/home/activity/tuijian/{id}','HomeActivityController@tuijian');
 
 //活动评论
 
@@ -91,3 +92,9 @@ Route::get('/home/movieDetails','HomeMovieDetailsController@index');
 Route::get('/home/tiezis', 'tieziController@list');
 //帖子详情页
 Route::get('/home/tiezi/{id}.html', 'TieziController@show');
+
+
+//个人中心
+Route::get('/home/center','CenterController@index');
+Route::post('/home/jiben','CenterController@jiben');
+Route::get('/home/xiaoxi','CenterController@xiaoxi');

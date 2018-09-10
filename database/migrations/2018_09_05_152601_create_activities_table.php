@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->string('image')->comment('图片');
             $table->string('rtime')->comment('截止时间');
             $table->text('intro')->comment('活动简介');
+            $table->text('status')->comment('状态推荐');
             $table->string('registration_num')->comment('报名数量');
             $table->string('attention_num')->comment('关注数量');
             $table->timestamps();
