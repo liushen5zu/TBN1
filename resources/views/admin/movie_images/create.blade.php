@@ -21,7 +21,6 @@
                         <span class="x-red">*</span>电影详情ID
                     </label>
                     <div class="layui-input-inline">
-
                         <select  id="L_pass" name="movie_detail_id" required="" lay-verify="pass"
                         autocomplete="off" class="layui-input">
                             @foreach($details as $v)
@@ -39,6 +38,7 @@
                         <input type="file" id="L_repass" name="image">
                     </div>
                 </div>
+                {{csrf_field()}}
                 <div class="layui-form-item">
                     <label for="L_repass" class="layui-form-label">
                     </label>
@@ -46,7 +46,5 @@
                         增加
                     </button>
                 </div>
-
-                {{csrf_field()}}
             </form>
 @endsection

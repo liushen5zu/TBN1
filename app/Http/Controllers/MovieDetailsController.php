@@ -58,6 +58,7 @@ class MovieDetailsController extends Controller
         $movie_details -> intro = $request->intro;
         $movie_details -> num = $request->num;
         $movie_details -> movie_cate_id = $request->movie_cate_id;
+        // dd($request->movie_cate_id);
 
             
         if($request->hasFile('image')) {
@@ -126,7 +127,7 @@ class MovieDetailsController extends Controller
         $movie_details -> intro = $request->intro;
         $movie_details -> num = $request->num;
         $movie_details -> movie_cate_id = $request->movie_cate_id;
-
+        
         if($request->hasFile('image')) {
             $movie_details->image = '/'.$request->image->store('uploads/'.date('Ymd'));
         }

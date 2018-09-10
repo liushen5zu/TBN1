@@ -53,6 +53,14 @@ Route::group([],function(){
 
 	//友情链接管理
 	Route::resource('link','LinkController');
+
+
+
+	//影集管理
+	Route::resource('al_detail','AldetailController');
+
+	//影片添加管理
+
 	//活动管理
 	Route::resource('activity','ActivityController');
 	//帖子管理
@@ -62,12 +70,25 @@ Route::group([],function(){
 });
 
 
+//前台登录
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+
+
+Route::get('/home/{id}.html','HomeMovieDetailsController@show');
+//帖子列表
+Route::get('/home/tiezis', 'tieziController@list');
+//帖子详情页
+Route::get('/home/{id}.html', 'TieziController@show');
 
 
 //前台登录
 Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
 Route::get('/home/outlogin','HomeLoginController@outlogin');
+
 
 //前台活动
 Route::get('/home/activity/list','HomeActivityController@list');
@@ -82,6 +103,12 @@ Route::get('/home/review','home\HomeReviewController@index');
 Route::get('/home/review/table','home\HomeReviewController@table');
 //影评详情
 Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+
+//影集(主页)
+Route::get('/home/album','home\HomeAlbumController@index');
+
+//影集(详情)
+Route::get('/home/album/{id}.html','home\HomeAlbumController@show');
 
 //电影
 Route::get('/home/{id}.html','HomeMovieDetailsController@show');
