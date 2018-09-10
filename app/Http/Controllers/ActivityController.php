@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\ActivityComment;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
@@ -39,6 +40,7 @@ class ActivityController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->all());
         $activity = new Activity;
         $activity -> title = $request->title;
         $activity -> activity_site = $request->activity_site;
@@ -121,6 +123,11 @@ class ActivityController extends Controller
     {
         //
         $activity = Activity::find($id);
+        $comment = ActivityComment::where('activity_id',$id)->get();
+       	// dd($comment);
+       	foreach($comment as $v){
+       		$v->delete();
+       	}
         if($activity -> delete()){
             return redirect('/activity')->with('success', '删除成功');
         }else{

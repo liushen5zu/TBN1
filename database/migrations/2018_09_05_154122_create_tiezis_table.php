@@ -18,6 +18,7 @@ class CreateTiezisTable extends Migration
             $table->string('user_id');
             $table->string('title')->comment('标题');
             $table->text('content')->comment('内容');
+            $table->integer('status')->comment('推荐')->default(0);
             $table->timestamps();
         });
     }
