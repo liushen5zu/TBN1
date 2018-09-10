@@ -225,7 +225,7 @@ $(document).ready(function(){
                     </script>
             </form>
                   <script type="text/javascript">
-                    $('wantPost1').click(function(){
+                    $('button').click(function(){
                       if(empty("session('id')"){
                         alert('aaa'):
                       }
