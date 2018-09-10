@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Movie_detail;
 use App\Tcomment;
 use App\Tiezi;
 use App\User;
@@ -19,6 +20,7 @@ class tieziController extends Controller
         $tiezis = Tiezi::orderBy('id','desc')
             ->where('title','like','%'.request()->keywords.'%')
             ->get();
+       
         //解析模板显示用户数据
         return view('admin.tiezi.index',compact('tiezis'));
     }
@@ -43,7 +45,7 @@ class tieziController extends Controller
     {
         $tiezis=new Tiezi;
         $tiezis-> title = $request->title;
-        $tiezis-> user_id = 1;
+        $tiezis-> user_id = session('id');
         $tiezis-> content =$request->content;
         if($tiezis->save())
         {
@@ -64,8 +66,8 @@ class tieziController extends Controller
     {
         $tiezis= Tiezi::find($id);
         $comments= $tiezis->tcomment()->get();
-
-        return view('home.tiezi.show',compact('tiezis','comments'));
+        $movie_details= Movie_detail::all();
+        return view('home.tiezi.show',compact('tiezis','comments','movie_details'));
     }
 
     /**
@@ -109,7 +111,9 @@ class tieziController extends Controller
     }
      public function list(Request $request)
     {
-        $tiezis= Tiezi::all();
+         $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','1')->get();
+         $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->get();
+        $movie_details= Movie_detail::all();
 
        
 
@@ -123,10 +127,57 @@ class tieziController extends Controller
             $articles = Article::orderBy('id','desc')->paginate(10);*/
         
 
-        return view('home.tiezi.list', compact('tiezis'));
+        return view('home.tiezi.list', compact('tiezis','tiezis1','movie_details'));
     }
 
 
-
+public function up($id,$status=1)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=0;//代表置顶
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
+    public function down($id,$status=2)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=1;//代表精华
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
+    public function pt($id,$status=0)
+    {
+        $tiezis= Tiezi::find($id);
+        $status=2;//代表普通
+        $tiezis -> status=$status;
+         if($tiezis->save())
+        {
+            return redirect('/tiezi');
+        }else{
+            return back();
+        }        
+    }
+    public function zuixin(Request $request)
+    {
+        $tiezis = Tiezi::orderBy('updated_at','desc')->get();
+        $movie_details= Movie_detail::all();
+        return view('home.tiezi.listzuixin', compact('tiezis','movie_details'));
+    }
+     public function jinghua(Request $request)
+    {
+        $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','2')->get();
+        $movie_details= Movie_detail::all();
+        return view('home.tiezi.listjinghua', compact('tiezis','movie_details'));
+    }
 
 }
