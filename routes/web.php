@@ -81,32 +81,18 @@ Route::group([],function(){
 
 //前台首页
 	Route::get('/','HomeCenterController@index');
-
-
-Route::group(['middleware'=>'home'],function(){
-	Route::get('/home/login','HomeLoginController@login');
-	Route::post('/home/dologin','HomeLoginController@dologin');
-	Route::get('/home/outlogin','HomeLoginController@outlogin');
-
-
-
+	//电影详情
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
 	//帖子列表
 	Route::get('/home/tiezis', 'tieziController@list');
 	//帖子详情页
 	Route::get('/home/{id}.html', 'TieziController@show');
 
-
-
-
 	//前台活动
 	Route::get('/home/activity/list','HomeActivityController@list');
 	Route::get('/home/activity/{id}.html','HomeActivityController@show');
 	Route::post('/home/activity/tuijian/{id}','HomeActivityController@tuijian');
 
-	//活动评论
-
-	Route::post('/home/activite/comment','ActivityCommentController@list');
 	//影评(主页)
 	Route::get('/home/review','home\HomeReviewController@index');
 	//影评(影评列表)
@@ -133,7 +119,9 @@ Route::group(['middleware'=>'home'],function(){
 	//帖子详情页
 	Route::get('/home/tiezi/{id}.html', 'TieziController@show');
 
-
+Route::group(['middleware'=>'home'],function(){
+	//活动评论
+	Route::post('/home/activite/comment','ActivityCommentController@list');
 
 	//个人中心
 	Route::get('/home/center','CenterController@index');
