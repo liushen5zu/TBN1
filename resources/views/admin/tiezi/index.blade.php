@@ -49,6 +49,9 @@
                             内容
                         </th>
                         <th>
+                            状态
+                        </th>
+                        <th>
                             操作
                         </th>
                     </tr>
@@ -71,14 +74,16 @@
                         <th>
                          {!!substr($v['content'],89,10)!!} 
                         </th>                        
-                        <td class="td-manage">                    
-                            <form method="get" action="/tiezi/{{$v['id']}}/edit" style="float:left">  {{csrf_field()}}   
-                            <button title="编辑"  class="ml-5" style="text-decoration:none;color:#000">
-                                <i class="layui-icon">置顶</i>
-                            </button>
-                            &nbsp;&nbsp;
-                            </form>
-
+                         <th>              
+                            @if ($v['status']==0) 
+                             普通
+                              @elseif ($v['status']==1)
+                                置顶
+                              @elseif ($v['status']==2)
+                               精选
+                                @endif
+                            </th>
+                             <td class="td-manage">  
                             <form method="post" action="/tiezi/{{$v->id}}" style="float:left">
                             {{csrf_field()}}
                             {{method_field('DELETE')}}
@@ -86,6 +91,23 @@
                                 <i class="layui-icon" style="color:#000">删除</i>
                             </button>
                             </form>
+
+                                 @if ($v['status']==1)
+                                <form action="/tiezi/{{$v['id']}}/up"> 
+                                     <button class="link-del"   style="text-decoration:none"><i class="layui-icon" style="color:#000">精华</i></button>
+                                </form>
+                                 @elseif ($v['status']==2)
+                                <form action="/tiezi/{{$v['id']}}/down"> 
+                                     <button class="link-del"   style="text-decoration:none"><i class="layui-icon" style="color:#000">置顶</i></button>
+                                    {{csrf_field()}}
+                                    {{method_field('GET')}}
+                                </form>
+                                 @else
+                                 <form action="/tiezi/{{$v['id']}}/pt"> 
+                                     <button class="link-del"   style="text-decoration:none"><i class="layui-icon" style="color:#000">普通</i></button>   
+                                </form>
+                            @endif  
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

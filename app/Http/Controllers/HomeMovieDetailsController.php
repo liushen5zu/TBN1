@@ -44,7 +44,7 @@ class HomeMovieDetailsController extends Controller
     	//dd($movie_detail);
 
     	//导演表
-    	$director = $movie_detail -> director_name->name;
+    	$director = $movie_detail ->director_name->name;
     	
     	//演员表
     	
