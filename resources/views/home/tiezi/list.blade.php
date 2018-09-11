@@ -2,25 +2,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>贴吧</title>
+<title>电影列表</title>
+<meta name="description" content="电影列表" />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
 <!--[if lt IE 9]>
-    <script type="text/javascript" src="js/html5_1.js"></script>
+    <script type="text/javascript" src="/ueditor/js/html5.js"></script>
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/assets/tiezi/css/common_1.css" />
+<link type="text/css" rel="stylesheet" href="/ueditor/css/common.css" />
 <style type="text/css">
     .nav a.hotNavItem{position:relative;color: #f60;}
     .nav a.hotNavItem.on{position:relative;color: #fff;}
     .nav a.hotNavItem:hover{color: #fff;}
-    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot_1.png) no-repeat;}
+    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot.png) no-repeat;}
 /*  .nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
     .nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
     /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
 </style>
-<script type="text/javascript" src="/assets/tiezi/js/jquery-1.7.2.min_1.js"></script>
-<script type="text/javascript" src="/assets/tiezi//assets/tiezi//assets/tiezi/js/jquery.cookie_1.js"></script>
-<script type="text/javascript" src="/assets/tiezi//assets/tiezi/js/common2_1.js"></script>
-<script type="text/javascript" src="/assets/tiezi/js/common_1.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/ueditor/js/common2.js"></script>
+<script type="text/javascript" src="/ueditor/js/common.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -38,7 +39,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-            <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo_1.png" alt="大众影评网" /></a>
+            <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo.png" alt="大众影评网" /></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -47,23 +48,17 @@ var _hmt = _hmt || [];
                 <!--[if lt IE 10]> <input class="txt_kw" name="txt_kw" type="text" autocomplete="off"  value="搜索你感兴趣的" /> <![endif]-->
                 <input class="sreach" name="btn_sreach" type="submit" value="" >
                <!-- <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" > -->
-             <input type="hidden" name="__hash__" value="bfd5120043eee562b76996e6b8fe52d5_994ab7d4080778cd7593ae3b491f8e7a" /></form>
+             <input type="hidden" name="__hash__" value="8d3dd6491e4150f73b602b3b0e920229_8a8aae4d28acf5b2cac5fc353015497d" /></form>
              <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" >
              <input type="hidden" value=""  id="sessionid">
-             <span class="hotLink">
-              <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a>
-                 <a href="http://www.51oscar.com/album/1877.html">九部超级温馨又治愈的家庭类电影</a>
-                 <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a>
-                 <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a>
-                 <a href="http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a>
-             </span>
+             
         </div>
     </div>
 </section>
 <section class="nav">
     <nav class="wp clearfix">
-        @include('layouts.home.list')
-
+       
+    @include('layouts.home.list')
     </nav>
 </section>
 <script>
@@ -118,11 +113,11 @@ var URL = "http://www.51oscar.com/";
     var curr_url=window.location.href;
     if(/.com\/news/.test(curr_url)){
         $('#news').addClass('on');
-    }else if(/.com\/movie/.test(curr_url)){
+    }else if(/.com\/home\/movieDetails/.test(curr_url)){
         $('#movie').addClass('on');
-    }else if(/.com\/review/.test(curr_url)){
+    }else if(/.com\/home\/review/.test(curr_url)){
         $('#review').addClass('on');
-    }else if(/.com\/forum/.test(curr_url)){
+    }else if(/.com\/home\/tiezis/.test(curr_url)){
         $('#forum').addClass('on');
     }else if(/.com\/album/.test(curr_url)){
         $('#album').addClass('on');

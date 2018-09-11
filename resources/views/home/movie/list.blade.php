@@ -113,11 +113,11 @@ var URL = "http://www.51oscar.com/";
     var curr_url=window.location.href;
     if(/.com\/news/.test(curr_url)){
         $('#news').addClass('on');
-    }else if(/.com\/movie/.test(curr_url)){
+    }else if(/.com\/home\/movieDetails/.test(curr_url)){
         $('#movie').addClass('on');
-    }else if(/.com\/review/.test(curr_url)){
+    }else if(/.com\/home\/review/.test(curr_url)){
         $('#review').addClass('on');
-    }else if(/.com\/forum/.test(curr_url)){
+    }else if(/.com\/home\/tiezis/.test(curr_url)){
         $('#forum').addClass('on');
     }else if(/.com\/album/.test(curr_url)){
         $('#album').addClass('on');
@@ -156,24 +156,12 @@ $(document).ready(function(){
             <dt>按类型：</dt>
             <dd>
                 <ul class="clearfix" >
-                     <li ><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
+                     <li class="@if(empty(Request()->movie_tag_id)) on @endif"><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
                     @foreach($tags as $v)
                      <li class="@if($v->id == request()->movie_tag_id) on @endif"><a href="/home/movieDetails?movie_tag_id={{$v['id']}}&{{http_build_query(request()->except('movie_tag_id'))}}" title="动作" target="_self">{{$v['name']}}</a></li>
-
                     @endforeach
 
-                    <!-- $('#up div').mouseover(function(){
-                        //获取当前元素的索引
-                        var index = $(this).index();
-                        //标签导航样式切换
-                        $(this).addClass('active');
-                        $(this).siblings().removeClass('active');
-                        //内容切换
-                        $('#down .item').eq(index).addClass('active');
-                        $('#down .item').eq(index).siblings().removeClass('active');
-                    }); -->
 
-                    
 
                      <li ><a href="/movie/search/37_4_0_0.html" title="其他" target="_self">其他</a></li>                </ul>
             </dd>
@@ -184,21 +172,21 @@ $(document).ready(function(){
             <dt>按地区：</dt>                                                        
             <dd class="noMoreDd">
                 <ul class="clearfix">
-                    <li class="on"><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
+                    <li class="@if(empty(Request()->movie_cate_id)) on @endif"><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
                     @foreach($cate as $v)
                     <li class="@if($v->id == request()->movie_cate_id) on @endif" ><a href="/home/movieDetails?movie_cate_id={{$v['id']}}&{{http_build_query(request()->except('movie_cate_id'))}}" title="大陆" target="_self">{{$v['name']}}</a></li>
                     @endforeach
                     <li  ><a href="/movie/search/4_17_0_0.html" title="其他" target="_self">其他</a></li>                </ul>
             </dd>
         </dl>
-        <dl class="clearfix">
+        <!-- <dl class="clearfix">
             <dt>按时间：</dt>
             <dd>
                 <ul class="clearfix">
                    <li class="on" ><a href="/movie/search/4_4_0_0.html" title="全部" target="_self">全部</a></li><li  ><a href="/movie/search/4_4_1_0.html" title="当前热映" target="_self">当前热映</a></li><li  ><a href="/movie/search/4_4_2_0.html" title="即将上映" target="_self">即将上映</a></li><li  ><a href="/movie/search/4_4_3_0.html" title="2015" target="_self">2015</a></li><li  ><a href="/movie/search/4_4_4_0.html" title="2014" target="_self">2014</a></li><li  ><a href="/movie/search/4_4_5_0.html" title="2013" target="_self">2013</a></li><li  ><a href="/movie/search/4_4_6_0.html" title="2012" target="_self">2012</a></li><li  ><a href="/movie/search/4_4_7_0.html" title="2011" target="_self">2011</a></li><li  ><a href="/movie/search/4_4_8_0.html" title="2010" target="_self">2010</a></li><li  ><a href="/movie/search/4_4_9_0.html" title="2009" target="_self">2009</a></li><li  ><a href="/movie/search/4_4_10_0.html" title="2008" target="_self">2008</a></li><li  ><a href="/movie/search/4_4_11_0.html" title="2007" target="_self">2007</a></li><li  ><a href="/movie/search/4_4_12_0.html" title="2006" target="_self">2006</a></li><li  ><a href="/movie/search/4_4_13_0.html" title="2005" target="_self">2005</a></li><li  ><a href="/movie/search/4_4_14_0.html" title="2004" target="_self">2004</a></li><li  ><a href="/movie/search/4_4_15_0.html" title="2003" target="_self">2003</a></li><li  ><a href="/movie/search/4_4_16_0.html" title="2002" target="_self">2002</a></li><li  ><a href="/movie/search/4_4_17_0.html" title="2001" target="_self">2001</a></li><li  ><a href="/movie/search/4_4_18_0.html" title="2000" target="_self">2000</a></li><li  ><a href="/movie/search/4_4_19_0.html" title="1999" target="_self">1999</a></li><li  ><a href="/movie/search/4_4_20_0.html" title="1998" target="_self">1998</a></li><li  ><a href="/movie/search/4_4_21_0.html" title="90年代" target="_self">90年代</a></li><li  ><a href="/movie/search/4_4_22_0.html" title="80年代" target="_self">80年代</a></li><li  ><a href="/movie/search/4_4_23_0.html" title="更早" target="_self">更早</a></li>                </ul>
             </dd>
             <dd class="more_dd"><a class="moreBnt2 more" href="javascript:" >更多</a></dd>
-        </dl>
+        </dl> -->
     </div>
 </section>
 <!--搜索过滤器 e-->

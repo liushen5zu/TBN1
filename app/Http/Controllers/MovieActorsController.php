@@ -57,7 +57,6 @@ class MovieActorsController extends Controller
          $actor-> date = $request->date;
          $actor-> work = $request->work;
          $actor-> EnglishName = $request->EnglishName;
-         $actor-> ChinaName = $request->ChinaName;
          $actor-> familyMember = $request->familyMember;
          $actor-> winning = $request->winning;
          $actor-> actor_into = $request->actor_into;
@@ -111,7 +110,6 @@ class MovieActorsController extends Controller
          $actor-> date = $request->date;
          $actor-> work = $request->work;
          $actor-> EnglishName = $request->EnglishName;
-         $actor-> ChinaName = $request->ChinaName;
          $actor-> familyMember = $request->familyMember;
          $actor-> winning = $request->winning;
          $actor-> actor_into = $request->actor_into;

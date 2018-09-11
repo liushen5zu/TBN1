@@ -10,7 +10,7 @@
 <![endif]--> 
   <link type="text/css" rel="stylesheet" href="/ueditor/css/common_1.css" /> 
   <link type="text/css" rel="stylesheet" href="/assets/tiezi/css/common_1.css" />
-<link type="text/css" rel="stylesheet" href="/assets/tiezi/css/forum.css" />
+  <link type="text/css" rel="stylesheet" href="/assets/tiezi/css/forum.css" />
   <style type="text/css">
   .nav a.hotNavItem{position:relative;color: #f60;}
   .nav a.hotNavItem.on{position:relative;color: #fff;}
@@ -186,7 +186,7 @@ var URL = "http://www.51oscar.com/";
     $('#forum').addClass('on');
   }else if(/.com\/album/.test(curr_url)){
     $('#album').addClass('on');
-  }else if(/.com\/activity/.test(curr_url)){
+  }else if(/.com\/home\/activity\/list/.test(curr_url)){
     $('#activity').addClass('on');
   }else if(/.com\/topic/.test(curr_url)){
     $('#topic').addClass('on');

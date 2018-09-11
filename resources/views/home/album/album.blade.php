@@ -143,7 +143,7 @@
         $('#review').addClass('on');
     } else if (/.com\/forum/.test(curr_url)) {
         $('#forum').addClass('on');
-    } else if (/.com\/album/.test(curr_url)) {
+    } else if (/.com\/home\/album/.test(curr_url)) {
         $('#album').addClass('on');
     } else if (/.com\/activity/.test(curr_url)) {
         $('#activity').addClass('on');
