@@ -33,6 +33,9 @@ Route::group([],function(){
 	//电影评论管理
 	Route::resource('movie_comments','MovieCommentsController');
 
+	//评论管理(用于影评及回复)
+	Route::resource('movieReview','MovieReviewController');
+
 	//导演管理
 	Route::resource('movie_directors','MovieDirectorsController');
 
@@ -138,5 +141,10 @@ Route::group(['middleware'=>'home'],function(){
 	//帖子评论
 	Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');
 	
+	
+	//评论添加
+	Route::get('/home/review/{id}/reply','home\HomeReviewController@create');
+	//评论删除
+	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
 });
 
