@@ -126,8 +126,13 @@ Route::group(['middleware'=>'home'],function(){
 
 	//个人中心
 	Route::get('/home/center','CenterController@index');
-	Route::post('/home/jiben','CenterController@jiben');
+	Route::get('/home/jiben','CenterController@jiben');
+	Route::get('/home/mima','CenterController@mima');
+	Route::get('/home/touxiang','CenterController@touxiang');
+	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
+	Route::get('/home/myCenter','CenterController@myCenter');
+	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 
 
 	//帖子评论

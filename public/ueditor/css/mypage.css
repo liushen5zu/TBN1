@@ -1,0 +1,139 @@
+﻿@charset "utf-8";
+
+
+.movieL-nav{
+	overflow: hidden;
+	border-bottom: 1px solid #dddddd;
+	margin-top: 10px;
+	zoom: 1
+}
+.movieL-nav li{
+	float: left;
+	margin-right: 4px;
+	background: url(../images/homepage-top02.gif);
+	width: 65px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	font-size:12px/normal '微软雅黑';
+}
+.movieL-nav li a{
+	color: #6a6a6a;
+	/*font: 12px/normal '微软雅黑';*/
+}
+.movieL-nav li.cur{
+	background: url(../images/homepage-top01.gif);
+	width: 65px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	font-size:12px/normal '微软雅黑';
+}
+.movieL-nav li.nbsp{
+    background: url(../images/homepage-top05_5.gif);
+	width: 10px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	font-size:12px/normal '微软雅黑';
+}
+.movieL-nav li.cur a{
+	color: #FFF
+}
+
+
+
+
+
+
+
+/*cyh*/
+.clear{clear:both;}
+.mt20{margin-top:20px;}
+.left-list-1, .left-list-2 {height:318px;}
+.left-list{padding-bottom:30px; margin-top:-1px;} 
+
+
+.movie-list-bottom{border-bottom:none;}
+
+
+.float-right{float:right;}
+	.clear{clear:both;}
+
+	.out-my-create{border:1px solid #C4C4C4; height:160px; margin:20px 0 ; background:#fff;}
+	.inner-my-create{ height:128px; border:1px solid #eee; background:#f7f7f7; margin:15px;}
+	.ul-create-desc{float:left; margin-left:25px; margin-top:23px;}
+	.ul-create-desc li{height:20px; line-height:20px;}
+	.div-create-album{float:right; margin-right:20px; width:193px; height:97px; margin-top:20px;
+		/*/background:url(../images/yp.png);   */
+		background:url(../images/yp.gif);   
+	}
+	.div-create-album h5{font-size:24px; color:#fff;  font-size:24px/normal '微软雅黑'; font-weight:bold; text-align:center; margin-top:10px;}
+	.div-create-album h6{font-size:14px; color:#fff;  font-size:14px/normal '微软雅黑'; font-weight:bold; text-align:center; margin-top:10px;}
+
+	.out-album-list{background:#fff;border:1px solid #c4c4c4; margin-bottom:20px;}
+	.my-album-list{ margin:20px 30px; }
+	.ul-my-album-admin{float:right;}
+	.ul-my-album-admin li{float:left; margin:0 3px;}
+
+
+/*friendlist*/
+.float-right{float:right;}
+	.clear{clear:both;}
+	.gray{color:#cccccc;}
+	.deep-gray{color:#868686;}
+	.orange{color:#F38F23;}
+	.h4-mypage{font: bold 18px/normal '微软雅黑';margin: 25px 0 10px 10px;}
+	.fans-nav{height:30px; background:#FBFBFB; line-height:30px;}
+	.fans-nav ul{padding-left:10px;}
+	.fans-nav li{float:left; margin:0px 3px;}
+	.fans-nav .select a:link, .fans-nav .select a:visited{color:#000;}
+	.ul-friend-list{margin-bottom:30px;}
+	.ul-friend-list li{ width:100%;  border-bottom:1px dotted #ccc; padding:20px 0; *padding:20px 0 0px 0;}
+	.ul-friend-list li .focus-he{border:none;float:right; display:block; width:60px; text-align:center; color:#fff; height:26px;line-height:26px;background:#1A67B2; margin-top:15px; cursor: pointer;border-radius: 3px 3px 3px 3px;}
+	.ul-friend-list li  .cancelfocus-he{border:none;margin-left:10px;float:right; display:block; width:60px; text-align:center; color:#fff; height:26px;background:#70a016; margin-top:15px;padding-top:-20px; cursor:pointer;border-radius: 3px 3px 3px 3px;}
+	.ul-friend-list li .AfterAttention{float:right; display:block; width:60px; text-align:center; color:#fff; height:23px; line-height:23px; background:#e8e8e8; margin-top:15px;}
+	.ul-friend-list li .img-user-logo{float:left; width:50px; height:50px;}
+	.ul-friend-list li .friend-info{float:left; margin-left:15px; }
+	.ul-friend-list li .friend-info dd{ height:18px;}
+
+	/*msg*/
+	.ul-my-msg{margin-bottom:30px;}
+	.ul-my-msg li{ width:100%;  border-bottom:1px dotted #ccc; padding:12px 0; *padding:12px 0 12px 0;}
+	/*.ul-my-msg li:hover{ width:100%;  border-bottom:1px dotted #ccc; padding:12px 0; *padding:12px 0 12px 0;background:#f6f6f6;}*/
+	.ul-my-msg li .delete{float:right; margin-right:10px;}
+	
+	/*aimy*/
+	.friend-info .attention{margin-left:10px;margin-right:10px;}
+	
+/*我的信息 mouchun.xiao*/	
+.msgListWp{ min-height:500px; padding:20px 15px; width:950px; background-color:#FFF; margin-top:20px;}
+.msgListWp h1{ font-size:25px; color:#333;}	
+.msgListWp .titleBox{ height:39px; border-bottom:1px solid #f60; position:relative; margin-top:20px; }
+.msgListWp .tab {float:left; margin-top:10px;}
+.msgListWp .tab li{ display:block; width:110px; height:20px; line-height:20px; font-size:18px; float:left; border-right:1px solid #e0e0e0; text-align:center; }
+.msgListWp .tab li a{ display:block; text-decoration:none; color:#333;}
+.msgListWp .tab li a:hover{color:#f60;}
+.msgListWp .tab li.title_cur{ height:39px; position:relative; top:-10px; line-height:40px; border-left:1px solid #f60; border-top:1px solid #f60; border-right:1px solid #f60; background-color:#FFF; -moz-border-top-left-radius:10px; -ms-border-top-left-radius:10px; -o-border-top-left-radius:10px; -webkit-border-top-left-radius:10px; border-top-left-radius:10px; -moz-border-top-right-radius:10px; -o-border-top-right-radius:10px; -ms-border-top-right-radius:10px; -webkit-border-top-right-radius:10px; border-top-right-radius:10px;}
+.msgListWp .titleBox .allMarkedRead{ float:right; display:block; width:118px; height:28px; line-height:28px; border:1px solid #ddd; color:#333; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-align:center; text-decoration:none;}
+.msgListWp .titleBox .allMarkedRead:hover{ border:1px solid #f60; color:#f60;}
+
+.msgListWp  table { clear:both;}
+.msgListWp  table td{ border-bottom:1px solid #eee; padding:20px 0;}
+.msgListWp  table .td1{width:150px; color:#666; font-size:14px;}
+.msgListWp  table .td2{width:655px; padding:0 25px; vertical-align:middle; color:#333; font-size:14px;}
+.msgListWp  table .td2 a{color:#333; font-size:14px;}
+.msgListWp  table .td2 .unread{ font-weight:bold;}
+.msgListWp  table .td2 a:hover{color:#f60; }
+.msgListWp  table .td3{width:120px; color:#aaa; font-size:13px;}
+
+/*页码*/
+.resultWp .page{ clear:both; margin-bottom:30px;}
+.page{  margin-top:30px; width:100%; height:30px; line-height:30px; text-align:center; color:#555;}
+.page a{ display:inline-block; height:28px; padding:0 10px; margin:0 2px; border:1px solid #ededed; color:#555; border-radius:5px; text-decoration:none;}
+.page a:hover{ border:1px solid #f60; color:#f60;}
+.page .prev, .page .next{ padding:0 15px;}
+.page .pageOn{ background-color:#f60; color:#FFF; border:1px solid #F60;}
+.page .pageOn:hover{ cursor:default; color:#FFF;}
+
+
