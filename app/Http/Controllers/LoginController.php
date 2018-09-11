@@ -24,7 +24,7 @@ class LoginController extends Controller
     	if($user->password != $request->password){
     		return redirect('/login')->with('success','登录失败');
     	}else{
-    		session(['username'=>$request->username,'id'=>$user->id]);
+    		session(['username'=>$request->username,'id'=>$user->id],'image'=>$user->image);
     		return redirect('/admin')->with('success','登陆成功');
     	}
 
