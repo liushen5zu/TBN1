@@ -147,7 +147,7 @@
                     </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="/album">
+                                <a href="/al_detail">
                                 <i class="iconfont">&#xe6a7;</i>
                                 影集列表
                             </a>

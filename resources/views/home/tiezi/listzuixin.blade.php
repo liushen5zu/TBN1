@@ -186,21 +186,24 @@ $(document).ready(function(){
         </section>
         <!--发表新帖 s-->
                  
-            <section class="user_sayBox clearfix">
-                    
-            <form action="/tiezi" method="post"enctype="multipart/form-data">
-                <div class="titleBox clearfix" id="lzfwantPost"><em>标题</em><input type="text" name="title" class="tieba_title"></div>
+          <section class="user_sayBox clearfix">
+              @if(!Session::has('username'))     
+                请先登录才能发帖
+              @else 
+                  <form action="/tiezi" method="post"enctype="multipart/form-data">
+               <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost" class="wantPost icon" href="javascript:;" onclick="jumpTo('.user_sayBox')" value="我要发帖"></button>
+                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}
                  <script>
                         var ue = UE.getEditor('editor');    
                     </script>
-            </form>
+               </form>
+                @endif
              </section>
 
         <!--发表新帖 e-->

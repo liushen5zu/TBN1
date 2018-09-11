@@ -38,7 +38,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-            <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo_1.png" alt="大众影评网" /></a>
+            <a href="/">峰峰影评网</a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -210,9 +210,11 @@ $(document).ready(function(){
         <!--发表新帖 s-->
                  
             <section class="user_sayBox clearfix">
-                    
-            <form action="/tiezi" method="post"enctype="multipart/form-data">
-                <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
+              @if(!Session::has('username'))     
+                请先登录才能发帖
+              @else 
+                  <form action="/tiezi" method="post"enctype="multipart/form-data">
+               <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
@@ -223,15 +225,9 @@ $(document).ready(function(){
                  <script>
                         var ue = UE.getEditor('editor');    
                     </script>
-            </form>
-                  <script type="text/javascript">
-                    $('button').click(function(){
-                      if(empty("session('id')"){
-                        alert('aaa'):
-                      }
-                    })
-                  </script>
-                    </section>
+               </form>
+                @endif
+             </section>
 
         <!--发表新帖 e-->
         
