@@ -193,7 +193,7 @@ $(document).ready(function(){
         <!--新片影评 s-->
         <section class="newMovRevi">
              <div class="title clearfix">
-                <a href="/home/review/table" title="新片影评" target="_self" >新片影评<em>>></em></a><a class="c_f60" onclick="return Common.isLogin()" href="/home/login">我要写影评</a>
+                <a href="/home/review/table" title="新片影评" target="_self" >新片影评<em>>></em></a><a class="c_f60"  href="/home/login">我要写影评</a>
             </div>
             <div id="reviBox" class="cont clearfix">
             <dl class="reviItem clearfix">

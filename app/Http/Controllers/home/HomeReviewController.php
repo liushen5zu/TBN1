@@ -4,6 +4,8 @@ namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
 use App\Movie_comment;
+use App\Reply;
+use App\Rview;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,8 +17,7 @@ class HomeReviewController extends Controller
     	$Movie_comments = Movie_comment::orderBy('id','desc')
         ->where('star','like','%'.request()->keywords.'%')
         ->paginate(5);
-        $data = Movie_comment::all();
-    	return view('home.review.index',compact('data','Movie_comments'));
+    	return view('home.review.index',compact('Movie_comments'));
     }
 
     public function table()
@@ -24,18 +25,34 @@ class HomeReviewController extends Controller
     	$Movie_comments = Movie_comment::orderBy('id','desc')
         ->where('star','like','%'.request()->keywords.'%')
         ->paginate(5);
-        $data = Movie_comment::all();
         // dd($data);
-    	return view('home.review.table',compact('data','Movie_comments'));
+    	return view('home.review.table',compact('Movie_comments'));
     }
 
     public function show($id)
     {
+        // dd($id);
     	$Movie_comments = Movie_comment::find($id);
-        $data = Movie_comment::find($id)->movie_detail()->get();
-        // dd($data);
-        $user = Movie_comment::find($id)->user()->get();
-        // dd($data);
-    	return view('home.review.show',compact('data','user','Movie_comments'));
+        $rview = Rview::all();
+        //获取回复评论单条ID
+        // $comment = Rview::find();
+        // dd($rview);
+    	return view('home.review.show',compact('Movie_comments','rview'));
+    }
+
+    public function create($id,Request $request)
+    {
+        // dd($request);
+        $reply = new Reply;
+        $reply -> content = $request -> content;
+        $reply -> rview_id = $request -> rview_id;
+        // dd($id);
+        $reply -> user_id = session('id');
+        // dd(session('id'));
+        if($reply -> save()){
+            return redirect("/home/review/{$id}.html")->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 }
