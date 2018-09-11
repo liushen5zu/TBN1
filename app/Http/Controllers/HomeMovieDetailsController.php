@@ -13,23 +13,28 @@ class HomeMovieDetailsController extends Controller
     public function index(Request $request)
     {
     	//$details = Movie_detail::all();
-       if(!empty($request->movie_tag_id)){
+       
+        $tags = Movie_tag::all();
+        $cate = Movie_cate::all();
+
+
+        if(!empty($request->movie_cate_id)){
+           $details = Movie_detail::where('movie_cate_id', $request->movie_cate_id);
+        }
+        
+        if(!empty($request->movie_tag_id)){
             $tag = Movie_tag::findOrFail($request->movie_tag_id);
             $details = $tag->movie_details()->paginate(10);
-               }
-        $tag = Movie_tag::all();
-        $cate = Movie_cate::all();
-        if(!empty($request->movie_cate_id)){
-           $details = Movie_detail::where('movie_cate_id', $request->movie_cate_id)->orderBy('id','desc')->paginate(10);
-       }
-
-       //if(!empty($request->movie_tag_id))
-        
-        if(empty($details)){
-            $details = Movie_detail::all();
         }
 
-    	return view('home.movie.list',compact('details','tag','cate'));
+
+        if(empty($details)){
+            $details = Movie_detail::orderBy('id','desc')->paginate(10);
+        }
+
+        
+
+    	return view('home.movie.list',compact('details','tags','cate'));
     }
 
     public function show($id)
@@ -39,7 +44,7 @@ class HomeMovieDetailsController extends Controller
     	//dd($movie_detail);
 
     	//导演表
-    	$director = $movie_detail -> director_name->name;
+    	$director = $movie_detail ->director_name->name;
     	
     	//演员表
     	

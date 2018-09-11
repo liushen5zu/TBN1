@@ -33,9 +33,17 @@
 
 <div class="hotMv" style="background:url() no-repeat top center;">
     <div class="lgodiv">
+
     </div>
     <div class="lgodiv2 clearfix">
-        <div class="fom_left">
+            @if(Session::has('error'))
+            <div style="padding:5px;margin:0px;">
+                <div>
+                    <div style="text-align: center;line-height:30px;color:red;font-size:25px;margin-top:15px">{{Session::get('error')}} </div>
+                </div>
+            </div>
+            @endif
+        <div class="fom_left" style="margin-top:3px">
             <h2>发现、记录、分享属于你的个性化观影社区</h2>
             <p>帮您发现、记录、分享电影；第一时间了解最新动态；获取电影内外的精彩</p>
             <h2>轻松实现导演梦</h2>

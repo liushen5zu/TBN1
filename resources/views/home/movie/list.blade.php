@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -155,11 +155,25 @@ $(document).ready(function(){
         <dl class="clearfix">
             <dt>按类型：</dt>
             <dd>
-                <ul class="clearfix">
+                <ul class="clearfix" >
                      <li ><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
-                    @foreach($tag as $v)
-                     <li ><a href="/home/movieDetails?movie_tag_id={{$v['id']}}" title="动作" target="_self">{{$v['name']}}</a></li>
+                    @foreach($tags as $v)
+                     <li class="@if($v->id == request()->movie_tag_id) on @endif"><a href="/home/movieDetails?movie_tag_id={{$v['id']}}&{{http_build_query(request()->except('movie_tag_id'))}}" title="动作" target="_self">{{$v['name']}}</a></li>
+
                     @endforeach
+
+                    <!-- $('#up div').mouseover(function(){
+                        //获取当前元素的索引
+                        var index = $(this).index();
+                        //标签导航样式切换
+                        $(this).addClass('active');
+                        $(this).siblings().removeClass('active');
+                        //内容切换
+                        $('#down .item').eq(index).addClass('active');
+                        $('#down .item').eq(index).siblings().removeClass('active');
+                    }); -->
+
+                    
 
                      <li ><a href="/movie/search/37_4_0_0.html" title="其他" target="_self">其他</a></li>                </ul>
             </dd>
@@ -170,9 +184,9 @@ $(document).ready(function(){
             <dt>按地区：</dt>                                                        
             <dd class="noMoreDd">
                 <ul class="clearfix">
-                    <li  ><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
+                    <li class="on"><a href="/home/movieDetails" title="全部" target="_self">全部</a></li>
                     @foreach($cate as $v)
-                    <li  ><a href="/home/movieDetails?movie_cate_id={{$v['id']}}" title="大陆" target="_self">{{$v['name']}}</a></li>
+                    <li class="@if($v->id == request()->movie_cate_id) on @endif" ><a href="/home/movieDetails?movie_cate_id={{$v['id']}}&{{http_build_query(request()->except('movie_cate_id'))}}" title="大陆" target="_self">{{$v['name']}}</a></li>
                     @endforeach
                     <li  ><a href="/movie/search/4_17_0_0.html" title="其他" target="_self">其他</a></li>                </ul>
             </dd>

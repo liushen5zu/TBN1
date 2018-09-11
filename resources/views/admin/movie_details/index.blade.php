@@ -62,6 +62,9 @@
                             剧情简介
                         </th>
                         <th>
+                            评论数
+                        </th>
+                        <th>
                             操作
                         </th>
                     </tr>
@@ -83,6 +86,7 @@
                         <td>{{$v['runningtime']}}</td>
                         <td>{{$v['recom']}}</td>
                         <td>{{$v['intro']}}</td>
+                        <td>{{$v['num']}}</td>
                         <td class="td-manage">
                            <form method="get" action="/movie_details/{{$v->id}}/edit" style="float:left">
                            {{csrf_field()}}
@@ -106,7 +110,7 @@
             </table>
             <style>
             .pagination{
-                margin-left:700px;
+                margin-left:300px;
             }
             .pagination li{
                 width:50px;

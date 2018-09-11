@@ -17,12 +17,15 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <label for="L_pass" class="layui-form-label">
+                    <label for="L_repass" class="layui-form-label">
                         <span class="x-red">*</span>导演
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_pass" name="director_name_id" required="" lay-verify="pass"
-                        autocomplete="off" class="layui-input" value="{{$movie_details['director_name_id']}}">
+                        <select class="form-control" name="director_name_id">
+                        @foreach($director as $v)
+                          <option value="{{$v->id}}" {{$movie_details['director_name_id']==$v->id ? 'selected' : ""}}>{{$v->name}}</option>
+                        @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -31,8 +34,7 @@
                     </label>
                     <div class="layui-input-inline">
                         <image src="{{$movie_details['image']}}" width="100%">
-                        <input type="file" id="L_pass" name="image" required="" lay-verify="pass"
-                        autocomplete="off" class="layui-input">
+                        <input type="file" id="L_pass" name="image"   class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">

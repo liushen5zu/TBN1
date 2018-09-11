@@ -35,10 +35,12 @@ class MovieDetailsController extends Controller
      */
     public function create()
     {
+        $director = Director_name::all();
         $actor = Movie_actor::all();
         $cate = Movie_cate::all();
         $tag = Movie_tag::all();
-        return view('admin.movie_details.create',compact('cate','actor','tag'));
+
+        return view('admin.movie_details.create',compact('cate','actor','tag','director'));
     }
     
     /**
@@ -58,6 +60,7 @@ class MovieDetailsController extends Controller
         $movie_details -> intro = $request->intro;
         $movie_details -> num = $request->num;
         $movie_details -> movie_cate_id = $request->movie_cate_id;
+        // dd($request->movie_cate_id);
 
             
         if($request->hasFile('image')) {
@@ -102,10 +105,11 @@ class MovieDetailsController extends Controller
         $cate = Movie_cate::all();
         $actor = Movie_actor::all();
         $tag = Movie_tag::all();
+        $director = Director_name::all();
         $movie_details= Movie_detail::find($id);
 
 
-        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor,'tag'=>$tag]);
+        return view('admin.movie_details.edit',['movie_details'=>$movie_details,'cate'=>$cate,'actor'=>$actor,'tag'=>$tag,'director'=>$director]);
     }
 
     /**
@@ -126,7 +130,7 @@ class MovieDetailsController extends Controller
         $movie_details -> intro = $request->intro;
         $movie_details -> num = $request->num;
         $movie_details -> movie_cate_id = $request->movie_cate_id;
-
+        
         if($request->hasFile('image')) {
             $movie_details->image = '/'.$request->image->store('uploads/'.date('Ymd'));
         }

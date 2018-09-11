@@ -56,7 +56,7 @@
                     </tr>
                 </thead>
 
-                @foreach($movie_comments as $v)
+                @foreach($data as $v)
                 
                 <tbody>
                     <tr>
@@ -76,7 +76,7 @@
                             {{$v['content']}}
                         </td>
                         <td >
-                            {{$v->movie_detail->name}}
+                            {{$v->movie_detail['name']}}
                         </td>
                         <td class="td-manage">
                             <form method="post" action="/movie_comments/{{$v['id']}}" style="float:left">

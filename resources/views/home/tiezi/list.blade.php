@@ -158,70 +158,23 @@ $(document).ready(function(){
     <section class="leftWp fL">
         <section class="forumList">
             <div class="titList title clearfix">
-                <a class="tit_latest" href="http://www.51oscar.com/forum.html" title="最新" target="_self" >最新</a><a class="tit_good" href="/forum/good.html" title="精华" target="_self">精华</a>
+                <a class="tit_latest" href="/home/tiezi/zuixin" title="最新" target="_self" >最新</a>
+                <a class="tit_good" href="/home/tiezi/jinghua" title="精华" target="_self">精华</a>
                 <i id="moveLine"></i>
-                <button id="wantPost" class="wantPost icon" href="javascript:;" onClick="jumpTo('.user_sayBox')"  value="我要发帖">我要发帖</button>
+                <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
             </div>
             <div id="listBox" class="listBox">
-            <!-- 置顶-->
-            <dl class="forumItem_top forumItem clearfix">
-                    <dt class="L fL">
-                        <em class="red">置顶</em>
-                    </dt>
-                    <dd class="M fL">
-                        <div class="T clearfix">
-                            <div class="fL">
-                                <a href="/forum/2932.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">【需求贴】如有资源需求，请在本贴下留言</a>
-                                <p>楼主资源控~ 所以不管是新片、老片、奇葩片、重口味片，包括一些日...</p>
-                            </div>
-                            <div class="fR">
-                                <p><i class="man icon"></i><span>资源小强</span></p>
-                                <p><i class="info icon"></i><span>子帝</span></p>
-                            </div>
-                        </div>
-                        <div class="B">
-                            <ul id="bigPic_top0" class="clearfix">
-                             <li><a href="/Uploads/image/20150710/water_15092640100.jpg"><img class="lazyImg" src="picture/b.gif" data-src="/Uploads/image/20150710/s_15092640100.jpg" /></a></li>  
-                           </ul> 
-                        </div>
-                    </dd>
-                    <dd class="R fR"></dd>
-                </dl><!----><dl class="forumItem_top forumItem clearfix">
-                    <dt class="L fL">
-                        <em class="red">置顶</em>
-                    </dt>
-                    <dd class="M fL">
-                        <div class="T clearfix">
-                            <div class="fL">
-                                <a href="/forum/8.html" title="电影贴吧必读！！！" target="_blank">电影贴吧必读！！！</a>
-                                <p></p>
-                            </div>
-                            <div class="fR">
-                                <p><i class="man icon"></i><span>撒旦的女王</span></p>
-                                <p><i class="info icon"></i><span>咖喱菠萝派</span></p>
-                            </div>
-                        </div>
-                        <div class="B">
-                            <ul id="bigPic_top1" class="clearfix">
-                             
-                           </ul> 
-                        </div>
-                    </dd>
-                    <dd class="R fR">07-14</dd>
-                </dl><!---->    
-           <!-- 置顶end-->  
-           
-            <!--未审核--> 
             @foreach($tiezis as $v)
                 <dl class="forumItem_good forumItem clearfix">
                         <dt class="L fL">
-                        <em class="dot icon"></em> 
+                        <em class="red">置顶</em>
                          </dt>
                         <dd class="M fL">
+                          <dd class="R fR">{{$v->created_at}}</dd>
                         <div class="T clearfix">
                              <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank">{{$v->title}}</a>
-                               
+                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b>{{$v->title}}</b></a>
+                                <p>{!!mb_substr($v['content'],205,30)!!} ...</p>   
                             </div>
                                   <div class="fR">
                                     <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
@@ -230,31 +183,55 @@ $(document).ready(function(){
                         </dd>
                 </dl><!---->   
                 @endforeach
-            </div>
-            <!--listBox e-->
-<!--             <div class="pagination">
-                   &nbsp;<span class='current'>1</span>&nbsp;<a href='/forum/index/p/2.html'>&nbsp;2&nbsp;</a>&nbsp;<a href='/forum/index/p/3.html'>&nbsp;3&nbsp;</a>&nbsp;<a href='/forum/index/p/4.html'>&nbsp;4&nbsp;</a>&nbsp;<a href='/forum/index/p/5.html'>&nbsp;5&nbsp;</a>   <a href='/forum/index/p/2.html'>下一页</a>   <span style="color:black;">第  1/730 页</span>            
-            </div> -->
-               
-        </section><!--forumList e-->
+             @foreach($tiezis1 as $v)
+                <dl class="forumItem_good forumItem clearfix">
+                        <dt class="L fL">
+                        @if($v['status']==2)
+                            <em class="green">精华</em>
+                        @else
+                        @endif
+                         </dt>
+                        <dd class="M fL">
+                          <dd class="R fR">{{$v->created_at}}</dd>
+                        <div class="T clearfix">
+                             <div class="fL">
+                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b >{{$v->title}}</b></a> 
+                                 <p>{!!mb_substr($v['content'],200,10)!!} ...</p>  
+                            </div>
+                                  <div class="fR">
+                                    <p><i class="man icon"></i><span style="float: right;">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
+                                </div>
+                            </div>
+                        </dd>
+                </dl> 
+                @endforeach
+            </div>    
+        </section>
         <!--发表新帖 s-->
                  
             <section class="user_sayBox clearfix">
                     
             <form action="/tiezi" method="post"enctype="multipart/form-data">
-                <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title"></div>
+                <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost" class="wantPost icon" href="javascript:;" onclick="jumpTo('.user_sayBox')" value="我要发帖"></button>
+                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}
                  <script>
                         var ue = UE.getEditor('editor');    
                     </script>
             </form>
-             </section>
+                  <script type="text/javascript">
+                    $('wantPost1').click(function(){
+                      if(empty("session('id')"){
+                        alert('aaa'):
+                      }
+                    })
+                  </script>
+                    </section>
 
         <!--发表新帖 e-->
         
@@ -274,75 +251,25 @@ $(document).ready(function(){
             <div class="title clearfix">
                 <i class="movie icon"></i><a href="/movie/search.html" title="热映影片" >热映影片<em>>></em></a>
             </div>
+            @foreach($movie_details as $v)
             <div class="cont clearfix">
              <dl class="clearfix">
                     <dt>
-                        <a href="/movie/39278.html" title="芳华 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c33acd86ed5.jpg" width="98" height="138" alt="芳华 " />
+                        <a href="/movie/39278.html" title="{{$v->name}}" target="_blank" >
+                            <img class="lazyImg pic imgBorder" src="{{$v->image}}"width="98" height="138" alt="{{$v->name}}" />
                         </a>
                     </dt>    
                     <dd>
-                        <a class="t" href="/movie/39278.html" title="芳华 " target="_blank" >芳华 </a>
-                        <p>导演：<em>冯小刚</em></p>
-                        <p>类型：<em>剧情/战争</em></p>
+                        <a class="t" href="/movie/39278.html" title="{{$v->name}}" target="_blank" >{{$v->name}}</a>
+                        <p>导演：<em>{{$v->director_name->name}}</em></p>
+                        <p>类型：<em>{{$v->movie_cate->name}}</em></p>
                         <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
                     </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39277.html" title="空天猎 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c3397b4c6e5.jpg" width="98" height="138" alt="空天猎 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39277.html" title="空天猎 " target="_blank" >空天猎 </a>
-                        <p>导演：<em>李晨</em></p>
-                        <p>类型：<em>动作/剧情...</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39276.html" title="缝纫机乐队 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c318412247e.jpg" width="98" height="138" alt="缝纫机乐队 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39276.html" title="缝纫机乐队 " target="_blank" >缝纫机乐队 </a>
-                        <p>导演：<em>大鹏</em></p>
-                        <p>类型：<em>喜剧/音乐</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39275.html" title="遗忘空间 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c0a983d72c3.jpeg" width="98" height="138" alt="遗忘空间 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39275.html" title="遗忘空间 " target="_blank" >遗忘空间 </a>
-                        <p>导演：<em>韩汶青</em></p>
-                        <p>类型：<em>恐怖/悬疑</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39274.html" title="疯狂旅程 " target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/b.gif" data-src="/Uploads/Movie/Poster/59c0a6cb6ed46.jpg" width="98" height="138" alt="疯狂旅程 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39274.html" title="疯狂旅程 " target="_blank" >疯狂旅程 </a>
-                        <p>导演：<em>龙野</em></p>
-                        <p>类型：<em>喜剧/剧情</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl>            </div>
+                </dl>       
+            </div>
+            @endforeach
         </section><!--热映影片 e-->
-        
-        <section class="ad_forumAside">
-            <a href="http://www.21yaya.com" title="牙牙关注" target="_blank"><img class="lazyImg" src="picture/b.gif" data-src="/Uploads/user_thumb/56600ec6649e9.jpg" alt="牙牙关注"/></a>
-        </section>
     </aside><!--rightWp e-->
-
 </section>
 <!--主体部分 e-->
 

@@ -561,7 +561,7 @@ $(".trailer").click(function(){
 	//scrollFixed(".hotMovie","#footer",40);
 
 </script>
-<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="/comment/js/bsharec0.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="js/bsharec0.js"></script>
 
 <!-- 隐藏信息  --> 
 <input type='hidden' id='txt_header_url' value="http://www.51oscar.com" />
