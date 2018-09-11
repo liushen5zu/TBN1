@@ -3,6 +3,7 @@
 namespace App;
 
 
+use App\Rview;
 use App\User;
 use App\movie_detail;
 use Illuminate\Database\Eloquent\Model;
