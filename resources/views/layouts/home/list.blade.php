@@ -1,4 +1,4 @@
- <a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
+ <a href="/" title="首页" target="_self" id="home">首页</a>
         <a class="hotNavItem icon_hot" href="/home/tiezis" target="_self" id="forum">贴吧<span></span></a>
         <a class="hotNavItem" href="/home/review" target="_self" id="review">影评</a>
         <a href="/home/movieDetails" target="_self" id="movie">电影</a>
