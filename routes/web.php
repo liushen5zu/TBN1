@@ -92,6 +92,8 @@ Route::group([],function(){
 	Route::get('/home/activity/list','HomeActivityController@list');
 	Route::get('/home/activity/{id}.html','HomeActivityController@show');
 	Route::post('/home/activity/tuijian/{id}','HomeActivityController@tuijian');
+	//前台活动报名
+	Route::get('/home/activityto','ActivityToController@baoming');
 
 	//影评(主页)
 	Route::get('/home/review','home\HomeReviewController@index');
@@ -133,8 +135,9 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
-
-
+	//站内信
+	Route::get('/home/send/{id}','MessagesController@send');
+	Route::get('/home/cunchu','MessagesController@cunchu');
 	//帖子评论
 	Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');
 	

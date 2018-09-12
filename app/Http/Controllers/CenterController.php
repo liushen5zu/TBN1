@@ -42,9 +42,12 @@ class CenterController extends Controller
 
     public function xiaoxi(Request $request)
     {
+        //dump($request->all());
         $user=User::all();
         //dd($user);
-       return view('home.center.xiaoxi',compact('user')); 
+        $message = Messages::all();
+        //dd($message);
+       return view('home.center.xiaoxi',compact('user','message')); 
     }
 
 

@@ -21,7 +21,7 @@
         <p>结束时间：<span>{{$activity->updated_at}}</span></p> 
         <p>报名截止：<span>{{$activity->rtime}}</span></p> 
         <p>活动地点：<span>{{$activity->activity_site}}</span></p> 
-        <p><span><em>{{$activity->registration_num}}</em>人报名<i>|</i><em>{{$activity->attention_num}}</em>人关注</span></p> 
+        <p><span><em class="registration">{{$registration_num}}</em>人报名<i>|</i><em>{{$activity->attention_num}}</em>人关注</span></p> 
         <div class="bshare-custom"> 
          <div class="bsPromo bsPromo2"></div> 
          <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
@@ -39,10 +39,32 @@
                                             pic:"http://image.51oscar.com/Uploads/activity/596edbed0d180.png"
                                     });
         </script> 
-        <a href="javascript:;" id="btn_activity_apply">我要参加</a>
+        <form action="/home/activityto" method="get">
+        <input type="hidden" name="activity_id" value="{{$activity->id}}">
+        {{csrf_field()}}
+       
+        @if(count($activityto)>0)
+        
+         <a id="btn_activity_apply">已报名<a>
+        @endif
+        @if(count($activityto)==0)
+        <button id="btn_activity_apply"> 我要报名</button>
+        @endif
+        
+        
+        </form>
        </dd> 
       </dl>
-          
+      <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+          <script>
+          $(document).ready(function(){
+              $("#btn_activity_apply").click(function(){
+                 var oldValue=parseInt($('.registration').html());//取出现在的值，并使用parseInt转为int类型数据
+                  oldValue++;//自加1
+              $('.registration').html(oldValue);//将增加后的值付给原控件
+              });
+          });
+          </script>
           <div class="detail clearfix">
           <p style="white-space: normal;"><span style="font-family: 宋体; font-size: 14px; line-height: 23.8px; text-indent: 29.3333px; widows: 1; background-color: rgb(255, 255, 255);">
 
