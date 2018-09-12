@@ -18,8 +18,8 @@
     /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
 </style>
 <script type="text/javascript" src="/assets/tiezi/js/jquery-1.7.2.min_1.js"></script>
-<script type="text/javascript" src="/assets/tiezi//assets/tiezi//assets/tiezi/js/jquery.cookie_1.js"></script>
-<script type="text/javascript" src="/assets/tiezi//assets/tiezi/js/common2_1.js"></script>
+<script type="text/javascript" src="/assets/tiezi/js/jquery.cookie_1.js"></script>
+<script type="text/javascript" src=/assets/tiezi/js/common2_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/common_1.js"></script>
 <script>
 var _hmt = _hmt || [];
@@ -164,47 +164,59 @@ $(document).ready(function(){
                 <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
             </div>
             <div id="listBox" class="listBox">
-            @foreach($tiezis as $v)
-                <dl class="forumItem_good forumItem clearfix">
-                        <dt class="L fL">
+               @foreach($tiezis as $v)
+              <dl class="forumItem_top forumItem clearfix">
+                  <dt class="L fL">
                         <em class="red">置顶</em>
-                         </dt>
-                        <dd class="M fL">
-                          <dd class="R fR">{{$v->created_at}}</dd>
-                        <div class="T clearfix">
-                             <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b>{{$v->title}}</b></a>
-                                <p>{!!mb_substr($v['content'],205,30)!!} ...</p>   
+                    </dt>
+                    <dd class="M fL">
+                      <div class="T clearfix">
+                          <div class="fL">
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
+
                             </div>
-                                  <div class="fR">
-                                    <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
-                                </div>
+                            <div class="fR">
+                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
-                        </dd>
-                </dl><!---->   
-                @endforeach
-             @foreach($tiezis1 as $v)
-                <dl class="forumItem_good forumItem clearfix">
-                        <dt class="L fL">
-                        @if($v['status']==2)
+                        </div>
+                        <div class="B">
+                          <ul id="bigPic_top0" class="clearfix">
+                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li> 
+                           </ul> 
+                        </div>
+                    </dd>
+                    <dd class="R fR">{{$v['created_at']}}</dd>
+                </dl>
+              @endforeach
+              @foreach($tiezis1 as $v)
+              <dl class="forumItem_top forumItem clearfix">
+                <dt class="L fL">
+                   @if($v['status']==2)
                             <em class="green">精华</em>
                         @else
+                               <em class="green" style="background-color:#0A0A0A">普通</em>
                         @endif
                          </dt>
-                        <dd class="M fL">
-                          <dd class="R fR">{{$v->created_at}}</dd>
-                        <div class="T clearfix">
-                             <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b >{{$v->title}}</b></a> 
-                                 <p>{!!mb_substr($v['content'],200,10)!!} ...</p>  
+                    <dd class="M fL">
+                      <div class="T clearfix">
+                          <div class="fL">
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
                             </div>
-                                  <div class="fR">
-                                    <p><i class="man icon"></i><span style="float: right;">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
-                                </div>
+                            <div class="fR">
+                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
-                        </dd>
-                </dl> 
-                @endforeach
+                        </div>
+                        <div class="B">
+                          <ul id="bigPic_top0" class="clearfix">
+                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li>  
+                           </ul> 
+                        </div>
+                    </dd>
+                    <dd class="R fR">{{$v['created_at']}}</dd>
+                </dl>
+              @endforeach
             </div>    
         </section>
         <!--发表新帖 s-->
@@ -218,7 +230,7 @@ $(document).ready(function(){
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
-                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
+                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">6+56+56+65+</script>
                  <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}
@@ -368,6 +380,15 @@ $(document).ready(function(){
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
 </script>
+</div>
+<div class="tpl-content-wrapper">
+            @if(Session::has('success'))
+            <div class=" am-u-sm-12" style="padding:0px;margin:0px;">
+                <div class="dashboard-stat green">
+                        <div class="desc" style="text-align: center;line-height:95px;color:white">{{Session::get('success')}} </div>
+                </div>
+            </div>
+            @endif
 </div>
 </body>
 </html>
