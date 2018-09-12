@@ -49,7 +49,7 @@ class HomeMovieDetailsController extends Controller
     	//演员表
     	
          $actor = $movie_detail->movie_actor()->get();
-
+         dd($actor);
         //标签表
 
          $tag = $movie_detail->movie_tags()->get();

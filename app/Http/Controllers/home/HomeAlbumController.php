@@ -25,13 +25,19 @@ class HomeAlbumController extends Controller
     public function show($id)
     {
     	$al = AlDetail::find($id);
-
-    	//用户
-    	$user = $al->user->get();
-
     	//影片详情
     	$mode = $al->movie_detail()->get();
 
     	return view('home.album.detail',compact('al','mode'));
+    }
+
+    public function create()
+    {
+        return view('home.album.create');
+    }
+
+    public function add()
+    {
+        return view('home.album.add');
     }
 }

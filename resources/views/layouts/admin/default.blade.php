@@ -147,12 +147,18 @@
                     </a>
                         <ul class="sub-menu">
                             <li>
+                                <a href="/al_detail">
+<<<<<<< HEAD
+=======
                                 <a href="/link">
+>>>>>>> 568100de814096727e686d2c1c35a73de3108147
                                 <i class="iconfont">&#xe6a7;</i>
                                 链接列表
                             </a>
                             </li>
                         </ul>
+<<<<<<< HEAD
+=======
                     </li>
                     <li class="list">
                         <a href="javascript:;">
@@ -168,6 +174,7 @@
                             </a>
                             </li>
                         </ul>
+>>>>>>> 568100de814096727e686d2c1c35a73de3108147
                     </li>
                     <li class="list">
                         <a href="javascript:;">

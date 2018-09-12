@@ -19,13 +19,8 @@ a{
 	left: 0px;
 }
 .m-operate a{
-<<<<<<< HEAD
 	background: url(../images/m-operate.png) no-repeat;
 	_background: url(../images/m-operate.gif) no-repeat;
-=======
-	background: url(../images/m-operate_1.png) no-repeat;
-	_background: url(../images/m-operate_1.gif) no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	height: 14px;
 	line-height: 14px;
 	margin-right: 5px;
@@ -82,11 +77,7 @@ a{
 	line-height: 25px;
 	text-align: center;
 	color: #000;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -100px;	
-=======
-	background: url(../images/icon2_1.png) left -100px;	
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 }
 .album-top{
 	padding: 5px 0;
@@ -119,11 +110,7 @@ a{
 	width: 169px;
 	height: 14px;
 	_overflow:hidden;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -185px;
-=======
-	background: url(../images/icon2_1.png) left -185px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	position: relative;
 }
 .grade-star i{
@@ -153,11 +140,7 @@ a{
 	width: 169px;
 	height: 14px; 
 	_overflow:hidden;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -185px;
-=======
-	background: url(../images/icon2_1.png) left -185px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	/*position: relative;*/
 
 }
@@ -273,11 +256,7 @@ a{
 	width: 18px;
 	height: 18px;
 	vertical-align: middle;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) no-repeat
-=======
-	background: url(../images/icon2_1.png) no-repeat
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 }
 .album-operate .album-play i{
 	background-position: -112px -150px
@@ -368,11 +347,7 @@ a{
 .new-tab{
 	height: 25px;
 	line-height: 25px;
-<<<<<<< HEAD
 	background: #f8f8f8 url(../images/icon2.png) left -337px;
-=======
-	background: #f8f8f8 url(../images/icon2_1.png) left -337px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	/*border: 1px solid #999999;*/
 	border-radius: 5px;
 	overflow: hidden;
@@ -491,13 +466,8 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	z-index: 1;
 	width: 36px;
 	height: 55px;
-<<<<<<< HEAD
 	background: url(../images/arrow.png) -38px top no-repeat;
 	_background: url(../images/arrow.gif) -38px top no-repeat;
-=======
-	background: url(../images/arrow_1.png) -38px top no-repeat;
-	_background: url(../images/arrow_1.gif) -38px top no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	text-indent: -999em;
 	overflow: hidden
 }
@@ -544,11 +514,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	z-index: 1;
 	width: 28px;
 	height: 24px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -116px top no-repeat;
-=======
-	background: url(../images/icon2_1.png) -116px top no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	text-indent: -999em;
 	overflow: hidden
 }
@@ -581,13 +547,8 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	float:left;
 	width: 35px;
 	height: 38px;
-<<<<<<< HEAD
 	background: url(../images/arrow.png) left -60px no-repeat;
 	_background: url(../images/arrow.gif) left -60px no-repeat;
-=======
-	background: url(../images/arrow_1.png) left -60px no-repeat;
-	_background: url(../images/arrow_1.gif) left -60px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	text-indent: -999em;
 	overflow: hidden
 }
@@ -665,11 +626,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	 
 }
 .crumbs_nav01{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) 0px -204px no-repeat;
-=======
-	background: url(../images/icon2_1.png) 0px -204px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	height: 27px;
 	color: #FFF;
 	width: 100px;
@@ -681,11 +638,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	display: inline-block;
 	width: 15px;
 	height: 27px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -114px -204px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -114px -204px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	float:left;
 }
 .crumbs_nav03{
@@ -699,11 +652,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	padding:0 8px;
 }
 .crumbs_nav04{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -132px -204px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -132px -204px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	height: 27px;
 	float:left;
 	width: 100px;
@@ -717,11 +666,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 .crumbs_nav em{
 	display: inline-block;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -204px;
-=======
-	background: url(../images/icon2_1.png) left -204px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	height: 27px;
 	color: #FFF;
 	width: 100px;
@@ -731,11 +676,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	display: inline-block;
 	width: 15px;
 	height: 27px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -114px -204px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -114px -204px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	vertical-align: -9px;
 	vertical-align: -8px\9;
 	_vertical-align: -7px;
@@ -770,11 +711,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 .search_form .btn-submit-search{
 	width: 127px;
 	height: 29px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -233px;
-=======
-	background: url(../images/icon2_1.png) left -233px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	color: #FFF;
 	font-size: 14px;
 	font-weight:bold;
@@ -831,21 +768,13 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	position: absolute;
 	right: 0px;
 	top: 10px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -105px -296px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -105px -296px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 37px;
 	height: 18px;
 	line-height: 18px;
 	color: #000000;
 	padding-left: 5px;
-<<<<<<< HEAD
 	_background: url(../images/icon2.png) -105px -296px no-repeat;
-=======
-	_background: url(../images/icon2_1.png) -105px -296px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	_width: 40px;
 	
 }
@@ -885,11 +814,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	_vertical-align: 1px;
 }
 .props-now li span{
-<<<<<<< HEAD
 	background: #ff8040 url(../images/icon2.png) -156px -300px;
-=======
-	background: #ff8040 url(../images/icon2_1.png) -156px -300px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 13px;
 	height: 13px;
 	position: absolute;
@@ -920,11 +845,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 .movieL-nav li{
 	float: left;
 	margin-right: 1px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -82px -263px;
-=======
-	background: url(../images/icon2_1.png) -82px -263px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 81px;
 	height: 26px;
 	line-height: 26px;
@@ -933,11 +854,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 .movieL-nav1 li{
 	float: left;
 	margin-right: 1px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -82px -263px;
-=======
-	background: url(../images/icon2_1.png) -82px -263px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 81px;
 	height: 26px;
 	line-height: 26px;
@@ -984,11 +901,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 .movieL-nav01 li{
 	float: left;
 	margin-right: 4px;
-<<<<<<< HEAD
 	/*background: url(../images/homepage-top04.gif);*/
-=======
-	/*background: url(../images/homepage-top04_1.gif);*/
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 111px;
 	height: 27px;
 	line-height: 27px;
@@ -1009,11 +922,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	font-size:12px/normal '微软雅黑';
 }
 .movieL-nav01 li.nbsp{
-<<<<<<< HEAD
 	background: url(../images/homepage-top05.gif);
-=======
-	background: url(../images/homepage-top05_1.gif);
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 10px;
 	height: 27px;
 	line-height: 27px;
@@ -1056,11 +965,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 .top-movie dt em{
 	position: absolute;
 	display: block;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -149px -25px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -149px -25px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 20px;
 	height: 32px;
 	text-indent: -999em;
@@ -1105,11 +1010,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	display: block;
 	width: 12px;
 	height: 11px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -370px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -370px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	text-indent: -999em;
 	overflow: hidden
 }
@@ -1335,20 +1236,12 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	color: #a4a4a4
 }
 .page-nav .prev, .page-nav .next, .page-nav span{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -292px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -292px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 56px;
 	border: 1px solid #e9e9e9;
 }
 .page-nav button{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -315px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -315px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 45px;
 	height: 20px;
 	color: #2f5e7f;
@@ -1357,11 +1250,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 
 .result-count{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -155px -67px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -155px -67px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	padding-left: 17px;
 	margin-top: 10px;
 }
@@ -1405,11 +1294,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	position: absolute;
 	left: 14px;
 	top: -5px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -384px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -384px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 115px;
 	height: 37px;
 	text-align: center;
@@ -1430,11 +1315,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	display: block;
 	width: 159px;
 	height: 74px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -421px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -421px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	text-align: center;
 	color: #5e5e5e
 }
@@ -1498,11 +1379,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	height: 18px;
 	text-indent: -999em;
 	overflow: hidden;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -125px -401px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -125px -401px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	margin-left: 5px;
 	vertical-align: middle
 }
@@ -1572,11 +1449,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	line-height: 25px;
 	text-align: center;
 	color: #000;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -100px;
-=======
-	background: url(../images/icon2_1.png) left -100px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	font-weight: bold
 }
 .hot-tab{
@@ -1600,11 +1473,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	left: 0px;
 	/*top: 22px;*/top: 26px;
 	display: block;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -130px -89px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -130px -89px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 37px;
 	height: 29px;
 	z-index: 3
@@ -1666,11 +1535,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	color: #FFF;
 	font-weight: bold;
 	font-size: 14px;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -495px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -495px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	padding-left: 48px;
 	margin: auto
 }
@@ -1731,11 +1596,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	padding-top: 8px;
 }
 .ab-detail-collect a, .ab-detail-collect i, .ab-detail-collect b, .ab-movie-add a, .ab-movie-add b{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -529px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -529px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	_vertical-align: middle
 }
@@ -1839,11 +1700,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 .batch_ablum{
     color: #5e5e5e;
-<<<<<<< HEAD
 	background:url(../images/icon2.png) left -529px no-repeat;
-=======
-	background:url(../images/icon2_1.png) left -529px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	padding:0 8px;
 	line-height:23px;
 	position:relative;
@@ -1908,11 +1765,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	color: #0079b9
 }
 .ab-movie-item .movie-operate .m-collect b, .ab-movie-item .movie-operate .m-add b{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -1px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -1px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -2015,11 +1868,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 
 .post-way label{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) no-repeat;
-=======
-	background: url(../images/icon2_1.png) no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	vertical-align: middle;
 	width: 16px;
 	height: 16px;
@@ -2089,11 +1938,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	padding-left: 10px;
 }
 .comment-list .comment-respond i{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -86px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -86px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	width: 17px;
 	height: 17px;
@@ -2251,11 +2096,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	line-height: 25px;
 	text-align: center;
 	color: #0f0f0f;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -100px;
-=======
-	background: url(../images/icon2_1.png) left -100px;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	/*margin-top:20px;*//*vicky*/
 }
@@ -2299,11 +2140,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 .mv-reply-btn a, .mv-reply-btn b{
 	display: inline-block;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -553px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -553px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	height: 35px;
 }
 .mv-reply-btn a{
@@ -2391,11 +2228,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	float:right;
 	margin-top:15px;
 	display: block;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -589px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -589px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 104px;
 	height: 33px;
 	line-height: 33px;
@@ -2455,43 +2288,27 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
     width:16px;
 	height: 16px;
 	float:left;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -1px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -1px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 }
 .movieItem .bb{
 	width:16px;
 	height: 16px;
 	float:left;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -30px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -30px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	margin-left:15px;
 }
 .movieItem .cc{
 	width:16px;
 	height: 16px;
 	float:left;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -55px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -55px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	margin-left:15px;
 }
 .movieItem .dd{
 	width:18px;
 	height: 16px;
 	float:left;
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -85px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -85px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	margin-left:15px;
 }
 .ab-movie-list{
@@ -2551,11 +2368,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	
 }
 .movieL-nav-home li.nbsp{
-<<<<<<< HEAD
     background: url(../images/homepage-top05.gif);
-=======
-    background: url(../images/homepage-top05_1.gif);
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 10px;
 	height: 23px;
 	line-height: 23px;
@@ -2641,11 +2454,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 	color: #0079b9
 }
 .ab-movie-item-b .movie-operate .m-collect b, .ab-movie-item-b .movie-operate .m-add b{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -1px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -1px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -2789,11 +2598,7 @@ display: inline-block; max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 }
 
 .pagination .prev, .pagination .next{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -292px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -292px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 56px;
 	border: 1px solid #e9e9e9;
 }
@@ -3050,7 +2855,7 @@ rder: medium none; height: 45px;  _height: 75px; left: 0; line-height: 15px; ove
 .movie_friend  ul  li{ text-align:center; width: 70px; overflow:hidden;margin-top:5px\0;}/*vicky*/
 .movie_friend  ul  li h5{width: 70px; overflow:hidden; display: inline-block;max-width: 100%;overflow: hidden;text-overflow: ellipsis;
 white-space: nowrap; word-break: break-all;word-wrap: normal;}
-.ab-movie-item { background: url(../images/ab-movie-item_background.png) no-repeat; border:none; padding:20px 10px 20px 10px;  _background: url(../images/ab-movie-item_backgroud.jpg) no-repeat;}
+.ab-movie-item { background: url(../images/ab-movie-item_background_1.png) no-repeat; border:none; padding:20px 10px 20px 10px;  _background: url(../images/ab-movie-item_backgroud.jpg) no-repeat;}
 .movieL_nav_border_bottom{width:100%;  position:relative;  height: 0px; font: 0px Arial; line-height:0; 	border-bottom: 1px solid #dddddd; top:25px; z-index:1;}
 .windowbg_img_size{width:148px; height:148px;}
 .r-list li em.r_1{background: url(../images/number01.png)  no-repeat;}
@@ -3118,11 +2923,7 @@ white-space: nowrap; word-break: break-all;word-wrap: normal;}
 /*aimy*/
 .m-operate a.movie-collect{background-position: left -15px;}
 .ab-movie-item .movie-operate .movie-collect b, .ab-movie-item .movie-operate .m-add b{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -1px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -1px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -3130,11 +2931,7 @@ white-space: nowrap; word-break: break-all;word-wrap: normal;}
 	margin-right: 3px;
 }
 .ab-movie-item-b .movie-operate .movie-collect b, .ab-movie-item-b .movie-operate .m-add b{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) -1px -148px no-repeat;
-=======
-	background: url(../images/icon2_1.png) -1px -148px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -3209,11 +3006,7 @@ white-space: nowrap; word-break: break-all;word-wrap: normal;}
 .txt_page2{width:25px;}
 .moviePage{width:auto;}
 .page-nav2 button{
-<<<<<<< HEAD
 	background: url(../images/icon2.png) left -315px no-repeat;
-=======
-	background: url(../images/icon2_1.png) left -315px no-repeat;
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
 	width: 45px;
 	height: 20px;
 	color: #2f5e7f;
@@ -3289,11 +3082,7 @@ white-space: nowrap; word-break: break-all;word-wrap: normal;}
     background-attachment: scroll;
     background-clip: border-box;
     background-color: transparent;
-<<<<<<< HEAD
     background-image: url("../images/icon_2.png");
-=======
-    background-image: url("../images/icon_4.png");
->>>>>>> 568100de814096727e686d2c1c35a73de3108147
     background-origin: padding-box;
     background-position: 0 0;
     background-repeat: no-repeat;

@@ -33,6 +33,9 @@ Route::group([],function(){
 	//电影评论管理
 	Route::resource('movie_comments','MovieCommentsController');
 
+	//评论管理(用于影评及回复)
+	Route::resource('movieReview','MovieReviewController');
+
 	//导演管理
 	Route::resource('movie_directors','MovieDirectorsController');
 
@@ -57,8 +60,6 @@ Route::group([],function(){
 	//影集管理
 	Route::resource('al_detail','AldetailController');
 
-	//影片添加管理
-
 	//活动管理
 	Route::resource('activity','ActivityController');
 	//帖子管理
@@ -74,9 +75,9 @@ Route::group([],function(){
 
 //前台登录
 
-	Route::get('/home/login','HomeLoginController@login');
-	Route::post('/home/dologin','HomeLoginController@dologin');
-	Route::get('/home/outlogin','HomeLoginController@outlogin');
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
 
 
 //前台首页
@@ -104,10 +105,11 @@ Route::group([],function(){
 
 	//影集(主页)
 	Route::get('/home/album','home\HomeAlbumController@index');
-
 	//影集(详情)
 	Route::get('/home/album/{id}.html','home\HomeAlbumController@show');
-
+	//影集添加
+	Route::get('/hoem/toAlbumAdd','home\HomeAlbumController@create');
+	Route::post('/home/toAlbumAdd2','home\HomeAlbumController@add');
 	//电影详情
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
 	//电影列表
@@ -122,7 +124,7 @@ Route::group([],function(){
 	//帖子详情页
 	Route::get('/home/tiezi/{id}.html', 'TieziController@show');
 
-Route::group(['middleware'=>'home'],function(){
+	Route::group(['middleware'=>'home'],function(){
 	//活动评论
 	Route::post('/home/activite/comment','ActivityCommentController@list');
 
@@ -135,11 +137,23 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
+
 	//站内信
 	Route::get('/home/send/{id}','MessagesController@send');
 	Route::get('/home/cunchu','MessagesController@cunchu');
+
+
+	//影集添加
+
+
+
 	//帖子评论
 	Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');
 	
+	
+	//评论添加
+	Route::get('/home/review/{id}/reply','home\HomeReviewController@create');
+	//评论删除
+	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
 });
 

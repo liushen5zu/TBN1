@@ -166,7 +166,7 @@ a:hover .imgBorder{ -ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04
 .pagination .current.prev, .pagination .current.next{color:#999; }
 
 /*返回顶部悬浮框*/
-* html,* html body{background-image:url(about:blank);background-attachment:fixed}
+* html,* html body{background-image:url(../images/bc90b3f509ba4fbc97c7395935e02c86.gif);background-attachment:fixed}
 .goTopWp{}
 .goTopBox{ color:#999999; font-size:14px; position:fixed; bottom:20px; right:10px; text-align:center;   _position: absolute;
 _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-238)); _right:10px; z-index:9999999; }

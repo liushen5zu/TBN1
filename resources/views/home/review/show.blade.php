@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{{$Movie_comments->movie_detail->name}} 影评:{{$Movie_comments->title}}</title>
+<title>{{$Movie_comments->movie_detail['name']}} 影评:{{$Movie_comments->title}}</title>
 <meta name="description" content="猩球崛起3：终极之战 影评:回归感情——终极圆满,大众影评网影评频道猩球崛起3：终极之战 观后感,&nbsp; &nbsp; 万众期待，《..." />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
@@ -173,7 +173,7 @@ $(document).ready(function(){
 	<section class="reviDetL leftWp fL">
 
 		<section class="location">
-        	当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/review.html" title="影评" target="_blank" >影评</a>>《{{$Movie_comments->movie_detail->name}}》影评：{{$Movie_comments->title}}        </section>
+        	当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/review.html" title="影评" target="_blank" >影评</a>>《{{$Movie_comments->movie_detail['name']}}》影评：{{$Movie_comments->title}}        </section>
 		<section class="titleBox">
         	<div class="cont">
             	<h1>{{$Movie_comments->title}}</h1>
