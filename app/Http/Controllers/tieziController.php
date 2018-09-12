@@ -43,6 +43,9 @@ class tieziController extends Controller
      */
     public function store(Request $request)
     {
+        if (empty($request->title)) {
+            return redirect('/home/tiezis')->with('success','ch');
+        }else{
         $tiezis=new Tiezi;
         $tiezis-> title = $request->title;
         $tiezis-> user_id = session('id');
@@ -53,6 +56,7 @@ class tieziController extends Controller
         }else{
             return back();
         }
+    }
 
     }
 

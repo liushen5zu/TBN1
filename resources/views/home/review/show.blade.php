@@ -2,26 +2,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>猩球崛起3：终极之战 影评:回归感情——终极圆满_影评_大众影评网</title>
+<title>{{$Movie_comments->movie_detail['name']}} 影评:{{$Movie_comments->title}}</title>
 <meta name="description" content="猩球崛起3：终极之战 影评:回归感情——终极圆满,大众影评网影评频道猩球崛起3：终极之战 观后感,&nbsp; &nbsp; 万众期待，《..." />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" href="/ueditor/css/style.css">
+<link rel="stylesheet" href="/ueditor/css/comment.css">
+
+<!-- <script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script> -->
 <!--[if lt IE 9]>
 	<script type="text/javascript" src="js/html5.js"></script>
 <![endif]-->
-<link type="text/css" rel="stylesheet" href="/comment/css/common.css" />
+<link type="text/css" rel="stylesheet" href="/ueditor/css/common.css" />
 <style type="text/css">
 	.nav a.hotNavItem{position:relative;color: #f60;}
 	.nav a.hotNavItem.on{position:relative;color: #fff;}
 	.nav a.hotNavItem:hover{color: #fff;}
 	.nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot.png) no-repeat;}
+  .user_say{ width:660px; margin-top:20px;}
+.user_say .faceDiv{ width:658px; height:30px; background-color:#FFF; border:1px solid #ddd; -moz-border-radius:5px 5px 0px 0px; -ms-border-radius:5px 5px 0px 0px; -o-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0px 0px; border-radius:5px 5px 0px 0px;}
+.user_say .faceDiv .div_comment_qq_inner{ display:block; width:17px; height:18px; border:1px solid #FFF; background-position:-141px -5px; margin:4px 0 0 5px; font-size:0; text-indent:-9999em;}
+.user_say .faceDiv .div_comment_qq_inner:hover{ border:1px solid #ddd;}
+.user_say .qqFace{ padding:8px; border:1px solid #ddd; background-color:#FFF; margin:10px 0 0 5px;}
+.user_say .qqFace table td{padding:2px;}
+.user_say .qqFace table td img{cursor:pointer;border:1px #fff solid;}
+.user_say .qqFace table td img:hover{border:1px #0066cc solid;}
+.user_say .commContent{ display:block; padding:5px; width:648px; max-width:648px; height:130px; border:1px solid #ddd; border-top:none; outline:none;}
+.user_say .btnDiv{ margin-top:5px;}
+.user_say .hint{ font-size:12px; color:#aaa;}
+.user_say .comment_btn{ float:right; display:block; width:78px; height:26px; line-height:26px; text-align:center; color:#666; border:1px solid #ddd; -moz-border-radius:5px; -ms-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+.user_say .comment_btn:hover{ text-decoration:none; color:#f60; border:1px solid #f60;}
 /*	.nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
 	.nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
 	/*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
 </style>
-<script type="text/javascript" src="/comment/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/comment/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="/comment/js/common2.js"></script>
-<script type="text/javascript" src="/comment/js/common.js"></script>
+<script type="text/javascript" src="/ueditor/js/common.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -150,14 +166,14 @@ $(document).ready(function(){
 });
 </script>
 
-<link type="text/css" rel="stylesheet" href="/comment/css/review.css" />
+<link type="text/css" rel="stylesheet" href="/ueditor/css/review.css" />
 
 <!--主体部分 s-->
 <section class="mainWp wp clearfix">
 	<section class="reviDetL leftWp fL">
 
 		<section class="location">
-        	当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/review.html" title="影评" target="_blank" >影评</a>>《{{$Movie_comments->movie_detail->name}}》影评：{{$Movie_comments->title}}        </section>
+        	当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/review.html" title="影评" target="_blank" >影评</a>>《{{$Movie_comments->movie_detail['name']}}》影评：{{$Movie_comments->title}}        </section>
 		<section class="titleBox">
         	<div class="cont">
             	<h1>{{$Movie_comments->title}}</h1>
@@ -185,60 +201,192 @@ $(document).ready(function(){
             <input type="hidden" value="12994" id="wenzhang"><!--文章id-->
              <input type="hidden" value="39246" id="movie_id"><!--文章id-->
             <input type="hidden" value="428105" id="wen_puserid"><!--文章id-->
+             @if(!session::has('username'))
              <div class="title clearfix">
-                <i class="info icon"></i>网友评论<span>要评论须要先<a href="http://www.51oscar.com/login.html" title="登录"  target="_blank">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册"  target="_blank">注册</a></span>            </div>
+                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册"  target="_blank">注册</a></span></div>
            <!--评论编辑输入框 s-->
-            <div class="user_say" id="user_say">
-                <textarea  id="movie_comment_text" name="" style="height:200px;" cols="" rows="" ></textarea>
-
-                <div>
-                    <div style="clear:both;"></div>
-                    <div style="float:right;margin-top:10px;position:relative;">
-                        <div id="div_comment_float">
-                            <!--<div id='div_comment_qq'></div>
-                            <div id="div_comment_img2">
-                                <a href="javascript:;" class="show_img_tag hide">显示刚才的图片</a>
-                                <input type='button' id='btn_upload2' ajax_url="/uploadImage"/>
-                                <input type='hidden' id='hide_txt_img'/>
-                            </div>-->
-                            <a href="javascript:" class="movie_comment_btn" onclick="movieComment()">发布</a>
-                            <div class="clear"></div>
-                        </div>
+            <div class="commDiv">   
+            @else
+            <div class="title clearfix">
+                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册"  target="_blank">注册</a></span></div>
+           <!--评论编辑输入框 s-->
+            <div class="commDiv">   
+            <div class="title">
+                评论
+            </div>
+            <!--评论编辑输入框 s-->
+            <div class="user_say">
+                <div class="faceDiv"><a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a></div>
+                <form method="get" action="/home/review/{{$Movie_comments->id}}/comment" id="user_say_comment">
+                  
+                    <textarea id="commContent" class="commContent" name="content"></textarea>
+                    <input type="hidden" id="comment_id" value="1058">
+                    <div class="btnDiv clearfix">
+                        <span class="hint">最多能输入480个字</span>
+                        <button class="comment_btn" onclick="Comments.movieComment()">发布</button>
+                    </div>
+                    <input type="hidden" name="__hash__" value="d1908a4b2c87790a22b17ae3aa17cf53_eed40fae41097da3785fdb426d299c8b"><input type="hidden" name="__hash__" value="560b50165f7b0364a0021af058806e8a_bbe2725a880d4155f8212e8fe6ede256"></form>
+            </div>
+            @endif
+            <!--评论编辑输入框 e-->
+        </div>
+            <!--评论编辑输入框 e-->
+        @foreach($rview as $v)
+         <!--评论列表 s-->
+<!--         <div class="commentAll"> -->
+    <!--评论区域 begin-->
+    <!-- <div class="reviewArea clearfix">
+        <textarea class="content comment-input" placeholder="Please enter a comment&hellip;" onkeyup="keyUP(this)"></textarea>
+        <a href="javascript:;" class="plBtn">评论</a>
+    </div> -->
+    <!--评论区域 end-->
+    <!--回复区域 begin-->
+    <div class="comment-show">
+        <div class="comment-show-con clearfix">
+            <div class="comment-show-con-img pull-left"><img src="{{$Movie_comments->user->image}}" alt=""></div>
+            <div class="comment-show-con-list pull-left clearfix">
+                <div class="pl-text clearfix">
+                    <a href="#" class="comment-size-name">{{$Movie_comments->user->username}} : </a>
+                    <span class="my-pl-con">&nbsp;{{$v->content}}</span>
+                </div>
+                @if(!session::has('username'))
+                <i>请先<a href="/home/login" title="登录"  target="_blank">登录</a></i>
+                @else
+                <div class="date-dz">
+                    <span class="date-dz-left pull-left comment-time">{{$v->created_at}}</span>
+                    <div class="date-dz-right pull-right comment-pl-block">
+                        <a href="/home/review/{{$v->id}}/destroy" class="removeBlock">删除</a>
+                        <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
+                        <span class="pull-left date-dz-line">|</span>
+                        <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">{{$v->zan}}</i>)</a>
                     </div>
                 </div>
-                <div style="clear:both"></div>
-                
-                
-                <textarea id="replayHtml" style="display:none">								
-                        <div class="replay-content">
-                            <i class="triangle"></i>
-                            <form method="post" action="" >
-                                <div>&lt;textarea&gt;&lt;/textarea&gt;</div>
-                                <input type="hidden" id="comment_p_user_id" value=""/>
-                                <input type="hidden" id="comment_pid_re" value="0"/>
-                                <div class="btn clearfix">
-                                    <a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
-                                    <button class="cancel-btn" type="button">取消</button>
-                                    <button class="replay-btn" type="submit">回复</button>
-                                </div>
-                            <input type="hidden" name="__hash__" value="ffe99cf95977c1bdc6793a86f88361c2_3e280345331ab8f1463411b0f3b1ed77" /><input type="hidden" name="__hash__" value="f56fa1f74f6a6772432fe573c0a820fc_ef409a9871333c52b9862c6b5493d065" /></form>
-                        </div>
-                </textarea>
+                @endif
+                <div class="hf-list-con"></div>
             </div>
-            
-
-            <!--评论编辑输入框 e-->
-           
-         <!--评论列表 s-->
-         <div class="commsList">
-                   </div>           
+        </div>
+    </div>
+    <!--回复区域 end-->
+<!-- </div> -->
          <!--评论列表 e-->
-        
-         
-
+        @endforeach
         </section><!--网友评论 e-->
+<script type="text/javascript" src="/ueditor/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery.flexText.js"></script>
+<!--textarea高度自适应-->
+<script type="text/javascript">
+    $(function () {
+        $('.content').flexText();
+    });
+</script>
+<!--textarea限制字数-->
+<!-- <script type="text/javascript">
+    function keyUP(t){
+        var len = $(t).val().length;
+        if(len > 139){
+            $(t).val($(t).val().substring(0,140));
+        }
+    }
+</script> -->
+<!--点击评论创建评论条-->
+<!-- <script type="text/javascript">
+    $('.commentAll').on('click','.plBtn',function(){
+        //获取输入内容
+        var oSize = $(this).siblings('.flex-text-wrap').find('.comment-input').val();
+        console.log(oSize);
+        //动态创建评论模块
+        oHtml = '<div class="comment-show-con clearfix"><div class="comment-show-con-img pull-left"><img src="images/header-img-comment_03.png" alt=""></div> <div class="comment-show-con-list pull-left clearfix"><div class="pl-text clearfix"> <a href="#" class="comment-size-name">David Beckham : </a> <span class="my-pl-con">&nbsp;'+ oSize +'</span> </div> <div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"><a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a> </div> </div><div class="hf-list-con"></div></div> </div>';
+        if(oSize.replace(/(^\s*)|(\s*$)/g, "") != ''){
+            $(this).parents('.reviewArea ').siblings('.comment-show').prepend(oHtml);
+            $(this).siblings('.flex-text-wrap').find('.comment-input').prop('value','').siblings('pre').find('span').text('');
+        }
+    });
+</script> -->
+<!--点击回复动态创建回复块-->
+<script type="text/javascript">
+    $('.comment-show').on('click','.pl-hf',function(){
+        //获取回复人的名字
+        var fhName = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+        //回复@
+        var fhN = '回复@'+fhName;
+        //var oInput = $(this).parents('.date-dz-right').parents('.date-dz').siblings('.hf-con');
+        var fhHtml = '<div class="hf-con pull-left"><form action="/home/review/{{$Movie_comments->id}}/reply" method="get">{{ csrf_field() }}<textarea class="content comment-input hf-input" placeholder="" onkeyup="keyUP(this)" name="content"></textarea><input type="hidden" name="rview_id" value="{{$v->id}}"/><button class="hf-pl">评论</button></form></div>';
+        //显示回复
+        if($(this).is('.hf-con-block')){
+            $(this).parents('.date-dz-right').parents('.date-dz').append(fhHtml);
+            $(this).removeClass('hf-con-block');
+            $('.content').flexText();
+            $(this).parents('.date-dz-right').siblings('.hf-con').find('.pre').css('padding','6px 15px');
+            //console.log($(this).parents('.date-dz-right').siblings('.hf-con').find('.pre'))
+            //input框自动聚焦
+            $(this).parents('.date-dz-right').siblings('.hf-con').find('.hf-input').val('').focus().val(fhN);
+        }else {
+            $(this).addClass('hf-con-block');
+            $(this).parents('.date-dz-right').siblings('.hf-con').remove();
+        }
+    });
+</script>
+<!--评论回复块创建-->
+<script type="text/javascript">
+    $('.comment-show').on('click','.hf-pl',function(){
+        //获取输入内容
+        var oHfVal = $(this).siblings('.flex-text-wrap').find('.hf-input').val();
+        console.log(oHfVal)
+        var oHfName = $(this).parents('.hf-con').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
+        var oAllVal = '回复@'+oHfName;
+        if(oHfVal.replace(/^ +| +$/g,'') == '' || oHfVal == oAllVal){
 
-    </section><!--leftWp e-->
+        }else {
+            $.getJSON("json/pl.json",function(data){
+                var oAt = '';
+                var oHf = '';
+                $.each(data,function(n,v){
+                    delete v.hfContent;
+                    delete v.atName;
+                    var arr;
+                    var ohfNameArr;
+                    if(oHfVal.indexOf("@") == -1){
+                        data['atName'] = '';
+                        data['hfContent'] = oHfVal;
+                    }else {
+                        arr = oHfVal.split(':');
+                        ohfNameArr = arr[0].split('@');
+                        data['hfContent'] = arr[1];
+                        data['atName'] = ohfNameArr[1];
+                    }
+
+                    if(data.atName == ''){
+                        oAt = data.hfContent;
+                    }else {
+                        oAt = '回复<a href="#" class="atName">@'+data.atName+'</a> : '+data.hfContent;
+                    }
+                    oHf = data.hfName;
+                });
+
+                // var oHtml = '<div class="all-pl-con"><div class="pl-text hfpl-text clearfix"><a href="#" class="comment-size-name">我的名字 : </a><span class="my-pl-con">'+oAt+'</span></div><div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"> <a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a> </div> </div></div>';
+                // oThis.parents('.hf-con').parents('.comment-show-con-list').find('.hf-list-con').css('display','block').prepend(oHtml) && oThis.parents('.hf-con').siblings('.date-dz-right').find('.pl-hf').addClass('hf-con-block') && oThis.parents('.hf-con').remove();
+            });
+        }
+    });
+</script>
+<!-- 点赞 -->
+<script type="text/javascript">
+    $('.comment-show').on('click','.date-dz-z',function(){
+        var zNum = $(this).find('.z-num').html();
+        if($(this).is('.date-dz-z-click')){
+            zNum--;
+            $(this).removeClass('date-dz-z-click red');
+            $(this).find('.z-num').html(zNum);
+            $(this).find('.date-dz-z-click-red').removeClass('red');
+        }else {
+            zNum++;
+            $(this).addClass('date-dz-z-click');
+            $(this).find('.z-num').html(zNum);
+            $(this).find('.date-dz-z-click-red').addClass('red');
+        }
+    })
+</script>
+    </section> <!--leftWp e-->
     <aside class="rightWp fR">
         
         <section class="hotTalk">
@@ -379,11 +527,12 @@ $(document).ready(function(){
     window.UEDITOR_HOME_URL = "/Public/ueditor/";  //UEDITOR_HOME_URL、config、all这三个顺序不能改变
 </script>
 
-<script type="text/javascript" src="js/ueditor.config_son.js"></script>
-<script type="text/javascript" src="js/ueditor.all.min.js"></script>
-<script type="text/javascript" src="js/comment.js"></script>
-<script type="text/javascript" src="js/jquery.qqface.js"></script>
-<script  src="js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/ueditor/js/ueditor.config_son.js"></script>
+<script type="text/javascript" src="/ueditor/js/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/ueditor/js/comment.js"></script>
+<script type="text/javascript" src="/ueditor/js/jquery.qqface.js"></script>
+<script  src="/ueditor/js/jquery.pagination.js"></script>
+
 
 <script type="text/javascript">
 $(function(){	
@@ -394,22 +543,6 @@ $(function(){
 	var artical_id = $('#wenzhang').val();  //当前文章的id
 	var pingmovie_id = $('#movie_id').val();  //电影id
 	
-	//实例化编辑框
-    var editor = UE.getEditor('movie_comment_text');
-
-    UE.getEditor('movie_comment_text').addListener('click',function(){
-        Common.isLogin();
-    });
-	
-	
-	function movieComment(){
-		Comments.Comment();
-    }
-
-
-    function replayComment(obj,user){
-		Comments.replayComment(obj,user);
-    }
 	
   //加载更多子评论
 	$(".more_comms_reply").live("click",function(){
@@ -420,7 +553,6 @@ $(function(){
 		Comments.more_comms_reply(_this,comment_pid,comment_type,p);
 
 	})
-	
 //播放预告片
 $(".trailer").click(function(){
 		showSwf.show($(this).attr("data-trailer"));	

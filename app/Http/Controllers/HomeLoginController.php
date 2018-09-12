@@ -23,7 +23,7 @@ class HomeLoginController extends Controller
     	if($user->password != $request->password){
     		return redirect('/home/login')->with('success','登录失败');
     	}else{
-    		session(['username'=>$request->username,'id'=>$user->id]);
+    		session(['username'=>$request->username,'id'=>$user->id,'image'=>$user->image]);
     		// return redirect('/home/activity/list')->with('success','登陆成功');
     		return "<script>alert('登录成功');window.location.href='/home/activity/list'</script>";
     	}

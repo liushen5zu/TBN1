@@ -33,6 +33,9 @@ Route::group([],function(){
 	//电影评论管理
 	Route::resource('movie_comments','MovieCommentsController');
 
+	//评论管理(用于影评及回复)
+	Route::resource('movieReview','MovieReviewController');
+
 	//导演管理
 	Route::resource('movie_directors','MovieDirectorsController');
 
@@ -125,8 +128,13 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 
 	//个人中心
 	Route::get('/home/center','CenterController@index');
-	Route::post('/home/jiben','CenterController@jiben');
+	Route::get('/home/jiben','CenterController@jiben');
+	Route::get('/home/mima','CenterController@mima');
+	Route::get('/home/touxiang','CenterController@touxiang');
+	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
+	Route::get('/home/myCenter','CenterController@myCenter');
+	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 
 	//影集添加
 
@@ -134,5 +142,10 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	//帖子评论
 	Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');
 	
+	
+	//评论添加
+	Route::get('/home/review/{id}/reply','home\HomeReviewController@create');
+	//评论删除
+	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
 });
 

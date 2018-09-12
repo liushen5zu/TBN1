@@ -165,42 +165,51 @@ $(document).ready(function(){
             </div>
             <div id="listBox" class="listBox">
              @foreach($tiezis as $v)
-                <dl class="forumItem_good forumItem clearfix">
-                        <dt class="L fL">
-                            <em class="green">最新</em>
-                         </dt>
-                        <dd class="M fL">
-                        <div class="T clearfix">
-                             <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b >{{$v->title}}</b></a> 
-                                 <p>{!!mb_substr($v['content'],200,10)!!} ...</p>  
+              <dl class="forumItem_top forumItem clearfix">
+                  <dt class="L fL">
+                        <em class="green"style="background-color:#FF0000">最新</em>
+                    </dt>
+                    <dd class="M fL">
+                      <div class="T clearfix">
+                          <div class="fL">
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
                             </div>
-                                  <div class="fR">
-                                    <p><i class="man icon"></i><span style="float: right;">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
-                                </div>
+                            <div class="fR">
+                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
-                        </dd>
-                </dl> 
-                @endforeach
+                        </div>
+                        <div class="B">
+                          <ul id="bigPic_top0" class="clearfix">
+                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li>  
+                           </ul> 
+                        </div>
+                    </dd>
+                    <dd class="R fR"></dd>
+                </dl>
+              @endforeach
             </div>    
         </section>
         <!--发表新帖 s-->
                  
-            <section class="user_sayBox clearfix">
-                    
-            <form action="/tiezi" method="post"enctype="multipart/form-data">
-                <div class="titleBox clearfix" id="lzfwantPost"><em>标题</em><input type="text" name="title" class="tieba_title"></div>
+          <section class="user_sayBox clearfix">
+              @if(!Session::has('username'))     
+                请先登录才能发帖
+              @else 
+                  <form action="/tiezi" method="post"enctype="multipart/form-data">
+               <div class="titleBox clearfix"><em>标题</em><input type="text" name="title" class="tieba_title" id="lzfwantPost"></div>
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost" class="wantPost icon" href="javascript:;" onclick="jumpTo('.user_sayBox')" value="我要发帖"></button>
+                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}
                  <script>
                         var ue = UE.getEditor('editor');    
                     </script>
-            </form>
+               </form>
+                @endif
              </section>
 
         <!--发表新帖 e-->

@@ -384,6 +384,7 @@ width:145px;
 	margin-left:5px;
 }
 .edit-film .close{
+<<<<<<< HEAD
 	background:url(../images/close_1.png) no-repeat;
 }
 .edit-film .down{
@@ -391,6 +392,15 @@ width:145px;
 }
 .edit-film .up{
 	background:url(../images/up.png) no-repeat;
+=======
+	background:url(../images/close.png) no-repeat;
+}
+.edit-film .down{
+	background:url(../images/down_1.png) no-repeat;
+}
+.edit-film .up{
+	background:url(../images/up_1.png) no-repeat;
+>>>>>>> 568100de814096727e686d2c1c35a73de3108147
 }
 .choosed-film-detail-intro{
 	clear:both;
@@ -834,7 +844,11 @@ text-align:center; line-height:45px; _line-height:37px; font-size:14px; font-wei
 .changColor_p p{color:#BCBCBC;}
 .film-num{float:left;line-height:54px;margin-right:5px;color:#CC0000;font-size:14px;font-weight:bold;}
 .film-text{ padding:5px 12px;}
+<<<<<<< HEAD
 .close_addMovie{float:right;background:url(../images/close_1.png) no-repeat;}
+=======
+.close_addMovie{float:right;background:url(../images/close.png) no-repeat;}
+>>>>>>> 568100de814096727e686d2c1c35a73de3108147
 
 
 /*movie-add-album*/
