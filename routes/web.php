@@ -70,11 +70,19 @@ Route::group([],function(){
 	Route::get('/tiezi/{id}/up','tieziController@up');//置顶
 	Route::get('/tiezi/{id}/down','tieziController@down');//精选
 	Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
+	//Ajax 验证
+	Route::post('/ajax/password','AjaxController@password');//修改密码-检测原密码
 });
 
 
 //前台登录
 
+	Route::get('/home/login','HomeLoginController@login');
+	Route::post('/home/dologin','HomeLoginController@dologin');
+	Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+//前天注册
+	Route::get('/home/register','HomeRegisterController@register');
 Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
 Route::get('/home/outlogin','HomeLoginController@outlogin');
@@ -82,7 +90,7 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 // 引导用户到新浪微博的登录授权页面
 Route::get('/auth/weibo', 'AuthController@weibo');
 // 用户授权后新浪微博回调的页面
-Route::get('/auth/callback', 'AuthController@callback');
+Route::get('/auth/callback', 'AuthController@callback'); 
 //前台首页
 
 	Route::get('/','HomeCenterController@index');
@@ -143,6 +151,10 @@ Route::get('/auth/callback', 'AuthController@callback');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
+	//修改个人信息
+	Route::get('/home/jiben1','CenterController@jiben1');
+	//修改密码
+	Route::get('/home/password','CenterController@newpassword');
 
 	//站内信
 	Route::get('/home/send/{id}','MessagesController@send');

@@ -181,7 +181,10 @@ $(document).ready(function(){
                         </div>
                         <div class="B">
                           <ul id="bigPic_top0" class="clearfix">
-                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li>  
+                              <li>
+                                <a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); if(!empty($arr)){print_r($arr[0]);};?>  />
+                                </a>
+                              </li>  
                            </ul> 
                         </div>
                     </dd>

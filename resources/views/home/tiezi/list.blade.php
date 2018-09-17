@@ -178,13 +178,14 @@ $(document).ready(function(){
                               <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
 
                             </div>
-                            <div class="fR">
-                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
+                            <div class="fR" style="width:60px">
+                              <p><i class="man icon"></i><span style="width:40px">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
                         </div>
                         <div class="B">
                           <ul id="bigPic_top0" class="clearfix">
-                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li> 
+                               <li>
+                                  <a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); if(!empty($arr)){print_r($arr[0]);};?>/></a></li> 
                            </ul> 
                         </div>
                     </dd>
@@ -206,13 +207,13 @@ $(document).ready(function(){
                               <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
                               <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
                             </div>
-                            <div class="fR">
-                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
+                            <div class="fR" style="width:60px">
+                              <p><i class="man icon"></i><span style="width:40px">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
                         </div>
                         <div class="B">
                           <ul id="bigPic_top0" class="clearfix">
-                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); print_r($arr[0]);?>  /></a></li>  
+                               <li><a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); if(!empty($arr)){print_r($arr[0]);}; ?>  /></a></li>  
                            </ul> 
                         </div>
                     </dd>

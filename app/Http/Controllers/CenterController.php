@@ -25,10 +25,28 @@ class CenterController extends Controller
     //个人中心
     public function jiben(Request $request)
     {
-    	
-        return view('home.center.jiben'); 
+        $jibens=User::find(session('id'));
+        return view('home.center.jiben',compact('jibens')); 
     }
-
+    //修改个人信息保存到数据库
+    public function jiben1(Request $request)
+    {
+        $jiben1=User::find(session('id'));
+         $jiben1 -> username = $request->username;
+         $jiben1 -> sex = $request->sex;
+         $jiben1 -> birthday = $request->birthday;
+         $jiben1 -> phone = $request->phone;
+         $jiben1 -> location = $request->location;
+         $jiben1 -> locations = $request->locations;
+         $jiben1 -> location = $request->s_province.'-'.$request->s_city.'-'.$request->s_county.'-'.$request->location;
+         $jiben1 -> location = $request->s_province.'-'.$request->s_city.'-'.$request->s_county.'-'.$request->location;
+         $jiben1 ->pc = $request->pc;
+        if($jiben1 -> save()){
+            return redirect('/home/jiben');
+        }else{
+            return back();
+        }
+    }
     public function mima(Request $request)
     {
         return view('home.center.mima');
@@ -55,6 +73,18 @@ class CenterController extends Controller
         }else{
             return back()->with('error','修改失败');
         } 
+    }
+    //修改密码
+    public function newpassword(Request $request)
+    {
+        $password1=User::find(session('id'));
+        $password1-> password=$request->password;
+        if($password1->save()){
+            return redirect('/home/login');
+        }else{
+            return back();
+        }
+
     }
 
     public function touxiang(Request $request)
@@ -106,4 +136,6 @@ class CenterController extends Controller
 
        return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
     }
+
+   
 }
