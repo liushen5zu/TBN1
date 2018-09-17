@@ -18,7 +18,7 @@ class HomeActivityController extends Controller
     	//dd($image);
     	$activity = Activity::orderBy("id",'desc')->paginate(4);
     	//热门电影
-    	$movie = Movie_detail::all();
+    	$movie = Movie_detail::orderBy('num','desc')->paginate(5);
     	//热议
     	$activity2 = Activity::all();
     	//dd($movie);

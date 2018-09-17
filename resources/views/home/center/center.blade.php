@@ -512,21 +512,13 @@ $(document).ready(function(){
             <i class="line"></i><a href="http://www.51oscar.com/album.html" title="发现.好电影" target="_blank" >发现.好电影<em>>></em></a>
         </div>
         <div class="cont clearfix">
-        
-            <a class="link1" href="/album/1861.html" title="永不过时的20部励志影片" target="_blank">
-                 <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20170105/1483595144.jpg" alt="永不过时的20部励志影片" width="442" height="146" />
-                永不过时的20部励志影片            </a>
-        
-        
-        <a class="link2" href="/album/1908.html" title="女生在成长路上必看的10部电影" target="_blank">
-                 <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20151211/1449822634.jpg" alt="女生在成长路上必看的10部电影" width="210" height="146" />
-              女生在成长路上必看的10部电影            </a><a class="link2" href="/album/1877.html" title="九部超级温馨又治愈的家庭类电影" target="_blank">
-                 <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20151207/1449472650.jpg" alt="九部超级温馨又治愈的家庭类电影" width="210" height="146" />
-              九部超级温馨又治愈的家庭类电影            </a><a class="link2" href="/album/1895.html" title="十部高分冷门电影推荐" target="_blank">
-                 <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20151207/1449472546.jpg" alt="十部高分冷门电影推荐" width="210" height="146" />
-              十部高分冷门电影推荐            </a><a class="link2" href="/album/1921.html" title="九部电影帮你摆脱失落" target="_blank">
-                 <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20151207/1449472345.jpg" alt="九部电影帮你摆脱失落" width="210" height="146" />
-              九部电影帮你摆脱失落            </a>        </div>
+            @foreach($aldetails as $v)
+            <a class="link2" href="/home/album/{{$v['id']}}.html" title="{{$v['title']}}="_blank">
+                 <img class="lazyImg imgBorder" src="{{$v['image']}}" alt="{{$v['title']}}" width="212" height="183" />
+                {{$v['title']}}
+            </a>
+            @endforeach
+        </div>
    </section><!--发现.好电影 e-->
     
     <aside class="event fL">
@@ -534,31 +526,18 @@ $(document).ready(function(){
             <i class="gift icon"></i><a href="http://www.51oscar.com/activity.html" title="热门活动" target="_blank">热门活动<em>>></em></a>
         </div>
         <div class="cont">
+            @foreach($activity as $v)
              <dl>
                 <dt>
-                    <a href="/activity/378.html" title="" target="_blank">大众影评网请你看《绿野仙踪之奥兹国奇幻之旅》</a>
+                    <a href="/home/activity/{{$v['id']}}.html" title="" target="_blank">{{$v['title']}}</a>
                 </dt>
                 <dd>
-                    <p>时间：2017-07-19至2017-07-20</p>
-                    <p>地点：</p>
+                    <p>时间：{{$v['created_at']}}至{{$v['rtime']}}</p>
+                    <p>地点：{{$v['activity_site']}}</p>
                 </dd>
-                </dl><dl>
-                <dt>
-                    <a href="/activity/377.html" title="" target="_blank">程又青还是袁湘琴？大众影评网请你看《爱情冻住了》</a>
-                </dt>
-                <dd>
-                    <p>时间：2017-04-10至2017-04-13</p>
-                    <p>地点：</p>
-                </dd>
-                </dl><dl>
-                <dt>
-                    <a href="/activity/376.html" title="" target="_blank">情人节被虐了？ 大众影评网请你看电影《上海王》</a>
-                </dt>
-                <dd>
-                    <p>时间：2017-02-15至2017-02-16</p>
-                    <p>地点：</p>
-                </dd>
-                </dl>        </div> 
+             </dl>
+             @endforeach
+        </div> 
     </aside><!--热门活动 e-->
 </section>
 <!--发现好电影、热门活动 e-->

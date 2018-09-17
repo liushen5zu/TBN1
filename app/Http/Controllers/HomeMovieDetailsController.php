@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Movie_cate;
 use App\Movie_detail;
 use App\Movie_tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeMovieDetailsController extends Controller
@@ -59,7 +60,13 @@ class HomeMovieDetailsController extends Controller
          
     	//电影图片 
          $images = $movie_detail -> image_movie_detail()->get();
+
+         //电影评论
+         $comments = $movie_detail -> home_movie_detail_comment()->get();
+
+         //用户信息
+         $user = User::all();
         
-    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag'));
+    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user'));
     }
 }

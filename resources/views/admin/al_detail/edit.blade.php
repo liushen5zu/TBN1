@@ -31,7 +31,7 @@
                         <span class="x-red"></span>影集封面
                     </label>
                     <div class="layui-input-inline">
-                        <input type="file" id="L_tag" name="introduce" required="" lay-verify="tag" autocomplete="off" class="layui-input">
+                        <input type="file" id="L_tag" name="image" required="" lay-verify="tag" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">

@@ -43,6 +43,7 @@ class tieziController extends Controller
      */
     public function store(Request $request)
     {
+
         $tiezis=new Tiezi;
         $tiezis-> title = $request->title;
         $tiezis-> user_id = session('id');

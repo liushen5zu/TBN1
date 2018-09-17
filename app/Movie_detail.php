@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Director_name;
+use App\HomeMovieDetailComment;
 use App\Image_movie_detail;
 use App\Movie_actor;
 use App\movie_cate;
@@ -41,5 +42,10 @@ class Movie_detail extends Model
     public function alcont()
     {
         return $this->hasMany('App\alCont');
+    }
+
+    public function home_movie_detail_comment()
+    {
+        return $this->hasMany('App\HomeMovieDetailComment');
     }
 }

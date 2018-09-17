@@ -159,7 +159,8 @@ $(document).ready(function(){
 <section class="mainWp wp clearfix">
   <section class="forumDetLeft leftWp fL">
     <section class="location">
-          当前位置：<a href="http://www.51oscar.com" title="首页" target="_self" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/forum.html" title="贴吧" target="_self" >贴吧</a>>       </section>
+          当前位置：<a href="/" title="首页" target="_self" ></a><a href="/home/tiezis" title="贴吧" target="_self" >贴吧</a>    
+        </section>
     <section class="titleBox">
           <div class="cont">
               <h1>{{$tiezis->title}}</h1>
@@ -198,7 +199,7 @@ $(document).ready(function(){
                 <dt class="hd_dt">
                   <a class="c_f60" href="#" title="{{$v->user->username}}" target="_blank">
                     <img class="lazyImg" src="{{$v->user->image}}" >{{$v->user->username}}</a>
-                      <p><em class="forumFloor">2楼</em></p>               
+       <!--                <p><em class="forumFloor"></em></p>    -->            
                  </dt>
                 <dd class="hd_dd">
                   <div class="dis_detail" id="dis_detail7">
@@ -242,25 +243,40 @@ $(document).ready(function(){
          </script>
     </section>
     <!--贴吧互动 hd_content e-->
-        
         <!--发布新楼层 s-->
-        <div class="user_sayBox clearfix">
+        @if(!Session::has('username'))
+            请先<a href="/home/login" style="color: red">登录<a>才能评论
+        @else
+        <section class="user_sayBox clearfix">
             <form action="/home/tiezicomment/{{$tiezis['id']}}/reply" method="get"enctype="multipart/form-data">
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button id="lzf" href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')" style="display: block; width: 100px;height: 50px;line-height: 30px;text-align: center;font-size: 26px;color: #FFF;background-color: #f60; border-radius: 5px;position: relative;bottom: 8px;">回复</button>
+                 <button id="db"   class="goToReply fR" title="回复"  style="display: block; width: 100px;height: 50px;line-height: 30px;text-align: center;font-size: 26px;color: #FFF;background-color: #f60; border-radius: 5px;position: relative;bottom: 8px;">回复
+                 </button>
                   {{method_field('put')}}
                   {{csrf_field()}}
-                 <script>
-                        var ue = UE.getEditor('editor');    
-                    </script>
-          </form>
-        </div>
+        </form>
+                         <script>
+                        UE.getEditor('editor').hasContents()
+                        var ue = UE.getEditor('editor');
+                        var ue1=UE.getEditor('Content');
+                        var s=ue1.getPlainTxt()
+                        var db =document.getElementById('db');
+                        bd.onclick=function(){
+                            alert("lzf");
+                          }
+                </script>
+        @endif
         <!--发布新楼层 e-->
+       </section>
+       <script type="text/javascript">
         
-    </section><!--forumDetLeft e-->
+
+       </script>
+</section>
+  <!--forumDetLeft e-->
     <aside class="rightWp fR">        
         <section class="hotTalk">
             <div class="title clearfix">
