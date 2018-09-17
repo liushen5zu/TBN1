@@ -25,7 +25,7 @@
    <div class="add_cover">
 	    <div style="position: relative; height: 31px; width: 105px; overflow: hidden; cursor: pointer; margin: 0px; padding: 0px;"><a href="#" class="aa_up" name="btn_upload" type="button" id="btn_upload">
 		<img src="/ueditor/picture/btn_upload_1.jpg">
-		</a><iframe id="iframe18591" name="iframe18591" style="display: none;"></iframe><form method="post" enctype="multipart/form-data" action="/personal/uploadImage.html" target="iframe18591" style="margin: 0px; padding: 0px;"><input name="upload_img" type="file" style="position: relative; display: block; margin-left: -175px; opacity: 0; margin-top: -41px;"></form></div>
+		</a><iframe id="iframe18591" name="iframe18591" style="display: none;"></iframe><form method="post" enctype="multipart/form-data" action="/home/txgx" target="iframe18591" style="margin: 0px; padding: 0px;"><input name="upload_img" type="file" style="position: relative; display: block; margin-left: -175px; opacity: 0; margin-top: -41px;"></div>
 		<p class="img_explain">仅支持JPG、GIF、PNG图片文件，且文件小于5M</p>
 		<div class="con_left">
 			<img src="" class="img_big" id="img_big">
@@ -39,7 +39,9 @@
     </div>
     <p>&nbsp;</p><p>&nbsp;</p>
 	<p class="btn-p">
-      <input name="input" type="button" id="btn_save_crop" class="finish-btn" value="保存头像">
+		{{csrf_field()}}
+      <button name="input" id="btn_save_crop" class="finish-btn" value="">保存头像</button>
     </p>
+</form>
 </div>
 @endsection

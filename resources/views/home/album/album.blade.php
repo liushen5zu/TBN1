@@ -54,7 +54,7 @@
 
 <body>
     <header class="site_nav">
-       @include('layouts.home.header')
+        @include('layouts.home.header')
     </header>
     <section class="logoAndSreach">
         <div class="wp clearfix">
@@ -143,7 +143,7 @@
         $('#review').addClass('on');
     } else if (/.com\/forum/.test(curr_url)) {
         $('#forum').addClass('on');
-    } else if (/.com\/album/.test(curr_url)) {
+    } else if (/.com\/home\/album/.test(curr_url)) {
         $('#album').addClass('on');
     } else if (/.com\/activity/.test(curr_url)) {
         $('#activity').addClass('on');
@@ -219,20 +219,20 @@
                 </div>
                 <div id="googMovCont" class="cont clearfix">
                     <!--新鲜出炉，热门影集开始-->
-                @foreach ($album as $v)
+                    @foreach ($album as $v)
                     <dl class="clearfix">
                         <dt class="fL">
                             <p class="t"><a href="/home/album/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a></p>
                             <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">收录4部电影</em>]</p>
                             <p class="b">{{$v->introduce}}</p>
                         </dt>
-=
-                    
-                    <dd class="fR">
+                        =
+                        <dd class="fR">
                             <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
-                    </dd> 
+                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
+                        </dd>
                     </dl>
-                @endforeach
+                    @endforeach
                 </div>
                 <div class="pagination">
                     &nbsp;<span class='current'>1</span>&nbsp;<a href='/album/index/p/2.html'>&nbsp;2&nbsp;</a>&nbsp;<a href='/album/index/p/3.html'>&nbsp;3&nbsp;</a>&nbsp;<a href='/album/index/p/4.html'>&nbsp;4&nbsp;</a>&nbsp;<a href='/album/index/p/5.html'>&nbsp;5&nbsp;</a> <a href='/album/index/p/2.html'>下一页</a> <span style="color:black;">第 1/142 页</span>
@@ -246,9 +246,8 @@
         <!--leftWp e-->
         <aside class="rightWp fR">
             <section class="creatAlbum">
-                <a class="crear_my_album" url="/toAlbumAdd" href="/album/toAlbumAdd" title="创建我的影集"><img src="/ueditor/picture/crear_my_album.jpg" alt="创建我的影集"></a>
-            </section>
-            <section class="hotTalk">
+                <a class="crear_my_album" url="/toAlbumAdd" href="/home/toAlbumAdd" title="创建我的影集"><img src="/ueditor/images/jia.png" alt="创建我的影集" style="margin:0,padding:0" width="244" height="85"></a>
+                </sectio60 <section class="hotTalk">
                 <div class="title clearfix">
                     <i class="info icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" target="_blank">当前热议<em>>></em></a>
                 </div>
@@ -416,11 +415,11 @@
     </div>
     <!--登陆对话框 e-->
     <script type="text/javascript">
-    $('.crear_my_album').click(function() {
-        if (!Common.isLogin()) {
-            return false;
-        }
-    });
+    //$('.crear_my_album').click(function() {
+    //     if (!Common.isLogin()) {
+    //         return false;
+    //     }
+    // });
 
     var p = 1; //第一次滚动，显示第二页的数据
     var mark_croll = 1; //除了第一页之外，其他页都不滚动

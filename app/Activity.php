@@ -8,9 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     //
-     public function activityComment()
+    public function activityComment()
     {
     	
         return $this->hasMany('App\ActivityComment');
     }
+
+    public function acrivityto()
+    {
+    	
+        return $this->hasMany('App\AcrivityTo');
+    }
+
 }

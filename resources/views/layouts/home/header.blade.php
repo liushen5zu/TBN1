@@ -13,7 +13,7 @@
       
       <li>已登录</li> 
       <li><i class="icon_man icon"></i>用户:</li> 
-      <li>{{session('username')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
+      <li>{{session('name')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
       <li> <a href="/home/outlogin">退出</a></li> 
       <li> <a href="/home/center">个人中心</a></li> 
      </ul> 
@@ -22,7 +22,7 @@
   @if(!Session::get('id'))
     <div class="fR"> 
      <ul id="welcome" class="clearfix out"> 
-      <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
+      <li><a href="/auth/weibo" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
       <li>|</li> 
       <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li> 
       <li>|</li> 

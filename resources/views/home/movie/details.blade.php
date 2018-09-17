@@ -107,14 +107,27 @@ var URL = "http://www.51oscar.com/";
             <input type="text" class="sear_input" onFocus="focusInputEle(this)" onBlur="blurInputEle(this)" defaultVal="搜影评/找人" value="搜影评/找人">
             <input type="button" class="sear_butt">--->
         </div>
+        @if(Session::get('id'))
+        <div class="user_info nav_title" >
+            <div class="login_before" style="width:350px;float:left;color:white"> 
+            
+                已登录:
+                用户: 
+                <a>{{session('username')}}|</a> 
+                <a href="/home/outlogin">退出</a>
+                <a href="/home/center">个人中心</a>
+            
+            </div>
+        </div> 
+        @endif
+        @if(!Session::get('id'))
         <div class="user_info nav_title">
-        
-          
             <div class="login_before" >
-                <a href="http://www.51oscar.com/login.html">登录</a> &nbsp;<em class="c_f60">|</em>&nbsp; <a href="http://www.51oscar.com/login/regist.html">注册</a>
+                <a href="/home/login">登录</a> &nbsp;<em class="c_f60">|</em>&nbsp; <a href="http://www.51oscar.com/login/regist.html">注册</a>
             </div><!--login_before e-->   
             
-        </div>    
+        </div>
+        @endif    
     </div>
 </header>
 <link type="text/css" rel="stylesheet" href="/ueditor/css/movie_2.css" />
@@ -211,44 +224,68 @@ var URL = "http://www.51oscar.com/";
         <!--精彩影评 s-->  
         <div class="commDiv">   
             <div class="title">
-                精彩影评 <a class="c_f60" id="xchangping" href="javascript:void(0);"title="写长评" >写长评</a>
-            </div>
+                精彩影评 
+            </div><br>
+               <span style="font-size: 15px"> 
+                @if(!session('id'))
+                    要评论须要先<a href="/home/login" title="登录" target="_blank" style="color:red">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册" target="_blank" style="color:red">注册</a>
+                @endif
+                </span>
 
             <!--评论编辑输入框 s-->
+            @if(session('id'))
             <div class="user_say">
                 <div class="faceDiv"><a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a></div>
-                <form method="post" action="" id="user_say_comment">
-                    <textarea  class="commContent" ></textarea>
-                    <input type="hidden" id="comment_id" value="1058"><!--评论对象的id-->
+                <form method="post" action="/home/movieDetailsComment">
+                    <textarea  class="commContent" name="content"></textarea>
+                    <input type="hidden" name="movie_detail_id" value="{{$movie_detail['id']}}"><!--评论对象的id-->
                     <div class="btnDiv clearfix">
+                        {{csrf_field()}}
                         <span class="hint">最多能输入480个字</span>
-                        <a href="javascript:" class="comment_btn" >发布</a>
+                        <button href="javascript:" class="comment_btn" >发布</button>
                     </div>
-                    <input type="hidden" name="" value="d1908a4b2c87790a22b17ae3aa17cf53_eed40fae41097da3785fdb426d299c8b"><input type="hidden" name="__hash__" value="560b50165f7b0364a0021af058806e8a_bbe2725a880d4155f8212e8fe6ede256" /></form>
+                </form>
             </div>
-
+            @endif
+        
+        <br>
             <!--评论编辑输入框 e-->
-            <!--长影评，短影评 s-->
-            <div class="slideTab">
-                <div class="hd">
-                    <ul class="clearfix"><li>长影评</li><li class="on">短影评</li></ul>
-                </div>
-                <div class="bd clear">
-                   <div class="longComm">
-                                      
-                     
-                                      </div><!--长影评 e-->
-                  <!--短影评 s--> 
-                   <div class="shortComm" style="display:none;">
-                    
+        <dl class="comms_box clearfix" style="border:1px solid #eee;padding:10px">
+            @foreach($comments as $v)
+                @foreach($user as $val)
+                @if($val['id']==$v['user_id'])
+            <dt>
+                <a href="/someone/427794.html" title="长军" target="_blank">
+                <img class="lazyImg" src="{{$val['image']}}" width="40" height="40" alt="长军">
+                </a><span class="comms_user"><a class="user" href="/someone/427794.html" title="鲁鲁" target="_blank"></a>&nbsp;<i style="color:red"><a>
+                    {{$val['username']}}
                    
-                       
-                      
-                                        </div><!--短影评 e-->
-                </div>
-            </div>
-            <!--长评，短评 e-->
+            </a>:</i></span>
+                    <span class="comms_detail">{{$v['content']}}</span>
+            </dt>
+            <dd>
+                <span class="dis_detail clearfix" style="padding-left: 20px">
+                    
+                </span>
+                <span class="dis_reply clearfix" style="padding-left: 450px">
+                    <time>{{$v['created_at']}}</time>&nbsp;<a class="reply" href="javascript:;" title="回复" onclick="replayComment(this,'鲁鲁');return false">回复</a>
+                    <input type="hidden" class="comment_pid" value="1799">
+                    <input type="hidden" class="comment_p_user_id" value="427794">
+                    <input type="hidden" class="puser_id" value="427794">
+                </span>
+                 <!--子回复列表 s-->
+                  <div class="comms_replyBox">
+                                    </div>
+                  <!--子回复列表 e-->
+                  <input type="hidden" class="more_comms_reply_p" value="1"><!--显示当前子评论页数-->
+           </dd>
+                @endif
+             @endforeach
+
+           @endforeach
+          </dl>
         </div>
+
         <!--精彩影评 e-->   
     </section><!--left e-->
     

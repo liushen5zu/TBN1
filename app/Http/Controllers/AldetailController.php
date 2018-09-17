@@ -111,11 +111,10 @@ class AldetailController extends Controller
             $album->image = '/'.$request->image->store('uploads/'.date('Ymd'));
         }
 
-        // dd($album);
         if($album->save()){
         try{
                 $album = $album->movie_detail()->sync($request->movie_detail_id);
-                return redirect('/al_detail')->with('success','添加成功');
+                return redirect('/al_detail')->with('success','修改成功');
             }catch(\Exception $e){
                 return back()->with('error','修改失败!');
             }       

@@ -31,7 +31,7 @@
                         <span class="x-red"></span>影集封面
                     </label>
                     <div class="layui-input-inline">
-                        <input type="file" id="L_tag" name="introduce" required="" lay-verify="tag" autocomplete="off" class="layui-input">
+                        <input type="file" id="L_tag" name="image" required="" lay-verify="tag" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -41,22 +41,12 @@
                     <div class="layui-input-inline" >
                         @foreach($moviedetail_id as $v)
                         <input  type="checkbox" id="L_repass" name="movie_detail_id[]" value="{{$v->id}}"  lay-verify="repass"
-                         class="layui-input">{{$v->name}}
+                         class="layui-input"
+                        @if(in_array($v->id,$album->movie_detail()->pluck('id')->toArray()))
+                            checked
+                            @endif
+                         >{{$v->name}}
                         @endforeach
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label for="L_pass" class="layui-form-label">
-                        <span class="x-red">*</span>创建人
-                    </label>
-                    <div class="layui-input-inline">
-
-                        <select type="text" id="L_pass" name="user_id   "  lay-verify="pass"
-                        class="layui-input">
-                            @foreach($user as $v)
-                            <option value="{{$v->id}}">{{$v->username}}</option>ss
-                            @endforeach
-                        </select>
                     </div>
                 </div>
                 {{csrf_field()}}

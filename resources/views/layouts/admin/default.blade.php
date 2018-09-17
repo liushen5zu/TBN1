@@ -147,10 +147,9 @@
                     </a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="/al_detail">
                                 <a href="/link">
                                 <i class="iconfont">&#xe6a7;</i>
-                                链接列表
+                                友链列表
                             </a>
                             </li>
                         </ul>

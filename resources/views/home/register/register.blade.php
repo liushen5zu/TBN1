@@ -151,8 +151,7 @@
                             <span class="f_red" id="dcaptcha">
                             </span>
                             <label accesskey="V" class="verify" for="captcha" style="padding-left:10px; padding-top:10px;">
-                                <img align="absmiddle" alt="" id="captchapng" onclick="reloadcaptcha();" src="https://static002.huishangbao.com/skin/518ad/image/loading.gif?v=1536201055" style="display:none;cursor:pointer;" title="验证码,看不清楚?请点击刷新
-字母不区分大小写"/>
+                                <img align="absmiddle" alt="" id="captchapng" onclick="reloadcaptcha();" src="https://static002.huishangbao.com/skin/518ad/image/loading.gif?v=1536201055" style="display:none;cursor:pointer;" title="验证码,看不清楚?请点击刷新字母不区分大小写"/>
                             </label>
                             <label id="ccaptcha" style="width:20px; line-height:20px;">
                             </label>

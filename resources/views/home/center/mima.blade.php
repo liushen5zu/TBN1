@@ -98,9 +98,39 @@
     })
 
   </script>
-
+    <form action="/home/mimagx" id="frm_change_password" method="post">
+      <p class="editpwd">
+        <span class="input-text">旧密码</span>
+        <span class="choose-film-input-span regist-left-3-5">
+      <input name="old_password" id="txt_old_password" type="password" class="choose-film-input" maxlength="16" node-type="placeholder" placeholder="请输入旧密码">
+      <span class="lbl_error" id="error_old_password"></span>
+    </span>
     
-</div>
+      </p>
+      <p class="note-text"></p>
+      <p class="editpwd">
+        <span class="input-text">新密码</span>
+        <span class="choose-film-input-span regist-left-3-5">
+      <input name="txt_password" id="txt_password" type="password" class="choose-film-input" maxlength="16" node-type="placeholder" placeholder="请输入新密码">
+      <span class="lbl_error" id="error_password"></span>
+    </span>
+    
+      </p>
+      <p class="note-text"></p>
+    <p class="editpwd">
+        <span class="input-text">重复新密码</span>
+        <span class="choose-film-input-span regist-left-3-5">
+      <input name="txt_password2" id="txt_password2" type="password" class="choose-film-input" maxlength="16" node-type="placeholder" placeholder="请再次输入新密码">
+      <span class="lbl_error" id="error_password2"></span>
+    </span>
+   </p>
+    </div>
 
+    <p class="btn-p">
+      {{csrf_field()}}
+      <button name="btn_change_password" id="btn_change_password" class="edit-btn">修改密码</button>
+    </p>
+  </form>
+</div>
 
 @endsection
