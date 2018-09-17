@@ -72,6 +72,8 @@ Route::group([],function(){
 	Route::get('/tiezi/{id}/up','tieziController@up');//置顶
 	Route::get('/tiezi/{id}/down','tieziController@down');//精选
 	Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
+	//Ajax 验证
+	Route::post('/ajax/password','AjaxController@password');//修改密码-检测原密码
 });
 
 
@@ -81,7 +83,8 @@ Route::group([],function(){
 	Route::post('/home/dologin','HomeLoginController@dologin');
 	Route::get('/home/outlogin','HomeLoginController@outlogin');
 
-
+//前天注册
+	Route::get('/home/register','HomeRegisterController@register');
 //前台首页
 
 	Route::get('/','HomeCenterController@index');
@@ -136,6 +139,10 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
+	//修改个人信息
+	Route::get('/home/jiben1','CenterController@jiben1');
+	//修改密码
+	Route::get('/home/password','CenterController@newpassword');
 
 
 	//帖子评论
