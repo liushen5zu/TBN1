@@ -41,6 +41,7 @@ class ActivityController extends Controller
     {
         //
         //dd($request->all());
+
         $activity = new Activity;
         $activity -> title = $request->title;
         $activity -> activity_site = $request->activity_site;
@@ -97,7 +98,6 @@ class ActivityController extends Controller
         $activity = Activity::find($id);
         $activity -> title = $request->title;
         $activity -> activity_site = $request->activity_site;
-        
         $activity -> rtime = $request->rtime;
         $activity -> registration_num = $request->registration_num;
         $activity -> attention_num = $request->attention_num;
@@ -106,6 +106,7 @@ class ActivityController extends Controller
         if ($request->hasFile('image')) {
             $activity -> image = '/'.$request->image->store('uploads/'.date('Ymd'));
         }
+        
         if($activity -> save()){
             return redirect('/activity')->with('success', '编辑成功');
         }else{

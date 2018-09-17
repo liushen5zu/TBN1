@@ -35,7 +35,7 @@ class HomeLoginController extends Controller
     {
     	$request->session()->flush();
 
-    	return "<script>alert('退出成功');window.location.href='/home/activity/list'</script>";
+    	return "<script>alert('退出成功');window.location.href='/'</script>";
     }
    
 }

@@ -21,11 +21,11 @@
       <li id="tab_nav_li_5"><a href="/home/rongyu">荣誉勋章</a></li>
   </ul>
    <div class="div_page_password">
-    <form action="/login/ajaxChangePassword.html" id="frm_change_password" method="post">
+    <form action="/home/mimagx" id="frm_change_password" method="post">
       <p class="editpwd">
         <span class="input-text">旧密码</span>
         <span class="choose-film-input-span regist-left-3-5">
-      <input name="txt_old_password" id="txt_old_password" type="password" class="choose-film-input" maxlength="16" node-type="placeholder" placeholder="请输入旧密码">
+      <input name="old_password" id="txt_old_password" type="password" class="choose-film-input" maxlength="16" node-type="placeholder" placeholder="请输入旧密码">
       <span class="lbl_error" id="error_old_password"></span>
     </span>
     
@@ -47,13 +47,13 @@
       <span class="lbl_error" id="error_password2"></span>
     </span>
    </p>
-     <input type="hidden" name="__hash__" value="6fe7ede176aa650fb80cc7c231c8268d_b4d30bfa225c9953e6374bc3bc64fd49"></form>
     </div>
 
     <p class="btn-p">
-      <input name="btn_change_password" id="btn_change_password" type="button" class="edit-btn" value="修改密码">
+      {{csrf_field()}}
+      <button name="btn_change_password" id="btn_change_password" class="edit-btn">修改密码</button>
     </p>
+  </form>
 </div>
-
 
 @endsection
