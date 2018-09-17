@@ -227,12 +227,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
         'SmsManager' => Toplan\Sms\Facades\SmsManager::class,
-=======
         'Socialite' => Laravel\Socialite\Facades\Socialite::class, 
->>>>>>> 452baac4807d11505079e1d3135ca18d85c2bd54
+
 
     ],
 
