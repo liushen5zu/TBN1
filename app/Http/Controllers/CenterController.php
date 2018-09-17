@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Messages;
 use App\Messages_user;
 use App\User;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash; 
 
 class CenterController extends Controller
 {
@@ -27,12 +29,40 @@ class CenterController extends Controller
 
     public function mima(Request $request)
     {
-       return view('home.center.mima'); 
+        return view('home.center.mima');
+        
+    }
+    //密码修改
+    public function mimagx(Request $request)
+    {   
+        $user = User::find(session('id'));
+        // dd($request->old_password);
+        // dd($pwdgx);
+        if($user->password != $request->old_password){
+            return "<script>alert('与原密码不符');window.location.href='/home/mima'</script>";
+        }
+
+        if($request->txt_password != $request->txt_password2){
+            return "<script>alert('两次密码不符');window.location.href='/home/mima'</script>";
+        }
+
+        // $pwd = Hash::make($request->txt_password);
+        $user -> password = $request->txt_password;
+        if($user -> save()){
+            return redirect('/home/login')->with('success','修改成功,请重新登陆!!!');
+        }else{
+            return back()->with('error','修改失败');
+        } 
     }
 
     public function touxiang(Request $request)
     {
        return view('home.center.touxiang'); 
+    }
+
+    public function txgx(Request $request)
+    {
+        
     }
 
     public function rongyu(Request $request)

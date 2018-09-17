@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>雷之影_影集_大众影评网</title>
+    <title> _影集_大众影评网</title>
     <meta name="description" content="大众影评网影集:雷之影,雷之影名单,战狼2 ,英雄,阿凡达,2012世界末日" />
     <link rel="shortcut icon" href="/Images/favicon.ico" />
     <!--[if lt IE 9]>

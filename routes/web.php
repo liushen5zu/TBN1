@@ -79,7 +79,10 @@ Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
 Route::get('/home/outlogin','HomeLoginController@outlogin');
 
-
+// 引导用户到新浪微博的登录授权页面
+Route::get('/auth/weibo', 'AuthController@weibo');
+// 用户授权后新浪微博回调的页面
+Route::get('/auth/callback', 'AuthController@callback');
 //前台首页
 
 	Route::get('/','HomeCenterController@index');
@@ -132,7 +135,9 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	Route::get('/home/center','CenterController@index');
 	Route::get('/home/jiben','CenterController@jiben');
 	Route::get('/home/mima','CenterController@mima');
+	Route::post('/home/mimagx','CenterController@mimagx');
 	Route::get('/home/touxiang','CenterController@touxiang');
+	Route::post('/home/txgx','CenterController@txgx');
 	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
@@ -143,7 +148,6 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	Route::get('/home/cunchu','MessagesController@cunchu');
 
 
-	//影集添加
 
 
 

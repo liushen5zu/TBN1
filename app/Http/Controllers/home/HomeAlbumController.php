@@ -40,4 +40,5 @@ class HomeAlbumController extends Controller
     {
         return view('home.album.add');
     }
+
 }
