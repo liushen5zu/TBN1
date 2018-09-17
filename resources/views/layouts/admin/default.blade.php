@@ -149,7 +149,7 @@
                             <li>
                                 <a href="/link">
                                 <i class="iconfont">&#xe6a7;</i>
-                                链接列表
+                                友链列表
                             </a>
                             </li>
                         </ul>
@@ -168,6 +168,7 @@
                             </a>
                             </li>
                         </ul>
+                    </li>
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>

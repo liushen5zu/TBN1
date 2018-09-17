@@ -185,15 +185,15 @@ $(document).ready(function(){
                 <dd class="info_d_1"><a href="#"></a></dd>
                 <dd class="info_d_2">
                     <div>
-                        <p><a href="/personal/toMyCreation">0</a></p>
+                        <p><a href="/personal/toMyCreation">{{$al_num}}</a></p>
                         <p> <span>影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/personal/friendlist">0</a></p>
+                        <p><a href="/personal/friendlist">{{$focus_num}}</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">0</a></p>
+                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

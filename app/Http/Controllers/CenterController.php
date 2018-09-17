@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AlDetail;
+use App\Focus;
 use App\Messages;
 use App\Messages_user;
 use App\User;
@@ -84,12 +86,24 @@ class CenterController extends Controller
     //我的空间
     public function myCenter(Request $request)
     {
-       return view('home.center.myCenter'); 
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen')); 
     }
 
     //项目管理
     public function xiangmugl(Request $request)
-    {
-       return view('home.center.xiangmugl'); 
+    {   
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+
+       return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
     }
 }

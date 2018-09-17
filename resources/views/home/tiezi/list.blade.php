@@ -19,7 +19,7 @@
 </style>
 <script type="text/javascript" src="/assets/tiezi/js/jquery-1.7.2.min_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/jquery.cookie_1.js"></script>
-<script type="text/javascript" src=/assets/tiezi/js/common2_1.js"></script>
+<script type="text/javascript" src="/assets/tiezi/js/common2_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/common_1.js"></script>
 <script>
 var _hmt = _hmt || [];

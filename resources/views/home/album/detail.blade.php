@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title> _影集_大众影评网</title>
     <meta name="description" content="大众影评网影集:雷之影,雷之影名单,战狼2 ,英雄,阿凡达,2012世界末日" />
+
     <link rel="shortcut icon" href="/Images/favicon.ico" />
     <!--[if lt IE 9]>
   <script type="text/javascript" src="/Js/html5.js"></script>
@@ -50,6 +51,8 @@
         s.parentNode.insertBefore(hm, s);
     })();
     </script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    
 </head>
 
 <body>
@@ -210,25 +213,42 @@
                         <!--<div class="right-button">
                               <img src="/Public/Home/images/attention.gif" friend_id="" id='btn_img_add_focus'/>        </div>
           -->
+
                         <div class="userLogoBoxR">
                             <p>
                                 <a href="/someone/428141.html" title="{{$al->user->username}}" target="_blank">{{$al->user->username}}</a>
                             </p>
-                            <p><img src="/Public/Home/images/attention.gif" friend_id="428141" id='btn_img_add_focus' /></p>
+                            <form action="/home/focus" method="get">
+                            <input type="hidden" name="author_id" value="{{$al->user->id}}">
+                            <input type="hidden" name="author_username" value="{{$al->user->username}}">
+                            <p>
+                            @if($al->user_id!=session('id'))
+                            @if(count($focus)>0)
+                            已关注
+                            @endif
+                            @if(count($focus)==0)
+                            <button style="height:27px" class="btn btn-success"><img width="90px"  src="/ueditor/picture/attention_1.gif"></button>
+                            @endif
+                            @endif
+                            @if($al->user_id==session('id'))
+                                添加关注
+                            @endif
+                            </p>
+                            </form>
                         </div>
                         <dt>
                             <dd class="userInfo">
                                 <dl>
                                     <dd>
-                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">1</a></p>
+                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">{{$al_num}}</a></p>
                                         <p> 影集 </p>
                                     </dd>
                                     <dd>
-                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">0</a></p>
+                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">{{$focus_num}}</a></p>
                                         <p>关注</p>
                                     </dd>
                                     <dd>
-                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">0</a></p>
+                                        <p><a class="c_f60" href="/someone/428141.html" target="_blank">{{$focus_fsen}}</a></p>
                                         <p>粉丝</p>
                                     </dd>
                                 </dl>

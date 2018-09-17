@@ -47,6 +47,7 @@ class UserController extends Controller
         //$user -> image = $request->image;
         $user -> phone = $request->phone;
         $user -> permissions = $request->permissions;
+        
         if($request->hasFile('image')) {
             $user->image = '/'.$request->image->store('uploads/'.date('Ymd'));
         }
