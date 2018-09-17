@@ -171,6 +171,7 @@ $(document).ready(function(){
        <div class="crumbs_nav03">创建影集</div>
        <div class="crumbs_nav04"></div>
     </div>
+    @section('content')
     <div class="tab-div_two">
         <ul class="tab-div-ul_two">
             <li><a href="javascript:;" class="active one_step">第一步:填写基本信息</a></li>
@@ -178,19 +179,21 @@ $(document).ready(function(){
             <li><a href="javascript:;" class="three_step">第三步:添加影片</a></li>
         </ul>  
     </div>
-    <form action="/home/toAlbumAdd2" method="post" id="frm_add_album" >
+    
+
+    <form action="/home/albumAdd" method="get">
     <table class="basic_info">
         <tr>
             <td width="20" class="Required">*</td>
             <td width="80" class="basic_fonts">影集名称:</td>
-                        <td width="540"> 
-                            <input type="text" id="album_name" value="" maxlength="20"  name="title" class="text_name"  node-type="placeholder"  placeholder="好的名字更能吸引片友的关注哦！20字内"/>&nbsp;
-                        </td>
+            <td width="540"> 
+                <input type="text" id="album_name" val maxlength="20"  name="title" class="text_name">&nbsp;
+            </td>
         </tr>
          <tr>
             <td></td>
             <td></td>
-                <td class="basic_fonts"><input type="checkbox" checked="checked"  id="is_allow" name="is_allow" value=""/>&nbsp;允许片友推荐影片至该影集</td>
+                <td class="basic_fonts"><input type="checkbox" checked="checked"  id="is_allow"  value=""/>&nbsp;允许片友推荐影片至该影集</td>
                 </tr>
         <tr>
             <td class="Required">*</td>
@@ -206,11 +209,14 @@ $(document).ready(function(){
         </tr>
     
     </table>
-     <input type="hidden" name="albumName" value=""/>
     <div class="save_div">
-     <button name="btn_submit_album" id="btn_submit_album"  class="finish-btn" album_id="0" value="保存并继续" style="background:blue"/>保存并提交</button>
+    {{csrf_field()}}
+     <button   class="finish-btn" style="background:blue"/>保存并提交</button>
     </div>
 </form>
+
+
+
 <script  src="js/album_edit.js"></script>
 <script> 
     $(window).load(function(){ 
@@ -279,6 +285,7 @@ $(document).ready(function() {
     setAuto();  
 });
 </script>
+@show
 <!-- 隐藏信息  --> 
 <input type='hidden' id='txt_header_url' value="http://www.51oscar.com" />
 <input type='hidden' id='txt_public_home' value="/Public/Home/" module="Album" ie_page="/movie/ie.html"  baidu_page="/movie/baidu.html" qvod_page="/movie/qvod.html" gvod_page="/movie/gvod.html"  loading_page="/movie/loading.html" />

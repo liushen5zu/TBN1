@@ -229,6 +229,7 @@
                         =
                         <dd class="fR">
                             <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
+                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
                         </dd>
                     </dl>
                     @endforeach
@@ -245,7 +246,7 @@
         <!--leftWp e-->
         <aside class="rightWp fR">
             <section class="creatAlbum">
-                <a class="crear_my_album" url="/toAlbumAdd" href="/hoem/toAlbumAdd" title="创建我的影集"><img src="/ueditor/images/jia.png" alt="创建我的影集" style="margin:0,padding:0" width="244" height="85"></a>
+                <a class="crear_my_album" url="/toAlbumAdd" href="/home/toAlbumAdd" title="创建我的影集"><img src="/ueditor/images/jia.png" alt="创建我的影集" style="margin:0,padding:0" width="244" height="85"></a>
                 </sectio60 <section class="hotTalk">
                 <div class="title clearfix">
                     <i class="info icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" target="_blank">当前热议<em>>></em></a>

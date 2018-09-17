@@ -107,9 +107,8 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	Route::get('/home/album','home\HomeAlbumController@index');
 	//影集(详情)
 	Route::get('/home/album/{id}.html','home\HomeAlbumController@show');
-	//影集添加
-	Route::get('/hoem/toAlbumAdd','home\HomeAlbumController@create');
-	Route::post('/home/toAlbumAdd2','home\HomeAlbumController@add');
+	
+
 	//电影详情
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
 	//电影列表
@@ -141,9 +140,14 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	//站内信
 	Route::get('/home/send/{id}','MessagesController@send');
 	Route::get('/home/cunchu','MessagesController@cunchu');
+	//关注
+	Route::get('/home/focus','FocusController@focus');
 
-
+	
 	//影集添加
+	Route::get('/home/toAlbumAdd','home\HomeAlbumController@create');
+	Route::get('/home/albumAdd','home\HomeAlbumController@add');
+	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
 
 
 
@@ -155,5 +159,8 @@ Route::get('/home/outlogin','HomeLoginController@outlogin');
 	Route::get('/home/review/{id}/reply','home\HomeReviewController@create');
 	//评论删除
 	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
+
+
+	Route::post('/upload', 'home\HomeAlbumController@upload');
 });
 
