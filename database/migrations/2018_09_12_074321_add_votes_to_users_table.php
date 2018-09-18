@@ -16,7 +16,7 @@ class AddVotesToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('birthday')->comment('生日');
             $table->string('location')->comment('所在地');
-            $table->string('locations')->comment('收获地址');
+            $table->string('locations')->comment('收货地址');
             $table->string('pc')->comment('邮编');
         });
     }

@@ -33,8 +33,11 @@ Route::group([],function(){
 	//电影评论管理
 	Route::resource('movie_comments','MovieCommentsController');
 
-	//评论管理(用于影评及回复)
+	//评论管理(用于影评)
 	Route::resource('movieReview','MovieReviewController');
+
+	//评论管理(用于回复)
+	Route::resource('movieReply','MovieReplyController');
 
 	//导演管理
 	Route::resource('movie_directors','MovieDirectorsController');
@@ -81,6 +84,7 @@ Route::group([],function(){
 	Route::post('/home/dologin','HomeLoginController@dologin');
 	Route::get('/home/outlogin','HomeLoginController@outlogin');
 
+<<<<<<< HEAD
 //前天注册
 	Route::get('/home/register','HomeRegisterController@register');
 	Route::get('/home/login','HomeLoginController@login');
@@ -92,6 +96,19 @@ Route::group([],function(){
 	// 用户授权后新浪微博回调的页面
 	Route::get('/auth/callback', 'AuthController@callback'); 
 	//前台首页
+=======
+//前台注册
+Route::get('/home/register','HomeRegisterController@register');
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
+
+// 引导用户到新浪微博的登录授权页面
+Route::get('/auth/weibo', 'AuthController@weibo');
+// 用户授权后新浪微博回调的页面
+Route::get('/auth/callback', 'AuthController@callback'); 
+//前台首页
+>>>>>>> 13afaac9ddfc9af3d13eca1c9315199d5fedbd42
 
 	Route::get('/','HomeCenterController@index');
 	
@@ -151,6 +168,7 @@ Route::group([],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
+	Route::get('/home/centercomment','CenterController@createcomment');
 	//修改个人信息
 	Route::get('/home/jiben1','CenterController@jiben1');
 	//修改密码
@@ -166,7 +184,6 @@ Route::group([],function(){
 	Route::get('/home/toAlbumAdd','home\HomeAlbumController@create');
 	Route::get('/home/albumAdd','home\HomeAlbumController@add');
 	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
-
 
 
 	//帖子评论

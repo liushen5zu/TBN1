@@ -168,7 +168,7 @@ $(document).ready(function(){
         </section>
     	
         <!--焦点幻灯片 e-->
-       
+
         <!--特约影评人 s-->
         <section class="inviReview">
             <div class="title">
@@ -210,8 +210,9 @@ $(document).ready(function(){
                     <dd class="R fR">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail['image']}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
-                </dl> 
-                @endforeach               
+                </dl>
+                @endforeach                
+
                 <a href="/review/table.html" style="text-decoration:none">
                 <div  id="moreRevi"  class="loadMore">
                                 更多...
