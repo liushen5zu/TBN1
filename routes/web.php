@@ -81,8 +81,8 @@ Route::group([],function(){
 	Route::post('/home/dologin','HomeLoginController@dologin');
 	Route::get('/home/outlogin','HomeLoginController@outlogin');
 
-//前天注册
-	Route::get('/home/register','HomeRegisterController@register');
+//前台注册
+Route::get('/home/register','HomeRegisterController@register');
 Route::get('/home/login','HomeLoginController@login');
 Route::post('/home/dologin','HomeLoginController@dologin');
 Route::get('/home/outlogin','HomeLoginController@outlogin');

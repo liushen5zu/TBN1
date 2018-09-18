@@ -33,11 +33,11 @@
             <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
             <div class="menu_c">
                 <a href="/">首页</a>
-                <a href="http://www.51oscar.com/news.html">资讯</a>
-                <a id="nav_movie" href="http://www.51oscar.com/movie.html">电影</a>
-                <a href="http://www.51oscar.com/review.html">影评</a>
-                <a href="http://www.51oscar.com/album.html">影集</a>
-                <a href="http://www.51oscar.com/forum.html">贴吧</a>
+                <a href="/home/tiezis">贴吧</a>
+                <a href="/home/review">影评</a>
+                <a href="/home/movieDetails">电影</a>
+                <a href="/home/album">影集</a>
+                <a href="/home/activity/list">活动</a>
             </div>
             <div class="m_more">
                 <a class="menu_a"><span>更多</span><b class="a_trig"></b></a>
