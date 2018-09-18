@@ -33,8 +33,11 @@ Route::group([],function(){
 	//电影评论管理
 	Route::resource('movie_comments','MovieCommentsController');
 
-	//评论管理(用于影评及回复)
+	//评论管理(用于影评)
 	Route::resource('movieReview','MovieReviewController');
+
+	//评论管理(用于回复)
+	Route::resource('movieReply','MovieReplyController');
 
 	//导演管理
 	Route::resource('movie_directors','MovieDirectorsController');
@@ -136,6 +139,7 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
+	Route::get('/home/centercomment','CenterController@createcomment');
 
 
 	//帖子评论

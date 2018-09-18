@@ -93,14 +93,14 @@ float: right;line-height: 27px;}
 float: right;width:4px;}
 .w_line1 a:hover{ text-decoration: underline; color: #3377AA}
 .texta_left{ float: left; width: 15px; height: 82px;background: url(../images/are_bg_5.jpg) no-repeat; }
-.w_line2 textarea{ float: left; width: 553px; height: 80px;border: 1px solid #ccc; border-left: none;}
+.w_line2 textarea{ float: left; width: 553px; height: 80px;border: 1px solid #ccc; border-left: none;margin-left: 12px;}
 .write_m dd.w_line3{ text-align: right; margin-top: 10px;width:230px; }
 .w_line3 a{ font-size: 13px; }
 .w_line3 a.expression{background: url(../images/pl_03_5.jpg) left no-repeat; padding-left:20px; margin-right: 5px;  }
 .w_line3 a.images{background: url(../images/pl_03_5.jpg) -58px 0 no-repeat; padding-left:20px;  }
 .w_line3 a.tb_set{ color: #3377AA; margin: 0 15px;}
 .w_line3 span{ color: #2F3237; margin-right: 8px; font-size: 13px; }
-.w_line3 input.submitComment{ width: 85px; height: 32px; background:url(../images/fabu_15_5.jpg) no-repeat; cursor: pointer; vertical-align: middle;}
+.w_line3 button.submitComment{ width: 85px; height: 32px; background:url(../images/fabu_15_5.jpg) no-repeat; cursor: pointer; vertical-align: middle;}
 .w_line3 input:hover{ background:url(../images/fabu_15_5.jpg) -1px -32px no-repeat;}
 .hot_box li a{display:block;}
 #ajaxGetMovieName{width: 245px;border:1px solid #ccc; border-bottom:none; line-height: 23px;margin-left: 13px;color: #B5B5B5;border-top:0px; position:absolute; background-color:#FFF; z-index:99999;}  /*2.0*/

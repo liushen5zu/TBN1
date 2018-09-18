@@ -5,10 +5,11 @@
 <title>{{$Movie_comments->movie_detail->name}} 影评:{{$Movie_comments->title}}</title>
 <meta name="description" content="猩球崛起3：终极之战 影评:回归感情——终极圆满,大众影评网影评频道猩球崛起3：终极之战 观后感,&nbsp; &nbsp; 万众期待，《..." />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
-<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<!-- <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script> -->
 <script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script>
 <link rel="stylesheet" href="/ueditor/css/style.css">
 <link rel="stylesheet" href="/ueditor/css/comment.css">
+<script type="text/javascript" src="/ueditor/js/Common.js"></script>
 
 <!-- <script type="text/javascript" src="/ueditor/js/jquery-1.7.2.min.js"></script> -->
 <!--[if lt IE 9]>
@@ -187,10 +188,6 @@ $(document).ready(function(){
 			<p><p>{{$Movie_comments->content}}</p></p>
 			<!-- <p>&nbsp; &nbsp; 万众期待，《猩球崛起3》终于姗姗来迟，和前两部一样的是，本部影片继续沿用猿类与人类斗争这一主题。影片继续《猩球崛起2》的故事主线，向观众讲述了凯撒及猿类在人类病毒感染毁灭这场灾难中的遭遇。</p><p>&nbsp; &nbsp;《猩球崛起》这部些列电影，一直在传递着一个信息，那就是人类和猿类，尤其是具有高智商的猿类，不可能安稳和平相处，双方都惧怕着，唯恐被对方毁灭。矛盾斗争是存在的，但是从小和人类就结下缘分的凯撒面对人类时又有着熟悉的情感，所以影片中也时刻在强调着一个理念，那就是人类和猿类是可以和平共处的，也应该和平共处。</p><p>&nbsp; &nbsp; 从《猩球1》，凯撒宁愿率众猿人逃离实验室到达森林，也不愿意与人类为敌；到《猩球2》为了能让人类生存下去，选择信任，帮助人类修理水坝；在再到最后《猩球3》凯撒最终选择撤离，放弃报复，远离人类，电影中这一系列的内容，都在向观众传达着一个理念，那就是世间万物都应和平相处，不应让争斗成为主题。</p><p>&nbsp; &nbsp; &nbsp;我们经常强调，人类是爱好和平的，其实在本部影片中，非人类的生物又何尝不是爱好和平的呢。所以把握住这个主旨，电影中的一系列斗争也就成了陪衬，成了衬托。</p><p>&nbsp; &nbsp; 《猩球3》之所以被称为终极之战，最主要的原因还在于，本部影片是以凯撒率领的猿类要在矛盾争斗中撤离，远离人类。因为只有这样才能双方共存，但是在这个过程中却发生了很令凯撒愤怒的悲剧，最终爆发终极之战。虽然爆发战争，但是主题依然没有改变，最终凯撒带领猿类撤离，算是实现了双方的和平。</p><p>&nbsp; &nbsp; 《猩球3》中的感情戏份要远比前两部多，从一开始的凯撒家庭亲情，到一直围绕在凯撒心中对科巴的感情，还有对小女孩的感激之情，以及最后对猿类叛徒的情感，都在刻画着着凯撒的内心情感世界。所以说本部影片，说是终极之战，其实也是凯撒情感的终极爆发，面对着种种矛盾，面对着爱恨情仇，凯撒最终需要一场战争来洗净生化自身的情感，让自己在对待人类和族类时有着更高层次的认识，而不是像以前一样局限于自身的身份位置。</p><p>&nbsp; &nbsp; &nbsp;在这场战争中，猿类猴类获得了圆满的收场，人类也为自己的行为买单，总体来说，终极之战让双方都获得了各自的圆满结局。电影以感情最终结局，和平理念得以贯穿，并最终升华成终极圆满。</p><p><br/></p><p><br/></p> -->
 		</section>
-        <section class="newContB clearfix">
-            <div class="bshare-custom"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
-        </section>  
-              
         <section class="nextAndPrev">
                <span class="fl">上一篇：<a href="javascript:void(0);" title="无" target="_self">无</a></span>
                <span class="fr">下一篇：<a href="/review/12998.html" title="情节和场景" target="_self">情节和场景</a></span>
@@ -208,12 +205,9 @@ $(document).ready(function(){
             <div class="commDiv">   
             @else
             <div class="title clearfix">
-                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册"  target="_blank">注册</a></span></div>
+                <i class="info icon"></i>网友评论</div>
            <!--评论编辑输入框 s-->
             <div class="commDiv">   
-            <div class="title">
-                评论
-            </div>
             <!--评论编辑输入框 s-->
             <div class="user_say">
                 <div class="faceDiv"><a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a></div>
@@ -243,10 +237,10 @@ $(document).ready(function(){
     <!--回复区域 begin-->
     <div class="comment-show">
         <div class="comment-show-con clearfix">
-            <div class="comment-show-con-img pull-left"><img src="{{$Movie_comments->user->image}}" alt=""></div>
+            <div class="comment-show-con-img pull-left"><img src="{{$v->user->image}}" alt=""></div>
             <div class="comment-show-con-list pull-left clearfix">
                 <div class="pl-text clearfix">
-                    <a href="#" class="comment-size-name">{{$Movie_comments->user->username}} : </a>
+                    <a href="#" class="comment-size-name">{{$v->user->username}} : </a>
                     <span class="my-pl-con">&nbsp;{{$v->content}}</span>
                 </div>
                 @if(!session::has('username'))
@@ -532,35 +526,6 @@ $(document).ready(function(){
 <script type="text/javascript" src="/ueditor/js/comment.js"></script>
 <script type="text/javascript" src="/ueditor/js/jquery.qqface.js"></script>
 <script  src="/ueditor/js/jquery.pagination.js"></script>
-
-
-<script type="text/javascript">
-$(function(){	
-		URL = $('#txt_header_url').val() +'/';
-		Common.init(); 
-	})
-	
-	var artical_id = $('#wenzhang').val();  //当前文章的id
-	var pingmovie_id = $('#movie_id').val();  //电影id
-	
-	
-  //加载更多子评论
-	$(".more_comms_reply").live("click",function(){
-		var comment_pid = $(this).siblings(".dis_reply").find(".comment_pid").val(); //当条评论的id
-		var p = $(this).siblings(".more_comms_reply_p").val();    //当前评论子评论页码
-		var _this = $(this);
-		var comment_type = parseInt($("#shareText").val()); //评论的类型	
-		Comments.more_comms_reply(_this,comment_pid,comment_type,p);
-
-	})
-//播放预告片
-$(".trailer").click(function(){
-		showSwf.show($(this).attr("data-trailer"));	
-});
-
-	//scrollFixed(".hotMovie","#footer",40);
-
-</script>
 <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="js/bsharec0.js"></script>
 
 <!-- 隐藏信息  --> 
@@ -605,10 +570,7 @@ $(".trailer").click(function(){
         </dl>
     </div>
     <div class="Copyright"><p>Copyright © 2012 <a href="http://www.51oscar.com" target="_blank" rel="nofollow">大众影评网</a>（51oscar.com）All rights reserved. 粤ICP备07500583号-2 </p></div>
-    <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
-</script>
+    
 </div>
 </body>
 </html>
