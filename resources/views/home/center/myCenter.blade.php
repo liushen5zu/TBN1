@@ -304,7 +304,7 @@ width: 245px;
 					</dl>	
 					@endforeach
 					@foreach($user as $val)
-					<dl class="item ownComment">
+					<dl class="item ownComment" style="display: none">
 						<dt>
 							<a href="#"><img src="{{session('image')}}" width="65" height="65"></a>
 						</dt>		
