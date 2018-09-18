@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Level;
 use App\Movie_detail;
 use App\Tcomment;
 use App\Tiezi;
@@ -43,6 +44,24 @@ class tieziController extends Controller
      */
     public function store(Request $request)
     {
+        $level = Level::where('user_id',session('id'))->get();
+       // dd($level);
+        if(count($level)==0){
+            $levels = new Level;
+            $levels -> integral = 5;
+            $levels -> experience = 25;
+            $levels -> user_id = session('id');
+            $levels -> save();
+        }else{
+            $levels = Level::where('user_id',session('id'))->first();
+            //用户积分
+            $levels -> integral = $levels -> integral + 5;
+            //用户经验
+            $levels -> experience = $levels -> experience + 25;
+            $levels -> save();
+            //dd($levels);
+        }
+
         if (empty($request->title)) {
             return redirect('/home/tiezis')->with('success','ch');
         }else{

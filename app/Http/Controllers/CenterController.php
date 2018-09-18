@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AlDetail;
 use App\Focus;
+use App\Level;
 use App\Messages;
 use App\Messages_user;
 use App\User;
@@ -97,9 +98,13 @@ class CenterController extends Controller
         
     }
 
+    //荣誉
     public function rongyu(Request $request)
     {
-       return view('home.center.rongyu'); 
+
+        $levels = Level::where('user_id',session('id'))->first();
+        //dd($levels);
+       return view('home.center.rongyu',compact('levels')); 
     }
 
     public function xiaoxi(Request $request)
@@ -121,7 +126,9 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen')); 
+        //积分和经验
+        $levels = Level::where('user_id',session('id'))->first();
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','levels')); 
     }
 
     //项目管理
