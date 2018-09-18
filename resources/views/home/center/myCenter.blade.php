@@ -326,64 +326,98 @@ width: 245px;
 					</dl>
 					@endforeach
 				</div>
-
-<script type="text/javascript">
-	$('.nav_title_left a').click(function(){
-		var index = $(this).index();
-		console.log(index);
-		$(this).addClass('a_cur');
-		$(this).siblings().removeClass('a_cur');
-		if(index == 0){
-			$('.item').attr('style','display:block');
-			$('.ownComment').attr('style','display:none');
-		}else if(index == 1){
-			$('.item').attr('style','display:none');
-			$('.ownComment').attr('style','display:block');
-		}
-	});
-</script>               
-                <div class="page_turn" id="outerPage">
-                   
-                </div>
+				<script type="text/javascript">
+					$('.nav_title_left a').click(function(){
+						var index = $(this).index();
+						console.log(index);
+						$(this).addClass('a_cur');
+						$(this).siblings().removeClass('a_cur');
+						if(index == 0){
+							$('.item').attr('style','display:block');
+							$('.ownComment').attr('style','display:none');
+						}else if(index == 1){
+							$('.item').attr('style','display:none');
+							$('.ownComment').attr('style','display:block');
+						}
+					});
+				</script>               
+	            <div class="page_turn" id="outerPage">	               
+	            </div>
             </div>
         </div>
+
         <div class="u_right">
             <dl class="info_detail">
                 <dt>
                     <div class="heard_img"><img src="{{Session('image')}}" width="87" height="87"></div>
                     <a href="/home/jiben">编辑资料</a>
                 </dt>
-                <dd class="info_d_1"><a href="#"></a><span class="degree">Lv1</span></dd>
+                <dd class="info_d_1"><a href="#"></a><span class="degree">
+					<!-- 显示等级 -->
+					Lv{{floor($levels['experience']/50)}}
+                </span></dd>
                 <dd class="info_d_2">
                     <div>
 						
-                        <p><a href="/personal/toMyCreation">0</a></p>
+                        <p><a href="/personal/toMyCreation">{{$al_num}}</a></p>
                         <p> <span>影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/personal/friendlist">0</a></p>
+                        <p><a href="/personal/friendlist">{{$focus_num}}</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">0</a></p>
+                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>
 				<dd>
-					<p class="info_d_3">积分：<em>52</em> 经验：<em>150</em></p>
+					<p class="info_d_3">积分：<em>{{$levels['integral']}}</em> 经验：<em>{{$levels['experience']}}</em></p>
 				</dd>
                <dd class="info_d_3">
                     <span>我的勋章</span>
                     <ul class="med_ul">
-													<li class="medal_list"><img src="/ueditor/picture/50d51a3af05a7_1.jpg" width="24" height="22"></li>
+                    			@if($levels['experience']<=50 && $levels['experience']>=0)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=100 && $levels['experience']<200)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=200 && $levels['experience']<400)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=400 && $levels['experience']<800)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a0b1f9c3_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a2bb642e_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=800 && $levels['experience']<1600)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a16e6157_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a479a2ff_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/5.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=1600)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
+								
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/5.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/6.png" width="24" height="22"></li>
+								@endif
+
+								
 								
 									
                        

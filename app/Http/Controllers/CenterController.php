@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AlDetail;
 use App\Focus;
+use App\Level;
 use App\Messages;
 use App\Messages_user;
 use App\Movie_comment;
@@ -100,9 +101,13 @@ class CenterController extends Controller
         
     }
 
+    //荣誉
     public function rongyu(Request $request)
     {
-       return view('home.center.rongyu'); 
+
+        $levels = Level::where('user_id',session('id'))->first();
+        //dd($levels);
+       return view('home.center.rongyu',compact('levels')); 
     }
 
     public function xiaoxi(Request $request)
@@ -128,9 +133,15 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+
+        //积分和经验
+        $levels = Level::where('user_id',session('id'))->first();
+        
+
         $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom')); 
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels')); 
+
     }
 
     //项目管理
@@ -145,6 +156,7 @@ class CenterController extends Controller
 
        return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
     }
+
     //个人空间影评添加
     public function createcomment(Request $request)
     {   
