@@ -30,7 +30,7 @@ function dropMenu(obj){
         var tarHeight = theMenu.height();
         theMenu.css({height:0,opacity:0});
         theSpan.hover(
-            function(){ 
+            function(){
                 $(this).addClass("selected");
                 theMenu.stop().show().animate({height:tarHeight,opacity:1},400);
             },
@@ -145,6 +145,286 @@ width: 245px;
 <script type="text/javascript">
     var editor = UE.getEditor('myEditor');
 </script>
+<script type="text/javascript">
+/*显示即将上映和最近热播电影函数**/
+function getMovieList(data){
+	if(!data){
+		return '';
+	}
+	var dataObj  = $.parseJSON(data);
+	var dlength = dataObj.length;
+	var str = '<ul>';
+	for(i=0;i<dlength;i++){
+		var img_poster = dataObj[i].img_poster;
+		var movie_id = dataObj[i].movie_id;
+		var movie_name = dataObj[i].name;
+		var url = "http://www.51oscar.com/movie/"+movie_id+".html";
+		str += '<li>';
+        str += '<a target="_blank" href="'+url+'" title="'+movie_name+'"><img src="'+img_poster+'"  width="128" height="171"  alt="'+movie_name+'"/></a>' ;
+		str += '<a target="_blank" href="'+url+'" title="'+movie_name+'">'+movie_name+'</a>';
+		str += '</li>'; 
+	}
+	str +='</ul>';
+	$('.hot_box').html(str);
+	DY_scroll('.hot_movie','.prev','.next','.hot_box',3,false);// true为自动播放，不加此参数或false就默认不自动
+}
+	
+
+$(function(){
+	/*最近热播和即将上映切换**/
+	var list_hot = '[{"movie_id":"39278","name":"\u82b3\u534e ","img_poster":"\/Uploads\/Movie\/Poster\/59c33acd86ed5.jpg","china_release_time":"2017-09-30"},{"movie_id":"39277","name":"\u7a7a\u5929\u730e ","img_poster":"\/Uploads\/Movie\/Poster\/59c3397b4c6e5.jpg","china_release_time":"2017-09-29"},{"movie_id":"39276","name":"\u7f1d\u7eab\u673a\u4e50\u961f ","img_poster":"\/Uploads\/Movie\/Poster\/59c318412247e.jpg","china_release_time":"2017-09-29"},{"movie_id":"39275","name":"\u9057\u5fd8\u7a7a\u95f4 ","img_poster":"\/Uploads\/Movie\/Poster\/59c0a983d72c3.jpeg","china_release_time":"2017-09-22"},{"movie_id":"39274","name":"\u75af\u72c2\u65c5\u7a0b ","img_poster":"\/Uploads\/Movie\/Poster\/59c0a6cb6ed46.jpg","china_release_time":"2017-09-22"},{"movie_id":"39273","name":"\u8bf7\u52ff\u9760\u8fd1 ","img_poster":"\/Uploads\/Movie\/Poster\/59c0a568cb37e.jpg","china_release_time":"2017-09-22"},{"movie_id":"39272","name":"\u5a18\u5b50\u519b\u4f20\u5947 ","img_poster":"\/Uploads\/Movie\/Poster\/59c47acd7492b.jpg","china_release_time":"2017-09-22"},{"movie_id":"39271","name":"\u641e\u602a\u5947\u5999\u591c ","img_poster":"\/Uploads\/Movie\/Poster\/59c0a36d1f2c7.jpg","china_release_time":"2017-09-22"},{"movie_id":"39270","name":"\u8c1c\u8bc1 ","img_poster":"\/Uploads\/Movie\/Poster\/59c0a297697fe.jpg","china_release_time":"2017-09-22"},{"movie_id":"39269","name":"\u753b\u5ba4\u60ca\u9b42 ","img_poster":"\/Uploads\/Movie\/Poster\/59b9ec1e923c7.jpg","china_release_time":"2017-09-22"}]';
+	var list_coming = 'null';
+	/*初始化*/
+	getMovieList(list_hot);
+	$('.movie_title a').click(function(){
+		type = $(this).attr('type');
+		$(this).addClass('a_cur').siblings().removeClass('a_cur');
+		if(type == 'hot'){
+			getMovieList(list_hot);
+		}else if(type == 'coming'){
+			getMovieList(list_coming);
+		}
+		
+	});
+	
+	
+	itemIndex = PersonComment.pageSize;
+	PersonComment.init();
+	qqFace.init();
+	/*切换随便看看等*/
+	$('.nav_title_left a').click(function(){
+		type = $(this).attr('type');
+		$(this).addClass('a_cur').siblings().removeClass('a_cur');
+		eval('PersonComment.'+type+'()');
+	});
+	/*长短影评的切换*/
+	$('.longComment').click(function(){
+		$("#yp_input").css("display",'block');
+	});
+	$('.shortComment').click(function(){
+		$("#yp_input").css("display",'none');
+	});
+	/*placeHold**/
+	$('.placeHold').blur(function(){
+		val = $(this).val();
+		defaultVal = $(this).attr('defaultVal');
+		if(!val){
+			$(this).val(defaultVal);
+		}
+	}).focus(function(){
+		val = $(this).val();
+		defaultVal = $(this).attr('defaultVal');
+		if(val == defaultVal){
+			$(this).val('');
+		}
+	});
+	/*movie_name联想**/
+	$(".movie_name").keyup(function(){
+		val = $(this).val();
+		//if(!val)
+			//return false;
+		var json = {
+			'q'	: val
+		};
+		
+		url = $('#Domain').val() +'/personal/ajaxGetMovieName2';
+		var successFunction = function(ajaxData){
+		//	var ajaxData = $.parseJSON(data);
+			if(ajaxData.status != 1) {
+				$("#ajaxGetMovieName").html('');
+				return false;
+			}
+			var tlength = ajaxData.data.length;
+			str = '<ul>';
+			for(i=0;i<tlength;i++){
+			  if(ajaxData.data[i]['byname']==null){
+			    ajaxData.data[i]['byname']='';
+			  }
+				str += '<li movie_id='+ajaxData.data[i]['movie_id']+' style="display:block;padding:2px; height:66px;">';
+				str += '<img style="float:left;" src="'+ajaxData.data[i]['img_poster']+'" width="40" height="62">'+
+				       '<span style="display:block;float:left;width:190px;height:63px; line-height:21px;overflow:hidden"><p style="width:100%;white-space:nowrap;" class="my_mv">'+ajaxData.data[i]['name']+'</p><p>'+ajaxData.data[i]['movie_time']+'</p><p style="width:100%;white-space:nowrap;">'+ajaxData.data[i]['byname']+'</p></span>';
+				str += '</li>';
+			}
+			str += '</ul>';	
+			$("#ajaxGetMovieName").html(str);
+		    $("#ajaxGetMovieName ul li").bind('click',function(){
+				movie_id = $(this).attr('movie_id');
+				name = $(this).children().children(".my_mv").text();
+				$(".movie_name").val(name);
+				$("#ajaxGetMovieName").html('');
+				$('.movie_name').attr('movie_id',movie_id);
+				
+			});
+		};
+		$.ajax({
+				url:        url,
+				data:       json,                     
+				success:    successFunction
+		});
+	});
+	//点击热门影片
+	$('.click_hot_movie').click(function(){
+		movie_id = $(this).attr('movie_id');
+		movie_name = $(this).attr('title');
+		$('.movie_name').attr('movie_id',movie_id);
+		$(".movie_name").val(movie_name);
+	});
+	/*提交评论**/
+	$('.submitComment').click(function(){
+		//alert(editor.getContent() );
+
+		title = $('.commentTitle').val();
+		titleDefault = $('.commentTitle').attr('defaultVal');
+		movie_name = $('.movie_name').val();
+		movieDefault = $('.movie_name').attr('defaultVal');
+		movie_id = $('.movie_name').attr('movie_id');
+		//comment = $("#myEditor").val();
+		comment = editor.getContent();
+		comment_type = $('.moive_comment_taggle:checked').val();
+		img_url = $('#hide_txt_img').val(); 
+		//长评论
+		if (comment_type == '2'){
+			if(!title || title==titleDefault){
+				alert(title);
+				return false;
+			}
+		}else{
+			//if(!comment){
+			if(comment.length == 0){
+				alert('评论不能为空!');
+				return false;
+			}else{
+				if(comment.length > 200){
+					alert('短评字数不能超过200!');
+					return false;
+				}
+				if(comment.length < 10){
+					alert('短评字数不能少于10!');
+					return false;
+				}
+				title='';
+			}
+			
+		}
+		if(!movie_name || movie_name == movieDefault || movie_id == 0){
+			alert(movieDefault);
+			return false;
+		}
+		
+		type = 1;
+		//alert(title);
+		//return;
+		var json = {
+			//'verify'	: vary_code,
+			'comment'	: comment,
+			'pid'		: 0,
+			'puser_id'	: 0,
+			'title'		: title,
+			'comment_type' : comment_type,
+			//'mark'		: mark,
+			'img'		: img_url,
+			//'third_id'	: third_id,
+			'type' 		: type,
+			'id' 		: movie_id
+			//'PHPSESSID' : $('.PHPSESSID').val(),
+			//'TOKEN'		: $('.TOKEN').val()
+		};
+		
+		var successFunction = function (ajaxData){
+			//ajaxData = $.parseJSON(data);
+			if(ajaxData.status !=1){
+				alert(ajaxData.info);
+				return false;
+			}
+			str = PersonComment.getOuterComment(ajaxData.data,itemIndex+1);
+			//alert(342);
+			$('.comment').prepend(str);
+			/*绑定事件*/
+			Taggle.taggleReplayFirst();
+			itemIndex++;
+			//清楚数据
+			$('.movie_name').val('请输入电影名');
+			$('.movie_name').attr('movie_id',0);
+			$('.commentTitle').val('请输入标题');
+			//$('#myEditor').val('');
+			editor.setContent('');
+			$('.div-upload-show').hide(); 
+		};
+		url = URL +'Comment/ajaxAddComment';
+		$.ajax({
+				type:       'post',
+				url:        url,
+				data:       json,                     
+				success:    successFunction
+		});
+		
+		
+	});
+	//上传图片
+	
+		
+		var ajax_url = $('#btn_upload2').attr('ajax_url');
+			var uploadSuccess = function(src){
+				$('#img_upload_show').attr('origin', src).lazyload({'max_width':100});
+				$('#hide_txt_img').val(src); 
+				$('.div-upload-show').show(); 
+				$('.div-upload-show').html('<img id="img_upload_show" src='picture/e1ab9c6f588f4f688e7981d3fa10b28c.gif'>');
+				
+				
+				
+				
+				
+				$('#upload_delete').click(function(){
+					$('#img_upload_show').attr('src', '');
+					$('#hide_txt_img').val('');
+					$('.div-upload-show').hide(); 
+					$('.show_img_tag').hide();
+				});
+			 } ;//uploadSuccess			
+			/*跨域，拿不到data的值*/
+			$('#btn_upload2').upload({         
+				name: 'upload_img',         
+				action: ajax_url,  
+				enctype: 'multipart/form-data',         
+				params: {'rand': Math.random()},         
+				autoSubmit: true,
+				onSubmit: function() {},         
+				onComplete: function(data) {
+					data = $.parseJSON(data);
+					if(data.status==1){
+						uploadSuccess(data.data);
+					}
+					else{
+						alert(data.info);
+					}
+				}
+			});
+	
+});
+
+function iscurnum(content){
+	var write = $("input[name='write']:checked").val();
+	if(write==1){
+		$('#font_num').show();
+		if(content.length > 200){
+			//alert('短评字数不能超过200!');
+			$('#myEditor').val(content.substring(0,200))
+			return false;
+		}
+		var num=200-content.length;
+		$('#font_num').html('你还可以输入'+num+'个字');
+	}else{
+		$('#font_num').hide();
+	}
+}
+
+function onmore_content(_this){
+	$(_this).toggleClass("add_con")
+		$(_this).parents(".dis_line1").addClass("nexad")
+		$(".nexad").next(".dis_line2").toggleClass("adddis_line2")
+		$(_this).parents(".dis_line1").removeClass("nexad")
+}
+</script>
 <input type="hidden" id="justSeeCount" value='3086'/>
 <input type="hidden" id="countFriend" value=''/>
 <input type="hidden" id="countOwn" value=''/>
@@ -166,66 +446,8 @@ width: 245px;
                         <span href="#" class="next">上一个</span>
                     </div>
                 </div>
-                <script type="text/javascript">
-					$('.movie_title a').click(function(){
-						var index = $(this).index();
-						console.log(index);
-						$(this).addClass('a_cur');
-						$(this).siblings().removeClass('a_cur');
-						if(index == 0){
-						$('.hot').attr('style','display:block');
-						$('.coming').attr('style','display:none');
-						}else if(index == 1){
-							$('.hot').attr('style','display:none');
-							$('.coming').attr('style','display:block');
-						}						
-					});
-				</script>
                 <div class="hot_box">
-                	<div class="hot">
-                		<section class="hotMovie wp">
-						    <div class="picScroll">
-						        <div class="hd">
-						            <a class="next"></a>
-						            <a class="prev"></a>
-						        </div>
-						        <div class="bd">
-						            <ul class="picList clearfix">
-						                @foreach($movie_time as $v)
-						                <li>
-						                    <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
-						                        <img class="lazyImg imgBorder" src="{{$v['image']}}" width="148" height="208" alt="{{$v['name']}} " />
-						                        <p>{{$v['name']}}<p>
-						                    </a>
-						                </li>
-						                @endforeach
-						            </ul>
-						        </div>
-						    </div>
-						</section>  		
-                	</div>
-                	<div class="coming" style="display: none">
-                		<section class="comingMovie hotMovie wp">
-						    <div class="picScroll">
-						        <div class="hd">
-						            <a class="next"></a>
-						            <a class="prev"></a>
-						        </div>
-						        <div class="bd">
-						            <ul class="picList clearfix" >
-						                @foreach($movie_recom as $v)
-						                <li style="margin-left:12px">
-						                    <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
-						                        <img class="lazyImg imgBorder" src="{{$v['image']}}" width="148" height="208" alt="{{$v['name']}} " />
-						                        <p>{{$v['name']}}<p>
-						                    </a>
-						                </li>
-						                @endforeach
-						            </ul>
-						        </div>
-						    </div>
-						</section>
-                	</div>
+                <ul> </ul>
                 </div>
             </div>
             <div class="write_m">
@@ -233,17 +455,22 @@ width: 245px;
                 <dl>
                     <dt>
                         <p><img src="{{Session('image')}}" width="60" height="60"></p>
+                        <p><label><input type="radio" name="write" checked="checked" class="shortComment moive_comment_taggle" value='1'>写短评</label></p>
+                        <p><label><input type="radio" name="write" class="longComment moive_comment_taggle" value='2'>写影评</label></p>
                     </dt>
-                    <form action="/home/centercomment" method="get">
                     <dd class="w_line1">
-                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" name="movie_detail_id" />
+                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" movie_id=0 />
+						
                         <span>热门影片：</span>
+						
 						<a href="javascript:;" class="click_hot_movie" movie_id="39278"  title="芳华 ">芳华 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39277"  title="空天猎 ">空天猎 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39276"  title="缝纫机乐队 ">缝纫机乐队 </a><a class="shugang">|</a>						<div id="ajaxGetMovieName"></div>						
                     </dd>
-                    <dd class="w_line1" id="yp_input" style="display: block;"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题" name="title"></dd>
+                    <dd class="w_line1" id="yp_input"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题"></dd>
+                    
                     <dd class="w_line2">
-                       <!-- <div class="texta_left"></div>-->						
-                       <textarea name="content" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
+                       <!-- <div class="texta_left"></div>-->
+											
+                       <textarea name="" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
                     </dd>
 					<!---<div id="upload">
 						<a href="javascript:;" class="expression" id='div_comment_qq'>表情</a>
@@ -257,91 +484,35 @@ width: 245px;
 						</div>
 					</div>-->
                     <dd class="w_line3" style="text-align:right;width:400px;">
-                        <button   class="submitComment" style="float:right;margin-left:20px;"></button>
+                        <input type="button"  class="submitComment" style="float:right;margin-left:20px;"/>
                      <!--   <div id="div_comment_img2" style="float:right;margin-top:7px;margin-left:20px;">
 									<a href="javascript:;" class="show_img_tag hide"></a>
 									<input type='button' id='btn_upload2' ajax_url="/personal/uploadImage" value='图片'/>
 									<input type='hidden' id='hide_txt_img'/>
 						</div> -->
-					<!--	<div style="float:right;line-height:30px;margin-left:20px;"><a href="javascript:;" class="expression" id='div_comment_qq'>表情</a></div> -->        
+					<!--	<div style="float:right;line-height:30px;margin-left:20px;"><a href="javascript:;" class="expression" id='div_comment_qq'>表情</a></div> -->
+                        
                        <div style="float:right;line-height:30px;margin-left:20px;"><font id="font_num" color="Red"></font></div>
                     </dd>
-                    </form>
 					<div class="div-upload-show hide" style="float:left;margin-left:50px;" >
 							<br/>	
 					</div>
                 </dl>
             </div>
-           <style type="text/css">
-           	.nav_title_left .a_cur:last-child{
-			border-right:none;
-			}
-           </style>
 			<div style="clear:both;"></div>
             <div class="discuss_box">
                 <div class="box_title">
                     <div class="title_left nav_title_left">
                         <a href="javascript:;" class="a_cur" type="justSee">随便看看</a>
+                        <a href="javascript:;"  type="friendComment">好友影评》</a>
                         <a href="javascript:;" type="ownComment">我的影评》</a>
+                        <a href="javascript:;" type="aboutSelfComment">@到我的》</a>
                     </div>                    
                 </div>
-                
 				<div class="comment">
-					@foreach($movie_comment as $v)
-					<dl class="item">
-						<dt>
-							<a href="#"><img src="{{$v->user->image}}" width="65" height="65"></a>
-						</dt>		
-						<dd class="dis_line1"><a href="/someone/id/428121">{{$v->user->username}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#{{$v->movie_detail->name}}#</a><span>{{$v->created_at}}</span><em><a href="/home/review/{{$v->id}}.html" target="_blank" class="more_content">更多</a></em>	
-						</dd>		
-						<dd class="dis_line2">
-						{{$v->content}}		
-						</dd>		
-						<dd class="dis_line3">
-							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
-						</dd>		
-						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
-					</dl>	
-					@endforeach
-					@foreach($user as $val)
-					<dl class="item ownComment">
-						<dt>
-							<a href="#"><img src="{{session('image')}}" width="65" height="65"></a>
-						</dt>		
-						<dd class="dis_line1"><a href="/someone/id/428121">{{session('username')}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#
-							@foreach($detail as $value)
-							@if($value['id']==$val->movie_detail_id)
-								{{$value->name}}
-							@endif
-							@endforeach
-						#</a><span>{{$val->created_at}}</span><em><a href="/home/review/.html" target="_blank" class="more_content">更多</a></em>	
-						</dd>		
-						<dd class="dis_line2">
-						{{$val->content}}
-						</dd>		
-						<dd class="dis_line3">
-							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
-						</dd>		
-						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
-					</dl>
-					@endforeach
+					
 				</div>
-
-<script type="text/javascript">
-	$('.nav_title_left a').click(function(){
-		var index = $(this).index();
-		console.log(index);
-		$(this).addClass('a_cur');
-		$(this).siblings().removeClass('a_cur');
-		if(index == 0){
-			$('.item').attr('style','display:block');
-			$('.ownComment').attr('style','display:none');
-		}else if(index == 1){
-			$('.item').attr('style','display:none');
-			$('.ownComment').attr('style','display:block');
-		}
-	});
-</script>               
+                
                 <div class="page_turn" id="outerPage">
                    
                 </div>
@@ -360,15 +531,15 @@ width: 245px;
                 <dd class="info_d_2">
                     <div>
 						
-                        <p><a href="/personal/toMyCreation">0</a></p>
+                        <p><a href="/personal/toMyCreation">{{$al_num}}</a></p>
                         <p> <span>影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/personal/friendlist">0</a></p>
+                        <p><a href="/personal/friendlist">{{$focus_num}}</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">0</a></p>
+                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

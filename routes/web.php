@@ -84,7 +84,7 @@ Route::group([],function(){
 	Route::post('/home/dologin','HomeLoginController@dologin');
 	Route::get('/home/outlogin','HomeLoginController@outlogin');
 
-<<<<<<< HEAD
+
 //前天注册
 	Route::get('/home/register','HomeRegisterController@register');
 	Route::get('/home/login','HomeLoginController@login');
@@ -96,7 +96,7 @@ Route::group([],function(){
 	// 用户授权后新浪微博回调的页面
 	Route::get('/auth/callback', 'AuthController@callback'); 
 	//前台首页
-=======
+
 //前台注册
 Route::get('/home/register','HomeRegisterController@register');
 Route::get('/home/login','HomeLoginController@login');
@@ -108,7 +108,7 @@ Route::get('/auth/weibo', 'AuthController@weibo');
 // 用户授权后新浪微博回调的页面
 Route::get('/auth/callback', 'AuthController@callback'); 
 //前台首页
->>>>>>> 13afaac9ddfc9af3d13eca1c9315199d5fedbd42
+
 
 	Route::get('/','HomeCenterController@index');
 	

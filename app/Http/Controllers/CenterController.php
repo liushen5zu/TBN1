@@ -133,15 +133,15 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
-<<<<<<< HEAD
+
         //积分和经验
         $levels = Level::where('user_id',session('id'))->first();
        return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','levels')); 
-=======
+
         $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
        return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom')); 
->>>>>>> 13afaac9ddfc9af3d13eca1c9315199d5fedbd42
+
     }
 
     //项目管理
@@ -156,6 +156,7 @@ class CenterController extends Controller
 
        return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
     }
+
     //个人空间影评添加
     public function createcomment(Request $request)
     {   
