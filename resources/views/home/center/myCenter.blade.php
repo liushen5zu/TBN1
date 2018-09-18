@@ -58,11 +58,15 @@ $(document).ready(function(){
         <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
         <div class="menu_c">
 			<a href="/">首页</a>
-            <a href="/home/tiezis">贴吧</a>
-            <a href="/home/review">影评</a>
-            <a href="/home/movieDetails">电影</a>
-            <a href="/home/album">影集</a>
-            <a href="/home/activity/list">活动</a>
+            <a href="http://www.51oscar.com/forum.html">贴吧</a>
+            <a href="http://www.51oscar.com/review.html">影评</a>
+            <a href="http://www.51oscar.com/movie.html">电影</a>
+            <a href="http://www.51oscar.com/album.html">影集</a>
+            <a href="http://www.51oscar.com/activity.html">活动</a>
+
+            <!---<a href="#" class="current">首页</a><a href="#">资讯</a>
+            <a href="#">电影</a><a href="#">影集</a>
+            <a href="#">话题</a><a href="#">排行榜</a>-->
         </div>
         <div class="m_more">
             <a  class="menu_a"><span>更多</span><b class="a_trig"></b></a>
@@ -180,9 +184,6 @@ width: 245px;
                 <div class="hot_box">
                 	<div class="hot">
                 		<section class="hotMovie wp">
-						    <div class="title clearfix">
-						        <i class="line"></i><a href="http://www.51oscar.com/movie/search/0_0_1_0.html" title="当前热映" target="_self">当前热映<em>>></em></a><!-- 跳到电影日历 -->
-						    </div>
 						    <div class="picScroll">
 						        <div class="hd">
 						            <a class="next"></a>
@@ -190,24 +191,21 @@ width: 245px;
 						        </div>
 						        <div class="bd">
 						            <ul class="picList clearfix">
-
+						                @foreach($movie_time as $v)
 						                <li>
-						                    <a href="/home/.html" title="" target="_blank" >
-						                        <img class="lazyImg imgBorder" src="" width="148" height="208" alt="" />
-						                        <p> <p>
+						                    <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
+						                        <img class="lazyImg imgBorder" src="{{$v['image']}}" width="148" height="208" alt="{{$v['name']}} " />
+						                        <p>{{$v['name']}}<p>
 						                    </a>
 						                </li>
-
+						                @endforeach
 						            </ul>
 						        </div>
 						    </div>
-						</section>              		
+						</section>  		
                 	</div>
                 	<div class="coming" style="display: none">
                 		<section class="comingMovie hotMovie wp">
-						    <div class="title clearfix">
-						        <i class="line"></i><a href="http://www.51oscar.com/movie/search/0_0_2_0.html" title="即将上映" target="_self" >即将上映<em>>></em></a><!-- 跳到电影日历 -->
-						    </div>
 						    <div class="picScroll">
 						        <div class="hd">
 						            <a class="next"></a>
@@ -359,15 +357,15 @@ width: 245px;
                 <dd class="info_d_2">
                     <div>
 						
-                        <p><a href="/personal/toMyCreation">{{$al_num}}</a></p>
+                        <p><a href="/personal/toMyCreation">0</a></p>
                         <p> <span>影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/personal/friendlist">{{$focus_num}}</a></p>
+                        <p><a href="/personal/friendlist">0</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
+                        <p><a href="/personal/friendList/type/2">0</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

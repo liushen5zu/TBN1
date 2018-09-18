@@ -123,13 +123,14 @@ class CenterController extends Controller
         $detail = Movie_detail::all();
         $user = DB::table('movie_comments')->where('user_id','=',session('id'))->get();
         // dd($user);
-       return view('home.center.myCenter',compact('movie_comment','detail','user')); 
         $al_num = count(AlDetail::where('user_id',Session('id'))->get());
         //关注数
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen')); 
+        $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
+        $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom')); 
     }
 
     //项目管理
