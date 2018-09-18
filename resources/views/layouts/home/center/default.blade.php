@@ -59,15 +59,11 @@ $(document).ready(function(){
         <a href="/" class="logo"><img src="/ueditor/picture/person_logo_3.png"></a>
         <div class="menu_c">
       <a href="/">首页</a>
-            <a href="http://www.51oscar.com/forum.html">贴吧</a>
-            <a href="http://www.51oscar.com/review.html">影评</a>
-            <a href="http://www.51oscar.com/movie.html">电影</a>
-            <a href="http://www.51oscar.com/album.html">影集</a>
-            <a href="http://www.51oscar.com/activity.html">活动</a>
-
-            <!---<a href="#" class="current">首页</a><a href="#">资讯</a>
-            <a href="#">电影</a><a href="#">影集</a>
-            <a href="#">话题</a><a href="#">排行榜</a>-->
+            <a href="/home/tiezis">贴吧</a>
+            <a href="/home/review">影评</a>
+            <a href="/home/movieDetails">电影</a>
+            <a href="/home/album">影集</a>
+            <a href="/home/activity/list">活动</a>
         </div>
         <div class="m_more">
             <a  class="menu_a"><span>更多</span><b class="a_trig"></b></a>
@@ -255,10 +251,6 @@ function ajaxShare(obj){
         </dl>
     </div>
     <div class="Copyright"><p>Copyright © 2012 <a href="http://www.51oscar.com" target="_blank" rel="nofollow">大众影评网</a>（51oscar.com）All rights reserved. 粤ICP备07500583号-2 </p></div>
-    <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
-</script>
 </div>
 </body>
 </html>

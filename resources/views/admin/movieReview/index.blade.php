@@ -76,7 +76,7 @@
                             {{$v['content']}}
                         </td>
                         <td >
-                            {{$v->movie_comment->title}}
+                            {{$v->movie_comment['title']}}
                         </td>
                         <td class="td-manage">
                             <form method="post" action="/movieReview/{{$v['id']}}" style="float:left">

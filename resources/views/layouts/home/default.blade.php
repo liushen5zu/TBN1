@@ -10,7 +10,7 @@
 <![endif]--> 
   <link type="text/css" rel="stylesheet" href="/ueditor/css/common_1.css" /> 
   <link type="text/css" rel="stylesheet" href="/assets/tiezi/css/common_1.css" />
-<link type="text/css" rel="stylesheet" href="/assets/tiezi/css/forum.css" />
+  <link type="text/css" rel="stylesheet" href="/assets/tiezi/css/forum.css" />
   <style type="text/css">
   .nav a.hotNavItem{position:relative;color: #f60;}
   .nav a.hotNavItem.on{position:relative;color: #fff;}
@@ -76,7 +76,7 @@ var _hmt = _hmt || [];
       
       <li>已登录</li> 
       <li><i class="icon_man icon"></i>用户:</li> 
-      <li>{{session('username')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
+      <li>{{session('name')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
       <li> <a href="/home/outlogin">退出</a></li> 
       <li> <a href="/home/center">个人中心</a></li>
      </ul> 
@@ -85,13 +85,13 @@ var _hmt = _hmt || [];
   @if(!Session::get('id'))
     <div class="fR"> 
      <ul id="welcome" class="clearfix out"> 
-      <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
+      <li><a href="auth/weibo" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
       <li>|</li> 
       <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li> 
       <li>|</li> 
       <li><a href="/home/login" title="登录"><i class="icon_man icon"></i>登录</a></li> 
       <li>|</li> 
-      <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li> 
+      <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册</a></li> 
      </ul> 
     </div> 
   @endif
@@ -102,7 +102,7 @@ var _hmt = _hmt || [];
   <section class="logoAndSreach"> 
    <div class="wp clearfix"> 
     <div class="logo fL"> 
-     <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo_1.png" alt="大众影评网" /></a> 
+     <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a> 
     </div> 
     <div class="searchBox fR"> 
      <form name="form_sreach" action="/Search/index" method="get"> 
@@ -186,7 +186,7 @@ var URL = "http://www.51oscar.com/";
     $('#forum').addClass('on');
   }else if(/.com\/album/.test(curr_url)){
     $('#album').addClass('on');
-  }else if(/.com\/activity/.test(curr_url)){
+  }else if(/.com\/home\/activity\/list/.test(curr_url)){
     $('#activity').addClass('on');
   }else if(/.com\/topic/.test(curr_url)){
     $('#topic').addClass('on');

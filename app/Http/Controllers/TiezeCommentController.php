@@ -88,7 +88,10 @@ class TiezeCommentController extends Controller
         //
     }
     public function reply(Request $request, $id)
-    {
+    {   
+        if (empty($request->content)){
+            return redirect("/home/tiezi/{$request->id}.html")->with('success','ch');
+        }else{
         $comments=new Tcomment;
         $comments-> user_id = session('id');
         $comments-> content =$request->content;
@@ -100,6 +103,6 @@ class TiezeCommentController extends Controller
         }else {
             return back();
         }
-      
+      }
     }
 }

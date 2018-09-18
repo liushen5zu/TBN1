@@ -58,15 +58,11 @@ $(document).ready(function(){
         <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
         <div class="menu_c">
 			<a href="/">首页</a>
-            <a href="http://www.51oscar.com/forum.html">贴吧</a>
-            <a href="http://www.51oscar.com/review.html">影评</a>
-            <a href="http://www.51oscar.com/movie.html">电影</a>
-            <a href="http://www.51oscar.com/album.html">影集</a>
-            <a href="http://www.51oscar.com/activity.html">活动</a>
-
-            <!---<a href="#" class="current">首页</a><a href="#">资讯</a>
-            <a href="#">电影</a><a href="#">影集</a>
-            <a href="#">话题</a><a href="#">排行榜</a>-->
+            <a href="/home/tiezis">贴吧</a>
+            <a href="/home/review">影评</a>
+            <a href="/home/movieDetails">电影</a>
+            <a href="/home/album">影集</a>
+            <a href="/home/activity/list">活动</a>
         </div>
         <div class="m_more">
             <a  class="menu_a"><span>更多</span><b class="a_trig"></b></a>
@@ -363,15 +359,15 @@ width: 245px;
                 <dd class="info_d_2">
                     <div>
 						
-                        <p><a href="/personal/toMyCreation">0</a></p>
+                        <p><a href="/personal/toMyCreation">{{$al_num}}</a></p>
                         <p> <span>影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/personal/friendlist">0</a></p>
+                        <p><a href="/personal/friendlist">{{$focus_num}}</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">0</a></p>
+                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

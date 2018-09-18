@@ -16,4 +16,5 @@ class Tiezi extends Model
         return $this->hasMany('App\Tcomment');
     }
     
+    
 }

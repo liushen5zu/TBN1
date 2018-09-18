@@ -164,24 +164,33 @@ $(document).ready(function(){
                 <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
             </div>
             <div id="listBox" class="listBox">
-             @foreach($tiezis as $v)
-                <dl class="forumItem_good forumItem clearfix">
-                        <dt class="L fL">
-                            <em class="green">精华</em>
-                         </dt>
-                        <dd class="M fL">
-                        <div class="T clearfix">
-                             <div class="fL">
-                                <a href="/home/tiezi/{{$v['id']}}.html" title="篮球" target="_blank" style="font-size: 16px;color: #333;"><b >{{$v->title}}</b></a> 
-                                 <p>{!!mb_substr($v['content'],200,10)!!} ...</p>  
+               @foreach($tiezis as $v)
+              <dl class="forumItem_top forumItem clearfix">
+                  <dt class="L fL">
+                        <em class="green">精华</em>
+                    </dt>
+                    <dd class="M fL">
+                      <div class="T clearfix">
+                          <div class="fL">
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
                             </div>
-                                  <div class="fR">
-                                    <p><i class="man icon"></i><span style="float: right;">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
-                                </div>
+                            <div class="fR">
+                              <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
                             </div>
-                        </dd>
-                </dl> 
-                @endforeach
+                        </div>
+                        <div class="B">
+                          <ul id="bigPic_top0" class="clearfix">
+                              <li>
+                                <a href="/home/tiezi/{{$v['id']}}.html"><img class="lazyImg" <?php  $code=$v['content']; preg_match('/src="(.*?)"/', $code,$arr); if(!empty($arr)){print_r($arr[0]);};?>  />
+                                </a>
+                              </li>  
+                           </ul> 
+                        </div>
+                    </dd>
+                    <dd class="R fR"></dd>
+                </dl>
+              @endforeach
             </div>    
         </section>
         <!--发表新帖 s-->

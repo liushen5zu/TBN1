@@ -22,13 +22,13 @@
   @if(!Session::get('id'))
     <div class="fR"> 
      <ul id="welcome" class="clearfix out"> 
-      <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3'" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
+      <li><a href="/auth/weibo" title="微博登录"><i class="icon_weibo icon"></i>微博登录</a></li> 
       <li>|</li> 
       <li><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2'" title="QQ登录"><i class="icon_qq icon"></i>QQ登录</a></li> 
       <li>|</li> 
       <li><a href="/home/login" title="登录"><i class="icon_man icon"></i>登录</a></li> 
       <li>|</li> 
-      <li><a href="http://www.51oscar.com/login/regist.html" title="免费注册">免费注册 </a></li> 
+      <li><a href="/home/register" title="免费注册">免费注册 </a></li> 
      </ul> 
     </div> 
   @endif

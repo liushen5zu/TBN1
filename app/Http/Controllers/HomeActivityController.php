@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AcrivityTo;
 use App\Activity;
 use App\Image_movie_detail;
 use App\Movie_detail;
@@ -18,7 +19,7 @@ class HomeActivityController extends Controller
     	//dd($image);
     	$activity = Activity::orderBy("id",'desc')->paginate(4);
     	//热门电影
-    	$movie = Movie_detail::all();
+    	$movie = Movie_detail::orderBy('num','desc')->paginate(5);
     	//热议
     	$activity2 = Activity::all();
     	//dd($movie);
@@ -30,6 +31,8 @@ class HomeActivityController extends Controller
     {
         //获取活动详情数据
     	$activity = Activity::find($id);
+        
+        //dd($acrivityto);
         $comment = $activity->activityComment;
         //dd()
         //前台遍历评论
@@ -38,19 +41,21 @@ class HomeActivityController extends Controller
              $comment2[] = $comment[$i];
         }
        // dd($comment2);
-             
-      
-
+    //活动报名
+       $activityto = AcrivityTo::where('activity_id',$id)->where('user_id',session('id'))->get();
+       $activityto2 = AcrivityTo::where('activity_id',$id)->get();
+       //dd($activityto);
+       $registration_num = count($activityto2);
         $movie = Movie_detail::all();
-
+        
        // dd($comment);
     	$a = Activity::orderBy('id','desc')->get();
-    	return view('home.activity.activityDetails',compact('activity','a','comment2','movie'));
+    	return view('home.activity.activityDetails',compact('activity','a','comment2','movie','activityto','registration_num'));
     }
 
     public function tuijian(Request $request,$id)
     {
-        echo $id;
+        //echo $id;
         //dd($request->all());
         $res = explode('&',$id);
         $activity = Activity::find($res[0]);

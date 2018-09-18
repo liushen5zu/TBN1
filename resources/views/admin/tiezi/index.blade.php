@@ -68,11 +68,11 @@
                         <th>
                             {{!empty($v->user->username) ? $v->user->username : '' }}
                         </th>
-                        <th>
-                            {{$v['title']}}
+                        <th style="width: 500px;">
+                            {{trim($v['title'])}}
                         </th>
                         <th>
-                         {!!substr($v['content'],89,10)!!} 
+                         {!!mb_substr($v['content'],205,20)!!} ...
                         </th>                        
                          <th>              
                             @if ($v['status']==0) 

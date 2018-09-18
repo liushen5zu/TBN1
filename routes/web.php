@@ -63,8 +63,6 @@ Route::group([],function(){
 	//影集管理
 	Route::resource('al_detail','AldetailController');
 
-	//影片添加管理
-
 	//活动管理
 	Route::resource('activity','ActivityController');
 	//帖子管理
@@ -75,6 +73,8 @@ Route::group([],function(){
 	Route::get('/tiezi/{id}/up','tieziController@up');//置顶
 	Route::get('/tiezi/{id}/down','tieziController@down');//精选
 	Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
+	//Ajax 验证
+	Route::post('/ajax/password','AjaxController@password');//修改密码-检测原密码
 });
 
 
@@ -84,7 +84,16 @@ Route::group([],function(){
 	Route::post('/home/dologin','HomeLoginController@dologin');
 	Route::get('/home/outlogin','HomeLoginController@outlogin');
 
+//前台注册
+Route::get('/home/register','HomeRegisterController@register');
+Route::get('/home/login','HomeLoginController@login');
+Route::post('/home/dologin','HomeLoginController@dologin');
+Route::get('/home/outlogin','HomeLoginController@outlogin');
 
+// 引导用户到新浪微博的登录授权页面
+Route::get('/auth/weibo', 'AuthController@weibo');
+// 用户授权后新浪微博回调的页面
+Route::get('/auth/callback', 'AuthController@callback'); 
 //前台首页
 
 	Route::get('/','HomeCenterController@index');
@@ -98,6 +107,8 @@ Route::group([],function(){
 	Route::get('/home/activity/list','HomeActivityController@list');
 	Route::get('/home/activity/{id}.html','HomeActivityController@show');
 	Route::post('/home/activity/tuijian/{id}','HomeActivityController@tuijian');
+	//前台活动报名
+	Route::get('/home/activityto','ActivityToController@baoming');
 
 	//影评(主页)
 	Route::get('/home/review','home\HomeReviewController@index');
@@ -105,12 +116,14 @@ Route::group([],function(){
 	Route::get('/home/review/table','home\HomeReviewController@table');
 	//影评详情
 	Route::get('/home/review/{id}.html','home\HomeReviewController@show');
+	//电影评论增加
+	Route::post('/home/movieDetailsComment','HomeMovieDetailCommentController@create');
 
 	//影集(主页)
 	Route::get('/home/album','home\HomeAlbumController@index');
-
 	//影集(详情)
 	Route::get('/home/album/{id}.html','home\HomeAlbumController@show');
+	
 
 	//电影详情
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
@@ -126,7 +139,7 @@ Route::group([],function(){
 	//帖子详情页
 	Route::get('/home/tiezi/{id}.html', 'TieziController@show');
 
-Route::group(['middleware'=>'home'],function(){
+	Route::group(['middleware'=>'home'],function(){
 	//活动评论
 	Route::post('/home/activite/comment','ActivityCommentController@list');
 
@@ -134,12 +147,29 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/center','CenterController@index');
 	Route::get('/home/jiben','CenterController@jiben');
 	Route::get('/home/mima','CenterController@mima');
+	Route::post('/home/mimagx','CenterController@mimagx');
 	Route::get('/home/touxiang','CenterController@touxiang');
+	Route::post('/home/txgx','CenterController@txgx');
 	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 	Route::get('/home/centercomment','CenterController@createcomment');
+	//修改个人信息
+	Route::get('/home/jiben1','CenterController@jiben1');
+	//修改密码
+	Route::get('/home/password','CenterController@newpassword');
+
+	//站内信
+	Route::get('/home/send/{id}','MessagesController@send');
+	Route::get('/home/cunchu','MessagesController@cunchu');
+	//关注
+	Route::get('/home/focus','FocusController@focus');
+	
+	//影集添加
+	Route::get('/home/toAlbumAdd','home\HomeAlbumController@create');
+	Route::get('/home/albumAdd','home\HomeAlbumController@add');
+	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
 
 
 	//帖子评论
@@ -150,5 +180,8 @@ Route::group(['middleware'=>'home'],function(){
 	Route::get('/home/review/{id}/reply','home\HomeReviewController@create');
 	//评论删除
 	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
+
+
+	Route::post('/upload', 'home\HomeAlbumController@upload');
 });
 
