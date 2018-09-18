@@ -136,11 +136,11 @@ class CenterController extends Controller
 
         //积分和经验
         $levels = Level::where('user_id',session('id'))->first();
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','levels')); 
+        
 
         $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom')); 
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels')); 
 
     }
 
