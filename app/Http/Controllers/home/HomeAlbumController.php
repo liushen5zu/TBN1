@@ -7,6 +7,7 @@ namespace App\Http\Controllers\home;
 use App\AlDetail;
 use App\Focus;
 use App\Http\Controllers\Controller;
+use App\Level;
 use App\Movie_detail;
 use App\User;
 use Illuminate\Http\Request;	
@@ -88,11 +89,30 @@ class HomeAlbumController extends Controller
 
     public function add2(Request $request)
     {
-        dd($request->image);
-        //dd($request->all());
-       //dd($request->hasFile('image'));
+        // dd($request->image);
+        // dd($request->all());
+       // dd($request->hasFile('image'));
 
         //dd(AlDetail::all());
+
+        $level = Level::where('user_id',session('id'))->get();
+       // dd($level);
+        if(count($level)==0){
+            $levels = new Level;
+            $levels -> integral = 10;
+            $levels -> experience = 50;
+            $levels -> user_id = session('id');
+            $levels -> save();
+        }else{
+            $levels = Level::where('user_id',session('id'))->first();
+            //用户积分
+            $levels -> integral = $levels -> integral + 10;
+            //用户经验
+            $levels -> experience = $levels -> experience + 50;
+            $levels -> save();
+            //dd($levels);
+        }
+
 
         $aldetails = new AlDetail;
 
@@ -100,20 +120,17 @@ class HomeAlbumController extends Controller
         $aldetails -> introduce = $request->introduce;
        // dd($request->image);
 
-        if($request->hasFile('image')) {
-            $aldetails->image = '/'.$request->image->store('uploads/'.date('Ymd'));
-        }
-        $path = $aldetails->image;
-        //dd($path);   
-
+        // if($request->hasFile('image')) {
+        //     $aldetails->image = '/'.$request->image->store('uploads/'.date('Ymd'));
+        // }
+        //$path = $aldetails->image;
+        
+        $aldetails ->image = $request->image;
         $aldetails->user_id = session('id');
 
         $aldetails -> save();
-        // if(){
-        //     return redirect('/home/albumAdd2')->with('success','添加成功');
-        // }else{
-        //     return back()->with('error','添加失败');
-        // }
+        
+
 
         $movie = Movie_detail::all();
         return view('home.album.create3',compact('movie'));

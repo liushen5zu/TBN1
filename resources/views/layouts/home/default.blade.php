@@ -76,7 +76,7 @@ var _hmt = _hmt || [];
       
       <li>已登录</li> 
       <li><i class="icon_man icon"></i>用户:</li> 
-      <li>{{session('name')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
+      <li>{{session('username')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
       <li> <a href="/home/outlogin">退出</a></li> 
       <li> <a href="/home/center">个人中心</a></li>
      </ul> 

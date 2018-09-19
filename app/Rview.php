@@ -13,10 +13,6 @@ class Rview extends Model
     {
         return $this->belongsTo('App\User');
     }
-    public function movie_comment()
-    {
-        return $this->belongsTo('App\Movie_comment');
-    }
     public function reply()
     {
     	return $this->hasMany('App\Reply');
