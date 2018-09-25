@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +12,6 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script src="/assets/lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="/assets/js/xadmin.js"></script>
-
 </head>
 <body>
             @if(Session::has('success'))
@@ -24,7 +22,7 @@
                          </div>
                 </div>
             </div>
-        @endif
+            @endif
     <div class="login-logo"><h1>后台登录</h1></div>
     <div class="login-box">
         <form class="layui-form layui-form-pane" action="/dologin">
@@ -66,7 +64,7 @@
                 <div class="swiper-slide"><img class="item" src="/assets/images/k.jpg" alt=""></div>
                 <div class="swiper-slide"><span class="reset">初始化</span></div>
             </div>
-        </div>
+        </div> 
         <div class="bg-out"></div>
         <div id="changer-set"><i class="iconfont">&#xe696;</i></div>   
     </div>

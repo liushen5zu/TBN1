@@ -30,7 +30,7 @@ function dropMenu(obj){
         var tarHeight = theMenu.height();
         theMenu.css({height:0,opacity:0});
         theSpan.hover(
-            function(){
+            function(){ 
                 $(this).addClass("selected");
                 theMenu.stop().show().animate({height:tarHeight,opacity:1},400);
             },
@@ -426,6 +426,7 @@ function onmore_content(_this){
 }
 </script>
 
+
 <input type="hidden" id="justSeeCount" value='3086'/>
 <input type="hidden" id="countFriend" value=''/>
 <input type="hidden" id="countOwn" value=''/>
@@ -464,10 +465,55 @@ function onmore_content(_this){
 				</script>
                 <div class="hot_box">
                 	<div class="hot">
+
                 		<p>aaa</p>                		
                 	</div>
                 	<div class="coming" style="display: none">
                 		<p>bbb</p>
+
+                		<section class="hotMovie wp">
+						    <div class="picScroll">
+						        <div class="hd">
+						            <a class="next"></a>
+						            <a class="prev"></a>
+						        </div>
+						        <div class="bd">
+						            <ul class="picList clearfix">
+						                @foreach($movie_time as $v)
+						                <li>
+						                    <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
+						                        <img class="lazyImg imgBorder" src="{{$v['image']}}" width="148" height="208" alt="{{$v['name']}} " />
+						                        <p>{{$v['name']}}<p>
+						                    </a>
+						                </li>
+						                @endforeach
+						            </ul>
+						        </div>
+						    </div>
+						</section>  		
+                	</div>
+                	<div class="coming" style="display: none">
+                		<section class="comingMovie hotMovie wp">
+						    <div class="picScroll">
+						        <div class="hd">
+						            <a class="next"></a>
+						            <a class="prev"></a>
+						        </div>
+						        <div class="bd">
+						            <ul class="picList clearfix" >
+						                @foreach($movie_recom as $v)
+						                <li style="margin-left:12px">
+						                    <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
+						                        <img class="lazyImg imgBorder" src="{{$v['image']}}" width="148" height="208" alt="{{$v['name']}} " />
+						                        <p>{{$v['name']}}<p>
+						                    </a>
+						                </li>
+						                @endforeach
+						            </ul>
+						        </div>
+						    </div>
+						</section>
+
                 	</div>
                 </div>
             </div>
@@ -476,22 +522,17 @@ function onmore_content(_this){
                 <dl>
                     <dt>
                         <p><img src="{{Session('image')}}" width="60" height="60"></p>
-                        <p><label><input type="radio" name="write" checked="checked" class="shortComment moive_comment_taggle" value='1'>写短评</label></p>
-                        <p><label><input type="radio" name="write" class="longComment moive_comment_taggle" value='2'>写影评</label></p>
                     </dt>
+                    <form action="/home/centercomment" method="get">
                     <dd class="w_line1">
-                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" movie_id=0 />
-						
+                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" name="movie_detail_id" />
                         <span>热门影片：</span>
-						
 						<a href="javascript:;" class="click_hot_movie" movie_id="39278"  title="芳华 ">芳华 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39277"  title="空天猎 ">空天猎 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39276"  title="缝纫机乐队 ">缝纫机乐队 </a><a class="shugang">|</a>						<div id="ajaxGetMovieName"></div>						
                     </dd>
-                    <dd class="w_line1" id="yp_input"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题"></dd>
-                    
+                    <dd class="w_line1" id="yp_input" style="display: block;"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题" name="title"></dd>
                     <dd class="w_line2">
-                       <!-- <div class="texta_left"></div>-->
-											
-                       <textarea name="" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
+                       <!-- <div class="texta_left"></div>-->						
+                       <textarea name="content" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
                     </dd>
 					<!---<div id="upload">
 						<a href="javascript:;" class="expression" id='div_comment_qq'>表情</a>
@@ -505,47 +546,105 @@ function onmore_content(_this){
 						</div>
 					</div>-->
                     <dd class="w_line3" style="text-align:right;width:400px;">
-                        <input type="button"  class="submitComment" style="float:right;margin-left:20px;"/>
+                        <button   class="submitComment" style="float:right;margin-left:20px;"></button>
                      <!--   <div id="div_comment_img2" style="float:right;margin-top:7px;margin-left:20px;">
 									<a href="javascript:;" class="show_img_tag hide"></a>
 									<input type='button' id='btn_upload2' ajax_url="/personal/uploadImage" value='图片'/>
 									<input type='hidden' id='hide_txt_img'/>
 						</div> -->
-					<!--	<div style="float:right;line-height:30px;margin-left:20px;"><a href="javascript:;" class="expression" id='div_comment_qq'>表情</a></div> -->
-                        
+					<!--	<div style="float:right;line-height:30px;margin-left:20px;"><a href="javascript:;" class="expression" id='div_comment_qq'>表情</a></div> -->        
                        <div style="float:right;line-height:30px;margin-left:20px;"><font id="font_num" color="Red"></font></div>
                     </dd>
+                    </form>
 					<div class="div-upload-show hide" style="float:left;margin-left:50px;" >
 							<br/>	
 					</div>
                 </dl>
             </div>
+           <style type="text/css">
+           	.nav_title_left .a_cur:last-child{
+			border-right:none;
+			}
+           </style>
 			<div style="clear:both;"></div>
             <div class="discuss_box">
                 <div class="box_title">
                     <div class="title_left nav_title_left">
                         <a href="javascript:;" class="a_cur" type="justSee">随便看看</a>
-                        <a href="javascript:;"  type="friendComment">好友影评》</a>
                         <a href="javascript:;" type="ownComment">我的影评》</a>
-                        <a href="javascript:;" type="aboutSelfComment">@到我的》</a>
                     </div>                    
                 </div>
-				<div class="comment">
-					
-				</div>
                 
-                <div class="page_turn" id="outerPage">
-                   
-                </div>
+				<div class="comment">
+					@foreach($movie_comment as $v)
+					<dl class="item">
+						<dt>
+							<a href="#"><img src="{{$v->user->image}}" width="65" height="65"></a>
+						</dt>		
+						<dd class="dis_line1"><a href="/someone/id/428121">{{$v->user->username}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#{{$v->movie_detail->name}}#</a><span>{{$v->created_at}}</span><em><a href="/home/review/{{$v->id}}.html" target="_blank" class="more_content">更多</a></em>	
+						</dd>		
+						<dd class="dis_line2">
+						{{$v->content}}		
+						</dd>		
+						<dd class="dis_line3">
+							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
+						</dd>		
+						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
+					</dl>	
+					@endforeach
+					@foreach($user as $val)
+					<dl class="item ownComment" style="display: none">
+						<dt>
+							<a href="#"><img src="{{session('image')}}" width="65" height="65"></a>
+						</dt>		
+						<dd class="dis_line1"><a href="/someone/id/428121">{{session('username')}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#
+							@foreach($detail as $value)
+							@if($value['id']==$val->movie_detail_id)
+								{{$value->name}}
+							@endif
+							@endforeach
+						#</a><span>{{$val->created_at}}</span><em><a href="/home/review/.html" target="_blank" class="more_content">更多</a></em>	
+						</dd>		
+						<dd class="dis_line2">
+						{{$val->content}}
+						</dd>		
+						<dd class="dis_line3">
+							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
+						</dd>		
+						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
+					</dl>
+					@endforeach
+				</div>
+				<script type="text/javascript">
+					$('.nav_title_left a').click(function(){
+						var index = $(this).index();
+						console.log(index);
+						$(this).addClass('a_cur');
+						$(this).siblings().removeClass('a_cur');
+						if(index == 0){
+							$('.item').attr('style','display:block');
+							$('.ownComment').attr('style','display:none');
+						}else if(index == 1){
+							$('.item').attr('style','display:none');
+							$('.ownComment').attr('style','display:block');
+						}
+					});
+				</script>               
+	            <div class="page_turn" id="outerPage">	               
+	            </div>
             </div>
         </div>
+
         <div class="u_right">
             <dl class="info_detail">
                 <dt>
                     <div class="heard_img"><img src="{{Session('image')}}" width="87" height="87"></div>
                     <a href="/home/jiben">编辑资料</a>
                 </dt>
-                <dd class="info_d_1"><a href="#"></a><span class="degree">Lv1</span></dd>
+                <dd class="info_d_1"><a href="#"></a><span class="degree">
+					<!-- 显示等级 -->
+					Lv{{floor($levels['experience']/50)}}
+                </span></dd>
                 <dd class="info_d_2">
                     <div>
 						
@@ -562,20 +661,52 @@ function onmore_content(_this){
                     </div>
                 </dd>
 				<dd>
-					<p class="info_d_3">积分：<em>52</em> 经验：<em>150</em></p>
+					<p class="info_d_3">积分：<em>{{$levels['integral']}}</em> 经验：<em>{{$levels['experience']}}</em></p>
 				</dd>
                <dd class="info_d_3">
                     <span>我的勋章</span>
                     <ul class="med_ul">
-													<li class="medal_list"><img src="/ueditor/picture/50d51a3af05a7_1.jpg" width="24" height="22"></li>
+                    			@if($levels['experience']<=50 && $levels['experience']>=0)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=100 && $levels['experience']<200)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=200 && $levels['experience']<400)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=400 && $levels['experience']<800)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a0b1f9c3_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a2bb642e_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=800 && $levels['experience']<1600)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a16e6157_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
 								
-								<li class="medal_list"><img src="/ueditor/picture/50d51a479a2ff_1.jpg" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/5.png" width="24" height="22"></li>
+								@endif
+								@if($levels['experience']>=1600)
+								<li class="medal_list"><img src="/ueditor/picture/1.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/2.png" width="24" height="22"></li>
+								
+								<li class="medal_list"><img src="/ueditor/picture/3.png" width="24" height="22"></li>
+								
+								<li class="medal_list"><img src="/ueditor/picture/4.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/5.png" width="24" height="22"></li>
+								<li class="medal_list"><img src="/ueditor/picture/6.png" width="24" height="22"></li>
+								@endif
+
+								
 								
 									
                        

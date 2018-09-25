@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 use App\Rview;
 use App\User;
 use App\movie_detail;
@@ -17,5 +16,9 @@ class Movie_comment extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+    public function rview()
+    {
+        return $this->hasMany('App\Rview');
     }
 }

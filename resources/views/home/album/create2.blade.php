@@ -14,7 +14,6 @@
 	<div class="add_cover">
 	    
 		<div id="up">
-	        <div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
 	        <a id="uploadfiles" href="javascript:;">点击上传</a>
 	        <button id="pickfiles">浏览图片</button>
 	        <div id="imgs"></div>
@@ -22,6 +21,7 @@
 
 	    <input type="hidden" name="title" value="{{$add1['title']}}">
 		<input type="hidden" name="introduce" value="{{$add1['introduce']}}">
+		<input type="hidden" name="image">
 	    	<!-- <img src="/ueditor/picture/btn_upload_3.jpg"/> -->
 	    
 		<p class="img_explain">仅支持JPG、GIF、PNG图片文件，且文件小于5M</p>
@@ -56,7 +56,7 @@
         init: {
             PostInit: function() {
                 //清空列表
-                document.getElementById('filelist').innerHTML = '';
+                // document.getElementById('filelist').innerHTML = '';
                 //绑定单击事件开始上传
                 document.getElementById('uploadfiles').onclick = function() {
                     uploader.start();
@@ -66,15 +66,15 @@
             //添加元素之后的代码执行   创建显示的文件列表
             FilesAdded: function(up, files) {
 
-                plupload.each(files, function(file) {
-                    document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
-                });
+                // plupload.each(files, function(file) {
+                //     document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
+                // });
                 //自动上传
-                // uploader.start();
+                uploader.start();
             },
             //添加上传过程中的代码执行  显示文件上传的百分比
             UploadProgress: function(up, file) {
-                document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+                // document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
             },
             //错误执行程序  在console.log位置显示错误信息和代号
             Error: function(up, err) {
@@ -89,7 +89,7 @@
                 eval("var res = " + res.response);
               // console.log(res.path);
                 $('#img_big').attr('src', res.path);
-                
+                $('input[name=image]').attr('value',res.path);
             }
         }
     });

@@ -1,0 +1,1 @@
+window.domain = "huishangbao.com";var DTPath = "http://www.huishangbao.com/";var SKPath = "https://static.huishangbao.com/skin/518ad/";var EXPath = "http://www.huishangbao.com/extend/";var CKDomain = ".huishangbao.com";var LMUrl = "allweb.huishangbao.com";var LMname = "联盟推广";var CKPath = "/";var CKPrex = "_";

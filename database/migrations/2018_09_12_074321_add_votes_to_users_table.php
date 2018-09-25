@@ -14,10 +14,10 @@ class AddVotesToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('sex')->comment('1代表男2代表女')->default('1');
+            $table->integer('sex')->comment('0代表男1代表女')->default('1');
             $table->string('birthday')->comment('生日');
             $table->string('location')->comment('所在地');
-            $table->string('locations')->comment('收获地址');
+            $table->string('locations')->comment('收货地址');
             $table->string('pc')->comment('邮编');
         });
     }

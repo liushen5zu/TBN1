@@ -59,15 +59,11 @@ $(document).ready(function(){
         <a href="/" class="logo"><img src="/ueditor/picture/person_logo_3.png"></a>
         <div class="menu_c">
       <a href="/">首页</a>
-            <a href="http://www.51oscar.com/forum.html">贴吧</a>
-            <a href="http://www.51oscar.com/review.html">影评</a>
-            <a href="http://www.51oscar.com/movie.html">电影</a>
-            <a href="http://www.51oscar.com/album.html">影集</a>
-            <a href="http://www.51oscar.com/activity.html">活动</a>
-
-            <!---<a href="#" class="current">首页</a><a href="#">资讯</a>
-            <a href="#">电影</a><a href="#">影集</a>
-            <a href="#">话题</a><a href="#">排行榜</a>-->
+            <a href="/home/tiezis">贴吧</a>
+            <a href="/home/review">影评</a>
+            <a href="/home/movieDetails">电影</a>
+            <a href="/home/album">影集</a>
+            <a href="/home/activity/list">活动</a>
         </div>
         <div class="m_more">
             <a  class="menu_a"><span>更多</span><b class="a_trig"></b></a>
@@ -100,7 +96,7 @@ $(document).ready(function(){
           <div class="user_more">
             <div class="m_line1"></div>
             <ul class="u_detail">
-              <li><span title="XiaoRan"><a href="/home/myCenter" title="XiaoRan">XiaoRan!</a></span></li>
+              <li><span title="XiaoRan"><a href="/home/myCenter" title="XiaoRan">{{session('username')}}</a></span></li>
               <li><a href="/home/xiaoxi" class="quick_news">消息</a></li>
               <li><a href="/home/center">帐号设置</a></li>
               <li><a href="/home/xiangmugl">项目管理</a></li>
