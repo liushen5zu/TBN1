@@ -439,8 +439,8 @@ function onmore_content(_this){
             <div class="hot_movie">
                 <div class="box_title">
                     <div class="title_left movie_title">
-                        <a href="javascript:;" class="a_cur" type="hot">正在热映</a>
-                        <a href="javascript:;" type="coming">即将上映》</a>
+                        <a href="/home/tomycreation" class="a_cur" type="hot">我的影集</a>
+                        <a href="/home/friendlist" type="coming">我的关注</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -462,82 +462,31 @@ function onmore_content(_this){
 						}						
 					});
 				</script>
-                <div class="hot_box">
+                <div class="hot_box" style="height:800px">
                 	<div class="hot">
-                		<p>aaa</p>                		
+                		@foreach($album as $v)
+                		<div style="border:1px solid #eee;width:640px;height:180px">
+                			<a href="/home/album/{{$v['id']}}.html">
+                				<img src="{{$v['image']}}" style="height:170px;width:120px;padding-top: 5px;padding-right: 20px;float:right">
+                			</a>
+                			<h2 >
+                				<br>
+                				<a href="/home/album/{{$v['id']}}.html" style="font-size:20px;padding-top: 20px;padding-left: 20px;color:#444">{{$v['title']}}</a>
+                			</h2>
+
+                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">{{$v['introduce']}}</h5>
+                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">创建时间:{{$v['created_at']}}&nbsp;[收录4部电影]</h5>
+                		</div>
+                		@endforeach                		
                 	</div>
                 	<div class="coming" style="display: none">
-                		<p>bbb</p>
+                		<p></p>
                 	</div>
                 </div>
             </div>
-            <div class="write_m">
-                <div><img src="/ueditor/picture/write_07_1.jpg"></div>
-                <dl>
-                    <dt>
-                        <p><img src="{{Session('image')}}" width="60" height="60"></p>
-                        <p><label><input type="radio" name="write" checked="checked" class="shortComment moive_comment_taggle" value='1'>写短评</label></p>
-                        <p><label><input type="radio" name="write" class="longComment moive_comment_taggle" value='2'>写影评</label></p>
-                    </dt>
-                    <dd class="w_line1">
-                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" movie_id=0 />
-						
-                        <span>热门影片：</span>
-						
-						<a href="javascript:;" class="click_hot_movie" movie_id="39278"  title="芳华 ">芳华 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39277"  title="空天猎 ">空天猎 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39276"  title="缝纫机乐队 ">缝纫机乐队 </a><a class="shugang">|</a>						<div id="ajaxGetMovieName"></div>						
-                    </dd>
-                    <dd class="w_line1" id="yp_input"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题"></dd>
-                    
-                    <dd class="w_line2">
-                       <!-- <div class="texta_left"></div>-->
-											
-                       <textarea name="" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
-                    </dd>
-					<!---<div id="upload">
-						<a href="javascript:;" class="expression" id='div_comment_qq'>表情</a>
-                        <div id="div_comment_img2">
-									<a href="javascript:;" class="show_img_tag hide">显示刚才的图片</a>
-									<input type='button' id='btn_upload2' ajax_url="/personal/uploadImage" value='pic'/>
-									<input type='hidden' id='hide_txt_img'/>
-						</div>
-						<div class="div-upload-show hide" >
-							<img id="img_upload_show" src='picture/grey_1.gif'/><br/>	
-						</div>
-					</div>-->
-                    <dd class="w_line3" style="text-align:right;width:400px;">
-                        <input type="button"  class="submitComment" style="float:right;margin-left:20px;"/>
-                     <!--   <div id="div_comment_img2" style="float:right;margin-top:7px;margin-left:20px;">
-									<a href="javascript:;" class="show_img_tag hide"></a>
-									<input type='button' id='btn_upload2' ajax_url="/personal/uploadImage" value='图片'/>
-									<input type='hidden' id='hide_txt_img'/>
-						</div> -->
-					<!--	<div style="float:right;line-height:30px;margin-left:20px;"><a href="javascript:;" class="expression" id='div_comment_qq'>表情</a></div> -->
-                        
-                       <div style="float:right;line-height:30px;margin-left:20px;"><font id="font_num" color="Red"></font></div>
-                    </dd>
-					<div class="div-upload-show hide" style="float:left;margin-left:50px;" >
-							<br/>	
-					</div>
-                </dl>
-            </div>
+            
 			<div style="clear:both;"></div>
-            <div class="discuss_box">
-                <div class="box_title">
-                    <div class="title_left nav_title_left">
-                        <a href="javascript:;" class="a_cur" type="justSee">随便看看</a>
-                        <a href="javascript:;"  type="friendComment">好友影评》</a>
-                        <a href="javascript:;" type="ownComment">我的影评》</a>
-                        <a href="javascript:;" type="aboutSelfComment">@到我的》</a>
-                    </div>                    
-                </div>
-				<div class="comment">
-					
-				</div>
-                
-                <div class="page_turn" id="outerPage">
-                   
-                </div>
-            </div>
+            
         </div>
         <div class="u_right">
             <dl class="info_detail">
@@ -750,10 +699,7 @@ function onmore_content(_this){
 						                    </ul>
                 </div>
             </div>
-            <div class="right_hot">
-                <div class="right_title"><span>活跃会员</span></div>
-				               
-            </div>
+            
         </div>
         <div style="clear:both"></div>
     </div>

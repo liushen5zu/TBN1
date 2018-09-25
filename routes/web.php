@@ -150,6 +150,8 @@ Route::get('/auth/callback', 'AuthController@callback');
 	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
+	Route::get('/home/tomycreation','CenterController@mycreation');
+	Route::get('/home/friendlist','CenterController@friendlist');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 	//修改个人信息
 	Route::get('/home/jiben1','CenterController@jiben1');

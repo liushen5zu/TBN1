@@ -137,5 +137,37 @@ class CenterController extends Controller
        return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
     }
 
+    //我的影集
+    public function mycreation(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的影集
+        $album = AlDetail::where('user_id',Session('id'))->get();
+
+        return view('home.center.myCreation',compact('al_num','focus_num','focus_fsen','album'));
+    }
+
+    //我的关注
+    public function friendlist(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的关注
+        $focus = Focus::where('user_id',session('id'))->get();
+        //用户信息
+        $user = User::all();
+        
+
+        return view('home.center.friendlist',compact('al_num','focus_num','focus_fsen','focus','user'));
+    }
    
 }
