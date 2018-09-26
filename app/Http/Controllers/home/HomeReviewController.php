@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\home;
 
+use App\Activity;
 use App\Http\Controllers\Controller;
 use App\Movie_comment;
+use App\Movie_detail;
 use App\Reply;
 use App\Rview;
 use App\User;
+use App\movieCritic;
 use Illuminate\Http\Request;
 
 class HomeReviewController extends Controller
@@ -17,7 +20,12 @@ class HomeReviewController extends Controller
     	$Movie_comments = Movie_comment::orderBy('id','desc')
         ->where('star','like','%'.request()->keywords.'%')
         ->paginate(5);
-    	return view('home.review.index',compact('Movie_comments'));
+        $movie = Movie_detail::all();
+        $critic = movieCritic::all();
+        $critic_comment = Movie_comment::where('user_id',2)->get();
+        $activity = Activity::orderBy("id",'desc')->paginate(4);
+        // dd($critic_comment);
+    	return view('home.review.index',compact('Movie_comments','movie','critic','critic_comment','activity'));
     }
 
     public function table()
@@ -34,9 +42,7 @@ class HomeReviewController extends Controller
         // dd($id);
     	$Movie_comments = Movie_comment::find($id);
         $rview = Rview::all();
-        //获取回复评论单条ID
-        // $comment = Rview::find();
-        // dd($rview);
+        
     	return view('home.review.show',compact('Movie_comments','rview'));
     }
 

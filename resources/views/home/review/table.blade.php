@@ -173,11 +173,11 @@ $(document).ready(function(){
         <!--影评列表 s-->
         <section id="newsListBox" class="reviListBox">
         <dl class="reviItem clearfix">
-				<dt><a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg imgBorder" src="{{$v->movie_detail->image}}" data-src="{{$v->movie_detail->image}}" width="110px" height="150px" alt="猩球崛起3：终极之战 " /></a></dt>                
+				<dt><a href="/home/review/{{$v->id}}.html" title="" target="_blank"><img class="lazyImg imgBorder" src="{{$v->movie_detail->image}}" data-src="{{$v->movie_detail->image}}" width="110px" height="150px" alt="猩球崛起3：终极之战 " /></a></dt>                
                 <dd>
-                	<p class="t"><a href="/home/review/{{$v['id']}}.html" title="《{{$v->movie_detail->name}}》 影评：{{$v['title']}}">《{{$v->movie_detail->name}}》 影评：{{$v['title']}}</a></p>
-                    <p><a href="/someone/428105.html" target="_blank">{{$v->user->username}}</a>&nbsp;&nbsp;发表于：<time>{{$v['created_at']}}</time></p>
-                    <p class="txt">{{$v['content']}}</p>
+                	<p class="t"><a href="/home/review/{{$v->id}}.html" title="《{{$v->movie_detail->name}}》 影评：{{$v->title}}">《{{$v->movie_detail->name}}》 影评：{{$v['title']}}</a></p>
+                    <p><a href="/someone/428105.html" target="_blank">{{$v->user->username}}</a>&nbsp;&nbsp;发表于：<time>{{$v->created_at}}</time></p>
+                    <p class="txt">{{$v->content}}</p>
                     <!-- <p>&nbsp; &nbsp; 万众期待，《猩球崛起3》终于姗姗来迟，和前两部一样的是，本部影片继续沿用猿类与人类斗争这一主题。影片继续《猩球崛起2》的故事主线，向观众讲述了凯撒及猿类在人类病毒感染毁灭这场灾难中的遭遇。</p><p>&n  -->
                 </dd>
             </dl>	
@@ -396,10 +396,7 @@ $(".trailer").click(function(){
         </dl>
     </div>
     <div class="Copyright"><p>Copyright © 2012 <a href="http://www.51oscar.com" target="_blank" rel="nofollow">大众影评网</a>（51oscar.com）All rights reserved. 粤ICP备07500583号-2 </p></div>
-    <script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb333171377f6fc60e48165d7fa43110b' type='text/javascript'%3E%3C/script%3E"));
-</script>
+    
 </div>
 </body>
 </html>

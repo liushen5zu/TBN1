@@ -95,7 +95,7 @@ $(document).ready(function(){
           <div class="user_more">
             <div class="m_line1"></div>
             <ul class="u_detail">
-              <li><span title="XiaoRan"><a href="/home/myCenter" title="XiaoRan">XiaoRan!</a></span></li>
+              <li><span title="XiaoRan"><a href="/home/myCenter" title="XiaoRan">{{session('username')}}</a></span></li>
               <li><a href="/home/xiaoxi" class="quick_news">消息</a></li>
               <li><a href="/home/center">帐号设置</a></li>
               <li><a href="/home/xiangmugl">项目管理</a></li>

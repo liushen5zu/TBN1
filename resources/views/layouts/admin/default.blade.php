@@ -137,6 +137,12 @@
                                 影评评论列表
                             </a>
                             </li>
+                            <li>
+                                <a href="/movieCritic">
+                                <i class="iconfont">&#xe6a7;</i>
+                                特约影评人
+                            </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="list">

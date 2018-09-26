@@ -156,38 +156,60 @@ $(document).ready(function(){
 <section class="mainWp wp clearfix">
 	<section class="leftWp fL">
     	<!--焦点幻灯片 s-->
-        <section class="picFocus">
-            <div class="bd">
-                <ul>
-                                 </ul>
-            </div>
-            <div class="hd">
-                <ul>
-                                 </ul>
-            </div>
-        </section>
+        <section class="picFocus"> 
+     <div class="bd"> 
+      <ul>
+
+        @foreach($activity as $v)
+          @if($v->status==1)
+         <a href="/home/activity/{{$v->id}}.html"><img width="700px" height="300px" src="{{$v->image}}"></a>
+          @endif
+        @endforeach
+      </ul> 
+     </div> 
+  
+     <div class="hd"> 
+      <ul> 
+
+        
+      </ul> 
+     </div>
+      
+      
+    </section>
     	
         <!--焦点幻灯片 e-->
-       
+
         <!--特约影评人 s-->
         <section class="inviReview">
+          @foreach($critic as $v)
             <div class="title">
                 特约影评人
             </div>
 			<div class="cont clearfix">
             	<div class="reviewer fL">
-            		<p class="t"><a href="/someone/2630.html" target="_blank" title="" ><img class="imgBorder" src="picture/143067855084783.jpg" alt="游礁"></a><a class="c_f60" href="/someone/2630.html" target="_blank" title="" >游礁</a></p>
+            		<p class="t"><a href="/someone/2630.html" target="_blank" title="" ><img class="imgBorder" src="{{$v->user->image}}" alt="游礁"></a><a class="c_f60" href="/someone/2630.html" target="_blank" title="" >{{$v->user->username}}</a></p>
                     <p class="b">贡献&nbsp;&nbsp;发表了<a class="c_f60" href="javascript:viod(0);" target="_blank" title="" >42</a>条精华影评&nbsp;&nbsp;<a class="c_f60" href="/someone/2630.html" target="_blank" title="" >去看看>></a></p>
                 </div>
+          @endforeach
+          
             	<div class="latestRevi fR">
             		<dl>
                     	<dt>TA最近影评</dt>
-                    	<dd class="clearfix"><span class="fL">评论电影: <a class="c_f60" href="/movie/38930.html" target="_blank" title="罗曼蒂克消亡史 " >《罗曼蒂克消亡...》</php></a></span><span class="fR"><a href="/review/12661.html" target="_blank" title="" >《罗曼蒂克消亡史》：40分...</a></span></dd><dd class="clearfix"><span class="fL">评论电影: <a class="c_f60" href="/movie/38931.html" target="_blank" title="长城 " >《长城 》</php></a></span><span class="fR"><a href="/review/12660.html" target="_blank" title="" >《长城》：73分，视觉特效...</a></span></dd><dd class="clearfix"><span class="fL">评论电影: <a class="c_f60" href="/movie/38917.html" target="_blank" title="血战钢锯岭 " >《血战钢锯岭 》</php></a></span><span class="fR"><a href="/review/12642.html" target="_blank" title="" >《血战钢锯岭》：94分。我...</a></span></dd>                   
+                      @foreach($critic_comment as $v)
+                    	<dd class="clearfix">
+                        <span class="fL">评论电影: <a class="c_f60" href="/movie/38930.html" target="_blank" title="罗曼蒂克消亡史 " >《{{$v->title}}》</php></a></span>
+
+                        <span class="fR"><a href="/review/12661.html" target="_blank" title="" >《{{$v->title}}》：40分...</a></span>
+                      </dd>
+                      @endforeach                   
                     </dl>
                 </div>
                 
             </div>
+           
         </section>
+
         <!--特约影评人 e-->
 
         <!--新片影评 s-->
@@ -210,8 +232,9 @@ $(document).ready(function(){
                     <dd class="R fR">
                         <a href="/home/review/{{$v['id']}}.html" title="" target="_blank"><img class="lazyImg" src="{{$v->movie_detail['image']}}" alt="猩球崛起3：终极之战 "></a>
                     </dd>                
-                </dl> 
-                @endforeach               
+                </dl>
+                @endforeach                
+
                 <a href="/review/table.html" style="text-decoration:none">
                 <div  id="moreRevi"  class="loadMore">
                                 更多...
@@ -250,73 +273,42 @@ $(document).ready(function(){
         </section><!--电影票房 e-->
         
         <!--热映影片 s-->  
-		<section class="hotMovie">
-            <div class="title clearfix">
-                <i class="movie icon"></i><a href="http://www.51oscar.com/movie/search/0_0_1_0.html" title="热映影片" target="_blank" >热映影片<em>>></em></a>
-            </div>
-            <div class="cont clearfix">
-                <dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39278.html" title="北美票房连冠" target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/59c33acd86ed5.jpg" data-src="picture/59c33acd86ed5.jpg" width="98" height="138" alt="芳华 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39278.html" title="北美票房连冠" target="_blank" >芳华 </a>
-                        <p>导演：<em>冯小刚</em></p>
-                        <p>类型：<em>剧情/战争</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39277.html" title="北美票房连冠" target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/59c3397b4c6e5.jpg" data-src="picture/59c3397b4c6e5.jpg" width="98" height="138" alt="空天猎 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39277.html" title="北美票房连冠" target="_blank" >空天猎 </a>
-                        <p>导演：<em>李晨</em></p>
-                        <p>类型：<em>动作/剧情/战...</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39276.html" title="北美票房连冠" target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/59c318412247e.jpg" data-src="picture/59c318412247e.jpg" width="98" height="138" alt="缝纫机乐队 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39276.html" title="北美票房连冠" target="_blank" >缝纫机乐队 </a>
-                        <p>导演：<em>大鹏</em></p>
-                        <p>类型：<em>喜剧/音乐</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39275.html" title="北美票房连冠" target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/59c0a983d72c3.jpeg" data-src="picture/59c0a983d72c3.jpeg" width="98" height="138" alt="遗忘空间 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39275.html" title="北美票房连冠" target="_blank" >遗忘空间 </a>
-                        <p>导演：<em>韩汶青</em></p>
-                        <p>类型：<em>恐怖/悬疑</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl><dl class="clearfix">
-                    <dt>
-                        <a href="/movie/39274.html" title="北美票房连冠" target="_blank" >
-                            <img class="lazyImg pic imgBorder" src="picture/59c0a6cb6ed46.jpg" data-src="picture/59c0a6cb6ed46.jpg" width="98" height="138" alt="疯狂旅程 " />
-                        </a>
-                    </dt>    
-                    <dd>
-                        <a class="t" href="/movie/39274.html" title="北美票房连冠" target="_blank" >疯狂旅程 </a>
-                        <p>导演：<em>龙野</em></p>
-                        <p>类型：<em>喜剧/剧情</em></p>
-                        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
-                    </dd>
-                </dl>            </div>
-        </section>
+		 <section class="hotMovie"> 
+     <div class="title clearfix"> 
+      <i class="movie icon"></i>
+      <a href="/home/movieDetails" title="热映影片" target="_blank">热映影片<em>&gt;&gt;</em></a> 
+     </div> 
+     <div class="cont clearfix"> 
+
+     @foreach($movie as $v)
+     
+      <dl class="clearfix"> 
+       <dt> 
+        <a href="/movie/39278.html" title="{{$v->name}}" target="_blank"> <img class="lazyImg pic imgBorder" src="{{$v->image}}" width="98" height="138" alt="{{$v->name}} " /> </a> 
+       </dt> 
+       <dd> 
+        <a class="t" href="/movie/39278.html" title="{{$v->name}} " target="_blank">{{$v->name}} </a> 
+        <p>导演：<em>{{$v->director_name->name}}</em></p> 
+        <p>类型：<em>
+            
+            <?php
+                if(empty($v->movie_tags)){
+                    echo '当前没有热门电影';
+                }
+                foreach ($v->movie_tags as $e) {
+                    echo $e->name.'|';
+                }   
+            ?>
+        </em></p> 
+        <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
+       </dd> 
+      </dl>
+     @endforeach
+     
+      
+      
+     </div> 
+    </section>
         <!--热映影片 e--> 
         
         <!-- 右侧广告s -->
