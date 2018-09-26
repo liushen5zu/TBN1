@@ -124,9 +124,9 @@
 .albumBox .albumItem dd .m{ margin:10px 0;}
 
 /*用户评论*/
-.user_sayBox{ padding:20px; width:940px; background-color:#FFF; margin-top:20px;}
+.user_sayBox{background-color:#FFF; margin-top:20px;}
 .user_sayBox .title{ border-bottom:none;}
-.user_sayBox .title span{ margin-left:20px; font-size:13px; color:#333;}
+.user_sayBox .title span{font-size:13px; color:#333;}
 .user_sayBox .title span a{color:#f60; margin:0 4px;}
 
 .commsList{width:940px; background-color:#FFF; border-top:1px solid #eee;}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,7 +80,7 @@ var URL = "http://www.51oscar.com/";
 <!--header与个人中心的一样,略作修改，css放在common里-->
 <header class="top">
     <div class="menu">
-        <a href="http://www.51oscar.com" class="logo"><img src="picture/person_logo.png"></a>
+        <a href="#" class="logo"><img src="/ueditor/picture/logo.png"></a>
         <div class="menu_c">
             <a href="http://www.51oscar.com">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>

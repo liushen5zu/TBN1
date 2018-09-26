@@ -59,7 +59,7 @@
     <section class="logoAndSreach">
         <div class="wp clearfix">
             <div class="logo fL">
-                <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo_1.png" alt="大众影评网" /></a>
+                <a href="#" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a>
             </div>
             <div class="searchBox fR">
                 <form name="form_sreach" action="/Search/index" method="get">
@@ -246,15 +246,15 @@
         <!--leftWp e-->
         <aside class="rightWp fR">
             <section class="creatAlbum">
-                <a class="crear_my_album" url="/toAlbumAdd" href="/home/toAlbumAdd" title="创建我的影集"><img src="/ueditor/images/jia.png" alt="创建我的影集" style="margin:0,padding:0" width="244" height="85"></a>
+                <a class="crear_my_album" url="/toAlbumAdd" href="/home/toAlbumAdd" title="创建我的影集"><img src="/ueditor/images/jia.png" alt="创建我的影集" style="margin:0,padding:0" width="244" height="85">创建我的影集</a>
                 </sectio60 <section class="hotTalk">
-                <div class="title clearfix">
+                <!-- <div class="title clearfix">
                     <i class="info icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" target="_blank">当前热议<em>>></em></a>
                 </div>
                 <div class="cont clearfix">
                     <ul>
                     </ul>
-                </div>
+                </div> -->
             </section>
             <!--当前热议 e-->
             <section class="hotAlbum">

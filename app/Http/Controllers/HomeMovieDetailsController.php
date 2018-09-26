@@ -12,8 +12,7 @@ class HomeMovieDetailsController extends Controller
 {
     //
     public function index(Request $request)
-    {
-    	//$details = Movie_detail::all();
+    {    	
        
         $tags = Movie_tag::all();
         $cate = Movie_cate::all();
@@ -50,7 +49,7 @@ class HomeMovieDetailsController extends Controller
     	//演员表
     	
          $actor = $movie_detail->movie_actor()->get();
-         dd($actor);
+         // dd($actor);
         //标签表
 
          $tag = $movie_detail->movie_tags()->get();

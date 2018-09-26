@@ -62,7 +62,7 @@
     <section class="logoAndSreach">
         <div class="wp clearfix">
             <div class="logo fL">
-                <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/Images/logo.png" alt="大众影评网" /></a>
+                <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a>
             </div>
             <div class="searchBox fR">
                 <form name="form_sreach" action="/Search/index" method="get">
@@ -291,44 +291,26 @@
         <section class="user_sayBox" id="user_sayBox">
             <input type="hidden" value="6" id="shareText">
             <!--评论类型-->
+            @if(!Session::has('username'))  
             <div class="title clearfix">
-                <i class="info icon"></i>网友评论<span>要评论须要先<a href="http://www.51oscar.com/login.html" title="登录"  target="_blank">登录</a>或者<a href="http://www.51oscar.com/login/regist.html" title="注册"  target="_blank">注册</a></span> </div>
+                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="#" title="注册"  target="_blank">注册</a></span> </div>
             <!--评论编辑输入框 s-->
-            <div class="user_say" id="user_say">
-                <textarea id="movie_comment_text" name="" style="height:200px;" cols="" rows=""></textarea>
-                <div>
-                    <div style="clear:both;"></div>
-                    <div style="float:right;margin-top:10px;position:relative;">
-                        <div id="div_comment_float">
-                            <!--<div id='div_comment_qq'></div>
-                            <div id="div_comment_img2">
-                                <a href="javascript:;" class="show_img_tag hide">显示刚才的图片</a>
-                                <input type='button' id='btn_upload2' ajax_url="/uploadImage"/>
-                                <input type='hidden' id='hide_txt_img'/>
-                            </div>-->
-                            <a href="javascript:" class="movie_comment_btn" onclick="movieComment()">发布</a>
-                            <div class="clear"></div>
-                        </div>
-                    </div>
-                </div>
-                <div style="clear:both"></div>
-                <textarea id="replayHtml" style="display:none">
-                    <div class="replay-content">
-                        <i class="triangle"></i>
-                        <form method="post" action="">
-                            <div>&lt;textarea&gt;&lt;/textarea&gt;</div>
-                            <input type="hidden" id="comment_p_user_id" value="" />
-                            <input type="hidden" id="comment_pid_re" value="0" />
-                            <div class="btn clearfix">
-                                <a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
-                                <button class="cancel-btn" type="button">取消</button>
-                                <button class="replay-btn" type="submit">回复</button>
-                            </div>
-                            <input type="hidden" name="__hash__" value="ffe99cf95977c1bdc6793a86f88361c2_3e280345331ab8f1463411b0f3b1ed77" />
-                            <input type="hidden" name="__hash__" value="14d4bdbde77a3b298af8a729102a7064_ca6a788adee63e1c54b748d083213fd5" />
-                        </form>
-                    </div>
-                </textarea>
+                <section class="user_sayBox clearfix">
+            @else 
+                <form action="/home/album" method="post"enctype="multipart/form-data">   
+                <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
+                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
+                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">
+                  </script>
+                 <button style=" display: block; width:110px; height:15px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="发布"></button>
+                 {{method_field('')}}
+                  {{csrf_field()}}
+                 <script>
+                        var ue = UE.getEditor('editor');    
+                </script>
+               </form>
+                @endif
             </div>
             <!--评论编辑输入框 e-->
             <!--评论列表 s-->
