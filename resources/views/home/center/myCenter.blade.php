@@ -433,9 +433,15 @@ function onmore_content(_this){
 <input type="hidden" id="countAboutSelf" value=''/>
 <input type="hidden" id="movieDomain" value="http://www.51oscar.com/movie.html"/>
 <input type="hidden" id="Domain" value="http://www.51oscar.com" >
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script>
 
+	$('jingyan').attr('')
+</script>
 <div class="page_bg">
     <div class="u_content">
+    @section('content')
         <div class="u_left">
             <div class="hot_movie">
                 <div class="box_title">
@@ -634,17 +640,19 @@ function onmore_content(_this){
 	            </div>
             </div>
         </div>
-
+	@show
         <div class="u_right">
             <dl class="info_detail">
                 <dt>
                     <div class="heard_img"><img src="{{Session('image')}}" width="87" height="87"></div>
                     <a href="/home/jiben">编辑资料</a>
                 </dt>
-                <dd class="info_d_1"><a href="#"></a><span class="degree">
+                <dd class="info_d_1"><a href="#"></a><span class="degree" style="float:left">
 					<!-- 显示等级 -->
 					Lv{{floor($levels['experience']/50)}}
-                </span></dd>
+					
+                </span><div class="jingyan" style="width:80px;height:10px;border:1px solid #000;float:left;margin-left:8px"><div style="width:30px;height:10px;background:#2bf666"></div></div></dd>
+					
                 <dd class="info_d_2">
                     <div>
 						
@@ -661,7 +669,23 @@ function onmore_content(_this){
                     </div>
                 </dd>
 				<dd>
-					<p class="info_d_3">积分：<em>{{$levels['integral']}}</em> 经验：<em>{{$levels['experience']}}</em></p>
+					<p class="info_d_3">积分：<em>
+					@if($levels==null)
+					0
+					@endif
+					@if($levels!=null)
+					{{$levels['integral']}}
+					@endif
+					</em> 经验：<em>
+					@if($levels==null)
+					0
+					@endif
+					@if($levels!=null)
+					{{$levels['experience']}}
+					@endif
+					
+
+					</em></p>
 				</dd>
                <dd class="info_d_3">
                     <span>我的勋章</span>

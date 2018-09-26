@@ -59,7 +59,6 @@ class MovieDetailsController extends Controller
         $movie_details -> recom = $request->recom;
         $movie_details -> intro = $request->intro;
         $movie_details -> num = $request->num;
-        $movie_details -> countries = $request->countries;
         $movie_details -> movie_cate_id = $request->movie_cate_id;
         // dd($request->movie_cate_id);
 
