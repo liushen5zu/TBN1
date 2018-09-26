@@ -132,7 +132,7 @@
       <a href="/forum.html" title="当前热议" target="_blank">当前热议<em>&gt;&gt;</em></a> 
      </div> 
 
-     @foreach($activity as $v)
+     @foreach($activity2 as $v)
      <div class="cont clearfix"> 
       <ul> 
       	<li><font style="color:red">热</font>
