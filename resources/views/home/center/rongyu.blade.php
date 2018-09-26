@@ -24,28 +24,31 @@
   <ul class="medal_info_ul">
 
      
-
+      @if($levels!=null)
        <li class="medal_info_li_1" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
       <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
             <img class="medal_info_img" src="
-            @if($levels->experience>=50)
-            /ueditor/picture/1.png
-            @endif
-            @if($levels->experience<50)
-            /ueditor/picture/1-1.png
-            @endif
+            
+              @if($levels->experience>=50)
+              /ueditor/picture/1.png
+              @endif
+              @if($levels->experience<50)
+              /ueditor/picture/1-1.png
+              @endif
+            
             ">
       </span>
       <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
       <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">影集达人</span>
       <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+           
             @if($levels->experience>=50)
             已点亮
             @endif
             @if($levels->experience<50)
             未点亮
             @endif
-                                                </span>
+                                           </span>
      </li>
 
       <li class="medal_info_li_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
@@ -171,8 +174,125 @@
             @endif
                                                 </span>
      </li>
-       
-    
+     @endif
+    @if($levels==null)
+      
+     
+       <li class="medal_info_li_1" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+            
+              /ueditor/picture/1.png
+              
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">影集达人</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+           
+            
+            已点亮
+           
+            
+                                           </span>
+     </li>
+
+      <li class="medal_info_li_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+            
+            /ueditor/picture/2-1.png
+           
+            
+
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">影坛劳模</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+            
+            未点亮
+            
+                                                </span>
+     </li>
+
+     <li class="medal_info_li_3" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+            
+            /ueditor/picture/3-1.png
+          
+            
+
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">影评达人</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+            
+            未点亮
+            
+                                                </span>
+     </li>
+
+     <li class="medal_info_li_4" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+            
+            /ueditor/picture/4-1.png
+            
+            
+
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">人气达人</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+           
+            未点亮
+            
+                                                </span>
+     </li>
+     
+     <li class="medal_info_li_5" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+            
+            /ueditor/picture/5-1.png
+            
+            
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">分享达人</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+            
+            未点亮
+            
+                                                </span>
+     </li>
+                     
+     <li class="medal_info_li_6" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">
+      <span class="medal_info_span_1" style="color: rgb(0, 0, 0); border-color: rgb(204, 204, 204);">
+            <img class="medal_info_img" src="
+           
+           
+            
+            /ueditor/picture/6-1.png
+           
+           
+
+            ">
+      </span>
+      <div class="clear" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);"></div>
+      <span class="medal_info_span_2" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">资深影评人</span>
+      <span class="if_state" style="color: rgb(0, 0, 0); border-color: rgb(0, 0, 0);">状态:
+            
+            未点亮
+            
+                                                </span>
+     </li>
+    @endif
   </ul>
 </div>
 

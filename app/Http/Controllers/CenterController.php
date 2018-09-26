@@ -106,7 +106,7 @@ class CenterController extends Controller
     {
 
         $levels = Level::where('user_id',session('id'))->first();
-        //dd($levels);
+        // dd($levels);
        return view('home.center.rongyu',compact('levels')); 
     }
 
@@ -136,9 +136,9 @@ class CenterController extends Controller
 
         //积分和经验
         $levels = Level::where('user_id',session('id'))->first();
-        
+        // dd($levels);
 
-        $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
+       $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
        return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels')); 
 
@@ -153,9 +153,49 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
-
-       return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen')); 
+        $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
+        $movie_comment = Movie_comment::all();
+        $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
+        $user = DB::table('movie_comments')->where('user_id','=',session('id'))->get();
+        $detail = Movie_detail::all();
+         $levels = Level::where('user_id',session('id'))->first();
+       return view('home.center.xiangmugl',compact('al_num','focus_num','focus_fsen','movie_time','movie_recom','movie_comment','user','detail','levels')); 
     }
+
+
+    //我的影集
+    public function mycreation(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的影集
+        $album = AlDetail::where('user_id',Session('id'))->get();
+
+        return view('home.center.myCreation',compact('al_num','focus_num','focus_fsen','album'));
+    }
+
+    //我的关注
+    public function friendlist(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的关注
+        $focus = Focus::where('user_id',session('id'))->get();
+        //用户信息
+        $user = User::all();
+        
+
+        return view('home.center.friendlist',compact('al_num','focus_num','focus_fsen','focus','user'));
+    }
+   
 
     //个人空间影评添加
     public function createcomment(Request $request)

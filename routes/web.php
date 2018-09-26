@@ -75,8 +75,12 @@ Route::group([],function(){
 	Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
 	//Ajax 验证
 	Route::post('/ajax/password','AjaxController@password');//修改密码-检测原密码
+
 	//特约影评人
 	Route::resource('movieCritic','MovieCriticController');
+
+	Route::post('/ajax/username','AjaxController@zc_username');//检测用户名是否存在
+	Route::post('/ajax/code','AjaxController@phone_code');//手机验证吗验证
 });
 
 
@@ -88,6 +92,11 @@ Route::group([],function(){
 
 
 //前天注册
+	Route::get('/home/register','HomeRegisterController@register');//注册页面
+	Route::get('/home/user','HomeRegisterController@user');//注册信息保存
+	Route::get('/home/login','HomeLoginController@login');
+	Route::post('/home/dologin','HomeLoginController@dologin');
+	Route::get('/home/outlogin','HomeLoginController@outlogin');
 	Route::get('/home/register','HomeRegisterController@register');
 	Route::get('/home/login','HomeLoginController@login');
 	Route::post('/home/dologin','HomeLoginController@dologin');
@@ -98,19 +107,6 @@ Route::group([],function(){
 	// 用户授权后新浪微博回调的页面
 	Route::get('/auth/callback', 'AuthController@callback'); 
 	//前台首页
-
-//前台注册
-Route::get('/home/register','HomeRegisterController@register');
-Route::get('/home/login','HomeLoginController@login');
-Route::post('/home/dologin','HomeLoginController@dologin');
-Route::get('/home/outlogin','HomeLoginController@outlogin');
-
-// 引导用户到新浪微博的登录授权页面
-Route::get('/auth/weibo', 'AuthController@weibo');
-// 用户授权后新浪微博回调的页面
-Route::get('/auth/callback', 'AuthController@callback'); 
-//前台首页
-
 
 	Route::get('/','HomeCenterController@index');
 	
@@ -171,6 +167,8 @@ Route::get('/auth/callback', 'AuthController@callback');
 	Route::get('/home/rongyu','CenterController@rongyu');
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
+	Route::get('/home/tomycreation','CenterController@mycreation');
+	Route::get('/home/friendlist','CenterController@friendlist');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 	Route::get('/home/centercomment','CenterController@createcomment');
 	//修改个人信息
