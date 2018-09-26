@@ -291,19 +291,30 @@ var URL = "http://www.51oscar.com/";
     
     <aside class="right fR">
         <!--当前热议 s-->
-        <section class="hotTalk">
-            <div class="title clearfix">
-                <i class="info icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" target="_blank" >当前热议<em>>></em></a>
-            </div>
-            <div class="cont clearfix">
-                <ul>
-                                  </ul>
-            </div>
-        </section>
-        <!--当前热议 e-->
-        <!--相关资讯 s-->
-         
-        <!--相关资讯 e-->
+        <section class="hotTalk"> 
+     <div class="title clearfix"> 
+      <i class="info2 icon"></i>
+      <a href="/forum.html" title="当前热议" target="_blank">当前热议<em>&gt;&gt;</em></a> 
+     </div> 
+
+     @foreach($activity as $v)
+     <div class="cont clearfix"> 
+      <ul> 
+        <li><font style="color:red">热</font>
+        <a href="/home/activity/{{$v->id}}.html">{{$v->title}}</a>
+            
+        </li>
+      </ul> 
+     </div> 
+     @endforeach
+      
+
+
+    </section>
+    <!--热门讨论 e--> 
+    
+    
+    
         
     </aside><!-- right e-->
 </section>

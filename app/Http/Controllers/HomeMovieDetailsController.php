@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\Movie_cate;
 use App\Movie_detail;
 use App\Movie_tag;
@@ -65,7 +66,13 @@ class HomeMovieDetailsController extends Controller
 
          //用户信息
          $user = User::all();
+
+         //热门电影
+        $movie = Movie_detail::orderBy('num','desc')->paginate(5);
+
+        //热议
+        $activity = Activity::orderBy("id",'desc')->paginate(4);
         
-    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user'));
+    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user','movie','activity'));
     }
 }
