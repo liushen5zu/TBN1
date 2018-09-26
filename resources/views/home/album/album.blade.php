@@ -175,7 +175,7 @@
         <section class="recomAlbum clearfix">
             <div class="left fL">
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/detail/id/1861/p/2.html" title="永不过时的20部励志影片" target="_blank"><img src="picture/586dd95633479.jpg" alt="永不过时的20部励志影片" /></a>
+                    <a class="pic" href="http://www.51oscar.com/album/detail/id/1861/p/2.html" title="永不过时的20部励志影片" target="_blank"><img src="" alt="永不过时的20部励志影片" /></a>
                     <i class="tag">经典励志</i>
                     <p class="opacity6"></p>
                     <p class="t"><a href="http://www.51oscar.com/album/detail/id/1861/p/2.html" title="永不过时的20部励志影片" target="_blank">永不过时的20部励志影片</a></p>
