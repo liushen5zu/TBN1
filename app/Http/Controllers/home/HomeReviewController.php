@@ -42,8 +42,10 @@ class HomeReviewController extends Controller
         // dd($id);
     	$Movie_comments = Movie_comment::find($id);
         $rview = Rview::all();
-        
-    	return view('home.review.show',compact('Movie_comments','rview'));
+        $movie = Movie_detail::all();
+        $activity = Activity::orderBy("id",'desc')->paginate(4);
+        $reply = Reply::where('rview_id',29)->get();
+    	return view('home.review.show',compact('Movie_comments','rview','movie','activity','reply'));
     }
 
     public function create($id,Request $request)

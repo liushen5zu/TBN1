@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>{{$tiezis->title}}</title>
-<meta name="description" content="大众影评网影视贴吧:【需求贴】如有资源需求，请在本贴下留言,楼主资源控~ 所以不管是新片、老片、奇葩片、重口味片，包括一些日韩剧、英美剧，都有一些存货~如有资源..." />
+<meta name="description" content="{{$tiezis->title}}" />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
 <!--[if lt IE 9]>
 	<script type="text/javascript" src="js/html5_1.js"></script>
@@ -39,7 +39,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
 	<div class="wp clearfix">
         <div class="logo fL">
-        	<a href="#" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a>
+        	<a href="http://www.51oscar.com" title="影评王国" target="_self"><img src="picture/logo_1.png" alt="影评王国" /></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -52,12 +52,12 @@ var _hmt = _hmt || [];
              <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" >
 			 <input type="hidden" value=""  id="sessionid">
              <span class="hotLink">
-              <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a>
-	      		 <a href="http://www.51oscar.com/album/1877.html">九部超级温馨又治愈的家庭类电影</a>
-	      		 <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a>
-	      		 <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a>
-	      		 <a href="http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a>
-	      		              </span>
+                  <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a>
+	      		     <a href="http://www.51oscar.com/album/1877.html">九部超级温馨又治愈的家庭类电影</a>
+	      		     <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a>
+	      		     <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a>
+	      		     <a href="   http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a>
+	      		 </span>
         </div>
     </div>
 </section>
@@ -158,10 +158,10 @@ $(document).ready(function(){
 <section class="mainWp wp clearfix">
 	<section class="forumDetLeft leftWp fL">
 		<section class="location">
-        	当前位置：<a href="http://www.51oscar.com" title="首页" target="_self" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/forum.html" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
+        	当前位置：<a href="http://www.lzf.com" title="首页" target="_self" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.lzf.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
 		<section class="titleBox">
         	<div class="cont">
-            	<h1>【需求贴】如有资源需求，请在本贴下留言</h1>
+            	<h1>{{$tiezis->title}}</h1>
                 <div class="titB clearfix">
                     <div class="bshare-custom fL"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
                     <a href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')">回复</a>
@@ -177,7 +177,7 @@ $(document).ready(function(){
                 <input type="hidden" id="user1" class="reCount" value="334"> <!--楼主ID-->
              <!--   <input type="hidden" id="reCount0" class="reCount" value="2" /> -->
                 <dt class="hd_dt">
-                	<a class="c_f60" href="http://www.51oscar.com/someone/334.html" title="资源小强" target="_blank"><img class="lazyImg" src="{{$tiezis->user->image}}">{{$tiezis->user->username}}</a>
+                	<a class="c_f60" href="" title="资源小强" target="_blank"><img class="lazyImg" src="{{$tiezis->user->image}}">{{$tiezis->user->username}}</a>
                     <p><em class="forumFloor">楼主</em></p>
                                     </dt>
                 <dd class="hd_dd">
@@ -203,7 +203,7 @@ $(document).ready(function(){
              <!--   <input type="hidden" id="reCount1" class="reCount" value="10" /> -->
                 <dt class="hd_dt">
                 	<a class="c_f60" href="http://www.51oscar.com/someone/402759.html" title="{{$v->user->username}}" target="_blank"><img class="lazyImg" src="{{$v->user->image}}" >{{$v->user->username}}</a>
-                      <p><em class="forumFloor">2楼</em></p>                
+                      <p><em class="forumFloor"></em></p>                
                  </dt>
                 <dd class="hd_dd">
                   		<div class="dis_detail" id="dis_detail2">
