@@ -18,7 +18,9 @@ class HomeMovieDetailCommentController extends Controller
     //
     public function create(Request $request)
     {
+       //dd($request->star);
     	$comment = new HomeMovieDetailComment;
+        $comment -> star = $request->star;
     	$comment -> content = $request->content;
     	$comment -> movie_detail_id = $request->movie_detail_id;
     	$comment -> user_id = session('id');
