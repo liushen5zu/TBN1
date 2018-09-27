@@ -13,11 +13,19 @@ class HomeActivityController extends Controller
     //列表
     public function list()
     {
-
+        if(!empty(request()->all()['keyword'])){
+            $keyword = request()->all()['keyword'];
+            $activity = Activity::where('title','like','%'.$keyword.'%')->orderBy("id",'desc')->paginate(4);
+        }else{
+            $activity = Activity::orderBy("id",'desc')->paginate(4);
+        }
+        
+        //dump($keyword);
     	//电影图片
     	$image = Image_movie_detail::all();
     	//dd($image);
-    	$activity = Activity::orderBy("id",'desc')->paginate(4);
+    	
+        //dd($activity);
     	//热门电影
     	$movie = Movie_detail::orderBy('num','desc')->paginate(5);
     	//热议
