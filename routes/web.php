@@ -136,8 +136,7 @@ Route::group([],function(){
 	//影集(主页)
 	Route::get('/home/album','home\HomeAlbumController@index');
 	//影集(详情)
-	Route::get('/home/album/{id}.html','home\HomeAlbumController@show');
-	
+	Route::get('/home/album/{id}.html','home\HomeAlbumController@show');	
 
 	//电影详情
 	Route::get('/home/{id}.html','HomeMovieDetailsController@show');
@@ -187,6 +186,9 @@ Route::group([],function(){
 	Route::get('/home/albumAdd','home\HomeAlbumController@add');
 	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
 
+	//影集评论添加
+	Route::post('/home/alcomment','AlcommentController@create');
+	
 
 	//帖子评论
 	Route::get('/home/tiezicomment/{id}/reply','TiezeCommentController@reply');
@@ -197,6 +199,8 @@ Route::group([],function(){
 	//评论删除
 	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
 
+	//搜索
+	Route::get('/home/search','home\SearchController@search');
 
 	Route::post('/upload', 'home\HomeAlbumController@upload');
 });

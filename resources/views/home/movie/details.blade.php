@@ -20,6 +20,7 @@
 <script type="text/javascript" src="/ueditor/js/common_2.js"></script>
 <script type="text/javascript" src="/ueditor/js/common2.js"></script>
 <script type="text/javascript" src="/ueditor/js/common.js"></script>
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -139,7 +140,7 @@ var URL = "http://www.51oscar.com/";
             <img class="imgBorder" src="{{$movie_detail['image']}}" width="175" height="236" alt="芳华 " />
             <div class="bshare-custom"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
         </div><!--posters e-->
-        <div class="deta fL">
+        <div class="deta fL" style="width:650px">
             <h1>{{$movie_detail['name']}}</h1>
             <div class="cont">
               <p><em>片名 : </em>{{$movie_detail['name']}}</p>
@@ -171,14 +172,7 @@ var URL = "http://www.51oscar.com/";
             <div id="star">
                     <span>评分：</span>
                     <div class="num-rate clearfix">
-                        <ul class="clearfix">
-                            <li ><a href="javascript:;" title="非常差">1</a></li>
-                            <li ><a href="javascript:;" title="差">2</a></li>
-                            <li ><a href="javascript:;" title="一般">3</a></li>
-                            <li><a href="javascript:;" title="好">4</a></li>
-                            <li><a href="javascript:;" title="非常好">5</a></li>
-                        </ul>
-                        <span class="hint">6.0</span>
+                        <span class="hint">{{$comment_num2}}分</span>
                         <!--input可设置默认等级，若为空则还未评-->
                         <input type="hidden" name="likegrade" value="">
                         <input type="hidden" id="detail_pingfen" value="3"/>
@@ -220,7 +214,7 @@ var URL = "http://www.51oscar.com/";
         
         <!--小编推荐 s-->
               <!--小编推荐 e-->     
-
+   
         <!--精彩影评 s-->  
         <div class="commDiv">   
             <div class="title">
@@ -234,9 +228,25 @@ var URL = "http://www.51oscar.com/";
 
             <!--评论编辑输入框 s-->
             @if(session('id'))
+             <form method="post" action="/home/movieDetailsComment">
             <div class="user_say">
-                <div class="faceDiv"><a id="div_comment_qq" class="div_comment_qq_inner icon">表情</a></div>
-                <form method="post" action="/home/movieDetailsComment">
+                <div class="faceDiv" ><a style="float:left" id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
+                 @if(empty($HomeMovieDetailComment))
+                <p style="margin-left:300px;float:left">星级数:</p>
+               <!--  <div id="xingji" style="line-height:32px;float:left">
+                    <img style="line-height:32px" src="/ueditor/picture/xing1.png">
+                    <img style="line-height:32px" src="/ueditor/picture/xing1.png">
+                    <img style="line-height:32px" src="/ueditor/picture/xing1.png">
+                    <img style="line-height:32px" src="/ueditor/picture/xing1.png">
+                    <img style="line-height:32px" src="/ueditor/picture/xing1.png">
+                </div> -->
+               
+                <input id="input-2b" type="number" name="star" class="rating" min="0" max="10" step="1" data-size="xl"
+   data-symbol="" data-default-caption="{rating}.0 分" data-star-captions="{}" value="{rating}">
+                @endif
+               
+                </div>
+               
                     <textarea  class="commContent" name="content"></textarea>
                     <input type="hidden" name="movie_detail_id" value="{{$movie_detail['id']}}"><!--评论对象的id-->
                     <div class="btnDiv clearfix">
@@ -244,10 +254,11 @@ var URL = "http://www.51oscar.com/";
                         <span class="hint">最多能输入480个字</span>
                         <button href="javascript:" class="comment_btn" >发布</button>
                     </div>
-                </form>
+                
             </div>
+            </form>
             @endif
-        
+           
         <br>
             <!--评论编辑输入框 e-->
         <dl class="comms_box clearfix" style="border:1px solid #eee;padding:10px">
@@ -269,7 +280,6 @@ var URL = "http://www.51oscar.com/";
                 </span>
                 <span class="dis_reply clearfix" style="padding-left: 450px">
                     <time>{{$v['created_at']}}</time>&nbsp;<a class="reply" href="javascript:;" title="回复" onclick="replayComment(this,'鲁鲁');return false">回复</a>
-                    <input type="hidden" class="comment_pid" value="1799">
                     <input type="hidden" class="comment_p_user_id" value="427794">
                     <input type="hidden" class="puser_id" value="427794">
                 </span>
@@ -356,6 +366,19 @@ var URL = "http://www.51oscar.com/";
     </div>
   </div>
 </div>
+
+<!-- 电影评论 -->
+ <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+            <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+            <link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
+            <script src="/js/star-rating.js" type="text/javascript"></script>
+
+        <script>
+                 jQuery(document).ready(function () {
+                       $(".rating-kv").rating();
+                   });
+        </script>
+        <!-- 评论 -->
 <!--登陆对话框 e-->
 <input type="hidden" id="shareText" value="1" />
 <input type="hidden" id="detail_movie_id" value="39278"/>

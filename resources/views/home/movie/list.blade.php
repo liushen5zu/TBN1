@@ -202,7 +202,25 @@ $(document).ready(function(){
             <dt class="userLoge"><a href="/home/{{$v['id']}}.html" target="_blank"><img class="lazyImg" src="{{$v['image']}}" title="{{$v['name']}}" alt="{{$v['name']}}" /></a></dt>
             <dd><a class="movName" href="/movie/38489.html">{{$v['name']}}</a></dd>
             <dd class="des">{{$v['intro']}}</dd>
-            <dd>评分：<em>6.0</em></dd>
+            <dd>评分：
+            <em>
+            <?php
+                $num = 0;
+                $array = [];
+                foreach($comment_num as $val){
+                    if($val->movie_detail_id==$v->id){
+                        $num += $val->star;
+                        $array[] = $val->star;
+                    }
+                }
+                if(count($array)!=0){
+                    echo number_format($num/count($array),1).'分';
+                }else{
+                    echo '0'.'分';
+                }
+                
+            ?>
+            </em></dd>
           </dl>     
         @endforeach
         </div>
