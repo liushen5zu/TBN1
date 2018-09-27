@@ -197,6 +197,8 @@ Route::group([],function(){
 	//评论删除
 	Route::get('/home/review/{id}/destroy','home\HomeCommentController@destroy');
 
+	//搜索
+	Route::get('/home/search','home\SearchController@search');
 
 	Route::post('/upload', 'home\HomeAlbumController@upload');
 });
