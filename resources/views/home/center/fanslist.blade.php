@@ -479,7 +479,7 @@ function onmore_content(_this){
 										@endif
 									@endforeach
                 						"></div>
-                					<div>{{$v['user_username']}}</div>
+                					<div><a href="/home/hiscreation/{{$v['user_id']}}.html">{{$v['user_username']}}</a></div>
                 				</li>
                 				
                 			@endforeach		

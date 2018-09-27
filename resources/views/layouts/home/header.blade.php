@@ -15,7 +15,7 @@
       <li><i class="icon_man icon"></i>用户:</li> 
       <li>{{session('username')}}&nbsp;&nbsp;&nbsp;&nbsp;|</li> 
       <li> <a href="/home/outlogin">退出</a></li> 
-      <li> <a href="/home/center">个人中心</a></li> 
+      <li> <a href="/home/myCenter">个人中心</a></li> 
      </ul> 
     </div> 
   @endif

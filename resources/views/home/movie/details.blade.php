@@ -115,7 +115,7 @@ var URL = "http://www.51oscar.com/";
                 用户: 
                 <a>{{session('username')}}|</a> 
                 <a href="/home/outlogin">退出</a>
-                <a href="/home/center">个人中心</a>
+                <a href="/home/myCenter">个人中心</a>
             
             </div>
         </div> 

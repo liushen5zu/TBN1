@@ -178,6 +178,24 @@ class CenterController extends Controller
         return view('home.center.myCreation',compact('al_num','focus_num','focus_fsen','album'));
     }
 
+    //他的影集
+    public function hiscreation(Request $request)
+    {   
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',$request->id)->get());
+        
+        //关注数
+        $focus_num = count(Focus::where('user_id',$request->id)->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',$request->id)->get());
+        //他的影集
+        $album = AlDetail::where('user_id',$request->id)->get();
+        //用户信息
+        $user = User::where('id',$request->id)->first();
+
+        return view('home.center.hisCreation',compact('al_num','focus_num','focus_fsen','album','user'));
+    }
+
     //我的关注
     public function friendlist(Request $request)
     {

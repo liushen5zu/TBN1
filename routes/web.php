@@ -168,6 +168,7 @@ Route::group([],function(){
 	Route::get('/home/xiaoxi','CenterController@xiaoxi');
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/tomycreation','CenterController@mycreation');
+	Route::get('/home/hiscreation/{id}.html','CenterController@hiscreation');
 	Route::get('/home/friendlist','CenterController@friendlist');
 	Route::get('/home/fanslist','CenterController@fanslist');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
