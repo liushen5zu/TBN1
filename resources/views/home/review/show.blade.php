@@ -260,6 +260,22 @@ $(document).ready(function(){
                 <div class="hf-list-con"></div>
             </div>
         </div>
+        @foreach($reply as $v)
+        <div class="comment-show-con clearfix" style="padding-left: 40px">
+         <div class="comment-show-con-img pull-left"><img src="" alt=""></div>
+            <div class="comment-show-con-list pull-left clearfix">
+                <div class="pl-text clearfix">
+                    <a href="#" class="comment-size-name">123 : </a>
+                    <span class="my-pl-con">&nbsp;123</span>
+                    <div class="date-dz-right pull-right comment-pl-block">
+                        <a href="/home/review/{{$v->id}}/destroy" class="removeBlock">删除</a>
+                        <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
+                        <span class="pull-left date-dz-line">|</span>
+                    </div>
+                </div>
+              </div>
+          </div>
+        @endforeach
     </div>
     <!--回复区域 end-->
 <!-- </div> -->
@@ -329,39 +345,39 @@ $(document).ready(function(){
         console.log(oHfVal)
         var oHfName = $(this).parents('.hf-con').parents('.date-dz').siblings('.pl-text').find('.comment-size-name').html();
         var oAllVal = '回复@'+oHfName;
-        if(oHfVal.replace(/^ +| +$/g,'') == '' || oHfVal == oAllVal){
+        // if(oHfVal.replace(/^ +| +$/g,'') == '' || oHfVal == oAllVal){
 
-        }else {
-            $.getJSON("json/pl.json",function(data){
-                var oAt = '';
-                var oHf = '';
-                $.each(data,function(n,v){
-                    delete v.hfContent;
-                    delete v.atName;
-                    var arr;
-                    var ohfNameArr;
-                    if(oHfVal.indexOf("@") == -1){
-                        data['atName'] = '';
-                        data['hfContent'] = oHfVal;
-                    }else {
-                        arr = oHfVal.split(':');
-                        ohfNameArr = arr[0].split('@');
-                        data['hfContent'] = arr[1];
-                        data['atName'] = ohfNameArr[1];
-                    }
+        // }else {
+        //     $.getJSON("json/pl.json",function(data){
+        //         var oAt = '';
+        //         var oHf = '';
+        //         $.each(data,function(n,v){
+        //             delete v.hfContent;
+        //             delete v.atName;
+        //             var arr;
+        //             var ohfNameArr;
+        //             if(oHfVal.indexOf("@") == -1){
+        //                 data['atName'] = '';
+        //                 data['hfContent'] = oHfVal;
+        //             }else {
+        //                 arr = oHfVal.split(':');
+        //                 ohfNameArr = arr[0].split('@');
+        //                 data['hfContent'] = arr[1];
+        //                 data['atName'] = ohfNameArr[1];
+        //             }
 
-                    if(data.atName == ''){
-                        oAt = data.hfContent;
-                    }else {
-                        oAt = '回复<a href="#" class="atName">@'+data.atName+'</a> : '+data.hfContent;
-                    }
-                    oHf = data.hfName;
-                });
+        //             if(data.atName == ''){
+        //                 oAt = data.hfContent;
+        //             }else {
+        //                 oAt = '回复<a href="#" class="atName">@'+data.atName+'</a> : '+data.hfContent;
+        //             }
+        //             oHf = data.hfName;
+        //         });
 
                 // var oHtml = '<div class="all-pl-con"><div class="pl-text hfpl-text clearfix"><a href="#" class="comment-size-name">我的名字 : </a><span class="my-pl-con">'+oAt+'</span></div><div class="date-dz"> <span class="date-dz-left pull-left comment-time">'+now+'</span> <div class="date-dz-right pull-right comment-pl-block"> <a href="javascript:;" class="removeBlock">删除</a> <a href="javascript:;" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a> <span class="pull-left date-dz-line">|</span> <a href="javascript:;" class="date-dz-z pull-left"><i class="date-dz-z-click-red"></i>赞 (<i class="z-num">666</i>)</a> </div> </div></div>';
                 // oThis.parents('.hf-con').parents('.comment-show-con-list').find('.hf-list-con').css('display','block').prepend(oHtml) && oThis.parents('.hf-con').siblings('.date-dz-right').find('.pl-hf').addClass('hf-con-block') && oThis.parents('.hf-con').remove();
-            });
-        }
+            // });
+        // }
     });
 </script>
 <!-- 点赞 -->

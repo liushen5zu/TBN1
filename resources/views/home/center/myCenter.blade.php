@@ -218,189 +218,7 @@ $(function(){
 			$(this).val('');
 		}
 	});
-	/*movie_name联想**/
-	$(".movie_name").keyup(function(){
-		val = $(this).val();
-		//if(!val)
-			//return false;
-		var json = {
-			'q'	: val
-		};
-		
-		url = $('#Domain').val() +'/personal/ajaxGetMovieName2';
-		var successFunction = function(ajaxData){
-		//	var ajaxData = $.parseJSON(data);
-			if(ajaxData.status != 1) {
-				$("#ajaxGetMovieName").html('');
-				return false;
-			}
-			var tlength = ajaxData.data.length;
-			str = '<ul>';
-			for(i=0;i<tlength;i++){
-			  if(ajaxData.data[i]['byname']==null){
-			    ajaxData.data[i]['byname']='';
-			  }
-				str += '<li movie_id='+ajaxData.data[i]['movie_id']+' style="display:block;padding:2px; height:66px;">';
-				str += '<img style="float:left;" src="'+ajaxData.data[i]['img_poster']+'" width="40" height="62">'+
-				       '<span style="display:block;float:left;width:190px;height:63px; line-height:21px;overflow:hidden"><p style="width:100%;white-space:nowrap;" class="my_mv">'+ajaxData.data[i]['name']+'</p><p>'+ajaxData.data[i]['movie_time']+'</p><p style="width:100%;white-space:nowrap;">'+ajaxData.data[i]['byname']+'</p></span>';
-				str += '</li>';
-			}
-			str += '</ul>';	
-			$("#ajaxGetMovieName").html(str);
-		    $("#ajaxGetMovieName ul li").bind('click',function(){
-				movie_id = $(this).attr('movie_id');
-				name = $(this).children().children(".my_mv").text();
-				$(".movie_name").val(name);
-				$("#ajaxGetMovieName").html('');
-				$('.movie_name').attr('movie_id',movie_id);
-				
-			});
-		};
-		$.ajax({
-				url:        url,
-				data:       json,                     
-				success:    successFunction
-		});
-	});
-	//点击热门影片
-	$('.click_hot_movie').click(function(){
-		movie_id = $(this).attr('movie_id');
-		movie_name = $(this).attr('title');
-		$('.movie_name').attr('movie_id',movie_id);
-		$(".movie_name").val(movie_name);
-	});
-	/*提交评论**/
-	$('.submitComment').click(function(){
-		//alert(editor.getContent() );
-
-		title = $('.commentTitle').val();
-		titleDefault = $('.commentTitle').attr('defaultVal');
-		movie_name = $('.movie_name').val();
-		movieDefault = $('.movie_name').attr('defaultVal');
-		movie_id = $('.movie_name').attr('movie_id');
-		//comment = $("#myEditor").val();
-		comment = editor.getContent();
-		comment_type = $('.moive_comment_taggle:checked').val();
-		img_url = $('#hide_txt_img').val(); 
-		//长评论
-		if (comment_type == '2'){
-			if(!title || title==titleDefault){
-				alert(title);
-				return false;
-			}
-		}else{
-			//if(!comment){
-			if(comment.length == 0){
-				alert('评论不能为空!');
-				return false;
-			}else{
-				if(comment.length > 200){
-					alert('短评字数不能超过200!');
-					return false;
-				}
-				if(comment.length < 10){
-					alert('短评字数不能少于10!');
-					return false;
-				}
-				title='';
-			}
-			
-		}
-		if(!movie_name || movie_name == movieDefault || movie_id == 0){
-			alert(movieDefault);
-			return false;
-		}
-		
-		type = 1;
-		//alert(title);
-		//return;
-		var json = {
-			//'verify'	: vary_code,
-			'comment'	: comment,
-			'pid'		: 0,
-			'puser_id'	: 0,
-			'title'		: title,
-			'comment_type' : comment_type,
-			//'mark'		: mark,
-			'img'		: img_url,
-			//'third_id'	: third_id,
-			'type' 		: type,
-			'id' 		: movie_id
-			//'PHPSESSID' : $('.PHPSESSID').val(),
-			//'TOKEN'		: $('.TOKEN').val()
-		};
-		
-		var successFunction = function (ajaxData){
-			//ajaxData = $.parseJSON(data);
-			if(ajaxData.status !=1){
-				alert(ajaxData.info);
-				return false;
-			}
-			str = PersonComment.getOuterComment(ajaxData.data,itemIndex+1);
-			//alert(342);
-			$('.comment').prepend(str);
-			/*绑定事件*/
-			Taggle.taggleReplayFirst();
-			itemIndex++;
-			//清楚数据
-			$('.movie_name').val('请输入电影名');
-			$('.movie_name').attr('movie_id',0);
-			$('.commentTitle').val('请输入标题');
-			//$('#myEditor').val('');
-			editor.setContent('');
-			$('.div-upload-show').hide(); 
-		};
-		url = URL +'Comment/ajaxAddComment';
-		$.ajax({
-				type:       'post',
-				url:        url,
-				data:       json,                     
-				success:    successFunction
-		});
-		
-		
-	});
-	//上传图片
 	
-		
-		var ajax_url = $('#btn_upload2').attr('ajax_url');
-			var uploadSuccess = function(src){
-				$('#img_upload_show').attr('origin', src).lazyload({'max_width':100});
-				$('#hide_txt_img').val(src); 
-				$('.div-upload-show').show(); 
-				$('.div-upload-show').html('<img id="img_upload_show" src='picture/e1ab9c6f588f4f688e7981d3fa10b28c.gif'>');
-				
-				
-				
-				
-				
-				$('#upload_delete').click(function(){
-					$('#img_upload_show').attr('src', '');
-					$('#hide_txt_img').val('');
-					$('.div-upload-show').hide(); 
-					$('.show_img_tag').hide();
-				});
-			 } ;//uploadSuccess			
-			/*跨域，拿不到data的值*/
-			$('#btn_upload2').upload({         
-				name: 'upload_img',         
-				action: ajax_url,  
-				enctype: 'multipart/form-data',         
-				params: {'rand': Math.random()},         
-				autoSubmit: true,
-				onSubmit: function() {},         
-				onComplete: function(data) {
-					data = $.parseJSON(data);
-					if(data.status==1){
-						uploadSuccess(data.data);
-					}
-					else{
-						alert(data.info);
-					}
-				}
-			});
-	
-});
 
 function iscurnum(content){
 	var write = $("input[name='write']:checked").val();
@@ -517,6 +335,22 @@ function onmore_content(_this){
                 	</div>
                 </div>
             </div>
+            <style type="text/css">
+				#keyword{
+					list-style: outside none none;z-index: 1000;background-color: #DDD;width: 245px;margin-left: 13px;opacity:0.5;border:1px solid #0C6AD4;display: none;
+				}
+				#keyword li{
+					margin: 0px auto;
+					height: 30px;
+					width: 250px;
+					line-height: 30px;
+					padding:0px 20px;
+				}
+				#keyword li:hover{
+					cursor: pointer;
+					background-color:#fff;
+				}
+			</style>
             <div class="write_m">
                 <div><img src="/ueditor/picture/write_07_1.jpg"></div>
                 <dl>
@@ -525,11 +359,72 @@ function onmore_content(_this){
                     </dt>
                     <form action="/home/centercomment" method="get">
                     <dd class="w_line1">
-                       <input type="text"  class="placeHold movie_name" defaultVal="请输入电影名" value="请输入电影名" name="movie_detail_id" />
-                        <span>热门影片：</span>
-						<a href="javascript:;" class="click_hot_movie" movie_id="39278"  title="芳华 ">芳华 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39277"  title="空天猎 ">空天猎 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39276"  title="缝纫机乐队 ">缝纫机乐队 </a><a class="shugang">|</a>						<div id="ajaxGetMovieName"></div>						
+                        <div class="search-index">
+							<input name="movie_detail_id" value="{{ $params['name'] or '' }}" type="text" id='inp' placeholder="请输入电影名字关键字" autocomplete="off"/>	
+							<span>热门影片：</span>
+						<a href="javascript:;" class="click_hot_movie" movie_id="39278"  title="芳华 ">芳华 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39277"  title="空天猎 ">空天猎 </a><a class="shugang">|</a><a href="javascript:;" class="click_hot_movie" movie_id="39276"  title="缝纫机乐队 ">缝纫机乐队 </a><a class="shugang">|</a>						<div id="ajaxGetMovieName"></div>		
+						</div>
+                    <ul id='keyword'>
+
+					</ul>   				
                     </dd>
-                    <dd class="w_line1" id="yp_input" style="display: block;"><input type="text"  class="placeHold commentTitle" defaultVal="请输入标题" value="请输入标题" name="title"></dd>
+                    <dd class="w_line1" id="yp_input" style="display: block;"><input type="text"  class="placeHold commentTitle" placeholder="请输入标题"  name="title">
+                    </dd>
+                    <script type="text/javascript">
+						$(function(){
+							$('#inp').val('');  //首次加载先清除输入框内容
+							//判断如果是点击的指定区域以外的区域则隐藏输入框
+								$('body').bind('click', function(event) {
+								    // IE支持 event.srcElement ， FF支持 event.target    
+								    var evt = event.srcElement ? event.srcElement : event.target;    
+								    if(evt.id == 'inp' ){
+								    	return; // 如果是元素本身，则返回
+								    } else{
+								    	$('#keyword').css('display','none');
+								    }
+								});
+							$('#inp').keyup(function(){
+							var inpval=$(this).val();
+							//如果文本框内没有值则不执行任何代码
+							if(inpval==''){
+								//当输入框中没有值时清除所有li并隐藏ul
+								$("#keyword li").remove();
+								$('#keyword').hide();
+								return;
+							}
+							//如果有值默认get 方式提交
+							$.ajax({
+								url:'/home/search',
+								data:{'keyword':inpval},
+								success:function(data){
+									//先清除之前所有的li记录
+									$('#keyword li').remove();
+									//遍历返回数据
+									$.each(data,function(index,value){
+										//console.log(value);
+										//循环添加li节点
+										$('#keyword').append("<li>"+value+"</li>");
+									});
+									//将遍历后的结果显示出来
+									$('#keyword').css('display','block');
+									//将鼠标此时放上的li中的值关联显示到输入框
+									$('#keyword li').mousedown(function(){
+										//console.log($(this).text());
+										$('#inp').val($(this).text());
+									});
+								},
+								dataType:'json',
+								error:function(msg){
+									console.log('400--返回有误');
+								}
+							});
+						});
+						});
+					</script>
+
+
+
+
                     <dd class="w_line2">
                        <!-- <div class="texta_left"></div>-->						
                        <textarea name="content" style="min-height:120px;" onkeyup="iscurnum(this.value)" onfocus="iscurnum(this.value)" onkeydown="iscurnum(this.value)"  id="myEditor"></textarea>
