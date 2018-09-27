@@ -14,7 +14,7 @@ use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Hash;  
 
 class CenterController extends Controller
 {
@@ -89,7 +89,7 @@ class CenterController extends Controller
             return back();
         }
 
-    }
+    } 
 
     public function touxiang(Request $request)
     {
@@ -101,13 +101,9 @@ class CenterController extends Controller
         
     }
 
-    //荣誉
     public function rongyu(Request $request)
     {
-
-        $levels = Level::where('user_id',session('id'))->first();
-        // dd($levels);
-       return view('home.center.rongyu',compact('levels')); 
+       return view('home.center.rongyu'); 
     }
 
     public function xiaoxi(Request $request)
@@ -140,8 +136,7 @@ class CenterController extends Controller
 
        $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels')); 
-
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels'));  
     }
 
     //项目管理
@@ -153,6 +148,7 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
         $movie_comment = Movie_comment::all();
         $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
@@ -214,6 +210,7 @@ class CenterController extends Controller
         return view('home.center.friendlist',compact('al_num','focus_num','focus_fsen','focus','user'));
     }
 
+
     //我的粉丝
     public function fanslist(Request $request)
     {
@@ -235,11 +232,14 @@ class CenterController extends Controller
     //个人空间影评添加
     public function createcomment(Request $request)
     {   
+        $b = $request->movie_detail_id;
+        $a = Movie_detail::where('name',$b)->first();
+        // dd($a);
          $movie_comments = new Movie_comment;
          $movie_comments -> star = 5;
          $movie_comments -> title = $request -> title;
          $movie_comments -> content = $request -> content;
-         $movie_comments -> movie_detail_id = $request-> movie_detail_id;
+         $movie_comments -> movie_detail_id = $a -> id;
          $movie_comments -> user_id = session('id');
          if($movie_comments -> save()){
             return redirect('/home/myCenter')->with('success','添加成功');

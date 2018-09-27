@@ -65,7 +65,7 @@
             <div class="mbt">
             {{csrf_field()}}
             <button class="denTl"  style="margin-left:80px;">登 陆</button></div>
-            <div class="mbt abte" style="padding-left:20px;"><span>一键登录：</span><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/3.html'"><img src="/ueditor/picture/ret1.jpg" width="105" height="33" /></a><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2.html'"><img src="/ueditor/picture/ret2.jpg" width="105" height="33" /></a></div> 
+            <div class="mbt abte" style="padding-left:20px;"><span>一键登录：</span><a href="/auth/weibo" title="微博登录"><img src="/ueditor/picture/ret1.jpg" width="105" height="33" /></a><a href="javascript:void(0);" onclick="location.href='/oauth/requestHandle/type/2.html'"><img src="/ueditor/picture/ret2.jpg" width="105" height="33" /></a></div> 
         <input type="hidden" name="__hash__" value="45015900a44ff0764f1cbf5a4cf3dc5f_7863c63962dd96045b63540d32c0d2d5" /></form>
     </div>
 </div>

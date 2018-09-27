@@ -19,7 +19,7 @@
                       <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
                     </div>
                     <div class="layui-input-inline">
-                      <input type="text" name="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                      <input type="text" name="title" placeholder="请输入影集名" autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-input-inline" style="width:80px">
                         <button class="layui-btn" lay-submit="" lay-filter="sreach"><i class="layui-icon"></i></button>
@@ -102,6 +102,7 @@
                         </td>
                     </tr>
                 </tbody>
+
                 @endforeach
                                 
             </table>
