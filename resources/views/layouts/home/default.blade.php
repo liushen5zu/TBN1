@@ -105,18 +105,18 @@ var _hmt = _hmt || [];
      <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a> 
     </div> 
     <div class="searchBox fR"> 
-     <form name="form_sreach" action="/Search/index" method="get"> 
+     <form name="form_sreach" action="/home/activity/list" method="get"> 
       <!--[if !IE]><!--> 
-      <input class="txt_kw" name="word" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" />
+      <input class="txt_kw" name="keyword" type="text"  autocomplete="off" placeholder="搜索你感兴趣的" />
       <!--<![endif]--> 
       <!--[if gte IE 10]> <input class="txt_kw" name="txt_kw" type="text" value="" autocomplete="off" placeholder="搜索你感兴趣的" /> <![endif]--> 
       <!--[if lt IE 10]> <input class="txt_kw" name="txt_kw" type="text" autocomplete="off"  value="搜索你感兴趣的" /> <![endif]--> 
       <input class="sreach" name="btn_sreach" type="submit" value="" /> 
       <!-- <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" > --> 
-      <input type="hidden" name="__hash__" value="0ab92942e9ac1b95f2e3d4a870666ce7_f4ab931681945eeb6b5c63e8497861d6" />
+      <!-- <input type="hidden" name="__hash__" value="0ab92942e9ac1b95f2e3d4a870666ce7_f4ab931681945eeb6b5c63e8497861d6" /> -->
      </form> 
-     <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" /> 
-     <input type="hidden" value="" id="sessionid" /> 
+     <!-- <input type="hidden" id="txt_header_url" value="http://www.51oscar.com" />  -->
+     <!-- <input type="hidden" value="" id="sessionid" />  -->
      <span class="hotLink"> <a href="http://www.51oscar.com/movie/38040.html">横冲直撞好莱坞 </a> <a href="http://www.51oscar.com/album/1877.html">九部超级温馨又治愈的家庭类电影</a> <a href="http://www.51oscar.com/album/1895.html">十部高分冷门电影推荐</a> <a href="http://www.51oscar.com/album/1908.html">女生在成长路上必看的10部电影</a> <a href="http://www.51oscar.com/album/1921.html">九部电影帮你摆脱失落</a> </span> 
     </div> 
    </div> 
