@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>{{$tiezis->title}}</title>
@@ -22,6 +22,7 @@
 <script type="text/javascript" src="/assets/tiezi/js/jquery.cookie_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/common2_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/common_1.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -163,8 +164,7 @@ $(document).ready(function(){
         	<div class="cont">
             	<h1>{{$tiezis->title}}</h1>
                 <div class="titB clearfix">
-                    <div class="bshare-custom fL"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
-                    <a href="javascript:;" class="goToReply fR" title="回复" onclick="jumpTo('.user_sayBox')">回复</a>
+                    <wb:share-button appkey="3283407888" addition="number" type="button"></wb:share-button>
                 </div>
             </div>   
         </section>   
