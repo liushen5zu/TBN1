@@ -158,7 +158,7 @@ var URL = "http://www.51oscar.com/";
 
                 </p>
                 <p><em>上映时间 : </em>
-                {{substr($movie_detail['created_at'],0,10)}}（{{$movie_detail -> movie_cate->name}}）              /               2017-09-30（）              
+                {{substr($movie_detail['created_at'],0,10)}}（{{$movie_detail -> movie_cate->name}}）              /               2017-09-30              
                 </p>
                 <p><em>片长 : </em>
                  

@@ -137,7 +137,7 @@ var URL = "http://www.51oscar.com/";
 		$('#news').addClass('on');
 	}else if(/.com\/movie/.test(curr_url)){
 		$('#movie').addClass('on');
-	}else if(/.com\/review/.test(curr_url)){
+	}else if(/.com\/home\/review/.test(curr_url)){
 		$('#review').addClass('on');
 	}else if(/.com\/forum/.test(curr_url)){
 		$('#forum').addClass('on');

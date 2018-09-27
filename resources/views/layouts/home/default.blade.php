@@ -186,7 +186,7 @@ var URL = "http://www.51oscar.com/";
     $('#forum').addClass('on');
   }else if(/.com\/album/.test(curr_url)){
     $('#album').addClass('on');
-  }else if(/.com\/home\/activity\/list/.test(curr_url)){
+  }else if(/.com\/home\/activity/.test(curr_url)){
     $('#activity').addClass('on');
   }else if(/.com\/topic/.test(curr_url)){
     $('#topic').addClass('on');

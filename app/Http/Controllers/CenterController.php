@@ -195,6 +195,9 @@ class CenterController extends Controller
 
         return view('home.center.friendlist',compact('al_num','focus_num','focus_fsen','focus','user'));
     }
+
+    //我的粉丝
+    
    
 
     //个人空间影评添加
