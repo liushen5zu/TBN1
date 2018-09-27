@@ -169,6 +169,7 @@ Route::group([],function(){
 	Route::get('/home/myCenter','CenterController@myCenter');
 	Route::get('/home/tomycreation','CenterController@mycreation');
 	Route::get('/home/friendlist','CenterController@friendlist');
+	Route::get('/home/fanslist','CenterController@fanslist');
 	Route::get('/home/xiangmugl','CenterController@xiangmugl');
 	Route::get('/home/centercomment','CenterController@createcomment');
 	//修改个人信息

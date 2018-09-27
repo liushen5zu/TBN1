@@ -439,9 +439,9 @@ function onmore_content(_this){
             <div class="hot_movie">
                 <div class="box_title">
                     <div class="title_left movie_title">
-                        <a href="/home/tomycreation" class="a_cur" type="hot">我的影集</a>
+                        <a href="/home/tomycreation" type="hot">我的影集</a>
                         <a href="/home/friendlist" type="coming">我的关注</a>
-                        <a href="/home/fanslist" >我的粉丝</a>
+                        <a href="/home/fanslist" type="coming" class="a_cur">我的粉丝</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -451,7 +451,6 @@ function onmore_content(_this){
                 <script type="text/javascript">
 					$('.movie_title a').click(function(){
 						var index = $(this).index();
-
 						$(this).addClass('a_cur');
 						$(this).siblings().removeClass('a_cur');
 						if(index == 0){
@@ -463,25 +462,29 @@ function onmore_content(_this){
 						}						
 					});
 				</script>
-                <div class="hot_box" style="height:800px">
-                	<div class="hot">
-                		@foreach($album as $v)
-                		<div style="border:1px solid #eee;width:640px;height:180px">
-                			<a href="/home/album/{{$v['id']}}.html">
-                				<img src="{{$v['image']}}" style="height:170px;width:120px;padding-top: 5px;padding-right: 20px;float:right">
-                			</a>
-                			<h2 >
-                				<br>
-                				<a href="/home/album/{{$v['id']}}.html" style="font-size:20px;padding-top: 20px;padding-left: 20px;color:#444">{{$v['title']}}</a>
-                			</h2>
-
-                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">{{$v['introduce']}}</h5>
-                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">创建时间:{{$v['created_at']}}&nbsp;[收录4部电影]</h5>
-                		</div>
-                		@endforeach                		
+                <div class="hot_box">
+                	<div class="hot" style="display: none">
+                		<p></p>                		
                 	</div>
-                	<div class="coming" style="display: none">
-                		<p></p>
+                	<div class="coming">
+                		<ul style="width:650px;float:left">
+                			@foreach($fans as $v)
+                				
+                				<li style="width:90px;height:90px;border:0px solid #eee;margin:10px">
+
+                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><img style="width:60px;height:60px;border-radius:50%;" src="
+									@foreach($user as $val)
+                						@if($v['user_id']==$val['id'])
+											{{$val['image']}}
+										@endif
+									@endforeach
+                						"></div>
+                					<div>{{$v['user_username']}}</div>
+                				</li>
+                				
+                			@endforeach		
+                		</ul>
+						
                 	</div>
                 </div>
             </div>

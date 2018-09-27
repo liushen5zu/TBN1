@@ -197,7 +197,21 @@ class CenterController extends Controller
     }
 
     //我的粉丝
-    
+    public function fanslist(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的粉丝
+        $fans = Focus::where('author_id',session('id'))->get();
+        //用户信息
+        $user = User::all();
+
+        return view('home.center.fanslist',compact('al_num','focus_num','focus_fsen','fans','user'));
+    }
    
 
     //个人空间影评添加

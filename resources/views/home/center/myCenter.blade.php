@@ -664,7 +664,7 @@ function onmore_content(_this){
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
+                        <p><a href="/home/fanslist">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>
