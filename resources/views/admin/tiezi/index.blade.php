@@ -68,11 +68,11 @@
                         <th>
                             {{!empty($v->user->username) ? $v->user->username : '' }}
                         </th>
-                        <th style="width: 500px;">
+                        <th style="width: 200px;">
                             {{trim($v['title'])}}
                         </th>
-                        <th>
-                         {!!mb_substr($v['content'],205,20)!!} ...
+                        <th style="width: 200px;">
+                         {!!mb_substr($v['content'],160,20)!!} ...
                         </th>                        
                          <th>              
                             @if ($v['status']==0) 
@@ -110,9 +110,62 @@
                         </td>
                     </tr>
                     @endforeach
+                    <style>
+                    .pagination{
+                        padding-left: 0;
+                        margin: 1.5rem 0;
+                        list-style: none;
+                        color: #999;
+                        text-align: right;
+                        padding: 0;
+                    }
+
+                    .pagination li{
+                        display: inline-block;
+                    }
+
+                    .pagination li a, .pagination li span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                    }
+
+                    .pagination .active span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                        background: #23abf0;
+                        color: #fff;
+                        border: 1px solid #23abf0;
+                        padding: 6px 12px;
+                    }
+                </style>
+                <div class="am-cf">
+                    <div class="am-fr">
+                    </div>
+                </div>
+
                 </tbody>
             </table>
             <!-- 右侧内容框架，更改从这里结束 -->
           </div>
-        
+        {{ $tiezis->appends(request()->all())->links() }}
 @endsection

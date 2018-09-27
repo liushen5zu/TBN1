@@ -16,5 +16,13 @@ class Tiezi extends Model
         return $this->hasMany('App\Tcomment');
     }
     
-    
+    public function prev()
+    {
+        return Tiezi::where('id','<',$this->id)->orderBy('id','desc')->first();
+    }
+
+    public function next()
+    {
+        return Tiezi::where('id','>',$this->id)->orderBy('id','asc')->first();
+    }
 }

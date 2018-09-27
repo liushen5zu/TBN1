@@ -13,7 +13,7 @@
     .nav a.hotNavItem{position:relative;color: #f60;}
     .nav a.hotNavItem.on{position:relative;color: #fff;}
     .nav a.hotNavItem:hover{color: #fff;}
-    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot.png) no-repeat;}
+    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/ueditor/picture/logo.png) no-repeat;}
 /*  .nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
     .nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
     /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
@@ -45,8 +45,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-            <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="picture/logo.png" alt="大众影评网" /></a>
-            <a href="/">峰峰影评网</a>
+            <a href="http://www.51oscar.com" title="" target="_self"><img src="/ueditor/picture/logo.png" alt="" /></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -174,7 +173,7 @@ $(document).ready(function(){
                     <dd class="M fL">
                       <div class="T clearfix">
                           <div class="fL">
-                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
                               <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
 
                             </div>
@@ -204,8 +203,8 @@ $(document).ready(function(){
                     <dd class="M fL">
                       <div class="T clearfix">
                           <div class="fL">
-                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
-                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],76,30)!!} ...</p>
                             </div>
                             <div class="fR" style="width:60px">
                               <p><i class="man icon"></i><span style="width:40px">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
@@ -219,8 +218,64 @@ $(document).ready(function(){
                     </dd>
                     <dd class="R fR">{{$v['created_at']}}</dd>
                 </dl>
+                <div class="nextinfo newsview">
+        </div>    
               @endforeach
-            </div>    
+              <style>
+                    .pagination{
+                        padding-left: 0;
+                        margin: 1.5rem 0;
+                        list-style: none;
+                        color: #999;
+                        text-align: left;
+                        padding: 0;
+                    }
+
+                    .pagination li{
+                        display: inline-block;
+                    }
+
+                    .pagination li a, .pagination li span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                    }
+
+                    .pagination .active span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                        background: #23abf0;
+                        color: #fff;
+                        border: 1px solid #23abf0;
+                        padding: 6px 12px;
+                    }
+                </style>
+                <div class="am-cf">
+                    <div class="am-fr">
+                        {{ $tiezis1->appends(request()->all())->links() }}
+                    </div>
+                </div>
+            </div>
+            
         </section>
         <!--发表新帖 s-->
                  
