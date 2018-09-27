@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_3.png"></a>
+        <a href="/" class="logo"><img src="/ueditor/picture/logo.png"></a>
         <div class="menu_c">
       <a href="/">首页</a>
             <a href="/home/tiezis">贴吧</a>

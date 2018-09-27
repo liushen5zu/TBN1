@@ -45,6 +45,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
+
             <a href="http://www.51oscar.com" title="" target="_self"><img src="/ueditor/picture/logo.png" alt="" /></a>
         </div>
         <div class="searchBox fR">
@@ -288,7 +289,8 @@ $(document).ready(function(){
                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
-                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">6+56+56+65+</script>
+                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">
+                  </script>
                  <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
                  {{method_field('')}}
                   {{csrf_field()}}

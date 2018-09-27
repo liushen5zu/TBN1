@@ -75,9 +75,12 @@ Route::group([],function(){
 	Route::get('/tiezi/{id}/pt','tieziController@pt');//精选
 	//Ajax 验证
 	Route::post('/ajax/password','AjaxController@password');//修改密码-检测原密码
+
+	//特约影评人
+	Route::resource('movieCritic','MovieCriticController');
+
 	Route::post('/ajax/username','AjaxController@zc_username');//检测用户名是否存在
 	Route::post('/ajax/code','AjaxController@phone_code');//手机验证吗验证
-
 });
 
 
@@ -127,6 +130,8 @@ Route::group([],function(){
 	Route::get('/home/review/{id}.html','home\HomeReviewController@show');
 	//电影评论增加
 	Route::post('/home/movieDetailsComment','HomeMovieDetailCommentController@create');
+	//影评人
+	Route::get('/home/movieMovieCritic','home\HomeMovieCriticController@index');
 
 	//影集(主页)
 	Route::get('/home/album','home\HomeAlbumController@index');
