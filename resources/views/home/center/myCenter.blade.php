@@ -470,13 +470,7 @@ function onmore_content(_this){
 					});
 				</script>
                 <div class="hot_box">
-                	<div class="hot">
-
-                		<p>aaa</p>                		
-                	</div>
-                	<div class="coming" style="display: none">
-                		<p>bbb</p>
-
+                	<div class="hot">        
                 		<section class="hotMovie wp">
 						    <div class="picScroll">
 						        <div class="hd">
@@ -593,7 +587,7 @@ function onmore_content(_this){
 						{{$v->content}}		
 						</dd>		
 						<dd class="dis_line3">
-							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
+							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
 						</dd>		
 						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
 					</dl>	
@@ -615,13 +609,14 @@ function onmore_content(_this){
 						{{$val->content}}
 						</dd>		
 						<dd class="dis_line3">
-							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="reply_b">回复</a>
+							<a href="javascript:;" class="useful" onclick="PostComment.clickGood(this)" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0">赞</a><span class="goodCount">0</span><a id="reply" class="date-dz-pl pl-hf hf-con-block pull-left">回复</a>
 						</dd>		
 						<div class="replay_c replay_content"><p>你的回应...</p><p class="content"><textarea></textarea></p><p style="text-align:right"><input type="button" value="加上去" user_id="428121" movie_id="24694" pid="12996" comment_id="12996" son_id="0" onclick="PostComment.clickPost(this);"></p></div><!--子评论--><div class="son_comment" id="son0"><div id="innerPage0" class="page_turn" data-pid="12996"></div></div>	
 					</dl>
 					@endforeach
 				</div>
 				<script type="text/javascript">
+					//切换随便看看
 					$('.nav_title_left a').click(function(){
 						var index = $(this).index();
 						console.log(index);
