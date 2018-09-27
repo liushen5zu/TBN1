@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-            <a href="http://www.51oscar.com" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a>
+           <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
