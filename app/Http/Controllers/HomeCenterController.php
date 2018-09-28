@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\AlDetail;
 use App\Image_movie_detail;
+use App\Movie_comment;
 use App\Movie_detail;
 use Illuminate\Http\Request;
 
