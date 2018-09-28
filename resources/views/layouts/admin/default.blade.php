@@ -226,6 +226,21 @@
                     <li class="list">
                         <a href="javascript:;">
                         <i class="iconfont">&#xe6a3;</i>
+                        网站配置
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="/al_detail">
+                                <i class="iconfont">&#xe6a7;</i>
+                                配置列表
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list">
+                        <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
                         系统统计
                         <i class="iconfont nav_right">&#xe697;</i>
                     </a>

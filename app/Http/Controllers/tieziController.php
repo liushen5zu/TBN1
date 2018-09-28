@@ -20,7 +20,7 @@ class tieziController extends Controller
     {
         $tiezis = Tiezi::orderBy('id','desc')
             ->where('title','like','%'.request()->keywords.'%')
-            ->get();
+            ->paginate(16);
        
         //解析模板显示用户数据
         return view('admin.tiezi.index',compact('tiezis'));
@@ -135,7 +135,7 @@ class tieziController extends Controller
      public function list(Request $request)
     {
          $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','1')->get();
-         $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->get();
+         $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->paginate(16);
         $movie_details= Movie_detail::all();
 
        
@@ -148,7 +148,9 @@ class tieziController extends Controller
 /*
         if(empty($articles)){
             $articles = Article::orderBy('id','desc')->paginate(10);*/
-        
+         if(empty($tiezis1)){
+             $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->paginate(1);
+        }
 
         return view('home.tiezi.list', compact('tiezis','tiezis1','movie_details'));
     }

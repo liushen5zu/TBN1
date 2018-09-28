@@ -55,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
+        <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         <div class="menu_c">
 			<a href="/">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>

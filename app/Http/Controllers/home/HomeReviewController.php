@@ -44,7 +44,8 @@ class HomeReviewController extends Controller
         $rview = Rview::all();
         $movie = Movie_detail::all();
         $activity = Activity::orderBy("id",'desc')->paginate(4);
-    	return view('home.review.show',compact('Movie_comments','rview','movie','activity'));
+        $reply = Reply::where('review_id',29)->get();
+    	return view('home.review.show',compact('Movie_comments','rview','movie','activity','reply'));
     }
 
     public function create($id,Request $request)
@@ -52,7 +53,7 @@ class HomeReviewController extends Controller
         // dd($request);
         $reply = new Reply;
         $reply -> content = $request -> content;
-        $reply -> rview_id = $request -> rview_id;
+        $reply -> review_id = $request -> review_id;
         // dd($id);
         $reply -> user_id = session('id');
         // dd(session('id'));

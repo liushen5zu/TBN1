@@ -15,7 +15,7 @@ class CreateAlcommentsTable extends Migration
     {
         Schema::create('alcomments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->comment('用户名');
+            $table->string('user_id')->comment('用户id');
             $table->string('al_detail_id')->comment('影集id');
             $table->string('content')->comment('评论内容');            
             $table->timestamps();
