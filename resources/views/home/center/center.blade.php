@@ -366,91 +366,13 @@ $(document).ready(function(){
             <i class="line"></i><a href="http://www.51oscar.com/review.html" title="新片影评" target="_blank">新片影评<em>>></em></a>
         </div>
         <div class="commBox clearfix">
-        <dl class="hotComm">
-                  <dt>
-                      <a href="/movie/39246.html" title="猩球崛起3：终极之战 " target="_blank" >
-                          <img class="lazyImg  imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/Movie/Poster/59acd0bc393cc.jpg" width="98" height="138" alt="猩球崛起3：终极之战 " />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12994.html" title="《猩球崛起3：终极之战 》影评：回归感情——终极圆满" target="_blank" >回归感情——终极圆满</a></p>
-                      <p class="m">&nbsp; &nbsp; 万众期待，《猩球崛起3》终于姗姗来迟，和前两部一样的是，本部影片继续...</p>
-                      <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >没有杀伤</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39246.html" title="猩球崛起3：终极之战 " target="_blank" >《猩球崛起3...》</a></p>
-                  </dd>
-                </dl><dl class="hotComm">
-                  <dt>
-                      <a href="/movie/39195.html" title="鲛珠传 " target="_blank" >
-                          <img class="lazyImg  imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/Movie/Poster/597ec5e024abf.png" width="98" height="138" alt="鲛珠传 " />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12992.html" title="《鲛珠传 》影评：《鲛珠传》------华丽的空洞" target="_blank" >《鲛珠传》------华丽的空洞</a></p>
-                      <p class="m">导演杨磊应该是对“九州”这个概念有所迷恋和执念的，拍完了电视剧《九州·天空城》，又趁着热度未减，...</p>
-                      <p class="b"><a class="user" href="/someone/428136.html" title="听风过林" target="_blank" >听风过林</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39195.html" title="鲛珠传 " target="_blank" >《鲛珠传 》</a></p>
-                  </dd>
-                </dl>       
-        
         <dl class="comm">
-                  <dt>
-                      <a href="/someone/428141.html" title="泣之雷" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150539811440762.jpg" width="40" height="40" alt="泣之雷" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12991.html" title="《战狼2 》影评：那他妈是从前" target="_blank" >那他妈是从前</a></p>
-                      <p class="b"><a class="user" href="/someone/428141.html" title="泣之雷" target="_blank" >泣之雷</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39177.html" title="战狼2 " target="_blank" >《战狼2 》</a></p>
-                  </dd>
-                </dl><dl class="comm">
-                  <dt>
-                      <a href="/someone/428136.html" title="听风过林" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150527693166067.jpg" width="40" height="40" alt="听风过林" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12990.html" title="《长城 》影评：《长城》-----中国元素插上好莱坞特效的翅膀" target="_blank" >《长城》-----中国元素插上好莱坞特效的翅膀</a></p>
-                      <p class="b"><a class="user" href="/someone/428136.html" title="听风过林" target="_blank" >听风过林</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/38931.html" title="长城 " target="_blank" >《长城 》</a></p>
-                  </dd>
-                </dl><dl class="comm">
-                  <dt>
-                      <a href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150347529935731.jpg" width="40" height="40" alt="没有杀伤力的板砖" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12988.html" title="《鲛珠传 》影评：" target="_blank" ></a></p>
-                      <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >没有杀伤力</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39195.html" title="鲛珠传 " target="_blank" >《鲛珠传 》</a></p>
-                  </dd>
-                </dl><dl class="comm">
-                  <dt>
-                      <a href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150347529935731.jpg" width="40" height="40" alt="没有杀伤力的板砖" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12983.html" title="《三生三世十里桃花 》影评：没有突破的“美”行不通" target="_blank" >没有突破的“美”行不通</a></p>
-                      <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >没有杀伤力</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39183.html" title="三生三世十里桃花 " target="_blank" >《三生三世十里桃花...》</a></p>
-                  </dd>
-                </dl><dl class="comm">
-                  <dt>
-                      <a href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150347529935731.jpg" width="40" height="40" alt="没有杀伤力的板砖" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12973.html" title="《战狼2 》影评：了解了观众就是成功" target="_blank" >了解了观众就是成功</a></p>
-                      <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >没有杀伤力</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39177.html" title="战狼2 " target="_blank" >《战狼2 》</a></p>
-                  </dd>
-                </dl><dl class="comm">
-                  <dt>
-                      <a href="/someone/428095.html" title="蜉蝣梦" target="_blank" >
-                          <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Public/Home/images/touxiang_18.jpg" width="40" height="40" alt="蜉蝣梦" />
-                      </a>
-                  </dt>    
-                  <dd>
-                      <p class="t"><a href="/review/12965.html" title="《战狼2 》影评：战狼，我有一个从军的梦" target="_blank" >战狼，我有一个从军的梦</a></p>
-                      <p class="b"><a class="user" href="/someone/428095.html" title="蜉蝣梦" target="_blank" >蜉蝣梦</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39177.html" title="战狼2 " target="_blank" >《战狼2 》</a></p>
-                  </dd>
-                </dl>    
+            <dt>
+                <a href="/someone/428141.html" title="泣之雷" target="_blank" >
+                    <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150539811440762.jpg" width="40" height="40" alt="泣之雷" />
+                </a>
+            </dt>    
+        </dl>
         </div>
     </section><!--新片影评 e-->
     
