@@ -14,8 +14,10 @@ use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\Hash;  
 use Illuminate\Support\Facades\Mail; 
+
 
 class CenterController extends Controller
 {
@@ -65,7 +67,7 @@ class CenterController extends Controller
     public function sendemail(Request $request)
     {
            
-            Mail::send('emails', ['url' =>'jun.laravel.com/home/email', 'name' =>'llll'], function ($message) 
+            Mail::send('emails', ['url' =>'tbn1.com/home/email', 'name' =>'llll'], function ($message) 
             {
                  $message->from('admin@lslzf.com', 'llll');
                  $message->to('852415433@qq.com');

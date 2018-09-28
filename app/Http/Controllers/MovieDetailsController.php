@@ -22,7 +22,7 @@ class MovieDetailsController extends Controller
         
         $movie_details = Movie_detail::orderBy('id','desc')
             ->where('name','like', '%'.request()->keywords.'%')
-            ->paginate(3);
+            ->paginate(10);
         //通过属于关系获取导
         //$data = Movie_detail::find(1)->Movie_cate()->get();
         return view ('admin.movie_details.index',compact('movie_details','director'));
