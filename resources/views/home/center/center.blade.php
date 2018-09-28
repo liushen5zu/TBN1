@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-           <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
+           <a href="/" class="logo" ><img src="/ueditor/picture/logo.png" alt="电影王国" /></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -108,6 +108,21 @@ var _hmt = _hmt || [];
 
     </nav>
 </section>
+<style>
+.goTopBox {
+    color: #999999;
+    font-size: 14px;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    text-align: center;
+    display: none;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-238));
+    _right: 10px;
+    z-index: 9999999;
+}
+</style>
 <script>
 var URL = "http://www.51oscar.com/";
 

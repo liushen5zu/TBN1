@@ -12,7 +12,7 @@
     .nav a.hotNavItem{position:relative;color: #f60;}
     .nav a.hotNavItem.on{position:relative;color: #fff;}
     .nav a.hotNavItem:hover{color: #fff;}
-    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(images/hot_1.png) no-repeat;}
+    .nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/ueditor/picture/logo.png) no-repeat;}
 /*  .nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
     .nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
     /*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
@@ -272,31 +272,36 @@ $(document).ready(function(){
         <!--发表新帖 e-->
         
     </section><!--leftWp e-->
-    <aside class="rightWp fR">
+            <aside class="rightWp fR">
         <section class="hotTalk">
             <div class="title clearfix">
-                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热门讨论" >热门讨论<em>>></em></a>
+                <i class="info2 icon"></i><a href="http://tbn1.com/home/review" title="热们影评" >热门影评<em>>></em></a>
             </div>
+            @foreach($movie_comments as $v)
             <div class="cont clearfix">
                 <ul>
-                   <li><a href="/forum/2564.html" title="成人版《阿凡达》、AV版《复联》、毁童年版《蓝精灵》" target="_blank" >成人版《阿凡达》、AV版《复联》...</a></li><li><a href="/forum/2318.html" title="真实的龙母，《权力的游戏》中最美的裸体" target="_blank" >真实的龙母，《权力的游戏》中最美...</a></li><li><a href="/forum/1329.html" title="美国队长才排32位？超级英雄们的战斗指数排行榜" target="_blank" >美国队长才排32位？超级英雄们的...</a></li><li><a href="/forum/782.html" title="影史上多部B级片海报鉴赏 色情暴力香艳杀人魔" target="_blank" >影史上多部B级片海报鉴赏 色情暴...</a></li><li><a href="/forum/1441.html" title="欧美大尺度伦理片 只有想不到没有“露”不出" target="_blank" >欧美大尺度伦理片 只有想不到没有...</a></li><li><a href="/forum/2932.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank" >【需求贴】如有资源需求，请在本贴...</a></li><li><a href="/forum/3946.html" title="漫威双棍三人组：黑寡妇、夜魔侠和仿声鸟" target="_blank" >漫威双棍三人组：黑寡妇、夜魔侠和...</a></li><li><a href="/forum/3288.html" title="《破风》金句，献给所有为梦想不断打拼的你" target="_blank" >《破风》金句，献给所有为梦想不断...</a></li><li><a href="/forum/4111.html" title="汤姆克鲁斯年轻时候美如冠玉温文尔雅" target="_blank" >汤姆克鲁斯年轻时候美如冠玉温文尔...</a></li><li><a href="/forum/621.html" title="电影《烂滚夫斗烂滚妻》重口味剧照 SM制服控爆乳性器官派对" target="_blank" >电影《烂滚夫斗烂滚妻》重口味剧照...</a></li>                </ul>
+                   <li>
+                        <a href="/home/review/{{$v['id']}}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
+                    </li>
+                   </ul>
             </div>
+            @endforeach
         </section><!--热门讨论 e-->
                 
         <section class="hotMovie">
             <div class="title clearfix">
-                <i class="movie icon"></i><a href="/movie/search.html" title="热映影片" >热映影片<em>>></em></a>
+                <i class="movie icon"></i><a href="/home/movieDetails" title="热映影片" >热映影片<em>>></em></a>
             </div>
             @foreach($movie_details as $v)
             <div class="cont clearfix">
              <dl class="clearfix">
                     <dt>
-                        <a href="/movie/39278.html" title="{{$v->name}}" target="_blank" >
+                        <a href="/home/{{$v['id']}}.html" title="{{$v->name}}" target="_blank" >
                             <img class="lazyImg pic imgBorder" src="{{$v->image}}"width="98" height="138" alt="{{$v->name}}" />
                         </a>
                     </dt>    
                     <dd>
-                        <a class="t" href="/movie/39278.html" title="{{$v->name}}" target="_blank" >{{$v->name}}</a>
+                        <a class="t" href="/home/{{$v['id']}}.html" title="{{$v->name}}" target="_blank" >{{$v->name}}</a>
                         <p>导演：<em>{{$v->director_name->name}}</em></p>
                         <p>类型：<em>{{$v->movie_cate->name}}</em></p>
                         <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
@@ -305,6 +310,7 @@ $(document).ready(function(){
             </div>
             @endforeach
         </section><!--热映影片 e-->
+    </aside>
     </aside><!--rightWp e-->
 </section>
 <!--主体部分 e-->

@@ -65,7 +65,7 @@ var _hmt = _hmt || [];
   @section('header')
    <section class="wp clearfix"> 
     <div class="fL"> 
-     <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/ueditor/picture/wx_1.jpg" alt="大众影评网微信公众号" /></span> 
+     <span class="weixin"><i class="icon_QR icon"></i>微信扫一扫，精彩电影资讯随身看<img class="show" src="/ueditor/picture/10.png" alt="大众影评网微信公众号" /></span> 
     </div> 
 
     
