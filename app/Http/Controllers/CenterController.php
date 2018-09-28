@@ -10,7 +10,8 @@ use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail; 
 
 class CenterController extends Controller
 {
@@ -49,8 +50,24 @@ class CenterController extends Controller
     }
     public function mima(Request $request)
     {
+        return view('home.center.email');
+        
+    }
+      public function email(Request $request)
+    {
         return view('home.center.mima');
         
+    }
+    public function sendemail(Request $request)
+    {
+           
+            Mail::send('emails', ['url' =>'www.lzf.com/home/email', 'name' =>'llll'], function ($message) 
+            {
+                 $message->from('admin@lslzf.com', 'llll');
+                 $message->to('852415433@qq.com');
+                $message->subject('Hello World');
+                });
+            return view('home.center.emailm');
     }
     //密码修改
     public function mimagx(Request $request)

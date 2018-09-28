@@ -159,7 +159,10 @@ Route::group([],function(){
 	//个人中心
 	Route::get('/home/center','CenterController@index');
 	Route::get('/home/jiben','CenterController@jiben');
-	Route::get('/home/mima','CenterController@mima');
+	Route::get('/home/email','CenterController@email');//修改密码界面
+	Route::get('/send/email','CenterController@sendemail');//发送邮件
+
+	Route::get('/home/mima','CenterController@mima');//密码邮件页面
 	Route::post('/home/mimagx','CenterController@mimagx');
 	Route::get('/home/touxiang','CenterController@touxiang');
 	Route::post('/home/txgx','CenterController@txgx');
