@@ -65,7 +65,7 @@ class CenterController extends Controller
     public function sendemail(Request $request)
     {
            
-            Mail::send('emails', ['url' =>'www.lzf.com/home/email', 'name' =>'llll'], function ($message) 
+            Mail::send('emails', ['url' =>'jun.laravel.com/home/email', 'name' =>'llll'], function ($message) 
             {
                  $message->from('admin@lslzf.com', 'llll');
                  $message->to('852415433@qq.com');
