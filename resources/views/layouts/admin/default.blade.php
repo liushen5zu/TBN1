@@ -137,6 +137,15 @@
                                 影评评论列表
                             </a>
                             </li>
+                        </ul>
+                    </li>
+                     <li class="list">
+                        <a href="javascript:;">
+                        <i class="iconfont">&#xe6a3;</i>
+                        影评人管理
+                        <i class="iconfont nav_right">&#xe697;</i>
+                    </a>
+                        <ul class="sub-menu">
                             <li>
                                 <a href="/movieCritic">
                                 <i class="iconfont">&#xe6a7;</i>
