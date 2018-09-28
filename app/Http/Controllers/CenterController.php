@@ -16,7 +16,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail; 
-use Illuminate\Support\Facades\Hash;  
 
 class CenterController extends Controller
 {
@@ -121,7 +120,8 @@ class CenterController extends Controller
 
     public function rongyu(Request $request)
     {
-       return view('home.center.rongyu'); 
+         $levels = Level::where('user_id',session('id'))->first();
+       return view('home.center.rongyu',compact('levels')); 
     }
 
     public function xiaoxi(Request $request)
