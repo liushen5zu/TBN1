@@ -161,7 +161,7 @@ $(document).ready(function(){
                 <a class="tit_latest" href="/home/tiezi/zuixin" title="最新" target="_self" >最新</a>
                 <a class="tit_good" href="/home/tiezi/jinghua" title="精华" target="_self">精华</a>
                 <i id="moveLine"></i>
-                <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
+                <button id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 0px -254px">我要发帖</button>
             </div>
             <div id="listBox" class="listBox">
              @foreach($tiezis as $v)
@@ -172,8 +172,8 @@ $(document).ready(function(){
                     <dd class="M fL">
                       <div class="T clearfix">
                           <div class="fL">
-                              <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
-                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
+                              <a href="/home/tiezi/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
+                              <p>{!!mb_substr($v['content'],500,30)!!} ...</p>
                             </div>
                             <div class="fR">
                               <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>
@@ -188,6 +188,59 @@ $(document).ready(function(){
                     <dd class="R fR"></dd>
                 </dl>
               @endforeach
+               <style>
+                    .pagination{
+                        padding-left: 0;
+                        margin: 1.5rem 0;
+                        list-style: none;
+                        color: #999;
+                        text-align: left;
+                        padding: 0;
+                    }
+
+                    .pagination li{
+                        display: inline-block;
+                    }
+
+                    .pagination li a, .pagination li span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                    }
+
+                    .pagination .active span{
+                        color: #23abf0;
+                        border-radius: 3px;
+                        padding: 6px 12px;
+                        position: relative;
+                        display: block;
+                        text-decoration: none;
+                        line-height: 1.2;
+                        background-color: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 0;
+                        margin-bottom: 5px;
+                        margin-right: 5px;
+                        background: #23abf0;
+                        color: #fff;
+                        border: 1px solid #23abf0;
+                        padding: 6px 12px;
+                    }
+                </style>
+                <div class="am-cf">
+                    <div class="am-fr">
+                        {{ $tiezis->appends(request()->all())->links() }}
+                    </div>
+                </div>
             </div>    
         </section>
         <!--发表新帖 s-->
@@ -202,7 +255,7 @@ $(document).ready(function(){
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
                  <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
                  <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;"></script>
-                 <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button>
+<!--                  <button style=" display: block; width: 110px; height:32px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="我要发帖"></button> -->
                  {{method_field('')}}
                   {{csrf_field()}}
                  <script>

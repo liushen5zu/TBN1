@@ -164,7 +164,7 @@ $(document).ready(function(){
                 <a class="tit_latest" href="/home/tiezi/zuixin" title="最新" target="_self" >最新</a>
                 <a class="tit_good" href="/home/tiezi/jinghua" title="精华" target="_self">精华</a>
                 <i id="moveLine"></i>
-                <a id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</a>
+<!--                 <button id="wantPost" tyle="button" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 0px -254px"></a> -->
             </div>
             <div id="listBox" class="listBox">
                @foreach($tiezis as $v)
@@ -309,12 +309,17 @@ $(document).ready(function(){
     <aside class="rightWp fR">
         <section class="hotTalk">
             <div class="title clearfix">
-                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热门讨论" >热门讨论<em>>></em></a>
+                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热们影评" >热门影评<em>>></em></a>
             </div>
+            @foreach($movie_comments as $v)
             <div class="cont clearfix">
                 <ul>
-                   <li><a href="/forum/2564.html" title="成人版《阿凡达》、AV版《复联》、毁童年版《蓝精灵》" target="_blank" >成人版《阿凡达》、AV版《复联》...</a></li><li><a href="/forum/2318.html" title="真实的龙母，《权力的游戏》中最美的裸体" target="_blank" >真实的龙母，《权力的游戏》中最美...</a></li><li><a href="/forum/1329.html" title="美国队长才排32位？超级英雄们的战斗指数排行榜" target="_blank" >美国队长才排32位？超级英雄们的...</a></li><li><a href="/forum/782.html" title="影史上多部B级片海报鉴赏 色情暴力香艳杀人魔" target="_blank" >影史上多部B级片海报鉴赏 色情暴...</a></li><li><a href="/forum/1441.html" title="欧美大尺度伦理片 只有想不到没有“露”不出" target="_blank" >欧美大尺度伦理片 只有想不到没有...</a></li><li><a href="/forum/2932.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank" >【需求贴】如有资源需求，请在本贴...</a></li><li><a href="/forum/3946.html" title="漫威双棍三人组：黑寡妇、夜魔侠和仿声鸟" target="_blank" >漫威双棍三人组：黑寡妇、夜魔侠和...</a></li><li><a href="/forum/3288.html" title="《破风》金句，献给所有为梦想不断打拼的你" target="_blank" >《破风》金句，献给所有为梦想不断...</a></li><li><a href="/forum/4111.html" title="汤姆克鲁斯年轻时候美如冠玉温文尔雅" target="_blank" >汤姆克鲁斯年轻时候美如冠玉温文尔...</a></li><li><a href="/forum/621.html" title="电影《烂滚夫斗烂滚妻》重口味剧照 SM制服控爆乳性器官派对" target="_blank" >电影《烂滚夫斗烂滚妻》重口味剧照...</a></li>                </ul>
+                   <li>
+                        <a href="/home/review/{id}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
+                    </li>
+                   </ul>
             </div>
+            @endforeach
         </section><!--热门讨论 e-->
                 
         <section class="hotMovie">
