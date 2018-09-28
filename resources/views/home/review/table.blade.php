@@ -63,17 +63,7 @@ var _hmt = _hmt || [];
 </section>
 <section class="nav">
 	<nav class="wp clearfix">
-    	<a href="http://www.51oscar.com" title="首页" target="_self" id="home">首页</a>
-        <a class="hotNavItem icon_hot" href="http://www.51oscar.com/forum.html" target="_self" id="forum">贴吧<span></span></a>
-        <a class="hotNavItem" href="http://www.51oscar.com/review.html" target="_self" id="review">影评</a>
-        <a href="http://www.51oscar.com/movie.html" target="_self" id="movie">电影</a>
-        <a href="http://www.51oscar.com/album.html" target="_self" id="album">影集</a>
-        <a href="http://www.51oscar.com/activity.html" target="_self" id="activity">活动</a>
-
-        <a class="sNavItem" href="http://www.51oscar.com/news.html" target="_self" id="news">资讯</a>
-        <a class="sNavItem" href="http://www.51oscar.com/topic.html" target="_self" id="topic">专题</a>
-        <a class="sNavItem" href="http://www.51oscar.com/zhongchou.html" target="_self" id="zhongchou">众筹</a>
-
+    	@include('layouts.home.list')
     </nav>
 </section>
 <script>
@@ -185,10 +175,10 @@ $(document).ready(function(){
         <!--影评列表 e-->
         @endforeach
        <section class="loadNextPage">
-            <img src="picture/loading.gif" alt="loading" />加载中……
+            <img src="picture/loading.gif" alt="loading" />
         </section>
                <div class="pagination">
-        	   &nbsp;<span class='current'>1</span>&nbsp;<a href='/review/table/p/2.html'>&nbsp;2&nbsp;</a>&nbsp;<a href='/review/table/p/3.html'>&nbsp;3&nbsp;</a>&nbsp;<a href='/review/table/p/4.html'>&nbsp;4&nbsp;</a>&nbsp;<a href='/review/table/p/5.html'>&nbsp;5&nbsp;</a>   <a href='/review/table/p/2.html'>下一页</a>   <span style="color:black;">第 1/1131 页</span>        </div>	
+        	   &nbsp;<span class='current'>1</span>&nbsp;<a href='/review/table/p/2.html'>&nbsp;2&nbsp;</a>&nbsp;<a href='/review/table/p/3.html'>&nbsp;3&nbsp;</a>&nbsp;<a href='/review/table/p/4.html'>&nbsp;4&nbsp;</a>&nbsp;<a href='/review/table/p/5.html'>&nbsp;5&nbsp;</a>   <a href='/review/table/p/2.html'>下一页</a>   <span style="color:black;">第 1/1 页</span>        </div>	
     </section><!--leftWp e-->
     <aside class="rightWp fR">
         
@@ -221,83 +211,6 @@ $(document).ready(function(){
 
 </section>
 <!--主体部分 e-->
-<script type="text/javascript">
-	
-var p=1;//第一次滚动，显示第二页的数据
-var mark_croll=1;//除了第一页之外，其他页都不滚动
-if(mark_croll != 0){
-	$(window).bind("scroll",function(){
-		if($(document).scrollTop() + $(window).height() > $("#newsListBox").offset().top+$("#newsListBox").height()&& p<3){
-			setTimeout(loadNews,100);
-		}
-	});
-}
-
-function loadNews(){
-	$(".loadNextPage").css("display","display");
-	var lock = false;
-	if(lock) return; 
-	if(p>=3) return;//只滚动两次
-	$.ajax({
-		url:'/Review/ajaxList/p/'+p,
-		type:'get',
-		dataType:'json',
-		async: false,
-		success:function(data){
-			lock=true;
-			var data=data.data;
-	      	if(data==null){
-	    		$(".loadNextPage").css("display","none");
-             	return false;
-	      	}
-		  	var newElements = '';
-		    for(var i=0;i<data.length;i++){
-			     var d=new Date(data[i].m_time * 1000);  
-				 var date_f=formatDate(d);
-				 newElements +='<dl class="reviItem clearfix">'+
-							   '<dt><a href="/movie/'+data[i].movie_id+'.html" target="_blank"><img class="lazyImg imgBorder" src="'+data[i].img_poster+'"data-src="'+data[i].img_poster+'" width="110px" height="150px" alt="'+data[i].movie_name+'"/></a></dt>'+                
-							   '<dd>'+
-							   '<p class="t"><a href="/review/'+data[i].id+'.html" title="《'+data[i].movie_name+'》 影评：'+data[i].title+'">《'+data[i].movie_name+'》 影评：'+data[i].title+'</a></p>'+
-							   '<p><a href="/someone/'+data[i].user_id+'.html" target="_blank">'+data[i].nick_name+'</a>&nbsp;&nbsp;发表于：<time>'+date_f+'</time></p>'+
-							   '<p class="txt">'+data[i].content+'</p>'+
-							   '</dd>'+
-							   '</dl>';
-							  
-            }
-            $("#newsListBox").append(newElements);
-			p+=1;
-				if(p>=3){
-					$(".loadNextPage").css("display","none");
-					$(".pagination span:first").remove();
-				    $('.pagination a:first').before("<a href='/review/table/p/1.html'>&nbsp;1&nbsp;</a>");
-					$("[href='/review/table/p/3.html']").addClass('current');
-				}
-		},
-	   
-	   complete:function(){
-		   lock = false;
-	   } 	
-	});
-}
-
-//在js中时间戳转换成时间
-	function formatDate(now){     
- 		              var   year=now.getFullYear();     
- 		              var   month=now.getMonth()+1;     
- 		              var   date=now.getDate();     
- 		              var   hour=now.getHours();     
- 		              var   minute=now.getMinutes();    
- 		              return   year+"-"+month+"-"+date+"   "+hour+":"+minute;     
- 		              }
-
-//播放热映影片预告片
-$(".trailer").click(function(){		
-	showSwf.show($(this).attr("data-trailer"));	
-});
-
-	scrollFixed(".hotMovie","#footer",40);
-
-</script>
 
 <!-- 隐藏信息  --> 
 <input type='hidden' id='txt_header_url' value="http://www.51oscar.com" />

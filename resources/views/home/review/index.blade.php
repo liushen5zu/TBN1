@@ -182,16 +182,15 @@ $(document).ready(function(){
 
         <!--特约影评人 s-->
         <section class="inviReview">
-          @foreach($critic as $v)
             <div class="title">
                 特约影评人
             </div>
 			<div class="cont clearfix">
             	<div class="reviewer fL">
-            		<p class="t"><a href="/someone/2630.html" target="_blank" title="" ><img class="imgBorder" src="{{$v->user->image}}" alt="游礁"></a><a class="c_f60" href="/someone/2630.html" target="_blank" title="" >{{$v->user->username}}</a></p>
-                    <p class="b">贡献&nbsp;&nbsp;发表了<a class="c_f60" href="javascript:viod(0);" target="_blank" title="" >42</a>条精华影评&nbsp;&nbsp;<a class="c_f60" href="/someone/2630.html" target="_blank" title="" >去看看>></a></p>
+            		<p class="t"><a href="/someone/2630.html" target="_blank" title="" ><img class="imgBorder" src="{{$critic->user->image}}" alt="游礁"></a><a class="c_f60" href="/someone/2630.html" target="_blank" title="" >{{$critic->user->username}}</a></p>
+                    <p class="b">贡献&nbsp;&nbsp;发表了<a class="c_f60" href="javascript:viod(0);" target="_blank" title="" >{{$num}}</a>条精华影评&nbsp;&nbsp;<a class="c_f60" href="/someone/2630.html" target="_blank" title="" >去看看>></a></p>
                 </div>
-          @endforeach
+
           
             	<div class="latestRevi fR">
             		<dl>

@@ -21,11 +21,13 @@ class HomeReviewController extends Controller
         ->where('star','like','%'.request()->keywords.'%')
         ->paginate(5);
         $movie = Movie_detail::all();
-        $critic = movieCritic::all();
-        $critic_comment = Movie_comment::where('user_id',2)->get();
+        $critic = movieCritic::first();
+        $id = $critic -> user_id;
+        $critic_comment = Movie_comment::where('user_id',$id)->get();
+        $num = count(Movie_comment::where('user_id',$id)->get());
         $activity = Activity::orderBy("id",'desc')->paginate(4);
         // dd($critic_comment);
-    	return view('home.review.index',compact('Movie_comments','movie','critic','critic_comment','activity'));
+    	return view('home.review.index',compact('Movie_comments','movie','critic','critic_comment','activity','num'));
     }
 
     public function table()
@@ -33,8 +35,10 @@ class HomeReviewController extends Controller
     	$Movie_comments = Movie_comment::orderBy('id','desc')
         ->where('star','like','%'.request()->keywords.'%')
         ->paginate(5);
+        $activity = Activity::orderBy("id",'desc')->paginate(4);       
+        $movie = Movie_detail::all();
         // dd($data);
-    	return view('home.review.table',compact('Movie_comments'));
+    	return view('home.review.table',compact('Movie_comments','activity','movie'));
     }
 
     public function show($id)
