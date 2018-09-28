@@ -81,7 +81,7 @@ var URL = "http://www.51oscar.com/";
 <!--header与个人中心的一样,略作修改，css放在common里-->
 <header class="top">
     <div class="menu">
-        <a href="#" class="logo"><img src="/ueditor/picture/logo.png"></a>
+        <a href="#" class="logo"><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         <div class="menu_c">
             <a href="http://www.51oscar.com">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>

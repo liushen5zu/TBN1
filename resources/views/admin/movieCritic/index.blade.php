@@ -55,7 +55,7 @@
                             {{$v->id}}
                         </td>
                         <td >
-                            {{$v->user_id}}
+                            {{$v->user->username}}
                         </td>
                         <td class="td-manage">
                             <form method="post" action="/movieCritic/{{$v->id}}" style="float:left">

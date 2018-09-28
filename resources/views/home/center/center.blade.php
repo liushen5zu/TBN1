@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
     <div class="wp clearfix">
         <div class="logo fL">
-           <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
+           <a href="/" class="logo" ><img src="/ueditor/picture/logo.png" alt="电影王国" /></a>
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -108,6 +108,21 @@ var _hmt = _hmt || [];
 
     </nav>
 </section>
+<style>
+.goTopBox {
+    color: #999999;
+    font-size: 14px;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    text-align: center;
+    display: none;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-238));
+    _right: 10px;
+    z-index: 9999999;
+}
+</style>
 <script>
 var URL = "http://www.51oscar.com/";
 
@@ -304,8 +319,8 @@ $(document).ready(function(){
                 <a href="http://www.51oscar.com/forum/5164.html" title="2015年度网友票选年度十佳电影" target="_blank" ><img class="imgBorder" src="/ueditor/picture/56652d716b7c2.jpg" width="238" height="134" alt="2015年度网友票选年度十佳电影" /></a>
                 <p>2015年度网友票选年度十佳电影</p>
             </span>     </div>
-    </aside><!--特别策划 e-->
 </section>
+    </aside><!--特别策划 e-->
 
 <!--最新资讯与特别策划 e-->
 <!--当前热映与即将上映 s-->
@@ -354,6 +369,7 @@ $(document).ready(function(){
                 @endforeach
             </ul>
         </div>
+
     </div>
 </section>
 <style>
@@ -371,6 +387,10 @@ $(document).ready(function(){
     z-index: 9999999;
 }
 </style>
+
+    </div></section>
+
+
 <!--当前热映与即将上映 e-->
 
 <!--新片影评与电影票房 s-->
@@ -383,13 +403,13 @@ $(document).ready(function(){
             @foreach($movie_comment as $v)
              <dl class="comm">
               <dt>
-                  <a href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >
+                  <a href="/home/review/{{$v->id}}.html" title="没有杀伤力的板砖" target="_blank" >
                       <img class="lazyImg pic" src="{{$v->user->image}}"  width="40" height="40" alt="没有杀伤力的板砖" />
                   </a>
               </dt>    
               <dd>
-                  <p class="t"><a href="/review/12983.html" title="《三生三世十里桃花 》影评：没有突破的“美”行不通" target="_blank" >{{$v->title}}</a></p>
-                  <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >{{$v->user->username}}</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39183.html" title="三生三世十里桃花 " target="_blank" >{{$v->movie_detail->name}}</a></p>
+                  <p class="t"><a href="/home/review/{{$v->id}}.html" title="《三生三世十里桃花 》影评：没有突破的“美”行不通" target="_blank" >{{$v->title}}</a></p>
+                  <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >{{$v->user->username}}</a>&nbsp;&nbsp;评论电影<a class="movie" href="/home/{{$v->movie_detail->id}}.html" title="三生三世十里桃花 " target="_blank" >{{$v->movie_detail->name}}</a></p>
               </dd>
             </dl>
             @endforeach

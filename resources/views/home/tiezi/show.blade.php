@@ -13,7 +13,7 @@
 	.nav a.hotNavItem{position:relative;color: #f60;}
 	.nav a.hotNavItem.on{position:relative;color: #fff;}
 	.nav a.hotNavItem:hover{color: #fff;}
-	.nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/assets/tiezi/images/hot_1.png) no-repeat;}
+	.nav a.hotNavItem span{position: absolute;top: 0;right: 16px;width:24px;height:16px;background: url(/ueditor/picture/logo.png) no-repeat;}
 /*	.nav a.hotNavItem span{position: absolute;top: -3px;right: 10px;font-size: 12px;background: orange;color: #fff;line-height: 14px;height: 14px;padding: 0 2px;border-radius: 4px;}
 	.nav a.hotNavItem span:before{content:"";position: absolute;bottom: -5px;left: 5px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid orange;}*/
 	/*.nav a.hotNavItem span:after{content:"";position: absolute;bottom: -5px;left: 1px;width:0;height:0;border-bottom: 5px solid transparent;border-left: 5px solid #fff;}*/
@@ -40,7 +40,11 @@ var _hmt = _hmt || [];
 <section class="logoAndSreach">
 	<div class="wp clearfix">
         <div class="logo fL">
-        	<a href="http://www.51oscar.com" title="影评王国" target="_self"><img src="picture/logo_1.png" alt="影评王国" /></a>
+<<<<<<< HEAD
+        	<a href="http://tbn1.com" title="影评王国" target="_self"><img src="/ueditor/picture/logo.png" alt="影评王国" /></a>
+=======
+        	<a href="http://www.51oscar.com" title="影评王国" target="_self"><img src="/ueditor/picture/logo.png " alt="影评王国" /></a>
+>>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
         </div>
         <div class="searchBox fR">
              <form name="form_sreach" action="/Search/index" method="get" >
@@ -159,7 +163,11 @@ $(document).ready(function(){
 <section class="mainWp wp clearfix">
 	<section class="forumDetLeft leftWp fL">
 		<section class="location">
-        	当前位置：<a href="http://www.lzf.com" title="首页" target="_self" ><img src="picture/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.lzf.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
+<<<<<<< HEAD
+        	当前位置：<a href="http://tbn1.com" title="首页" target="_self" ><img src="/ueditor/picture/logo.png" alt="" style="vertical-align:text-bottom;width:20%" /></a>><a href="http://tbn1.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
+=======
+        	当前位置：<a href="http://www.lzf.com" title="首页" target="_self" ><img src="/ueditor/picture/logo.png" alt="影评王国" style="vertical-align:text-bottom; width:20%" /></a>><a href="http://www.lzf.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
+>>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
 		<section class="titleBox">
         	<div class="cont">
             	<h1>{{$tiezis->title}}</h1>
@@ -177,7 +185,7 @@ $(document).ready(function(){
                 <input type="hidden" id="user1" class="reCount" value="334"> <!--楼主ID-->
              <!--   <input type="hidden" id="reCount0" class="reCount" value="2" /> -->
                 <dt class="hd_dt">
-                	<a class="c_f60" href="" title="资源小强" target="_blank"><img class="lazyImg" src="{{$tiezis->user->image}}">{{$tiezis->user->username}}</a>
+                	<a class="c_f60" href="" title="{{$tiezis->user->username}}" target="_blank"><img class="lazyImg" src="{{$tiezis->user->image}}">{{$tiezis->user->username}}</a>
                     <p><em class="forumFloor">楼主</em></p>
                                     </dt>
                 <dd class="hd_dd">
@@ -252,37 +260,56 @@ $(document).ready(function(){
         
     </section><!--forumDetLeft e-->
     <aside class="rightWp fR">        
+        <aside class="rightWp fR">        
         <section class="hotTalk">
             <div class="title clearfix">
-                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" >当前热议<em>>></em></a>
+<<<<<<< HEAD
+                <i class="info2 icon"></i><a href="http://tbn1.com/home/activity/list" title="热门活动" >热门活动<em>>></em></a>
+            </div>
+            <div class="cont clearfix">
+              <ul>
+=======
+                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum.html" title="热门活动" >热门活动<em>>></em></a>
             </div>
             <div class="cont clearfix">
             	<ul>
-                                 </ul>
+>>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
+            @foreach($Activitys as $v)
+              <div class="cont clearfix">
+                <ul>
+                      <li>
+                        <a href="/home/activity/{{$v['id']}}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
+                     </li>
+                  </ul>
+                </div>
+            @endforeach
+              </ul>
             </div>
         </section><!--热门讨论 e-->
-            @foreach($movie_details as $v)     
+            
        <section class="hotMovie">
             <div class="title clearfix">
-                <i class="movie icon"></i><a href="/movie/search.html" title="热映影片" >热映影片<em>>></em></a>
+                <i class="movie icon"></i><a href="/home/movieDetails" title="热映影片" >热映影片<em>>></em></a>
             </div>
             <div class="cont clearfix">
+               @foreach($movie_details as $v)    
              <dl class="clearfix">
                     <dt>
-                        <a href="/movie/39278.html" title="{{$v['name']}}" target="_blank" >
+                        <a href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >
                             <img class="lazyImg pic imgBorder" src="{{$v->image}}" width="98" height="138" alt="{{$v['name']}}" />
                         </a>
                     </dt>    
                     <dd>
-                        <a class="t" href="/movie/39278.html" title="{{$v['name']}}" target="_blank" >{{$v['name']}} </a>
+                        <a class="t" href="/home/{{$v['id']}}.html" title="{{$v['name']}}" target="_blank" >{{$v['name']}} </a>
                         <p>导演：<em>{{$v->Director_name->name}}</em></p>
                         <p>类型：<em>{{$v->movie_cate->name}}</em></p>
                         <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a> 
                     </dd>
-                </dl>           
+                </dl>
+                  @endforeach           
               </div>
         </section><!--热映影片 e-->
-        @endforeach
+      
         </section><!--热映影片 e-->
         
     </aside><!--rightWp e-->

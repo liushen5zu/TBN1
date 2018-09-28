@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>大众影评网登录</title>
-    <meta name="keywords" content="大众影评网登录">
-    <meta name="description" content="大众影评网登录">
+    <title>电影王国登录</title>
+    <meta name="keywords" content="电影王国登录">
+    <meta name="description" content="电影王国登录">
     <link rel="shortcut icon" href="http://www.51oscar.com/favicon.ico" />
     <link rel="stylesheet" href="/ueditor/css/base.css">
     <link rel="stylesheet" href="/ueditor/css/userlogin.css">
@@ -24,7 +24,7 @@
 <div class="head">
     <div style=" width:980px; margin:0 auto;">
         <ul>
-            <li style="float:left"><a href="http://www.51oscar.com"><img src="/ueditor/picture/logo_base.png" width="330" height="49"></a></li>
+            <li style="float:left"><a href="http://www.51oscar.com"><img src="/ueditor/picture/logo.png" alt="电影王国" /></a></li>
             <li style="float:right; margin-top:20px; color:#666666; font-size:14px;">还没有帐号？ <a href="http://www.51oscar.com/login/regist.html" class="regt">立即注册</a></li>
         </ul>
     </div>
@@ -50,9 +50,9 @@
             <h2>丰富多彩的线下活动</h2>
             <p>免费观影、剧组探班、特邀出演、明星见面会等你加入</p>
             <div class="QQidv">
-                <p><span class="linkspan">官方QQ群：</span><a class="linkAlgin" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=14fa60bb5492d6d4900931a430e0a1b9e3a323d8bdd76f7ff3a9cfe005f56102"><img border="0" src="/ueditor/picture/group.png" alt="大众影评网官方影迷群" title="大众影评网官方影迷群"></a>
+                <p><span class="linkspan">官方QQ群：</span><a class="linkAlgin" target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=14fa60bb5492d6d4900931a430e0a1b9e3a323d8bdd76f7ff3a9cfe005f56102"><img border="0" src="/ueditor/picture/group.png" alt="电影王国官方影迷群" title="电影王国官方影迷群"></a>
                 </p>
-                <p>关注大众影评网公众号，获取更多</p>
+                <p>关注电影王国公众号，获取更多</p>
                 <span class="weixQQ"><img src="/ueditor/picture/navb.jpg" width="80" height="80" /></span>
             </div>
         </div>
