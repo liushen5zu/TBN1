@@ -309,7 +309,7 @@ $(document).ready(function(){
     <aside class="rightWp fR">
         <section class="hotTalk">
             <div class="title clearfix">
-                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热们影评" >热门影评<em>>></em></a>
+                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热门影评" >热门影评<em>>></em></a>
             </div>
             @foreach($movie_comments as $v)
             <div class="cont clearfix">
@@ -324,7 +324,7 @@ $(document).ready(function(){
                 
         <section class="hotMovie">
             <div class="title clearfix">
-                <i class="movie icon"></i><a href="/movie/search.html" title="热映影片" >热映影片<em>>></em></a>
+                <i class="movie icon"></i><a href="/home/movieDetails" title="热映影片" >热映影片<em>>></em></a>
             </div>
             @foreach($movie_details as $v)
             <div class="cont clearfix">

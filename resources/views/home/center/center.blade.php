@@ -375,7 +375,7 @@ $(document).ready(function(){
               </dt>    
               <dd>
                   <p class="t"><a href="/review/12983.html" title="《三生三世十里桃花 》影评：没有突破的“美”行不通" target="_blank" >{{$v->title}}</a></p>
-                  <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >{{$v->user->username}}</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39183.html" title="三生三世十里桃花 " target="_blank" >{{$v->movie_detail->name}}</a></p>
+                  <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >{{$v->user->username}}</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39183.html" title="三生三世十里桃花 " target="_blank" >{{$v->movie_detail['name']}}</a></p>
               </dd>
             </dl>
             @endforeach
