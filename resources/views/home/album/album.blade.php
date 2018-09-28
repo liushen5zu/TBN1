@@ -223,13 +223,41 @@
                     <dl class="clearfix">
                         <dt class="fL">
                             <p class="t"><a href="/home/album/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a></p>
-                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">收录4部电影</em>]</p>
+                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">
+
+                            收录
+                            <?php
+                            $a = [];
+                            foreach($al_movie as $val){
+                                if($val->al_detail_id==$v->id){
+                                    $a[] = $val->image;
+                                }
+                                
+                            }
+                           
+                          echo count($a);                          
+                        ?>
+                        部电影
+
+                            </em>]</p>
                             <p class="b">{{$v->introduce}}</p>
                         </dt>
                         =
                         <dd class="fR">
-                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
-                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
+                            <?php
+                            $a = [];
+                            foreach($al_movie as $val){
+                                if($val->al_detail_id==$v->id){
+                                    $a[] = $val;
+                                }
+                                
+                            }
+                           $pp = array_slice($a,0,2);
+                          //var_Dump($pp);
+                          foreach($pp as $val){
+                             echo '<a href="" title="" target="_blank"><img class="lazyImg" src="'.$val['image'].'"></a>';
+                          }
+                        ?> 
                         </dd>
                     </dl>
                     @endforeach

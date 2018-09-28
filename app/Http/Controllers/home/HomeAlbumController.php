@@ -5,12 +5,14 @@ namespace App\Http\Controllers\home;
 
 
 use App\AlDetail;
+use App\AlMovie;
 use App\Focus;
 use App\Http\Controllers\Controller;
 use App\Level;
 use App\Movie_detail;
 use App\User;
-use Illuminate\Http\Request;	
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;	
 
 class HomeAlbumController extends Controller
 {
@@ -50,16 +52,18 @@ class HomeAlbumController extends Controller
   
     	$movie_detail = Movie_detail::all();
 
-    	
-    	return view('home.album.album',compact('album','movie_detail'));
+    	$al_movie = AlMovie::all();
+    	return view('home.album.album',compact('album','movie_detail','al_movie'));
     }   
 
     public function show($id)
     {
     	$al = AlDetail::find($id);
         
+        //影集添加的影片
+        $al_movie = AlMovie::where('al_detail_id',$id)->get();
     	//影片详情
-    	$mode = $al->movie_detail()->get();
+    	//$mode = $al->movie_detail()->get();
 
         //关注
         $focus = Focus::where('user_id',session('id'))->where('author_id',$al->user_id)->get();
@@ -72,7 +76,7 @@ class HomeAlbumController extends Controller
         $al_num = count(AlDetail::where('user_id',$al->user_id)->get());
        // dd($al_num);
 
-    	return view('home.album.detail',compact('al','mode','focus','focus_num','focus_fsen','al_num'));
+    	return view('home.album.detail',compact('al','focus','focus_num','focus_fsen','al_num','al_movie'));
     }
 
     public function create()
@@ -89,8 +93,8 @@ class HomeAlbumController extends Controller
 
     public function add2(Request $request)
     {
-        // dd($request->image);
-        // dd($request->all());
+         //dump($request->all());
+         //dd($request->all());
        // dd($request->hasFile('image'));
 
         //dd(AlDetail::all());
@@ -109,7 +113,7 @@ class HomeAlbumController extends Controller
             $levels -> integral = $levels -> integral + 10;
             //用户经验
             $levels -> experience = $levels -> experience + 50;
-            $levels -> save();
+           $levels -> save();
             //dd($levels);
         }
 
@@ -134,6 +138,30 @@ class HomeAlbumController extends Controller
 
         $movie = Movie_detail::all();
         return view('home.album.create3',compact('movie'));
+    }
+
+    public function add3(Request $request)
+    {
+       // dd($request->all());
+        //dd(AlDetail::orderBy('id',"desc")->first());
+        //dd($request->image2);
+        $al_id = AlDetail::orderBy('id',"desc")->first()->id;
+        //dd($al_id);
+        
+        foreach($request->all() as $key=>$val){
+            $a = new AlMovie;
+            $a->al_detail_id = $al_id;
+            $a->movie_detail_id = $key;
+            $a->image = "$val";
+            $a->save();
+            // DB::insert('insert into al_detail_movie_detail(al_detail_id, image, movie_detail_id,) values (?, ?, ?)',
+            // [$al_id,'+$val+',$key]);
+        }
+        return "<script>alert('注册成功');window.location.href='/home/album'</script>";
+        
+              
+        
+        
     }
 
 }

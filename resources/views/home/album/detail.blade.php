@@ -259,30 +259,38 @@
         <!--影集详情 e-->
         <section class="albumBox">
             <ul class="tab clearfix">
-                <li class="crater-album on"><a href="/home/album/{id}.html">创建者添加的影片（<em class="c_f60">4部</em>)</a></li>
+                <li class="crater-album on"><a href="/home/album/{id}.html">创建者添加的影片（<em class="c_f60">{{count($al_movie)}}部</em>)</a></li>
                 <li class="recommend-album"><a href="/album/1988/type/f.html">片友推荐的影片（<em class="c_f60">0部</em>)</a></li>
             </ul>
             <div class="cont">
                 <ul>
-                    @foreach ($mode as $v)
                     <li class="albumItem clearfix">
+                        @foreach($al_movie as $val)
                         <dl class="clearfix">
                             <dt>
-                                <a title="{{$v->name}}" href="###" title="###" target="_blank"><img class="lazyImg" src="{{$v->image}}" data-src="{{$v->image}}" alt="{{$v->name}}"></a>
+                                <a title="" href="###" title="###" target="_blank"><img class="lazyImg" src="{{$val->image}}" data-src="" alt=""></a>
                             </dt>
                             <dd>
                                 <p class="t clearfix">
-                                    <span class="movName ellipsis fL"><a href="/home/{id}.html" title="{{$v->name}}" target="_blank">{{$v->name}}</a></span>
-                                    <span class="score c_f60 fR">6.0分</span>
+                                    <span class="movName ellipsis fL"><a href="/home/{id}.html" title="" target="_blank"></a></span>
+                                    <span class="score c_f60 fR">
+
+                                    <?php
+                                            
+                                             echo rand(4, 9).'.'.'0';
+                                    ?>分
+
+                                    </span>
                                 </p>
-                                <p class="m">主演：<em>{{$v->director_name->name}}</em></p>
+                                <p class="m">主演：<em>军军</em></p>
                                 <p class="b">
-                                    推荐理由：<em>{{$v->recom}}</em>
+                                    推荐理由：<em>三顿饭，按时上的烦恼撒旦法十多年发生地方呢阿三方式对你那是当年发生地方， 是你，是你是烦恼是电脑吗，</em>
                                 </p>
                             </dd>
                         </dl>
+
+                        @endforeach
                     </li>
-                    @endforeach
                 </ul>
             </div>
             <div class="pagination">
