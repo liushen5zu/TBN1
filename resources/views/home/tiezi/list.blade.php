@@ -315,7 +315,7 @@ $(document).ready(function(){
             <div class="cont clearfix">
                 <ul>
                    <li>
-                        <a href="/home/review/{id}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
+                        <a href="/home/review/{{$v['id']}}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
                     </li>
                    </ul>
             </div>
@@ -330,12 +330,12 @@ $(document).ready(function(){
             <div class="cont clearfix">
              <dl class="clearfix">
                     <dt>
-                        <a href="/movie/39278.html" title="{{$v->name}}" target="_blank" >
+                        <a href="/home/{{$v['id']}}.html" title="{{$v->name}}" target="_blank" >
                             <img class="lazyImg pic imgBorder" src="{{$v->image}}"width="98" height="138" alt="{{$v->name}}" />
                         </a>
                     </dt>    
                     <dd>
-                        <a class="t" href="/movie/39278.html" title="{{$v->name}}" target="_blank" >{{$v->name}}</a>
+                        <a class="t" href="/home/{{$v['id']}}.html" title="{{$v->name}}" target="_blank" >{{$v->name}}</a>
                         <p>导演：<em>{{$v->director_name->name}}</em></p>
                         <p>类型：<em>{{$v->movie_cate->name}}</em></p>
                         <a class="trailer" href="javascript:viod(0);" title="预告片" data-trailer="">预告片<i></i></a>                        
