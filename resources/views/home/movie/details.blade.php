@@ -49,6 +49,12 @@ var URL = "http://www.51oscar.com/";
 //下拉菜单
     $(document).ready(function(){   
         dropMenu(".m_more"); 
+
+
+
+
+//下拉菜单
+    $(document).ready(function(){   
         dropMenu(".u_name");
 
     });
@@ -83,12 +89,12 @@ var URL = "http://www.51oscar.com/";
     <div class="menu">
         <a href="#" class="logo"><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         <div class="menu_c">
-            <a href="http://www.51oscar.com">首页</a>
-            <a href="http://www.51oscar.com/forum.html">贴吧</a>
-            <a href="http://www.51oscar.com/review.html">影评</a>
-            <a id="nav_movie" href="http://www.51oscar.com/movie.html">电影</a>
-            <a href="http://www.51oscar.com/album.html">影集</a>
-            <a href="http://www.51oscar.com/activity.html">活动</a>
+            <a href="/">首页</a>
+            <a href="/home/tiezis">贴吧</a>
+            <a href="/home/review">影评</a>
+            <a href="/home/movieDetails">电影</a>
+            <a href="/home/album">影集</a>
+            <a href="/home/activity/list">活动</a>
         </div>
         <div class="m_more">
             <a class="menu_a"><span>更多</span><b class="a_trig"></b></a>
@@ -229,8 +235,8 @@ var URL = "http://www.51oscar.com/";
             <!--评论编辑输入框 s-->
             @if(session('id'))
              <form method="post" action="/home/movieDetailsComment">
-            <div class="user_say">
-                <div class="faceDiv"  style="width:648px"><a style="float:left" id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
+            <div class="user_say" style="width:620px">
+                <div class="faceDiv"  style="width:620px"><a style="float:left" id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
                  @if(empty($HomeMovieDetailComment))
                 <p style="margin-left:300px;float:left">星级数:</p>
                <!--  <div id="xingji" style="line-height:32px;float:left">
@@ -247,7 +253,7 @@ var URL = "http://www.51oscar.com/";
                
                 </div>
                
-                    <textarea  class="commContent" name="content"></textarea>
+                    <textarea  class="commContent" name="content" style="width:620px"></textarea>
                     <input type="hidden" name="movie_detail_id" value="{{$movie_detail['id']}}"><!--评论对象的id-->
                     <div class="btnDiv clearfix">
                         {{csrf_field()}}

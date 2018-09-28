@@ -163,11 +163,8 @@ $(document).ready(function(){
 <section class="mainWp wp clearfix">
 	<section class="forumDetLeft leftWp fL">
 		<section class="location">
-<<<<<<< HEAD
+
         	当前位置：<a href="http://tbn1.com" title="首页" target="_self" ><img src="/ueditor/picture/logo.png" alt="" style="vertical-align:text-bottom;width:20%" /></a>><a href="http://tbn1.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
-=======
-        	当前位置：<a href="http://www.lzf.com" title="首页" target="_self" ><img src="/ueditor/picture/logo.png" alt="影评王国" style="vertical-align:text-bottom; width:20%" /></a>><a href="http://www.lzf.com/home/tiezis" title="贴吧" target="_self" >贴吧</a>>{{$tiezis->title}}        </section>
->>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
 		<section class="titleBox">
         	<div class="cont">
             	<h1>{{$tiezis->title}}</h1>
@@ -263,17 +260,10 @@ $(document).ready(function(){
         <aside class="rightWp fR">        
         <section class="hotTalk">
             <div class="title clearfix">
-<<<<<<< HEAD
                 <i class="info2 icon"></i><a href="http://tbn1.com/home/activity/list" title="热门活动" >热门活动<em>>></em></a>
             </div>
             <div class="cont clearfix">
               <ul>
-=======
-                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum.html" title="热门活动" >热门活动<em>>></em></a>
-            </div>
-            <div class="cont clearfix">
-            	<ul>
->>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
             @foreach($Activitys as $v)
               <div class="cont clearfix">
                 <ul>

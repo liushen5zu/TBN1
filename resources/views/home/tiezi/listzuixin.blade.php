@@ -286,11 +286,6 @@ $(document).ready(function(){
                         <a href="/home/review/{{$v['id']}}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
                     </li>
                    </ul>
-<<<<<<< HEAD
-=======
-            </div>
-            @endforeach
->>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
             </div>
             @endforeach
         </section><!--热门讨论 e-->
