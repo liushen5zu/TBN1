@@ -366,13 +366,19 @@ $(document).ready(function(){
             <i class="line"></i><a href="http://www.51oscar.com/review.html" title="新片影评" target="_blank">新片影评<em>>></em></a>
         </div>
         <div class="commBox clearfix">
-        <dl class="comm">
-            <dt>
-                <a href="/someone/428141.html" title="泣之雷" target="_blank" >
-                    <img class="lazyImg pic" src="/ueditor/picture/b.gif" data-src="/Uploads/user_logo/150539811440762.jpg" width="40" height="40" alt="泣之雷" />
-                </a>
-            </dt>    
-        </dl>
+            @foreach($movie_comment as $v)
+             <dl class="comm">
+              <dt>
+                  <a href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >
+                      <img class="lazyImg pic" src="{{$v->user->image}}"  width="40" height="40" alt="没有杀伤力的板砖" />
+                  </a>
+              </dt>    
+              <dd>
+                  <p class="t"><a href="/review/12983.html" title="《三生三世十里桃花 》影评：没有突破的“美”行不通" target="_blank" >{{$v->title}}</a></p>
+                  <p class="b"><a class="user" href="/someone/428105.html" title="没有杀伤力的板砖" target="_blank" >{{$v->user->username}}</a>&nbsp;&nbsp;评论电影<a class="movie" href="/movie/39183.html" title="三生三世十里桃花 " target="_blank" >{{$v->movie_detail->name}}</a></p>
+              </dd>
+            </dl>
+            @endforeach
         </div>
     </section><!--新片影评 e-->
     
