@@ -27,12 +27,12 @@ class HomeMovieDetailsController extends Controller
         
         if(!empty($request->movie_tag_id)){
             $tag = Movie_tag::findOrFail($request->movie_tag_id);
-            $details = $tag->movie_details()->paginate(10);
+            $details = $tag->movie_details()->paginate(12);
         }
 
 
         if(empty($details)){
-            $details = Movie_detail::orderBy('id','desc')->paginate(10);
+            $details = Movie_detail::orderBy('id','desc')->paginate(12);
         }
 
         //电影评论分数

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Level;
+use App\Movie_comment;
 use App\Movie_detail;
 use App\Tcomment;
 use App\Tiezi;
@@ -137,6 +138,7 @@ class tieziController extends Controller
          $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','1')->get();
          $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->paginate(16);
         $movie_details= Movie_detail::all();
+        $movie_comments=Movie_comment::all();
 
        
 
@@ -152,7 +154,7 @@ class tieziController extends Controller
              $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->paginate(1);
         }
 
-        return view('home.tiezi.list', compact('tiezis','tiezis1','movie_details'));
+        return view('home.tiezi.list', compact('tiezis','tiezis1','movie_details','movie_comments'));
     }
 
 
@@ -194,13 +196,13 @@ public function up($id,$status=1)
     }
     public function zuixin(Request $request)
     {
-        $tiezis = Tiezi::orderBy('updated_at','desc')->get();
+        $tiezis = Tiezi::orderBy('updated_at','desc')->paginate(16);
         $movie_details= Movie_detail::all();
         return view('home.tiezi.listzuixin', compact('tiezis','movie_details'));
     }
      public function jinghua(Request $request)
     {
-        $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','2')->get();
+        $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','2')->paginate(16);
         $movie_details= Movie_detail::all();
         return view('home.tiezi.listjinghua', compact('tiezis','movie_details'));
     }

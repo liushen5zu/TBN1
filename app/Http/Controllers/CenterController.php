@@ -14,7 +14,10 @@ use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Hash;  
+use Illuminate\Support\Facades\Mail; 
+
 
 class CenterController extends Controller
 {
@@ -53,8 +56,24 @@ class CenterController extends Controller
     }
     public function mima(Request $request)
     {
+        return view('home.center.email');
+        
+    }
+      public function email(Request $request)
+    {
         return view('home.center.mima');
         
+    }
+    public function sendemail(Request $request)
+    {
+           
+            Mail::send('emails', ['url' =>'tbn1.com/home/email', 'name' =>'llll'], function ($message) 
+            {
+                 $message->from('admin@lslzf.com', 'llll');
+                 $message->to('852415433@qq.com');
+                $message->subject('Hello World');
+                });
+            return view('home.center.emailm');
     }
     //密码修改
     public function mimagx(Request $request)
@@ -103,7 +122,8 @@ class CenterController extends Controller
 
     public function rongyu(Request $request)
     {
-       return view('home.center.rongyu'); 
+         $levels = Level::where('user_id',session('id'))->first();
+       return view('home.center.rongyu',compact('levels')); 
     }
 
     public function xiaoxi(Request $request)

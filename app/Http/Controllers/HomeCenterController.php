@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\AlDetail;
 use App\Image_movie_detail;
+use App\Movie_comment;
 use App\Movie_detail;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class HomeCenterController extends Controller
     	$movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
     	$movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
     	$aldetails = AlDetail::orderBy('created_at','desc')->paginate(6);
-    	return view('home.center.center',compact('details','movie_time','movie_recom','activity','aldetails'));
+    	$movie_comment = Movie_comment::all();
+    	return view('home.center.center',compact('details','movie_time','movie_recom','activity','aldetails','movie_comment'));
     }
 }

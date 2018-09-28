@@ -159,7 +159,10 @@ Route::group([],function(){
 	//个人中心
 	Route::get('/home/center','CenterController@index');
 	Route::get('/home/jiben','CenterController@jiben');
-	Route::get('/home/mima','CenterController@mima');
+	Route::get('/home/email','CenterController@email');//修改密码界面
+	Route::get('/send/email','CenterController@sendemail');//发送邮件
+
+	Route::get('/home/mima','CenterController@mima');//密码邮件页面
 	Route::post('/home/mimagx','CenterController@mimagx');
 	Route::get('/home/touxiang','CenterController@touxiang');
 	Route::post('/home/txgx','CenterController@txgx');
@@ -187,6 +190,7 @@ Route::group([],function(){
 	Route::get('/home/toAlbumAdd','home\HomeAlbumController@create');
 	Route::get('/home/albumAdd','home\HomeAlbumController@add');
 	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
+	Route::get('/home/albumAdd3','home\HomeAlbumController@add3');
 
 	//影集评论添加
 	Route::post('/home/alcomment','AlcommentController@create');
