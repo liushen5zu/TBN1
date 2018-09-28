@@ -98,12 +98,6 @@
                             </a>
                             </li>
                             <li>
-                                <a href="/movie_frags">
-                                <i class="iconfont">&#xe6a7;</i>
-                                电影片段
-                            </a>
-                            </li>
-                            <li>
                                 <a href="/movie_cates">
                                 <i class="iconfont">&#xe6a7;</i>
                                 电影地区

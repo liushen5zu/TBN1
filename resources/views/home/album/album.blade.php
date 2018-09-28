@@ -223,7 +223,7 @@
                     <dl class="clearfix">
                         <dt class="fL">
                             <p class="t"><a href="/home/album/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a></p>
-                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">
+                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user['username']}}" target="_blank">{{$v->user['username']}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">
 
                             收录
                             <?php

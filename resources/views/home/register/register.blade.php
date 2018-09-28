@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>表单验证</title>
+	<title>欢迎到影评王国注册</title>
 	   <link href="/zhuce/css/style_new.css" rel="stylesheet" type="text/css"/>
 	    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 	    <meta name="csrf-token" content="{{ csrf_token() }}">
