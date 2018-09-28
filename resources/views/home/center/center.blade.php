@@ -356,7 +356,21 @@ $(document).ready(function(){
         </div>
     </div>
 </section>
-
+<style>
+.goTopBox {
+    color: #999999;
+    font-size: 14px;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    text-align: center;
+    display: none;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-238));
+    _right: 10px;
+    z-index: 9999999;
+}
+</style>
 <!--当前热映与即将上映 e-->
 
 <!--新片影评与电影票房 s-->
@@ -441,7 +455,7 @@ $(document).ready(function(){
         </div>
         <div class="cont clearfix">
             @foreach($aldetails as $v)
-            <a class="link2" href="/home/album/{{$v['id']}}.html" title="{{$v['title']}}="_blank">
+            <a class="link2" href="/home/album/{{$v['id']}}.html" title="{{$v['title']}}=_blank">
                  <img class="lazyImg imgBorder" src="{{$v['image']}}" alt="{{$v['title']}}" width="212" height="183" />
                 {{$v['title']}}
             </a>
@@ -540,6 +554,7 @@ $(".trailer").click(function(){
             <dd><a class="weibo_qq icon" href="http://t.qq.com/leg_51oscar" title="腾讯微博" target="_blank" >&nbsp;</a></dd>
         </dl>
     </div>
+
     <div class="friendLink">
         <dl class="clearfix">
             <dt>友情链接：</dt>
