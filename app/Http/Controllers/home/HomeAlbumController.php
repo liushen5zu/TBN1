@@ -50,7 +50,7 @@ class HomeAlbumController extends Controller
     	//影集列表
     	$album = AlDetail::all();
   
-    	$movie_detail = Movie_detail::all();
+    	$movie_detail = Movie_detail::orderBy('id','desc')->get();
 
     	$al_movie = AlMovie::all();
     	return view('home.album.album',compact('album','movie_detail','al_movie'));

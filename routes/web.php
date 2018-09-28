@@ -20,7 +20,7 @@ Route::get('/dologin','LoginController@dologin');
 Route::get('/outlogin','LoginController@outlogin');
 Route::get('/relogin','LoginController@relogin');
 
-Route::group([],function(){
+Route::group(['middleware'=>'login'],function(){
 	
 	Route::get('/admin','AdminController@index');
 
@@ -109,6 +109,7 @@ Route::group([],function(){
 	//前台首页
 
 	Route::get('/','HomeCenterController@index');
+	
 	
 	//帖子列表
 	Route::get('/home/tiezis', 'tieziController@list');

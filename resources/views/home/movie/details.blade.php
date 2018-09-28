@@ -77,7 +77,7 @@ var URL = "http://www.51oscar.com/";
 
 </head>
 
-<body>
+<body style="background: #eee">
 <!--header与个人中心的一样,略作修改，css放在common里-->
 <header class="top">
     <div class="menu">

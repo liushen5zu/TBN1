@@ -17,7 +17,7 @@ class MovieCatesController extends Controller
     {
          $movie_cates = Movie_cate::orderBy('id','desc')
         ->where('name','like','%'.request()->keywords.'%')
-        ->paginate(5);
+        ->paginate(10);
         return view('admin.movie_cates.index',['movie_cates'=>$movie_cates]);
     }
 
