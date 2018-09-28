@@ -176,7 +176,7 @@ $(document).ready(function(){
                       <div class="T clearfix">
                           <div class="fL">
                               <a href="/home/tiezi/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
-                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
+                              <p>{!!mb_substr($v['content'],400,30)!!} ...</p>
 
                             </div>
                             <div class="fR" style="width:60px">
@@ -206,7 +206,7 @@ $(document).ready(function(){
                       <div class="T clearfix">
                           <div class="fL">
                               <a href="/home/tiezi/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a>
-                              <p>{!!mb_substr($v['content'],76,30)!!} ...</p>
+                              <p>{!!mb_substr($v['content'],300,30)!!} ...</p>
                             </div>
                             <div class="fR" style="width:60px">
                               <p><i class="man icon"></i><span style="width:40px">{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>

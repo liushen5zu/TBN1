@@ -161,7 +161,7 @@ $(document).ready(function(){
                 <a class="tit_latest" href="/home/tiezi/zuixin" title="最新" target="_self" >最新</a>
                 <a class="tit_good" href="/home/tiezi/jinghua" title="精华" target="_self">精华</a>
                 <i id="moveLine"></i>
-                <button id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 025px -254px">我要发帖</button>
+                <button id="wantPost" class="wantPost icon" href="#lzfwantPost"   value="我要发帖" style="background-position: 0px -254px">我要发帖</button>
             </div>
             <div id="listBox" class="listBox">
                @foreach($tiezis as $v)
@@ -173,7 +173,7 @@ $(document).ready(function(){
                       <div class="T clearfix">
                           <div class="fL">
                               <a href="/home/tiezi/{{$v['id']}}.html" title="【需求贴】如有资源需求，请在本贴下留言" target="_blank">{{$v->title}}</a>
-                              <p>{!!mb_substr($v['content'],205,30)!!} ...</p>
+                              <p>{!!mb_substr($v['content'],350,30)!!} ...</p>
                             </div>
                             <div class="fR">
                               <p><i class="man icon"></i><span>{{!empty($v->user->username) ? $v->user->username : '' }}</span></p>

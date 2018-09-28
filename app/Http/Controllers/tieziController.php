@@ -138,7 +138,7 @@ class tieziController extends Controller
          $tiezis = Tiezi::orderBy('updated_at','desc')->where('status','1')->get();
          $tiezis1 = Tiezi::orderBy('updated_at','desc')->where('status','!=','1')->paginate(16);
         $movie_details= Movie_detail::all();
-        $movie_comments=Movie_comment::orderBy('updated_at','desc')->paginate(1);
+        $movie_comments=Movie_comment::orderBy('updated_at','desc')->paginate(10);
 
        
 
