@@ -279,11 +279,14 @@ $(document).ready(function(){
             </div>
             @foreach($movie_comments as $v)
             <div class="cont clearfix">
+<<<<<<< HEAD
                 <ul>
                    <li>
                         <a href="/home/review/{{$v['id']}}.html" title="{{$v->title}}" target="_blank" >{{$v->title}}</a>
                     </li>
                    </ul>
+=======
+>>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
             </div>
             @endforeach
         </section><!--热门讨论 e-->
@@ -292,6 +295,7 @@ $(document).ready(function(){
             <div class="title clearfix">
                 <i class="movie icon"></i><a href="/home/movieDetails" title="热映影片" >热映影片<em>>></em></a>
             </div>
+
             @foreach($movie_details as $v)
             <div class="cont clearfix">
              <dl class="clearfix">

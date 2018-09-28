@@ -309,7 +309,11 @@ $(document).ready(function(){
     <aside class="rightWp fR">
         <section class="hotTalk">
             <div class="title clearfix">
+<<<<<<< HEAD
                 <i class="info2 icon"></i><a href="http://tbn1.com/home/review" title="热们影评" >热门影评<em>>></em></a>
+=======
+                <i class="info2 icon"></i><a href="http://www.51oscar.com/forum/good.html" title="热门影评" >热门影评<em>>></em></a>
+>>>>>>> 7a6735d8ca7d20a3931e48bab4f0ed9ecd7110c3
             </div>
             @foreach($movie_comments as $v)
             <div class="cont clearfix">

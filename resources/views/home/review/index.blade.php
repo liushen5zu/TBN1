@@ -187,7 +187,7 @@ $(document).ready(function(){
             </div>
 			<div class="cont clearfix">
             	<div class="reviewer fL">
-            		<p class="t"><a href="/someone/2630.html" target="_blank" title="" ><img class="imgBorder" src="{{$critic->user->image}}" alt="游礁"></a><a class="c_f60" href="/someone/2630.html" target="_blank" title="" >{{$critic->user->username}}</a></p>
+            		<p class="t"><a href="/home/myCenter" target="_blank" title="" ><img class="imgBorder" src="{{$critic->user->image}}" alt="游礁"></a><a class="c_f60" href="/home/myCenter" target="_blank" title="" >{{$critic->user->username}}</a></p>
                     <p class="b">贡献&nbsp;&nbsp;发表了<a class="c_f60" href="javascript:viod(0);" target="_blank" title="" >{{$num}}</a>条精华影评&nbsp;&nbsp;<a class="c_f60" href="/someone/2630.html" target="_blank" title="" >去看看>></a></p>
                 </div>
 
@@ -197,9 +197,9 @@ $(document).ready(function(){
                     	<dt>TA最近影评</dt>
                       @foreach($critic_comment as $v)
                     	<dd class="clearfix">
-                        <span class="fL">评论电影: <a class="c_f60" href="/movie/38930.html" target="_blank" title="罗曼蒂克消亡史 " >《{{$v->title}}》</php></a></span>
+                        <span class="fL">评论电影: <a class="c_f60" href="/home/review/{{$v->id}}.html" target="_blank" title="罗曼蒂克消亡史 " >《{{$v->title}}》</php></a></span>
 
-                        <span class="fR"><a href="/review/12661.html" target="_blank" title="" >《{{$v->title}}》：40分...</a></span>
+                        <span class="fR"><a href="/home/review/{{$v->id}}.html" target="_blank" title="" >《{{$v->title}}》：40分...</a></span>
                       </dd>
                       @endforeach                   
                     </dl>
