@@ -41,30 +41,32 @@
 			    <!--  --> 
 			    <div id="div_step3_search_list">
 			  
-			    <div class="search_count">共找到<span>10395</span>部影片</div>
+			    <div class="search_count">共找到<span>{{count($movie)}}</span>部影片</div>
 				@foreach($movie as $v)	
 						
 				 <div class="movie_specific">
-				    <img class="file-img img_default" src="{{$v->image}}" origin="/Uploads/Movie/Poster/thumb_53578c3888188.jpg">
+				    <img class="movie_image file-img img_default" src="{{$v->image}}" origin="/Uploads/Movie/Poster/thumb_53578c3888188.jpg">
 					<div class="img_introduce">
-					    <p class="editMovie_name"><a href="/movie/22897.html" title="触不可及 Intouchables" target="_blank">{{$v->name}}</a></p>
+					    <p class="movie_name editMovie_name"><a href="/movie/22897.html" title="触不可及 Intouchables" target="_blank">{{$v->name}}</a></p>
 					    	
 						<p class="editMovie_name">类型：<span>
 
 							<?php foreach($v->movie_tags()->get() as $val) { ?>
 
 								{{$val->name}}
-
+								
 							<?php } ?>
 						
 						</span></p>
 							
 						<p>地区：<span><a href="http://www.51oscar.com/movie.html/index/area_id/10">{{$v->movie_cate->name}}</a></span></p>
 						<p>年份：<span>{{substr($v->created_at,0,4)}}</span></p>
-					</div>
-					<button class="add_btn add_album"  movie_id="22897" album_id="1997">添加</button>
-				</div>
 
+					</div>
+					<input class="movie_id_js" type="hidden" name="movie_id_js" value="{{$v->id}}">
+					<button class="add_tianjia add_btn add_album"  movie_id="22897" album_id="1997">添加</button>
+				</div>
+				
 				@endforeach
 				
 				<p class="page_turning">
@@ -78,15 +80,33 @@
 	
 	<div class="addMovie_right_two">
 	    <p class="over_movie">已选影片列表</p>
-		<ul class="film-list addmovie_l">
-                                 <div class="clear"></div>
-	    </ul>
+	    <form id="aaaa" action="/home/albumAdd3" method="get">
+			<ul class="film-list addmovie_l" style="float:left">
+		    </ul>
+		    <button>提交<button>
+	    </form>
 	</div>
 </div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.movie_specific').click(function(){
+			var id = $(this).find('.movie_id_js').val();
+			
+			var a = $(this).find('.movie_image').attr('src');
+			var name = $(this).find('.movie_name a').html();
+			//console.log(a);
+			$('.film-list').append('<div style="float:left" class="clear" style="float:left"><img width="60px" src='+a+'></div><div class="clear" >'+name+'</div>');
+			$('#aaaa').append('<input type="hidden" name='+id+' value='+a+'>');
+			//console.log($('#aaaa'))
+		})
+	})
+	
+</script>
 </div>
 <div class="clear"></div>
 <div class="save_div">
-  <input album_id="1997" id="btn_edit_movie_info" name="input" type="button" class="save_con" value="完成">
+  <button album_id="1997" id="btn_edit_movie_info" name="input"  class="save_con" value="完成">完成</button>
   <a href="/album/toAjaxAlbumAddImg/album_id/1997" class="save_black">返回上一步</a>
 </div>
 <script src="/Js/album_edit.js"></script>

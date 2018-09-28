@@ -186,6 +186,7 @@ Route::group([],function(){
 	Route::get('/home/toAlbumAdd','home\HomeAlbumController@create');
 	Route::get('/home/albumAdd','home\HomeAlbumController@add');
 	Route::post('/home/albumAdd2','home\HomeAlbumController@add2');
+	Route::get('/home/albumAdd3','home\HomeAlbumController@add3');
 
 
 	//帖子评论
