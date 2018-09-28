@@ -14,7 +14,8 @@ use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash; 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail; 
 
 class CenterController extends Controller
 {
@@ -53,8 +54,24 @@ class CenterController extends Controller
     }
     public function mima(Request $request)
     {
+        return view('home.center.email');
+        
+    }
+      public function email(Request $request)
+    {
         return view('home.center.mima');
         
+    }
+    public function sendemail(Request $request)
+    {
+           
+            Mail::send('emails', ['url' =>'www.lzf.com/home/email', 'name' =>'llll'], function ($message) 
+            {
+                 $message->from('admin@lslzf.com', 'llll');
+                 $message->to('852415433@qq.com');
+                $message->subject('Hello World');
+                });
+            return view('home.center.emailm');
     }
     //密码修改
     public function mimagx(Request $request)
@@ -89,7 +106,7 @@ class CenterController extends Controller
             return back();
         }
 
-    }
+    } 
 
     public function touxiang(Request $request)
     {
@@ -101,12 +118,9 @@ class CenterController extends Controller
         
     }
 
-    //荣誉
     public function rongyu(Request $request)
     {
-
-        $levels = Level::where('user_id',session('id'))->first();
-        // dd($levels);
+         $levels = Level::where('user_id',session('id'))->first();
        return view('home.center.rongyu',compact('levels')); 
     }
 
@@ -140,8 +154,7 @@ class CenterController extends Controller
 
        $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
-       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels')); 
-
+       return view('home.center.myCenter',compact('al_num','focus_num','focus_fsen','movie_comment','detail','user','movie_time','movie_recom','levels'));  
     }
 
     //项目管理
@@ -153,6 +166,7 @@ class CenterController extends Controller
         $focus_num = count(Focus::where('user_id',session('id'))->get());
         //粉丝数
         $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+
         $movie_recom = Movie_detail::orderBy('recom','desc')->paginate(8);
         $movie_comment = Movie_comment::all();
         $movie_time = Movie_detail::orderBy('created_at','desc')->paginate(10);
@@ -178,6 +192,24 @@ class CenterController extends Controller
         return view('home.center.myCreation',compact('al_num','focus_num','focus_fsen','album'));
     }
 
+    //他的影集
+    public function hiscreation(Request $request)
+    {   
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',$request->id)->get());
+        
+        //关注数
+        $focus_num = count(Focus::where('user_id',$request->id)->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',$request->id)->get());
+        //他的影集
+        $album = AlDetail::where('user_id',$request->id)->get();
+        //用户信息
+        $user = User::where('id',$request->id)->first();
+
+        return view('home.center.hisCreation',compact('al_num','focus_num','focus_fsen','album','user'));
+    }
+
     //我的关注
     public function friendlist(Request $request)
     {
@@ -194,6 +226,24 @@ class CenterController extends Controller
         
 
         return view('home.center.friendlist',compact('al_num','focus_num','focus_fsen','focus','user'));
+    }
+
+
+    //我的粉丝
+    public function fanslist(Request $request)
+    {
+        //影集数量
+        $al_num = count(AlDetail::where('user_id',Session('id'))->get());
+        //关注数
+        $focus_num = count(Focus::where('user_id',session('id'))->get());
+        //粉丝数
+        $focus_fsen = count(Focus::where('author_id',session('id'))->get());
+        //我的粉丝
+        $fans = Focus::where('author_id',session('id'))->get();
+        //用户信息
+        $user = User::all();
+
+        return view('home.center.fanslist',compact('al_num','focus_num','focus_fsen','fans','user'));
     }
    
 

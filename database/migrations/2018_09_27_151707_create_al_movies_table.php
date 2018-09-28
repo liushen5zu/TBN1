@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlcommentsTable extends Migration
+class CreateAlMoviesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateAlcommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('alcomments', function (Blueprint $table) {
+        Schema::create('al_movies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id')->comment('用户id');
-            $table->string('al_detail_id')->comment('影集id');
-            $table->string('content')->comment('评论内容');            
+            $table->integer('movie_detail_id')->comment('电影id');
+            $table->integer('al_detail_id')->comment('影集id');
+            $table->integer('image')->comment('电影图片');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateAlcommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alcomments');
+        Schema::dropIfExists('al_movies');
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33038196b4969a755bf72bb4a4ed7ba6",
+    "content-hash": "a55e360da3080dd4c5f7d98abab6b4ba",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3178,6 +3178,43 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "wang_yan/directmail",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wangyan/directmail.git",
+                "reference": "128c695e5b46eb84b475ac0739e7870e26c9879a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wangyan/directmail/zipball/128c695e5b46eb84b475ac0739e7870e26c9879a",
+                "reference": "128c695e5b46eb84b475ac0739e7870e26c9879a",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "illuminate/support": "^5.5",
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WangYan\\DirectMail\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WangYan",
+                    "email": "i@wangyan.org"
+                }
+            ],
+            "time": "2017-10-06T20:11:20+00:00"
         }
     ],
     "packages-dev": [
@@ -4912,7 +4949,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wang_yan/directmail": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

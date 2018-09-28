@@ -55,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
+        <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         <div class="menu_c">
 			<a href="/">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>
@@ -441,6 +441,7 @@ function onmore_content(_this){
                     <div class="title_left movie_title">
                         <a href="/home/tomycreation" class="a_cur" type="hot">我的影集</a>
                         <a href="/home/friendlist" type="coming">我的关注</a>
+                        <a href="/home/fanslist" >我的粉丝</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -450,7 +451,7 @@ function onmore_content(_this){
                 <script type="text/javascript">
 					$('.movie_title a').click(function(){
 						var index = $(this).index();
-						console.log(index);
+
 						$(this).addClass('a_cur');
 						$(this).siblings().removeClass('a_cur');
 						if(index == 0){
@@ -506,7 +507,7 @@ function onmore_content(_this){
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
+                        <p><a href="/home/fanslist">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

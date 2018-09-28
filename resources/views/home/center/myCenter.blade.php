@@ -55,14 +55,14 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
+        <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
         <div class="menu_c">
 			<a href="/">首页</a>
-            <a href="http://www.51oscar.com/forum.html">贴吧</a>
-            <a href="http://www.51oscar.com/review.html">影评</a>
-            <a href="http://www.51oscar.com/movie.html">电影</a>
-            <a href="http://www.51oscar.com/album.html">影集</a>
-            <a href="http://www.51oscar.com/activity.html">活动</a>
+           <a href="/home/tiezis">贴吧</a>
+            <a href="/home/review">影评</a>
+            <a href="/home/movieDetails">电影</a>
+            <a href="/home/album">影集</a>
+            <a href="/home/activity/list">活动</a>
 
             <!---<a href="#" class="current">首页</a><a href="#">资讯</a>
             <a href="#">电影</a><a href="#">影集</a>
@@ -476,7 +476,7 @@ function onmore_content(_this){
 						<dt>
 							<a href="#"><img src="{{$v->user->image}}" width="65" height="65"></a>
 						</dt>		
-						<dd class="dis_line1"><a href="/someone/id/428121">{{$v->user->username}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#{{$v->movie_detail->name}}#</a><span>{{$v->created_at}}</span><em><a href="/home/review/{{$v->id}}.html" target="_blank" class="more_content">更多</a></em>	
+						<dd class="dis_line1"><a href="/someone/id/428121">{{$v->user->username}}</a>评<a href="http://www.51oscar.com/movie/24694.html">#{{$v->movie_detail['name']}}#</a><span>{{$v->created_at}}</span><em><a href="/home/review/{{$v->id}}.html" target="_blank" class="more_content">更多</a></em>	
 						</dd>		
 						<dd class="dis_line2">
 						{{$v->content}}		
@@ -554,7 +554,7 @@ function onmore_content(_this){
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
+                        <p><a href="/home/fanslist">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

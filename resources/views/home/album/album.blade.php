@@ -59,7 +59,7 @@
     <section class="logoAndSreach">
         <div class="wp clearfix">
             <div class="logo fL">
-                <a href="#" title="大众影评网" target="_self"><img src="/ueditor/picture/logo.png" alt="大众影评网" /></a>
+                <a href="#" title="电影王国" target="_self"><img src="/ueditor/picture/logo.png" alt="电影王国" /></a>
             </div>
             <div class="searchBox fR">
                 <form name="form_sreach" action="/Search/index" method="get">
@@ -175,38 +175,38 @@
         <section class="recomAlbum clearfix">
             <div class="left fL">
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/detail/id/1861/p/2.html" title="永不过时的20部励志影片" target="_blank"><img src="" alt="永不过时的20部励志影片" /></a>
+                    <a class="pic" href="#" title="永不过时的20部励志影片" target="_blank"><img src="/Images/face/16823.jpg" alt="永不过时的20部励志影片" style="width:288px;height:178px"/></a>
                     <i class="tag">经典励志</i>
                     <p class="opacity6"></p>
-                    <p class="t"><a href="http://www.51oscar.com/album/detail/id/1861/p/2.html" title="永不过时的20部励志影片" target="_blank">永不过时的20部励志影片</a></p>
+                    <p class="t"><a href="#" title="永不过时的20部励志影片" target="_blank">永不过时的20部励志影片</a></p>
                 </div>
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/727.html" title="最适合毕业生看的电影" target="_blank"><img src="picture/586dcfa1092d2.jpg" alt="最适合毕业生看的电影" /></a>
+                    <a class="pic" href="#" title="最适合毕业生看的电影" target="_blank"><img src="/Images/face/timg.jpg" alt="最适合毕业生看的电影" style="width:288px;height:178px"/></a>
                     <i class="tag">毕业指南</i>
                     <p class="opacity6"></p>
-                    <p class="t"><a href="http://www.51oscar.com/album/727.html" title="最适合毕业生看的电影" target="_blank">最适合毕业生看的电影</a></p>
+                    <p class="t"><a href="#" title="最适合毕业生看的电影" target="_blank">最适合毕业生看的电影</a></p>
                 </div>
             </div>
             <div class="middle fL">
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/1908.html" title="女生在成长路上必看的10部电影" target="_blank"><img src="picture/586dcf916529d.jpg" alt="女生在成长路上必看的10部电影" /></a>
+                    <a class="pic" href="#" title="女生在成长路上必看的10部电影" target="_blank"><img src="/Images/face/nv.jpg" alt="女生在成长路上必看的10部电影" style="width:398px;height:358px"/></a>
                     <i class="tag">女生必看</i>
                     <p class="opacity6"></p>
-                    <p class="t"><a href="http://www.51oscar.com/album/1908.html" title="女生在成长路上必看的10部电影" target="_blank">女生在成长路上必看的10部电影</a></p>
+                    <p class="t"><a href="#" title="女生在成长路上必看的10部电影" target="_blank">女生在成长路上必看的10部电影</a></p>
                 </div>
             </div>
             <div class="right fR">
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/1888.html" title="让你嗨翻的9部韩国无厘头式喜剧" target="_blank"><img src="picture/586dcf837314a.jpg" alt="让你嗨翻的9部韩国无厘头式喜剧" /></a>
+                    <a class="pic" href="#" title="让你嗨翻的9部韩国无厘头式喜剧" target="_blank"><img src="/Images/face/han.png" alt="让你嗨翻的9部韩国无厘头式喜剧" style="width:288px;height:178px" /></a>
                     <i class="tag">韩国喜剧</i>
                     <p class="opacity6"></p>
-                    <p class="t"><a href="http://www.51oscar.com/album/1888.html" title="让你嗨翻的9部韩国无厘头式喜剧" target="_blank">让你嗨翻的9部韩国无厘头式喜剧</a></p>
+                    <p class="t"><a href="#" title="让你嗨翻的9部韩国无厘头式喜剧" target="_blank">让你嗨翻的9部韩国无厘头式喜剧</a></p>
                 </div>
                 <div class="item">
-                    <a class="pic" href="http://www.51oscar.com/album/310.html" title="好看+逆袭类的欧美校园电影" target="_blank"><img src="picture/586eebb361209.jpg" alt="好看+逆袭类的欧美校园电影" /></a>
+                    <a class="pic" href="#" title="好看+逆袭类的欧美校园电影" target="_blank"><img src="/Images/face/qc.jpg" alt="好看+逆袭类的欧美校园电影" style="width:288px;height:178px"/></a>
                     <i class="tag">校园逆袭</i>
                     <p class="opacity6"></p>
-                    <p class="t"><a href="http://www.51oscar.com/album/310.html" title="好看+逆袭类的欧美校园电影" target="_blank">好看+逆袭类的欧美校园电影</a></p>
+                    <p class="t"><a href="#" title="好看+逆袭类的欧美校园电影" target="_blank">好看+逆袭类的欧美校园电影</a></p>
                 </div>
             </div>
         </section>
@@ -223,13 +223,41 @@
                     <dl class="clearfix">
                         <dt class="fL">
                             <p class="t"><a href="/home/album/{{$v['id']}}.html" title="{{$v->title}}" target="_blank">{{$v->title}}</a></p>
-                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">收录4部电影</em>]</p>
+                            <p class="m"><span class="name"><a href="/someone/428141.html" title="{{$v->user->username}}" target="_blank">{{$v->user->username}}</a></span><span>更新时间：{{substr($v->updated_at,0,10)}}</span>[<em class="c_f60">
+
+                            收录
+                            <?php
+                            $a = [];
+                            foreach($al_movie as $val){
+                                if($val->al_detail_id==$v->id){
+                                    $a[] = $val->image;
+                                }
+                                
+                            }
+                           
+                          echo count($a);                          
+                        ?>
+                        部电影
+
+                            </em>]</p>
                             <p class="b">{{$v->introduce}}</p>
                         </dt>
                         =
                         <dd class="fR">
-                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
-                            <a href="/album/{{$v['id']}}" title="" target="_blank"><img class="lazyImg" src="{{$v->image}}"></a>
+                            <?php
+                            $a = [];
+                            foreach($al_movie as $val){
+                                if($val->al_detail_id==$v->id){
+                                    $a[] = $val;
+                                }
+                                
+                            }
+                           $pp = array_slice($a,0,2);
+                          //var_Dump($pp);
+                          foreach($pp as $val){
+                             echo '<a href="" title="" target="_blank"><img class="lazyImg" src="'.$val['image'].'"></a>';
+                          }
+                        ?> 
                         </dd>
                     </dl>
                     @endforeach

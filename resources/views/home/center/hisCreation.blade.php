@@ -55,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
+        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
         <div class="menu_c">
 			<a href="/">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>
@@ -439,9 +439,7 @@ function onmore_content(_this){
             <div class="hot_movie">
                 <div class="box_title">
                     <div class="title_left movie_title">
-                        <a href="/home/tomycreation" type="hot">我的影集</a>
-                        <a href="/home/friendlist" type="coming" class="a_cur">我的关注</a>
-                        <a href="/home/fanslist" type="coming">我的粉丝</a>
+                        <a href="/home/tomycreation" class="a_cur" type="hot">他的影集</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -451,6 +449,7 @@ function onmore_content(_this){
                 <script type="text/javascript">
 					$('.movie_title a').click(function(){
 						var index = $(this).index();
+
 						$(this).addClass('a_cur');
 						$(this).siblings().removeClass('a_cur');
 						if(index == 0){
@@ -462,29 +461,25 @@ function onmore_content(_this){
 						}						
 					});
 				</script>
-                <div class="hot_box">
-                	<div class="hot" style="display: none">
-                		<p></p>                		
-                	</div>
-                	<div class="coming">
-                		<ul style="width:650px;float:left">
-                			@foreach($focus as $v)
-                				
-                				<li style="width:90px;height:90px;border:0px solid #eee;margin:10px">
+                <div class="hot_box" style="height:800px">
+                	<div class="hot">
+                		@foreach($album as $v)
+                		<div style="border:1px solid #eee;width:640px;height:180px">
+                			<a href="/home/album/{{$v['id']}}.html">
+                				<img src="{{$v['image']}}" style="height:170px;width:120px;padding-top: 5px;padding-right: 20px;float:right">
+                			</a>
+                			<h2 >
+                				<br>
+                				<a href="/home/album/{{$v['id']}}.html" style="font-size:20px;padding-top: 20px;padding-left: 20px;color:#444">{{$v['title']}}</a>
+                			</h2>
 
-                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><a href="/home/hiscreation/{{$v['author_id']}}.html"><img style="width:60px;height:60px;border-radius:50%;" src="
-									@foreach($user as $val)
-                						@if($v['author_id']==$val['id'])
-											{{$val['image']}}
-										@endif
-									@endforeach
-                						"></a></div>
-                					<div><a href="/home/hiscreation/{{$v['author_id']}}.html">{{$v['author_username']}}</a></div>
-                				</li>
-                				
-                			@endforeach		
-                		</ul>
-						
+                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">{{$v['introduce']}}</h5>
+                			<h5 style="font-size:14px;color:#444;padding-top: 20px;padding-left: 20px">创建时间:{{$v['created_at']}}&nbsp;[收录4部电影]</h5>
+                		</div>
+                		@endforeach                		
+                	</div>
+                	<div class="coming" style="display: none">
+                		<p></p>
                 	</div>
                 </div>
             </div>
@@ -495,22 +490,22 @@ function onmore_content(_this){
         <div class="u_right">
             <dl class="info_detail">
                 <dt>
-                    <div class="heard_img"><img src="{{Session('image')}}" width="87" height="87"></div>
+                    <div class="heard_img"><img src="{{$user['image']}}" width="87" height="87"></div>
                     <a href="/home/jiben">编辑资料</a>
                 </dt>
                 <dd class="info_d_1"><a href="#"></a><span class="degree">Lv1</span></dd>
                 <dd class="info_d_2">
                     <div>
 						
-                        <p><a href="/home/tomycreation">{{$al_num}}</a></p>
-                        <p> <span>影集</span> </p>
+                        <p><a>{{$al_num}}</a></p>
+                        <p> <span>他的影集</span> </p>
                     </div>
                     <div>
-                        <p><a href="/home/friendlist">{{$focus_num}}</a></p>
+                        <p><a>{{$focus_num}}</a></p>
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/home/fanslist">{{$focus_fsen}}</a></p>
+                        <p><a>{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

@@ -30,7 +30,7 @@
     <!--header与个人中心的一样,略作修改，css放在common里-->
     <header class="top">
         <div class="menu">
-            <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
+            <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
             <div class="menu_c">
                 <a href="/">首页</a>
                 <a href="/home/tiezis">贴吧</a>

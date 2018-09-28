@@ -190,7 +190,7 @@
     <!--主体部分 s-->
     <section class="mainWp wp clearfix">
         <section class="location">
-            当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank"><img src="/Images/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/album.html" title="影集" target="_blank">影集</a>>{{$al->title}} </section>
+            当前位置：<a href="/" title="首页" target="_blank">首页</a>><a href="http://www.51oscar.com/album.html" title="影集" target="_blank">影集</a>>{{$al->title}} </section>
         <!--影集详情 s-->
         <section class="albumDet clearfix">
             <div class="title">
@@ -259,66 +259,43 @@
         <!--影集详情 e-->
         <section class="albumBox">
             <ul class="tab clearfix">
-                <li class="crater-album on"><a href="/home/album/{id}.html">创建者添加的影片（<em class="c_f60">4部</em>)</a></li>
+                <li class="crater-album on"><a href="/home/album/{id}.html">创建者添加的影片（<em class="c_f60">{{count($al_movie)}}部</em>)</a></li>
                 <li class="recommend-album"><a href="/album/1988/type/f.html">片友推荐的影片（<em class="c_f60">0部</em>)</a></li>
             </ul>
             <div class="cont">
                 <ul>
-                    @foreach ($mode as $v)
                     <li class="albumItem clearfix">
+                        @foreach($al_movie as $val)
                         <dl class="clearfix">
                             <dt>
-                                <a title="{{$v->name}}" href="###" title="###" target="_blank"><img class="lazyImg" src="{{$v->image}}" data-src="{{$v->image}}" alt="{{$v->name}}"></a>
+                                <a title="" href="###" title="###" target="_blank"><img class="lazyImg" src="{{$val->image}}" data-src="" alt=""></a>
                             </dt>
                             <dd>
                                 <p class="t clearfix">
-                                    <span class="movName ellipsis fL"><a href="/home/{id}.html" title="{{$v->name}}" target="_blank">{{$v->name}}</a></span>
-                                    <span class="score c_f60 fR">6.0分</span>
+                                    <span class="movName ellipsis fL"><a href="/home/{id}.html" title="" target="_blank"></a></span>
+                                    <span class="score c_f60 fR">
+
+                                    <?php
+                                            
+                                             echo rand(4, 9).'.'.'0';
+                                    ?>分
+
+                                    </span>
                                 </p>
-                                <p class="m">主演：<em>{{$v->director_name->name}}</em></p>
+                                <p class="m">主演：<em>军军</em></p>
                                 <p class="b">
-                                    推荐理由：<em>{{$v->recom}}</em>
+                                    推荐理由：<em>三顿饭，按时上的烦恼撒旦法十多年发生地方呢阿三方式对你那是当年发生地方， 是你，是你是烦恼是电脑吗，</em>
                                 </p>
                             </dd>
                         </dl>
+
+                        @endforeach
                     </li>
-                    @endforeach
                 </ul>
             </div>
             <div class="pagination">
             </div>
         </section>
-        <section class="user_sayBox" id="user_sayBox">
-            <input type="hidden" value="6" id="shareText">
-            <!--评论类型-->
-            @if(!Session::has('username'))  
-            <div class="title clearfix">
-                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="#" title="注册"  target="_blank">注册</a></span> </div>
-            <!--评论编辑输入框 s-->
-                <section class="user_sayBox clearfix">
-            @else 
-                <form action="/home/album" method="post"enctype="multipart/form-data">   
-                <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
-                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">
-                  </script>
-                 <button style=" display: block; width:110px; height:15px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="发布"></button>
-                 {{method_field('')}}
-                  {{csrf_field()}}
-                 <script>
-                        var ue = UE.getEditor('editor');    
-                </script>
-               </form>
-                @endif
-            </div>
-            <!--评论编辑输入框 e-->
-            <!--评论列表 s-->
-            <div class="commsList">
-            </div>
-        </section>
-        <!--网友评论 e-->
-    </section>
     <!--主体部分 e-->
     <!--登陆对话框 s-->
     <div class="mark_51"></div>

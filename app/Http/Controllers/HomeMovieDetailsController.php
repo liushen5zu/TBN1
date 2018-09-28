@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Activity;
+use App\HomeMovieDetailComment;
 use App\Movie_cate;
 use App\Movie_detail;
 use App\Movie_tag;
@@ -32,9 +35,23 @@ class HomeMovieDetailsController extends Controller
             $details = Movie_detail::orderBy('id','desc')->paginate(10);
         }
 
+        //电影评论分数
+
+        $comment_num = HomeMovieDetailComment::where('star','!=',0.0)->get();
+        //dd($comment_num);
+        // //dd($num);
+        // $comment_num = 0;
+        // foreach($num as $val){
+        //     $comment_num += $val['star'];
+        // }
+        // if(count($num)!=0){
+        //     $comment_num2 = number_format($comment_num/count($num),1);
+        // }else{
+        //     $comment_num2 = 0;
+        // }
         
 
-    	return view('home.movie.list',compact('details','tags','cate'));
+    	return view('home.movie.list',compact('details','tags','cate','comment_num'));
     }
 
     public function show($id)
@@ -61,11 +78,35 @@ class HomeMovieDetailsController extends Controller
          $images = $movie_detail -> image_movie_detail()->get();
 
          //电影评论
-         $comments = $movie_detail -> home_movie_detail_comment()->get();
 
+        $comments = $movie_detail -> home_movie_detail_comment()->get();
+
+        //电影评论分数
+
+        $num = HomeMovieDetailComment::where('movie_detail_id',$id)->where('star','!=',0.0)->get();
+        //dd($num);
+        $comment_num = 0;
+        foreach($num as $val){
+            $comment_num += $val['star'];
+        }
+        if(count($num)!=0){
+            $comment_num2 = number_format($comment_num/count($num),1);
+        }else{
+            $comment_num2 = 0;
+        }
+       
          //用户信息
          $user = User::all();
-        
-    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user'));
+
+         //热门电影
+        $movie = Movie_detail::orderBy('num','desc')->paginate(5);
+
+        //热议
+        $activity = Activity::orderBy("id",'desc')->paginate(4);
+
+        //评论限制
+        $HomeMovieDetailComment = HomeMovieDetailComment::where('user_id',session('id'))->where('movie_detail_id',$id)->first();
+    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user','comment_num2','HomeMovieDetailComment','movie','activity'));
+
     }
 }
