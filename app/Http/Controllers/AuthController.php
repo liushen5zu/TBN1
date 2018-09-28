@@ -23,12 +23,12 @@ class AuthController extends Controller
     	if ($res) {
  			session(['username'=>$res->username, 'id'=>$res->id,'password'=>$res->password,'image'=>$res->image,'name'=>$res->name]);
  			return redirect('/')->with('success','登录成功');
- 		} else {
+ 		}else{
  			$user -> username = $authuser->id;
 	 		$user -> name = $authuser -> nickname;
 	 		$user -> image = $authuser -> avatar;
- 			$user -> password = $authuser->expiresIn;
-
+ 			$user -> password = $authuser -> expiresIn;
+            // dd($user);
  			if($user->save()){
  				session(['username'=>$user->username, 'id'=>$user->id,'password'=>$user->password,'image'=>$user->image,'name'=>$user->name]);
  				return redirect('/')->with('success','登录成功');

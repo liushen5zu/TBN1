@@ -16,4 +16,7 @@ class AlDetail extends Model
 	{
 		
 	}
+	public function al_detail_comment(){
+		return $this->hasMany('APP\Alcomment');
+	}
 }

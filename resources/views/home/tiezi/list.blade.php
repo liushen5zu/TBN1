@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>电影列表</title>
-<meta name="description" content="电影列表" />
+<title>帖子列表</title>
+<meta name="description" content="帖子列表" />
 <link rel="shortcut icon" href="/Images/favicon.ico" />
 <!--[if lt IE 9]>
     <script type="text/javascript" src="/ueditor/js/html5.js"></script>
@@ -22,6 +22,7 @@
 <script type="text/javascript" src="/ueditor/js/jquery.cookie.js"></script>
 <script type="text/javascript" src="/ueditor/js/common2.js"></script>
 <script type="text/javascript" src="/ueditor/js/common.js"></script>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" src="/assets/tiezi/js/jquery-1.7.2.min_1.js"></script>
 <script type="text/javascript" src="/assets/tiezi/js/jquery.cookie_1.js"></script>
@@ -219,6 +220,7 @@ $(document).ready(function(){
                     </dd>
                     <dd class="R fR">{{$v['created_at']}}</dd>
                 </dl>
+                
                 <div class="nextinfo newsview">
         </div>    
               @endforeach

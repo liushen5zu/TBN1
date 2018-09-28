@@ -190,7 +190,7 @@
     <!--主体部分 s-->
     <section class="mainWp wp clearfix">
         <section class="location">
-            当前位置：<a href="http://www.51oscar.com" title="首页" target="_blank"><img src="/Images/location_ind.png" alt="大众影评网" style="vertical-align:text-bottom;" /></a>><a href="http://www.51oscar.com/album.html" title="影集" target="_blank">影集</a>>{{$al->title}} </section>
+            当前位置：<a href="/" title="首页" target="_blank">首页</a>><a href="http://www.51oscar.com/album.html" title="影集" target="_blank">影集</a>>{{$al->title}} </section>
         <!--影集详情 s-->
         <section class="albumDet clearfix">
             <div class="title">
@@ -296,37 +296,6 @@
             <div class="pagination">
             </div>
         </section>
-        <section class="user_sayBox" id="user_sayBox">
-            <input type="hidden" value="6" id="shareText">
-            <!--评论类型-->
-            @if(!Session::has('username'))  
-            <div class="title clearfix">
-                <i class="info icon"></i>网友评论<span>要评论须要先<a href="/home/login" title="登录"  target="_blank">登录</a>或者<a href="#" title="注册"  target="_blank">注册</a></span> </div>
-            <!--评论编辑输入框 s-->
-                <section class="user_sayBox clearfix">
-            @else 
-                <form action="/home/album" method="post"enctype="multipart/form-data">   
-                <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.config.js"></script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/ueditor.all.min.js"> </script>
-                 <script type="text/javascript" charset="utf-8" src="/ueditorlzf/lang/zh-cn/zh-cn.js"></script>
-                 <script id="editor" type="text/plain" name="content" style="width:100%;height:500px;">
-                  </script>
-                 <button style=" display: block; width:110px; height:15px;margin-right: 5px;font-size: 0;text-indent: -9999em;border: none;cursor: pointer;background-position: 0px -254px;"id="wantPost1" class="wantPost icon"  value="发布"></button>
-                 {{method_field('')}}
-                  {{csrf_field()}}
-                 <script>
-                        var ue = UE.getEditor('editor');    
-                </script>
-               </form>
-                @endif
-            </div>
-            <!--评论编辑输入框 e-->
-            <!--评论列表 s-->
-            <div class="commsList">
-            </div>
-        </section>
-        <!--网友评论 e-->
-    </section>
     <!--主体部分 e-->
     <!--登陆对话框 s-->
     <div class="mark_51"></div>

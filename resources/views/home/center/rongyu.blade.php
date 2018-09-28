@@ -1,4 +1,4 @@
-@extends('layouts.home.center.default')
+  @extends('layouts.home.center.default')
 @section('title')
 个人中心
 @endsection

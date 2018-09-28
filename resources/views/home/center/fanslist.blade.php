@@ -55,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div class="top">
     <div class="menu">
-        <a href="/" class="logo" ><p style="font-size:35px;font-weight:bold;font-style:italic;color:white">影评王国</p></a>
+        <a href="/" class="logo"><img src="/ueditor/picture/person_logo_6.png"></a>
         <div class="menu_c">
 			<a href="/">首页</a>
             <a href="http://www.51oscar.com/forum.html">贴吧</a>
@@ -440,8 +440,8 @@ function onmore_content(_this){
                 <div class="box_title">
                     <div class="title_left movie_title">
                         <a href="/home/tomycreation" type="hot">我的影集</a>
-                        <a href="/home/friendlist" type="coming" class="a_cur">我的关注</a>
-                        <a href="/home/fanslist" type="coming">我的粉丝</a>
+                        <a href="/home/friendlist" type="coming">我的关注</a>
+                        <a href="/home/fanslist" type="coming" class="a_cur">我的粉丝</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -468,18 +468,18 @@ function onmore_content(_this){
                 	</div>
                 	<div class="coming">
                 		<ul style="width:650px;float:left">
-                			@foreach($focus as $v)
+                			@foreach($fans as $v)
                 				
                 				<li style="width:90px;height:90px;border:0px solid #eee;margin:10px">
 
-                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><a href="/home/hiscreation/{{$v['author_id']}}.html"><img style="width:60px;height:60px;border-radius:50%;" src="
+                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><img style="width:60px;height:60px;border-radius:50%;" src="
 									@foreach($user as $val)
-                						@if($v['author_id']==$val['id'])
+                						@if($v['user_id']==$val['id'])
 											{{$val['image']}}
 										@endif
 									@endforeach
-                						"></a></div>
-                					<div><a href="/home/hiscreation/{{$v['author_id']}}.html">{{$v['author_username']}}</a></div>
+                						"></div>
+                					<div><a href="/home/hiscreation/{{$v['user_id']}}.html">{{$v['user_username']}}</a></div>
                 				</li>
                 				
                 			@endforeach		

@@ -17,7 +17,7 @@ class AldetailController extends Controller
     public function index()
     {
         $users = User::all();
-        $albums = AlDetail::orderBy('id','desc')->where('title','like','%'.request()->keywords.'%')->paginate(5);
+        $albums = AlDetail::orderBy('id','desc')->where('title','like','%'.request()->keywords.'%')->paginate(15);
         //dd($albums);
         return view('admin.al_detail.index',compact('albums','users'));
     }
