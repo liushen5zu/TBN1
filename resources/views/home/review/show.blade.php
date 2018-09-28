@@ -138,7 +138,7 @@ var URL = "http://www.51oscar.com/";
 		$('#news').addClass('on');
 	}else if(/.com\/movie/.test(curr_url)){
 		$('#movie').addClass('on');
-	}else if(/.com\/review/.test(curr_url)){
+	}else if(/.com\/home\/review/.test(curr_url)){
 		$('#review').addClass('on');
 	}else if(/.com\/forum/.test(curr_url)){
 		$('#forum').addClass('on');
@@ -245,7 +245,6 @@ $(document).ready(function(){
                     <span class="my-pl-con">&nbsp;{{$v->content}}</span>
                 </div>
                 @if(!session::has('username'))
-                <i>请先<a href="/home/login" title="登录"  target="_blank">登录</a></i>
                 @else
                 <div class="date-dz">
                     <span class="date-dz-left pull-left comment-time">{{$v->created_at}}</span>

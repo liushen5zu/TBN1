@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Activity;
 use App\HomeMovieDetailComment;
 use App\Movie_cate;
 use App\Movie_detail;
@@ -92,12 +94,19 @@ class HomeMovieDetailsController extends Controller
         }else{
             $comment_num2 = 0;
         }
-        
+       
          //用户信息
          $user = User::all();
 
+         //热门电影
+        $movie = Movie_detail::orderBy('num','desc')->paginate(5);
+
+        //热议
+        $activity = Activity::orderBy("id",'desc')->paginate(4);
+
         //评论限制
         $HomeMovieDetailComment = HomeMovieDetailComment::where('user_id',session('id'))->where('movie_detail_id',$id)->first();
-    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user','comment_num2','HomeMovieDetailComment'));
+    	return view('home.movie.details',compact('movie_detail','director','actor','cate','images','tag','comments','user','comment_num2','HomeMovieDetailComment','movie','activity'));
+
     }
 }

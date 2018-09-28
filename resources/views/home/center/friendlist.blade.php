@@ -441,6 +441,7 @@ function onmore_content(_this){
                     <div class="title_left movie_title">
                         <a href="/home/tomycreation" type="hot">我的影集</a>
                         <a href="/home/friendlist" type="coming" class="a_cur">我的关注</a>
+                        <a href="/home/fanslist" type="coming">我的粉丝</a>
                     </div>
                     <div class="title_right">
                         <span class="prev">上一个</span>
@@ -471,14 +472,14 @@ function onmore_content(_this){
                 				
                 				<li style="width:90px;height:90px;border:0px solid #eee;margin:10px">
 
-                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><img style="width:60px;height:60px;border-radius:50%;" src="
+                					<div style="width:60px;height:60px;border-radius:50%;border:1px solid #eee;margin:10px"><a href="/home/hiscreation/{{$v['author_id']}}.html"><img style="width:60px;height:60px;border-radius:50%;" src="
 									@foreach($user as $val)
                 						@if($v['author_id']==$val['id'])
 											{{$val['image']}}
 										@endif
 									@endforeach
-                						"></div>
-                					<div>{{$v['author_username']}}</div>
+                						"></a></div>
+                					<div><a href="/home/hiscreation/{{$v['author_id']}}.html">{{$v['author_username']}}</a></div>
                 				</li>
                 				
                 			@endforeach		
@@ -509,7 +510,7 @@ function onmore_content(_this){
                         <p><span>关注</span></p>
                     </div>
                     <div style="border-right:none">
-                        <p><a href="/personal/friendList/type/2">{{$focus_fsen}}</a></p>
+                        <p><a href="/home/fanslist">{{$focus_fsen}}</a></p>
                         <p> <span>粉丝</span></p>
                     </div>
                 </dd>

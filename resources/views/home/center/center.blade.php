@@ -542,35 +542,7 @@ $(document).ready(function(){
 </section>
 <!--发现好电影、热门活动 e-->
 
-<!--专题精选 s-->
-<section class="topic wp">
-        <div class="title clearfix">
-            <i class="gift icon"></i><a href="http://www.51oscar.com/topic.html" title="专题精选" target="_self">专题精选<em>>></em></a>
-        </div>
-        <div class="cont clearfix">
-            <dl>
-                <dt><a href="http://www.51oscar.com/forum/3127.html" title="细数攻陷大陆荧屏的九张台湾面孔" target="_blank"> <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20150731/1438328657.jpg" alt="细数攻陷大陆荧屏的九张台湾面孔" width="218" height="135" /></a></dt>
-                <dd>
-                    <p>近年来，随着大陆娱乐市场的日益火爆，港台不少明显纷纷来大陆寻求更大的发展，现在噜噜姐就为大家盘点一下，攻陷大陆荧屏的台湾明星...</p>
-                </dd>
-            </dl><dl>
-                <dt><a href="http://www.51oscar.com/forum/3120.html" title="《捉妖记》片场照 呆萌遇见逗比" target="_blank"> <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20150731/55bb29841c735.jpg" alt="《捉妖记》片场照 呆萌遇见逗比" width="218" height="135" /></a></dt>
-                <dd>
-                    <p>《捉妖记》自上映以来就备受男女老少等各级观众的喜爱，目前影片票房已经突破16亿，创下国产电影票房新纪录，可喜可贺！然而一部电...</p>
-                </dd>
-            </dl><dl>
-                <dt><a href="http://www.51oscar.com/forum/3131.html" title="今年暑假，荧幕上的小燕子、白娘子、孙悟空都飞走了！" target="_blank"> <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20150731/1438328008.jpg" alt="今年暑假，荧幕上的小燕子、白娘子、孙悟空都飞走了！" width="218" height="135" /></a></dt>
-                <dd>
-                    <p>往年暑假一到，湖南卫视就开始播放《还珠格格》，然后其他各大卫视跟在后面开始播各种神剧，比如《西游记》《新白娘子传奇》、《少年...</p>
-                </dd>
-            </dl><dl>
-                <dt><a href="http://www.51oscar.com/forum/3045.html" title="何炅：不会唱歌演戏的主持人不是好导演" target="_blank"> <img class="lazyImg imgBorder" src="/ueditor/picture/b.gif" data-src="/Uploads/20150710/1436513579.jpg" alt="何炅：不会唱歌演戏的主持人不是好导演" width="218" height="135" /></a></dt>
-                <dd>
-                    <p>何老师纵横演艺圈的各种身份——主持人、演员、歌手、老师、导演。这么多头衔，好像演艺圈还真没多少人能做到呢。</p>
-                </dd>
-            </dl>           </div>
-</section>
-<!--专题精选 e-->
+
 <!-- 内容end -->
 <script type="text/javascript" src="/ueditor/js/jquery.superslide.2.1.1.js"></script>
 <script>

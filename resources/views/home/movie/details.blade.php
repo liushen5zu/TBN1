@@ -116,7 +116,7 @@ var URL = "http://www.51oscar.com/";
                 用户: 
                 <a>{{session('username')}}|</a> 
                 <a href="/home/outlogin">退出</a>
-                <a href="/home/center">个人中心</a>
+                <a href="/home/myCenter">个人中心</a>
             
             </div>
         </div> 
@@ -135,10 +135,10 @@ var URL = "http://www.51oscar.com/";
 <!--主体 s--> 
 <section class="main wp clearfix">
     <!--电影详情 s-->
-    <section class="detail clearfix">
+    <section class="detail clearfix" style="border:1px #eee solid">
         <div class="posters fL">
             <img class="imgBorder" src="{{$movie_detail['image']}}" width="175" height="236" alt="芳华 " />
-            <div class="bshare-custom"><div class="bsPromo bsPromo2"></div><i>分享：</i><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin"></a><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到朋友网" class="bshare-qqxiaoyou"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div>
+            <div class="bshare-custom"><div class="bsPromo bsPromo2"></div></div>
         </div><!--posters e-->
         <div class="deta fL" style="width:650px">
             <h1>{{$movie_detail['name']}}</h1>
@@ -159,7 +159,7 @@ var URL = "http://www.51oscar.com/";
 
                 </p>
                 <p><em>上映时间 : </em>
-                {{substr($movie_detail['created_at'],0,10)}}（{{$movie_detail -> movie_cate->name}}）              /               2017-09-30（）              
+                {{substr($movie_detail['created_at'],0,10)}}（{{$movie_detail -> movie_cate->name}}）              /               2017-09-30              
                 </p>
                 <p><em>片长 : </em>
                  
@@ -169,10 +169,10 @@ var URL = "http://www.51oscar.com/";
             <div class="trailerBox">
                   <a class="trailer on" href="javascript:void(0);" data-trailer="" title="预告片">预告片</a> 
                                         </div>
-            <div id="star">
+            <div id="star"style="padding-top: 50px;font-size: 15px;height: 180px;width:380px">
                     <span>评分：</span>
                     <div class="num-rate clearfix">
-                        <span class="hint">{{$comment_num2}}分</span>
+                        <span class="hint" style="width:200px;height:100px">{{$comment_num2}}分</span>
                         <!--input可设置默认等级，若为空则还未评-->
                         <input type="hidden" name="likegrade" value="">
                         <input type="hidden" id="detail_pingfen" value="3"/>
@@ -185,7 +185,7 @@ var URL = "http://www.51oscar.com/";
     <!--电影详情 e-->
     <section class="left fL">
         <!--精彩剧照 s-->
-        <div class="stills">
+        <div class="stills" style="border:1px #eee solid">
             <div class="title">
                 精彩剧照
             </div>  
@@ -230,7 +230,7 @@ var URL = "http://www.51oscar.com/";
             @if(session('id'))
              <form method="post" action="/home/movieDetailsComment">
             <div class="user_say">
-                <div class="faceDiv" ><a style="float:left" id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
+                <div class="faceDiv"  style="width:648px"><a style="float:left" id="div_comment_qq" class="div_comment_qq_inner icon">表情</a>
                  @if(empty($HomeMovieDetailComment))
                 <p style="margin-left:300px;float:left">星级数:</p>
                <!--  <div id="xingji" style="line-height:32px;float:left">
@@ -261,7 +261,7 @@ var URL = "http://www.51oscar.com/";
            
         <br>
             <!--评论编辑输入框 e-->
-        <dl class="comms_box clearfix" style="border:1px solid #eee;padding:10px">
+        <dl class="comms_box clearfix" style="border:1px solid #eee;padding:10px;width:648px">
             @foreach($comments as $v)
                 @foreach($user as $val)
                 @if($val['id']==$v['user_id'])
@@ -274,15 +274,16 @@ var URL = "http://www.51oscar.com/";
             </a>:</i></span>
                     <span class="comms_detail">{{$v['content']}}</span>
             </dt>
-            <dd>
-                <span class="dis_detail clearfix" style="padding-left: 20px">
+            <dd style="height:82px">
+                <span class="dis_detail clearfix" style="padding-left: 20px;">
                     
                 </span>
-                <span class="dis_reply clearfix" style="padding-left: 450px">
-                    <time>{{$v['created_at']}}</time>&nbsp;<a class="reply" href="javascript:;" title="回复" onclick="replayComment(this,'鲁鲁');return false">回复</a>
+                <span  style="padding-left: 450px">
+                    <time>{{$v['created_at']}}</time>&nbsp;
                     <input type="hidden" class="comment_p_user_id" value="427794">
                     <input type="hidden" class="puser_id" value="427794">
                 </span>
+                <hr>
                  <!--子回复列表 s-->
                   <div class="comms_replyBox">
                                     </div>
@@ -301,19 +302,30 @@ var URL = "http://www.51oscar.com/";
     
     <aside class="right fR">
         <!--当前热议 s-->
-        <section class="hotTalk">
-            <div class="title clearfix">
-                <i class="info icon"></i><a href="http://www.51oscar.com/forum.html" title="当前热议" target="_blank" >当前热议<em>>></em></a>
-            </div>
-            <div class="cont clearfix">
-                <ul>
-                                  </ul>
-            </div>
-        </section>
-        <!--当前热议 e-->
-        <!--相关资讯 s-->
-         
-        <!--相关资讯 e-->
+        <section class="hotTalk" style="border:1px #eee solid"> 
+     <div class="title clearfix"> 
+      <i class="info2 icon"></i>
+      <a href="/forum.html" title="当前热议" target="_blank">当前热议<em>&gt;&gt;</em></a> 
+     </div> 
+
+     @foreach($activity as $v)
+     <div class="cont clearfix"> 
+      <ul> 
+        <li><font style="color:red">热</font>
+        <a href="/home/activity/{{$v->id}}.html">{{$v->title}}</a>
+            
+        </li>
+      </ul> 
+     </div> 
+     @endforeach
+      
+
+
+    </section>
+    <!--热门讨论 e--> 
+    
+    
+    
         
     </aside><!-- right e-->
 </section>
